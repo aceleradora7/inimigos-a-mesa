@@ -1,12 +1,52 @@
-apply plugin: 'idea'
-apply plugin: 'java'
+buildscript(){
+    repositories{
+	mavenCentral()
+    }
 
-repositories {
-    jcenter()
+    dependencies{
+	classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE")
+    }
 }
 
-dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.12'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
 
-    testCompile 'junit:junit:4.12'
+repositories {
+    mavenCentral()
+}
+
+jar{
+    baseName="deploy"
+    version="0.1.0"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper){
+    gradleVersion='2.4'
+}
+
+task stage(type: Copy, dependsOn: [clean, build]){
+    jar.archivePath
+    into project.rootDir
+    rename{
+	'inimigos-a-mesa.jar'
+    }
+}
+
+stage.mustRunAfter(clean)
+
+clean << {
+    project.file('inimigos-a-mesa.jar').delete()
 }
