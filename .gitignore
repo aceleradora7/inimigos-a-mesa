@@ -1,3 +1,7 @@
+inimigosAMesa.iml
+inimigosAMesa.ipr
+inimigosAMesa.iws
+
 build/
 .gradle/
 gradle/
