@@ -1,7 +1,8 @@
-inimigosAMesa.iml
-inimigosAMesa.ipr
-inimigosAMesa.iws
+*.iml
+*.ipr
+*.iws
 
+.idea/
 build/
 .gradle/
 gradle/
