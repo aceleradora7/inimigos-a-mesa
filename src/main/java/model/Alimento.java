@@ -5,21 +5,21 @@ package model;
  */
 public class Alimento {
 
-    private int cod;
+    private int codAlimento;
     private String nome;
     private double quantidadeAcucarGramas, valorPercentualDiarioAcucar,
                 quantidadeSodioMiligramas, valorPercentualSodio,
                 quantidadeGorduraGramas, valorPercentualGordura,
                 quantidadeCaloria;
 
-    public Alimento(int cod, String nome,
+    public Alimento(int codAlimento, String nome,
                     double quantidadeAcucarGramas, double valorPercentualDiarioAcucar,
                     double quantidadeSodioMiligramas, double valorPercentualSodio,
                     double quantidadeGorduraGramas, double valorPercentualGordura,
                     double quantidadeCaloria) {
 
 
-        this.cod = cod;
+        this.codAlimento = codAlimento;
         this.nome = nome;
         this.quantidadeAcucarGramas = quantidadeAcucarGramas;
         this.valorPercentualDiarioAcucar = valorPercentualDiarioAcucar;
@@ -30,12 +30,12 @@ public class Alimento {
         this.quantidadeCaloria = quantidadeCaloria;
     }
 
-    public int getCod() {
-        return cod;
+    public int getcodAlimento() {
+        return codAlimento;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
+    public void setcodAlimento(int codAlimento) {
+        this.codAlimento = codAlimento;
     }
 
     public String getNome() {
