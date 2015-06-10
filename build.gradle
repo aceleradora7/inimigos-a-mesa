@@ -39,7 +39,7 @@ task wrapper(type: Wrapper){
 }
 
 task stage(type: Copy, dependsOn: [clean, build]){
-    jar.archivePath
+    from jar.archivePath
     into project.rootDir
     rename{
 	    'inimigos-a-mesa.jar'
