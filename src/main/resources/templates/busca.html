@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+    <meta charset="UTF-8" />
+    <title>Busca</title>
+</head>
+<body>
+<header>
+
+    <div id="div_busca">
+        <form action="#" th:action="@{/busca}" th:object="${alimento}" method="post">
+            <input type="text"  id="input_busca" value="Busca..." maxlength="256" th:field="*{nome}"/>
+            <button type="submit"> Buscar </button>
+
+        </form>
+    </div>
+    <
+
+</header>
+
+</body>
+</html>
