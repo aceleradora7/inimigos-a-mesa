@@ -42,7 +42,7 @@ task stage(type: Copy, dependsOn: [clean, build]){
     jar.archivePath
     into project.rootDir
     rename{
-	'inimigos-a-mesa.jar'
+	    'inimigos-a-mesa.jar'
     }
 }
 
