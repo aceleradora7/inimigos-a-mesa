@@ -14,7 +14,7 @@ public class AlimentoDAO {
     public AlimentoDAO(){
         for (int i = 0; i < 5 ; i++) {
             alimentos.get(i).setNome("Alimento" + i);
-            alimentos.get(i).setAcucar(i);
+            alimentos.get(i).setQuantidadeAcucarGramas(i);
         }
     }
 
