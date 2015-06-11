@@ -1090,7 +1090,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #EEEEEE;
+  background-color: #fff;
 }
 input,
 button,
@@ -1581,10 +1581,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 50px;
 }
-
-
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -5104,7 +5101,7 @@ a.thumbnail.active {
   zoom: 1;
 }
 .media-body {
-  
+  width: 10000px;
 }
 .media-object {
   display: block;
@@ -5166,10 +5163,9 @@ a.list-group-item .list-group-item-heading {
 }
 a.list-group-item:hover,
 a.list-group-item:focus {
-  color: orange;
+  color: #555;
   text-decoration: none;
-  background-color: white;
-  font-weight: bold;
+  background-color: #f5f5f5;
 }
 .list-group-item.disabled,
 .list-group-item.disabled:hover,
