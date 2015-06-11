@@ -26,10 +26,10 @@ public class BuscaController {
         Alimento abusca = adao.find(alimento);
 
         if(abusca!=null) {
-            model.addAttribute("nome", "Nome: "+ abusca.getNome());
-            model.addAttribute("acucar", "Açucar: "+ abusca.getAcucar());
-            model.addAttribute("sodio", "Sódio: "+ abusca.getSodio());
-            model.addAttribute("gordura", "Gordura: "+ abusca.getGordura());
+            model.addAttribute("nome", "Nome: "+ abusca.getNomeAlimento());
+            model.addAttribute("acucar", "Açucar: "+ abusca.getQuantidadeAcucarGramas());
+            model.addAttribute("sodio", "Sódio: "+ abusca.getQuantidadeSodioMiligramas());
+            model.addAttribute("gordura", "Gordura: "+ abusca.getQuantidadeGorduraGramas());
         }else{
             model.addAttribute("nome", "Alimento não encontrado!");
         }
