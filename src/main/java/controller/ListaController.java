@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-public class HelloController {
+public class ListaController {
 
     @RequestMapping("/")
-    public String index(){
-        return "index";
-    }
-
-    @RequestMapping("/lista")
     public String lista(){
         return "lista";
     }
+
+//    @RequestMapping("/lista")
+//    public String lista(){
+//        return "lista";
+//    }
 
     @RequestMapping("/greeting")
     public String greeting(@RequestParam(value="name", required=false ,defaultValue="World") String name, Model model){
