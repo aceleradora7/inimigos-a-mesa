@@ -12,6 +12,9 @@ public class Alimento {
             quantidadeGorduraGramas, valorPercentualGordura,
             quantidadeCaloria;
 
+    public Alimento(){
+        
+    }
 
     public Alimento(int codAlimento, String nomeAlimento,
                     double quantidadeAcucarGramas, double valorPercentualDiarioAcucar,

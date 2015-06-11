@@ -9,7 +9,7 @@
 
     <div id="div_busca">
         <form action="#" th:action="@{/busca}" th:object="${alimento}" method="post">
-            <input type="text"  id="input_busca" value="Busca..." maxlength="256" th:field="*{nome}"/>
+            <input type="text"  id="input_busca" value="Busca..." maxlength="256" th:field="*{nomeAlimento}"/>
             <button type="submit"> Buscar </button>
 
         </form>
@@ -20,16 +20,16 @@
 <div id="lista_busca">
 
     <tr>
-        <p th:text="${nome}" />
+        <p th:text="${nomeAlimento}" />
     </tr>
     <tr>
-        <p th:text="${acucar}" />
+        <p th:text="${quantidadeAcucarGramas}" />
     </tr>
     <tr>
-        <p th:text="${sodio}" />
+        <p th:text="${quantidadeSodioMiligramas}" />
     </tr>
     <tr>
-        <p th:text="${gordura}" />
+        <p th:text="${quantidadeGorduraGramas}" />
     </tr>
 
 
