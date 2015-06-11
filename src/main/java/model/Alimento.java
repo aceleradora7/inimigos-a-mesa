@@ -6,13 +6,14 @@ package model;
 public class Alimento {
 
     private int codAlimento;
-    private String nome;
+    private String nomeAlimento;
     private double quantidadeAcucarGramas, valorPercentualDiarioAcucar,
-                quantidadeSodioMiligramas, valorPercentualSodio,
-                quantidadeGorduraGramas, valorPercentualGordura,
-                quantidadeCaloria;
+            quantidadeSodioMiligramas, valorPercentualSodio,
+            quantidadeGorduraGramas, valorPercentualGordura,
+            quantidadeCaloria;
 
-    public Alimento(int codAlimento, String nome,
+
+    public Alimento(int codAlimento, String nomeAlimento,
                     double quantidadeAcucarGramas, double valorPercentualDiarioAcucar,
                     double quantidadeSodioMiligramas, double valorPercentualSodio,
                     double quantidadeGorduraGramas, double valorPercentualGordura,
@@ -20,7 +21,7 @@ public class Alimento {
 
 
         this.codAlimento = codAlimento;
-        this.nome = nome;
+        this.nomeAlimento = nomeAlimento;
         this.quantidadeAcucarGramas = quantidadeAcucarGramas;
         this.valorPercentualDiarioAcucar = valorPercentualDiarioAcucar;
         this.quantidadeSodioMiligramas = quantidadeSodioMiligramas;
@@ -38,12 +39,12 @@ public class Alimento {
         this.codAlimento = codAlimento;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeAlimento() {
+        return nomeAlimento;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setnomeAlimento(String nomeAlimento) {
+        this.nomeAlimento = nomeAlimento;
     }
 
     public double getQuantidadeAcucarGramas() {

@@ -11,22 +11,22 @@ public class AlimentoDAO {
 
     public ArrayList<Alimento> alimentos = new ArrayList<Alimento>();
 
-    public AlimentoDAO(){
-        for (int i = 0; i < 5 ; i++) {
-            alimentos.get(i).setNome("Alimento" + i);
-            alimentos.get(i).setQuantidadeAcucarGramas(i);
+
+    public AlimentoDAO() {
+        for (int i = 0; i < 5; i++) {
+            Alimento a = new Alimento(i, "Alimento"+i,i,i,i,i,i,i,i);
+            alimentos.add(a);
         }
     }
 
-    public Alimento find(Alimento alimento){
-        for(Alimento a : alimentos) {
-            if (a.getNome().equals(alimento.getNome())) {
+    public Alimento find(Alimento alimento) {
+        for (Alimento a : alimentos) {
+            if (a.getNomeAlimento().equals(alimento.getNomeAlimento())) {
                 return a;
             }
         }
         return null;
     }
-
 
 
 }

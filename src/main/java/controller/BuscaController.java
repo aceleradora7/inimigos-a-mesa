@@ -1,5 +1,6 @@
 package controller;
 
+import DAO.AlimentoDAO;
 import model.Alimento;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,8 +22,17 @@ public class BuscaController {
     @RequestMapping(value="/busca", method=RequestMethod.POST)
     public String populaAlimento(Alimento alimento, BindingResult bindingResult, Model model) {
 
-        //Buscar no AlimentoDao
+        AlimentoDAO adao = new AlimentoDAO();
+        Alimento abusca = adao.find(alimento);
 
+        if(abusca!=null) {
+            model.addAttribute("nome", "Nome: "+ abusca.getNome());
+            model.addAttribute("acucar", "Açucar: "+ abusca.getAcucar());
+            model.addAttribute("sodio", "Sódio: "+ abusca.getSodio());
+            model.addAttribute("gordura", "Gordura: "+ abusca.getGordura());
+        }else{
+            model.addAttribute("nome", "Alimento não encontrado!");
+        }
         return "busca";
 
     }
