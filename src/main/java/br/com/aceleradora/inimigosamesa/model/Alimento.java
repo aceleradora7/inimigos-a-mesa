@@ -2,18 +2,26 @@ package br.com.aceleradora.inimigosamesa.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Alimento implements Comparable<Alimento>{
+public class Alimento implements Comparable<Alimento>, Serializable{
     @Id
-    @GeneratedValue
-    private int codAlimento, codCategoria;
-    private String nomeAlimento, urlImagem;
-    private double quantidadeAcucarGramas, valorPercentualDiarioAcucar,
-            quantidadeSodioMiligramas, valorPercentualSodio,
-            quantidadeGorduraGramas, valorPercentualGordura,
-            quantidadeCaloria;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int codAlimento;
+
+    private int codCategoria;
+    private String nomeAlimento;
+    private String urlImagem;
+    private double quantidadeAcucarGramas;
+    private double valorPercentualDiarioAcucar;
+    private double quantidadeSodioMiligramas;
+    private double valorPercentualSodio;
+    private double quantidadeGorduraGramas;
+    private double valorPercentualGordura;
+    private double quantidadeCaloria;
 
     public Alimento() {
 
