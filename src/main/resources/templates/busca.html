@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head lang="pt-br">
-    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Carregando o CSS do Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../css/listaEstilo.css"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/estilo.css"/>
     <title>Busca</title>
 </head>
 <body>
@@ -16,7 +22,7 @@
 
 </header>
 
-<div id="lista_busca">
+<!--<div id="lista_busca">-->
 
     <!--<tr>
         <p th:text="${nomeAlimento}" />
@@ -32,19 +38,24 @@
     </tr>
 -->
 
-    <th:if test="${not empty resultadoBusca}">
+    <div class="list-group">
+        <div th:each="alimento : ${resultadoBusca}">
+            <a href="#" class="list-group-item">
+                <div id="infoAlimento" class="media">
+                    <div id="imagemAlimento" class="media-left media-middle" >
+                        <img height="140px" width="140px" th:src="${alimento.urlImagem}" class="img-rounded media-object"/>
+                    </div>
 
-        <ul>
-            <th:forEach var="listValue" items="${resultadoBusca}">
-                <li>${listValue}</li>
-            </th:forEach>
-        </ul>
-
-    </th:if>
+                    <div class="media-body">
+                        <h2 class="media-heading" th:text="${alimento.nomeAlimento}" id="alimento"></h2>
 
 
-</div>
-
+                        <p id="categoria" th:text="${alimento.codCategoria}"></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 
 </body>
 </html>

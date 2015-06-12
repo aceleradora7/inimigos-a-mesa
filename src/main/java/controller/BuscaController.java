@@ -5,12 +5,10 @@ import model.Alimento;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -25,18 +23,11 @@ public class BuscaController {
     public String populaAlimento(Alimento alimento, BindingResult bindingResult, Model model) {
 
         AlimentoDAO adao = new AlimentoDAO();
-        ArrayList<Alimento> resultadoBusca = adao.find(alimento);
-
-        model.addAttribute("resultadoBusca", resultadoBusca );
-
-//        if (abusca != null) {
-//            model.addAttribute("nomeAlimento", "Nome: " + abusca.getNomeAlimento());
-//            model.addAttribute("quantidadeAcucarGramas", "Açucar: " + abusca.getQuantidadeAcucarGramas());
-//            model.addAttribute("quantidadeSodioMiligramas", "Sódio: " + abusca.getQuantidadeSodioMiligramas());
-//            model.addAttribute("quantidadeGorduraGramas", "Gordura: " + abusca.getQuantidadeGorduraGramas());
-//        } else {
-//            model.addAttribute("nomeAlimento", "Alimento não encontrado!");
-//        }
+        List<Alimento> resultadoBusca = adao.find(alimento);
+        for (Alimento a : resultadoBusca){
+            System.out.println(a.getNomeAlimento() + "cotroller");
+        }
+        model.addAttribute("resultadoBusca", resultadoBusca);
 
         return "busca";
 
