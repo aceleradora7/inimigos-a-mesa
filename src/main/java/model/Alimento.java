@@ -1,9 +1,11 @@
 package model;
 
+import java.util.Comparator;
+
 /**
  * Created by aluno02 on 10/06/15.
  */
-public class Alimento {
+public class Alimento implements Comparable<Alimento>{
 
     private int codAlimento, codCategoria;
     private String nomeAlimento, urlImagem;
@@ -12,11 +14,11 @@ public class Alimento {
             quantidadeGorduraGramas, valorPercentualGordura,
             quantidadeCaloria;
 
-    public Alimento(){
-        
+    public Alimento() {
+
     }
 
-    public Alimento(int codAlimento,int codCategoria, String nomeAlimento, String urlImagem,
+    public Alimento(int codAlimento, int codCategoria, String nomeAlimento, String urlImagem,
                     double quantidadeAcucarGramas, double valorPercentualDiarioAcucar,
                     double quantidadeSodioMiligramas, double valorPercentualSodio,
                     double quantidadeGorduraGramas, double valorPercentualGordura,
@@ -26,7 +28,7 @@ public class Alimento {
         this.codAlimento = codAlimento;
         this.codCategoria = codCategoria;
         this.nomeAlimento = nomeAlimento;
-        this.urlImagem=urlImagem;
+        this.urlImagem = urlImagem;
         this.quantidadeAcucarGramas = quantidadeAcucarGramas;
         this.valorPercentualDiarioAcucar = valorPercentualDiarioAcucar;
         this.quantidadeSodioMiligramas = quantidadeSodioMiligramas;
@@ -122,5 +124,11 @@ public class Alimento {
 
     public void setQuantidadeCaloria(double quantidadeCaloria) {
         this.quantidadeCaloria = quantidadeCaloria;
+    }
+
+
+    @Override
+    public int compareTo(Alimento o) {
+        return this.getNomeAlimento().compareTo(o.getNomeAlimento());
     }
 }

@@ -11,7 +11,12 @@
 
 <link rel="stylesheet" type="text/css" href="../css/estilo.css"/>
 
-
+<script>
+function ordenar(){
+var formulario = document.getElementById("form-ordenacao");
+formulario.submit();
+}
+</script>
 
 
 </head>	
@@ -21,15 +26,15 @@
 		<h1> Lista Simples </h1> <br/>
 		<h3> Alimentos </h3>
 	<br/>
-		<form>	
+		<form id="form-ordenacao"  th:action="@{/}">
 					<label> Ordenar por nome </label> 
-					 <select>
+					 <select name="opcao-ordenar">
   						<option value="nome">Nome</option>
   						<option value="cat">Categoria</option>
   						<option value="qtd">Quantidade</option>
 					</select> 
 
-					<label>Ordem Crescente</label><input type="checkbox"/>
+					<label>Ordem Crescente</label><input type="checkbox" name="ordem-crescente" onclick="ordenar()"  />
 				</form>
 
   
