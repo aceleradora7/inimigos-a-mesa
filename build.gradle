@@ -32,6 +32,10 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-jetty")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    compile('org.postgresql:postgresql:9.4-1201-jdbc41')
+
     testCompile("junit:junit")
 }
 
