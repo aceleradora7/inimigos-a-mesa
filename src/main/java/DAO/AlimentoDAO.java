@@ -17,14 +17,30 @@ public class AlimentoDAO {
         }
     }
 
-    public Alimento find(Alimento alimento) {
-        for (Alimento a : alimentos) {
-            if (a.getNomeAlimento().equals(alimento.getNomeAlimento())) {
-                return a;
+//    public Alimento find(Alimento alimento) {
+//        if (alimento.getNomeAlimento().equals("")){
+//            return null;
+//        } else {
+//            for (Alimento a : alimentos) {
+//                if (a.getNomeAlimento().toLowerCase().contains(alimento.getNomeAlimento().toLowerCase())) {
+//                    return a;
+//                }
+//            }
+//            return null;
+//        }
+//    }
+
+    public ArrayList<Alimento> find(Alimento alimento) {
+        ArrayList<Alimento> lista = new ArrayList<Alimento>();
+        if (alimento.getNomeAlimento().equals("")) {
+            return lista;
+        } else {
+            for (Alimento a : alimentos) {
+                if (a.getNomeAlimento().toLowerCase().contains(alimento.getNomeAlimento().toLowerCase())) {
+                    lista.add(a);
+                }
             }
         }
-        return null;
+        return lista;
     }
-
-
 }

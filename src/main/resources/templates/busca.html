@@ -11,7 +11,6 @@
         <form action="#" th:action="@{/busca}" th:object="${alimento}" method="post">
             <input type="text"  id="input_busca" value="Busca..." maxlength="256" th:field="*{nomeAlimento}"/>
             <button type="submit"> Buscar </button>
-
         </form>
     </div>
 
@@ -19,7 +18,7 @@
 
 <div id="lista_busca">
 
-    <tr>
+    <!--<tr>
         <p th:text="${nomeAlimento}" />
     </tr>
     <tr>
@@ -31,7 +30,17 @@
     <tr>
         <p th:text="${quantidadeGorduraGramas}" />
     </tr>
+-->
 
+    <th:if test="${not empty resultadoBusca}">
+
+        <ul>
+            <th:forEach var="listValue" items="${resultadoBusca}">
+                <li>${listValue}</li>
+            </th:forEach>
+        </ul>
+
+    </th:if>
 
 
 </div>
