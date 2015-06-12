@@ -25,6 +25,7 @@ public class ListaController {
             Collections.sort(alimentodao.alimentos);
         }
 
+
         model.addAttribute("lists", alimentodao.alimentos);
 
         return "lista";
