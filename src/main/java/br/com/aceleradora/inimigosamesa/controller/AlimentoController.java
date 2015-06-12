@@ -25,7 +25,8 @@ public class AlimentoController {
             repositorio.save(alimento);
 
         }catch(Exception ex){
-            return "Erro: " + ex.getMessage();
+            ex.printStackTrace();
+            return "Erro: " + ex.getMessage() + "<br /> ";
         }
 
       return "OK";
