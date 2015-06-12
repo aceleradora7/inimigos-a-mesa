@@ -5,8 +5,8 @@ package model;
  */
 public class Alimento {
 
-    private int codAlimento;
-    private String nomeAlimento;
+    private int codAlimento, codCategoria;
+    private String nomeAlimento, urlImagem;
     private double quantidadeAcucarGramas, valorPercentualDiarioAcucar,
             quantidadeSodioMiligramas, valorPercentualSodio,
             quantidadeGorduraGramas, valorPercentualGordura,
@@ -16,7 +16,7 @@ public class Alimento {
         
     }
 
-    public Alimento(int codAlimento, String nomeAlimento,
+    public Alimento(int codAlimento,int codCategoria, String nomeAlimento, String urlImagem,
                     double quantidadeAcucarGramas, double valorPercentualDiarioAcucar,
                     double quantidadeSodioMiligramas, double valorPercentualSodio,
                     double quantidadeGorduraGramas, double valorPercentualGordura,
@@ -24,7 +24,9 @@ public class Alimento {
 
 
         this.codAlimento = codAlimento;
+        this.codCategoria = codCategoria;
         this.nomeAlimento = nomeAlimento;
+        this.urlImagem=urlImagem;
         this.quantidadeAcucarGramas = quantidadeAcucarGramas;
         this.valorPercentualDiarioAcucar = valorPercentualDiarioAcucar;
         this.quantidadeSodioMiligramas = quantidadeSodioMiligramas;
@@ -34,8 +36,24 @@ public class Alimento {
         this.quantidadeCaloria = quantidadeCaloria;
     }
 
-    public int getcodAlimento() {
-        return codAlimento;
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
+    }
+
+    public int getCodCategoria() {
+        return codCategoria;
+    }
+
+    public void setCodCategoria(int codCategoria) {
+        this.codCategoria = codCategoria;
+    }
+
+    public int getCodAlimento() {
+        return this.codAlimento;
     }
 
     public void setcodAlimento(int codAlimento) {

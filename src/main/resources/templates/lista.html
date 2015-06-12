@@ -1,3 +1,4 @@
+
 <html>
 <head>
 <title>Lista de Alimentos</title>	
@@ -29,13 +30,35 @@
 					</select> 
 
 					<label>Ordem Crescente</label><input type="checkbox"/>
-				</form>		
+				</form>
 
   
 
 
 	</center>
 
+	<div class="list-group">
+		<div th:each="alimento : ${lists}">
+			<a href="#" class="list-group-item">
+				<div id="infoAlimento" class="media">
+					<div id="imagemAlimento" class="media-left media-middle" >
+						<img height="140px" width="140px" src="../img/banana.png" class="img-rounded media-object"/>
+					</div>
+
+					<div class="media-body">
+						<h2 class="media-heading" th:text="${alimento.nomeAlimento}" id="alimento"></h2>
+
+
+						<p id="categoria" th:text="${alimento.codCategoria}"></p>
+					</div>
+				</div>
+			</a>
+
+		</div>
+
+</div>
+
+	<!--
 	<div class="list-group">
 	  <a href="#" class="list-group-item">
 		<div id="infoAlimento" class="media">	
@@ -130,6 +153,7 @@
 
 
 	 </div>
+	 -->
 	<center>
 	
 			 <nav>
