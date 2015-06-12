@@ -1,6 +1,6 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
-import DAO.AlimentoDAO;
+import br.com.aceleradora.inimigosamesa.dao.AlimentoDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
