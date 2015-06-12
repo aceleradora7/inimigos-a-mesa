@@ -1,6 +1,6 @@
-package DAO;
+package br.com.aceleradora.inimigosamesa.dao;
 
-import model.Alimento;
+import br.com.aceleradora.inimigosamesa.model.Alimento;
 
 import java.util.ArrayList;
 import java.util.List;

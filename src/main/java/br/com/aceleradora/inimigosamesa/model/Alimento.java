@@ -1,6 +1,4 @@
-package model;
-
-import java.util.Comparator;
+package br.com.aceleradora.inimigosamesa.model;
 
 /**
  * Created by aluno02 on 10/06/15.

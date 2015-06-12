@@ -1,14 +1,12 @@
-package controller;
+package br.com.aceleradora.inimigosamesa.controller;
 
 import DAO.AlimentoDAO;
-import model.Alimento;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 

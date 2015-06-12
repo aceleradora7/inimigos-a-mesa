@@ -1,4 +1,4 @@
-package controller;
+package br.com.aceleradora.inimigosamesa.controller;
 
 import DAO.AlimentoDAO;
 import model.Alimento;
