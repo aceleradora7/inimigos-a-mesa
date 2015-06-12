@@ -1,10 +1,13 @@
 package br.com.aceleradora.inimigosamesa.model;
 
-/**
- * Created by aluno02 on 10/06/15.
- */
-public class Alimento implements Comparable<Alimento>{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class Alimento implements Comparable<Alimento>{
+    @Id
+    @GeneratedValue
     private int codAlimento, codCategoria;
     private String nomeAlimento, urlImagem;
     private double quantidadeAcucarGramas, valorPercentualDiarioAcucar,
