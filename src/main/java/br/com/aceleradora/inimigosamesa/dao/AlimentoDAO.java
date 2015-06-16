@@ -1,9 +1,12 @@
 package br.com.aceleradora.inimigosamesa.dao;
 
 import br.com.aceleradora.inimigosamesa.model.Alimento;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
+@Component
 
 public class AlimentoDAO {
 
