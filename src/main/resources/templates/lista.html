@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
 <title>Lista de Alimentos</title>	
@@ -25,16 +25,23 @@ formulario.submit();
 <div class="container">
 	<center>
 		<h1> Lista Simples </h1> <br/>
-		<h3> Alimentos </h3>
-	<br/>
-		<form id="form-ordenacao"  th:action="@{/}">
+	<!--	<div>
+			<button type="button" class="btn btn-primary btn-lg active">Cereais</button>
+			<button type="button" class="btn btn-primary btn-lg active">Frutas</button>
+			<button type="button" class="btn btn-primary btn-lg active">Verduras</button>
+			<button type="button" class="btn btn-primary btn-lg active">Legumes</button>
+			<button type="button" class="btn btn-primary btn-lg active">Carnes</button>
+			<button type="button" class="btn btn-primary btn-lg active">Laticínios</button>
+			<button type="button" class="btn btn-primary btn-lg active">Doces/Gorduras</button>
+			<button type="button" class="btn btn-primary btn-lg active">Bebidas</button>
+		</div>-->
+		<br/>
+		<form id="form-ordenacao"  th:action="@{/}" method="POST">
 					<label> Ordenar por nome </label> 
 					 <select name="opcao-ordenar">
-  						<option value="nome">Nome</option>
-  						<option value="cat">Categoria</option>
-					</select> 
-
-					<label>Ordem Crescente</label><input type="checkbox" name="ordem-crescente" onclick="ordenar()"  />
+  						<option value="cre" onclick="ordenar()">Crescente</option>
+  						<option value="decre" onclick="ordenar()">Descrescente</option>
+					</select>
 				</form>
 
   
@@ -63,102 +70,6 @@ formulario.submit();
 
 </div>
 
-	<!--
-	<div class="list-group">
-	  <a href="#" class="list-group-item">
-		<div id="infoAlimento" class="media">	
-			<div id="imagemAlimento" class="media-left media-middle" >
-				<img height="140px" width="140px" src="../img/banana.png" class="img-rounded media-object"/>
-			</div>
-
-	  		<div class="media-body">
-	   			 <h2 class="media-heading" id="alimento">Banana</h2>
-	  		
-
-	  			<p id="categoria">Fruta</p>
-	  		</div>
-		</div>  
-	  </a>
-
-	  <a href="#" class="list-group-item">
-		<div id="infoAlimento" class="media">	
-			<div id="imagemAlimento" class="media-left media-middle" >
-				<img height="140px" width="140px" src="../img/morango.png" class="img-rounded media-object"/>
-			</div>
-
-	  		<div id="item" class="media-body">
-	   			 <h2 class="media-heading" id="alimento">Morango</h2>
-	  		
-
-	  			<p id="categoria">Fruta</p>
-	  		</div>
-		</div>  
-	  </a>
-
-	  <a href="#" class="list-group-item">
-		<div id="infoAlimento" class="media">	
-			<div id="imagemAlimento" class="media-left media-middle" >
-				<img height="140px" width="140px" src="../img/morango.png" class="img-rounded media-object"/>
-			</div>
-
-	  		<div id="item" class="media-body">
-	   			 <h2 class="media-heading" id="alimento">Morango</h2>
-	  		
-
-	  			<p id="categoria">Fruta</p>
-	  		</div>
-		</div>  
-	  </a>
-
-	  <a href="#" class="list-group-item">
-		<div id="infoAlimento" class="media">	
-			<div id="imagemAlimento" class="media-left media-middle" >
-				<img height="140px" width="140px" src="../img/morango.png" class="img-rounded media-object"/>
-			</div>
-
-	  		<div id="item" class="media-body">
-	   			 <h2 class="media-heading" id="alimento">Morango</h2>
-	  		
-
-	  			<p id="categoria">Fruta</p>
-	  		</div>
-		</div>  
-	  </a>
-
-	  <a href="#" class="list-group-item">
-		<div id="infoAlimento" class="media">	
-			<div id="imagemAlimento" class="media-left media-middle">
-				<img height="140px" width="140px" src="../img/morango.png" class="img-rounded media-object"/>
-			</div>
-
-	  		<div id="item" class="media-body">
-	   			 <h2 class="media-heading" id="alimento">Morango</h2>
-	  		
-
-	  			<p id="categoria">Fruta</p>
-	  		</div>
-		</div>  
-	  </a>
-
-
-	  <a href="#" class="list-group-item">
-		<div id="infoAlimento" class="media">	
-			<div id="imagemAlimento" class="media-left media-middle">
-				<img height="140px" width="140px" src="../img/morango.png" class="img-rounded media-object"/>
-			</div>
-
-	  		<div id="item" class="media-body">
-	   			 <h2 class="media-heading" id="alimento">Morango</h2>
-	  		
-
-	  			<p id="categoria">Fruta</p>
-	  		</div>
-		</div>  
-	  </a>
-
-
-	 </div>
-	 -->
 	<center>
 	
 			 <nav>

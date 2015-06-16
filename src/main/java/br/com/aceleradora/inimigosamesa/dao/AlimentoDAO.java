@@ -11,7 +11,7 @@ public class AlimentoDAO {
 
 
     public AlimentoDAO() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 5; i > 0; i--) {
             Alimento a = new Alimento(i, i, "Alimento" + i, "../img/banana.png", i, i, i, i, i, i, i);
             alimentos.add(a);
         }
