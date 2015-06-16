@@ -36,6 +36,8 @@ dependencies {
 
     compile('org.postgresql:postgresql:9.4-1201-jdbc41')
 
+    compile('org.webjars:bootstrap:3.3.4')
+
     testCompile("junit:junit")
 }
 
