@@ -68,7 +68,23 @@ public class AlimentoController {
         return "lista";
     }
 
-    public String buscaPorCategoria() {
+    @RequestMapping(value = "/buscaCategoria", method = RequestMethod.GET)
+    public String buscaPorCategoria(@RequestParam(value = "categoria") String categoria, Model model) {
+
+        System.out.println(categoria);
+
+        model.addAttribute("alimento", new Alimento());
+
+
+
+//        List<Alimento> resultadoBusca = alimentoDao.find(alimento);
+//
+//        if (!resultadoBusca.isEmpty()) {
+//            model.addAttribute("alimentos", resultadoBusca);
+//        } else {
+//            model.addAttribute("erro", "Nenhum Alimento encontrado!");
+//        }
+
         return "lista";
     }
 }

@@ -11,7 +11,6 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int codAlimento;
-
     private int codCategoria;
     private String nomeAlimento;
     private String urlImagem;

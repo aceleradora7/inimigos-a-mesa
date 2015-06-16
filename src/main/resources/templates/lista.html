@@ -5,11 +5,13 @@
     <title>Lista de Alimentos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/estilo.css"/>
 
     <link th:replace="fragmentos/header :: bootstrap-css" />
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+    <script th:replace="fragmentos/header :: jquery"> </script>
+
+    <script src="js/lista.js"> </script>
 
     <link rel="stylesheet" type="text/css" href="css/principal.css"/>
 
@@ -33,17 +35,18 @@
 
             <br/>
 
-            <div>
-                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Cereais</button></a>
-                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Frutas</button></a>
-                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Verduras</button></a>
-                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Legumes</button></a>
-                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Carnes</button></a>
-                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Laticínios</button></a>
-                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Doces/Gorduras</button></a>
-                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Bebidas</button></a>
+            <div id="menu-categoria" class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary btn-lg">Cereais</button>
+                <button type="button" class="btn btn-primary btn-lg">Frutas</button>
+                <button type="button" class="btn btn-primary btn-lg">Verduras</button>
+                <button type="button" class="btn btn-primary btn-lg">Legumes</button>
+                <button type="button" class="btn btn-primary btn-lg">Carnes</button>
+                <button type="button" class="btn btn-primary btn-lg">Laticínios</button>
+                <button type="button" class="btn btn-primary btn-lg">Doces/Gorduras</button>
+                <button type="button" class="btn btn-primary btn-lg">Bebidas</button>
             </div>
 
+            <br/>
             <br/>
 
             <form id="form-ordenacao"  th:action="@{/lista}" method="GET">

@@ -33,4 +33,18 @@ public class AlimentoDAO {
         }
         return lista;
     }
+
+    public List<Alimento> findporCategoria(Alimento alimento) {
+        List<Alimento> lista = new ArrayList<Alimento>();
+        if (alimento.getNomeAlimento().equals("")) {
+            return lista;
+        } else {
+            for (Alimento a : alimentos) {
+                if (a.getCodCategoria()==alimento.getCodCategoria()) {
+                    lista.add(a);
+                }
+            }
+        }
+        return lista;
+    }
 }
