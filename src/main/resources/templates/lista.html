@@ -1,104 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
+
 <head>
-<title>Lista de Alimentos</title>	
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Carregando o CSS do Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="../css/listaEstilo.css"/>
-<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen" />
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css"/>
-
-<link rel="stylesheet" type="text/css" href="../css/estilo.css"/>
-
-<script>
-function ordenar(){
-var formulario = document.getElementById("form-ordenacao");
-formulario.submit();
-
-}
-</script>
+    <title>Lista de Alimentos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-</head>	
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="css/principal.css"/>
+
+
+
+    <script>
+        function ordenar(){
+            var formulario = document.getElementById("form-ordenacao");
+            formulario.submit();
+        }
+    </script>
+
+
+</head>
+
 <body>
-<div class="container">
-	<center>
-		<h1> Lista Simples </h1> <br/>
-	<!--	<div>
-			<button type="button" class="btn btn-primary btn-lg active">Cereais</button>
-			<button type="button" class="btn btn-primary btn-lg active">Frutas</button>
-			<button type="button" class="btn btn-primary btn-lg active">Verduras</button>
-			<button type="button" class="btn btn-primary btn-lg active">Legumes</button>
-			<button type="button" class="btn btn-primary btn-lg active">Carnes</button>
-			<button type="button" class="btn btn-primary btn-lg active">Laticínios</button>
-			<button type="button" class="btn btn-primary btn-lg active">Doces/Gorduras</button>
-			<button type="button" class="btn btn-primary btn-lg active">Bebidas</button>
-		</div>-->
-		<br/>
-		<form id="form-ordenacao"  th:action="@{/}" method="POST">
-					<label> Ordenar por nome </label> 
-					 <select name="opcao-ordenar">
-  						<option value="cre" onclick="ordenar()">Crescente</option>
-  						<option value="decre" onclick="ordenar()">Descrescente</option>
-					</select>
-				</form>
-
-  
+    <nav th:replace="fragmentos/header :: cabecalho"></nav>
 
 
-	</center>
+    <div class="container">
 
-	<div class="list-group">
-		<div th:each="alimento : ${lists}">
-			<a href="#" class="list-group-item">
-				<div id="infoAlimento" class="media">
-					<div id="imagemAlimento" class="media-left media-middle" >
-						<img height="140px" width="140px" th:src="${alimento.urlImagem}" class="img-rounded media-object"/>
-					</div>
+        <center>
 
-					<div class="media-body">
-						<h2 class="media-heading" th:text="${alimento.nomeAlimento}" id="alimento"></h2>
+            <h1> Lista Simples </h1>
 
+            <br/>
 
-						<p id="categoria" th:text="${alimento.codCategoria}"></p>
-					</div>
-				</div>
-			</a>
+            <h3> Alimentos </h3>
 
-		</div>
+            <br/>
 
-</div>
+            <form id="form-ordenacao"  th:action="@{/}" method="POST">
+                <label> Ordenar por nome </label>
+                <select name="opcao-ordenar">
+                    <option value="cre" onclick="ordenar()">Crescente</option>
+                    <option value="decre" onclick="ordenar()">Descrescente</option>
+                </select>
+            </form>
+        </center>
 
-	<center>
-	
-			 <nav>
-  				<ul class="pagination">
- 	    				<li>
-	      				<a href="#" aria-label="Previous">
-	        				<span aria-hidden="true">&laquo;</span>
-	      				</a>
-	    				</li>
-	    				<li><a href="#">1</a></li>
-	    				<li><a href="#">2</a></li>
-	    				<li><a href="#">3</a></li>
-	    				<li><a href="#">4</a></li>
-	    				<li><a href="#">5</a></li>
-	   				 	<li>
-	     				 	<a href="#" aria-label="Next">
-     						<span aria-hidden="true">&raquo;</span>
-      						</a>
-    					</li>
-  					</ul>
-				</nav>	
-	</center>			
-</div>
+        <div class="list-group">
 
+            <div th:each="alimento : ${lists}">
+                <a href="#" class="list-group-item">
+                    <div id="infoAlimento" class="media">
 
+                        <div id="imagemAlimento" class="media-left media-middle" >
+                            <img height="140px" width="140px" th:src="${alimento.urlImagem}" class="img-rounded media-object"/>
+                        </div>
 
+                        <div class="media-body">
+                            <h2 class="media-heading" th:text="${alimento.nomeAlimento}" id="alimento"></h2>
 
+                            <p id="categoria" th:text="${alimento.codCategoria}"></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
 
+        <center>
+            <nav th:replace="fragmentos/footer :: paginacao"></nav>
+        </center>
 
-	
+    </div>
+
 </body>
 </html>
