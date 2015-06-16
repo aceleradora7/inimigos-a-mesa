@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Detalhe do Produto</title>
@@ -15,16 +15,16 @@
         </h2>
     </center>
 </div>
-<div class="container">
-    <div class = "row">
-        <h4>Nome Do Produto</h4>
+<div class="container" th:object="${alimento}" id="mostraAlimento">
+    <div class = "row" id="infoAlimento">
+        <h4 th:text="${alimento.nomeAlimento}" id="alimento"></h4>
     </div>
     <div class = "row">
         <h4>Tags</h4>
     </div>
     <div class="row">
         <div class="col-xs-6 col-md-5">
-            <img src="../img/nescau.png" alt="Imagem do Nescau" class="imagem-detalhe-produto" id="imagemProduto"/>
+            <img th:src="${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
         </div>
         <div class="col-xs-6 col-md-5">
             <ul class="list-group">
@@ -39,15 +39,15 @@
                     Para porção de 100g
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">14 kcal</span>
+                    <span class="badge" th:text="${alimento.quantidadeCaloria} + ' kcal'"> </span>
                     Calorias
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">14 g</span>
+                    <span class="badge" th:text="${alimento.quantidadeAcucarGramas} + ' g'"></span>
                     Açucar
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">14 g</span>
+                    <span class="badge" th:text="${alimento.quantidadeSodioMiligramas} + ' g'"></span>
                     Sódio
                 </li>
             </ul>
