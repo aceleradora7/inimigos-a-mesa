@@ -2,8 +2,9 @@
 <html xmlns:th="http://thymeleaf.org">
 
 <head>
-<title>Lista de Alimentos</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Alimentos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css"/>
 
@@ -18,14 +19,11 @@
             formulario.submit();
         }
     </script>
-
-
 </head>
 
 <body>
 
     <nav th:replace="fragmentos/header :: cabecalho"></nav>
-
 
     <div class="container">
 
@@ -35,11 +33,20 @@
 
             <br/>
 
-            <h3> Alimentos </h3>
+            <div>
+                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Cereais</button></a>
+                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Frutas</button></a>
+                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Verduras</button></a>
+                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Legumes</button></a>
+                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Carnes</button></a>
+                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Laticínios</button></a>
+                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Doces/Gorduras</button></a>
+                <a href="#"><button type="button" class="btn btn-primary btn-lg active">Bebidas</button></a>
+            </div>
 
             <br/>
 
-            <form id="form-ordenacao"  th:action="@{/listar}" method="POST">
+            <form id="form-ordenacao"  th:action="@{/lista}" method="GET">
                 <label> Ordenar por nome </label>
                 <select name="opcao-ordenar">
                     <option value="cre" onclick="ordenar()">Crescente</option>
@@ -47,11 +54,11 @@
                 </select>
             </form>
         </center>
+        <p th:text="${erro}"></p>
 
         <div class="list-group">
-
-            <div th:each="alimento : ${lists}">
-                <a href="#" class="list-group-item">
+            <div th:each="alimento : ${alimentos}">
+                <a th:href="@{'/detalheDoProduto?nomeAlimento=' + ${alimento.codAlimento}}" class="list-group-item">
                     <div id="infoAlimento" class="media">
 
                         <div id="imagemAlimento" class="media-left media-middle" >
