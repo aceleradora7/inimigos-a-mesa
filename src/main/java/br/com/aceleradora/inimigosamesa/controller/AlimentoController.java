@@ -29,22 +29,27 @@ public class AlimentoController {
             Alimento alimento,
             Model model) {
 
-        if (tipoDeOrdenacao != null) {
-            if (tipoDeOrdenacao.equals("cre")) {
-                Collections.sort(alimentoDao.alimentos);
+        if (!alimentoDao.alimentos.isEmpty()) {
+            if (tipoDeOrdenacao != null) {
+                if (tipoDeOrdenacao.equals("cre")) {
+                    Collections.sort(alimentoDao.alimentos);
+                }
             }
-        }
 
-        if (tipoDeOrdenacao != null) {
-            if (tipoDeOrdenacao.equals("decre")) {
-                Collections.sort(alimentoDao.alimentos);
-                Collections.reverse(alimentoDao.alimentos);
+            if (tipoDeOrdenacao != null) {
+                if (tipoDeOrdenacao.equals("decre")) {
+                    Collections.sort(alimentoDao.alimentos);
+                    Collections.reverse(alimentoDao.alimentos);
+                }
             }
+
+            model.addAttribute("alimento", new Alimento());
+            model.addAttribute("alimentos", alimentoDao.alimentos);
+
         }
-
-        model.addAttribute("alimento", new Alimento());
-        model.addAttribute("alimentos", alimentoDao.alimentos);
-
+        else {
+            model.addAttribute("erro", "Nenhum alimento encontrado!");
+        }
         return "lista";
     }
 
@@ -56,7 +61,7 @@ public class AlimentoController {
         if (!resultadoBusca.isEmpty()) {
             model.addAttribute("alimentos", resultadoBusca);
         } else {
-            model.addAttribute("erro", "Nenhum Alimento encontrado!");
+            model.addAttribute("erro", "Nenhum alimento encontrado!");
         }
 
 
