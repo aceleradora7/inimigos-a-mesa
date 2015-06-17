@@ -1,21 +1,16 @@
 package br.com.aceleradora.inimigosamesa.model;
 
-
 public class Categoria {
     private int codCategoria;
     private String nomeCategoria;
 
     public Categoria() {
-
     }
 
-
     public Categoria(int codCategoria, String nomeCategoria) {
-
         this.codCategoria = codCategoria;
         this.nomeCategoria = nomeCategoria;
     }
-
 
     public int getCodCategoria() {
         return codCategoria;
@@ -32,7 +27,5 @@ public class Categoria {
     public void setNomeCategoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
     }
-
-
 
 }
