@@ -52,7 +52,7 @@
                 <label> Ordenar por nome </label>
                 <select name="opcao-ordenar">
                     <option value="cre" onclick="ordenar()">Crescente</option>
-                    <option value="decre" onclick="ordenar()">Descrescente</option>
+                    <option value="decre" onclick="ordenar()">Decrescente</option>
                 </select>
             </form>
         </center>
@@ -61,6 +61,7 @@
 
         <div class="list-group">
             <div th:each="alimento : ${alimentos}">
+
                 <a th:href="@{'/detalheDoProduto?nomeAlimento=' + ${alimento.nomeAlimento}}" class="list-group-item">
 
                     <div id="infoAlimento" class="media">
@@ -72,7 +73,7 @@
                         <div class="media-body">
                             <h2 class="media-heading" th:text="${alimento.nomeAlimento}" id="alimento"></h2>
 
-                            <p id="categoria" th:text="${alimento.codCategoria}"></p>
+                            <p id="categoria" th:text="${alimento.getNomeCategoria()}"></p>
                         </div>
                     </div>
                 </a>

@@ -1,5 +1,8 @@
 package br.com.aceleradora.inimigosamesa.model;
 
+import br.com.aceleradora.inimigosamesa.dao.AlimentoDAO;
+import br.com.aceleradora.inimigosamesa.dao.CategoriaDAO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -141,6 +144,13 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     }
 
 
+    public String getNomeCategoria() {
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
+        Categoria categoria = categoriaDAO.findPK(this.codCategoria);
+
+        return categoria.getNomeCategoria();
+
+    }
 
 
 }

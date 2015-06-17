@@ -36,5 +36,17 @@ public class CategoriaDAO {
         return lista;
     }
 
+    public Categoria findPK(int codCategoria) {
+        Categoria c = new Categoria();
+
+            for (Categoria a : categorias) {
+                if (a.getCodCategoria()==codCategoria) {
+                    c=a;
+                }
+            }
+
+        return c;
+    }
+
 
 }
