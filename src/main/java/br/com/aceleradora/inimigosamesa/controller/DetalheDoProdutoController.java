@@ -14,16 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by aluno03 on 10/06/15.
- */
 @Controller
 public class DetalheDoProdutoController {
-//    @RequestMapping("/detalheDoProduto")
-//    public String detalheDoProduto(){
-//        return "detalheDoProduto";
-//    }
-
 
     @RequestMapping(value = "/detalheDoProduto")
     public String listar(Model model, @RequestParam(value = "nomeAlimento", required = false) String nome) {
