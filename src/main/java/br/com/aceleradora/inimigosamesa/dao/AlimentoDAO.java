@@ -11,17 +11,14 @@ import java.util.List;
 
 public class AlimentoDAO {
 
-    public List<Alimento> alimentos = new ArrayList<Alimento>();
-
+    private List<Alimento> alimentos = new ArrayList<Alimento>();
 
     public AlimentoDAO() {
-        alimentos.add(new Alimento(0, 1, "Banana", "../img/banana.png", 10, 10, 100, 100, 1000, 1000, 10000));
-        alimentos.add(new Alimento(1, 1, "Laranja", "../img/laranja.png", 10, 10, 100, 100, 1000, 1000, 10000));
-        alimentos.add(new Alimento(0, 1, "Maça", "../img/maca.png", 10, 10, 100, 100, 1000, 1000, 10000));
-        alimentos.add(new Alimento(0, 1, "Morango", "../img/morango.png", 10, 10, 100, 100, 1000, 1000, 10000));
-        alimentos.add(new Alimento(0, 7, "Nescau", "../img/nescau.png", 10, 10, 100, 100, 1000, 1000, 10000));
-
-
+        alimentos.add(new Alimento(0, 1, "Banana", "../img/banana.png", 10, 10, 100, 100, 1000, 100, 100));
+        alimentos.add(new Alimento(1, 1, "Laranja", "../img/laranja.png", 10, 10, 100, 100, 1000, 100, 100));
+        alimentos.add(new Alimento(0, 1, "Maça", "../img/maca.png", 10, 10, 100, 100, 1000, 1000, 100));
+        alimentos.add(new Alimento(0, 1, "Morango", "../img/morango.png", 10, 10, 100, 100, 1000, 100, 100));
+        alimentos.add(new Alimento(0, 7, "Nescau", "../img/nescau.png", 10, 10, 100, 100, 1000, 100, 100));
     }
 
     public List<Alimento> find(Alimento alimento) {
@@ -38,9 +35,8 @@ public class AlimentoDAO {
         return lista;
     }
 
-    public List<Alimento> findporCategoria(Categoria categoria) {
+    public List<Alimento> findPorCategoria(Categoria categoria) {
         List<Alimento> lista = new ArrayList<Alimento>();
-
         for (Alimento a : alimentos) {
             if (a.getCodCategoria() == categoria.getCodCategoria()) {
                 lista.add(a);
@@ -48,5 +44,13 @@ public class AlimentoDAO {
 
         }
         return lista;
+    }
+
+    public List<Alimento> getAlimentos() {
+        return alimentos;
+    }
+
+    public void setAlimentos(List<Alimento> alimentos) {
+        this.alimentos = alimentos;
     }
 }
