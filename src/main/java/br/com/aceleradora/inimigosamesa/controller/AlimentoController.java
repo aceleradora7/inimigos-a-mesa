@@ -2,7 +2,9 @@ package br.com.aceleradora.inimigosamesa.controller;
 
 import br.com.aceleradora.inimigosamesa.dao.AlimentoDAO;
 import br.com.aceleradora.inimigosamesa.dao.AlimentoRepository;
+import br.com.aceleradora.inimigosamesa.dao.CategoriaDAO;
 import br.com.aceleradora.inimigosamesa.model.Alimento;
+import br.com.aceleradora.inimigosamesa.model.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,20 +72,21 @@ public class AlimentoController {
 
     @RequestMapping(value = "/buscaCategoria", method = RequestMethod.GET)
     public String buscaPorCategoria(@RequestParam(value = "categoria") String categoria, Model model) {
-
-        System.out.println(categoria);
-
         model.addAttribute("alimento", new Alimento());
+        
+        Categoria categoriaBusca = new Categoria();
+        categoriaBusca.setNomeCategoria(categoria);
 
+        CategoriaDAO catDao = new CategoriaDAO();
+        List<Categoria> listCategoria = catDao.find(categoriaBusca);
 
+       List<Alimento> resultadoBusca = alimentoDao.findporCategoria(listCategoria.get(0));
 
-//        List<Alimento> resultadoBusca = alimentoDao.find(alimento);
-//
-//        if (!resultadoBusca.isEmpty()) {
-//            model.addAttribute("alimentos", resultadoBusca);
-//        } else {
-//            model.addAttribute("erro", "Nenhum Alimento encontrado!");
-//        }
+       if (!resultadoBusca.isEmpty()) {
+           model.addAttribute("alimentos", resultadoBusca);
+        } else {
+           model.addAttribute("erro", "Nenhum Alimento encontrado!");
+      }
 
         return "lista";
     }

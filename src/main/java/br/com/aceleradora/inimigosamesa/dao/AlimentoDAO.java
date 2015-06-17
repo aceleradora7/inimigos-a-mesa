@@ -1,6 +1,7 @@
 package br.com.aceleradora.inimigosamesa.dao;
 
 import br.com.aceleradora.inimigosamesa.model.Alimento;
+import br.com.aceleradora.inimigosamesa.model.Categoria;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -34,16 +35,14 @@ public class AlimentoDAO {
         return lista;
     }
 
-    public List<Alimento> findporCategoria(Alimento alimento) {
+    public List<Alimento> findporCategoria(Categoria categoria) {
         List<Alimento> lista = new ArrayList<Alimento>();
-        if (alimento.getNomeAlimento().equals("")) {
-            return lista;
-        } else {
+
             for (Alimento a : alimentos) {
-                if (a.getCodCategoria()==alimento.getCodCategoria()) {
+                if (a.getCodCategoria()==categoria.getCodCategoria()) {
                     lista.add(a);
                 }
-            }
+
         }
         return lista;
     }
