@@ -137,7 +137,6 @@ public class Alimento implements Comparable<Alimento>, Serializable{
         this.quantidadeCaloria = quantidadeCaloria;
     }
 
-
     @Override
     public int compareTo(Alimento o) {
         return this.getNomeAlimento().compareTo(o.getNomeAlimento());
