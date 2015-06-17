@@ -24,29 +24,28 @@ public class AlimentoController {
     @Autowired
     AlimentoDAO alimentoDao;
 
-
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public String listar(
             @RequestParam(value = "opcao-ordenar", required = false, defaultValue = "cre") String tipoDeOrdenacao,
             Alimento alimento,
             Model model) {
 
-        if (!alimentoDao.alimentos.isEmpty()) {
+        if (!alimentoDao.getAlimentos().isEmpty()) {
             if (tipoDeOrdenacao != null) {
                 if (tipoDeOrdenacao.equals("cre")) {
-                    Collections.sort(alimentoDao.alimentos);
+                    Collections.sort(alimentoDao.getAlimentos());
                 }
             }
 
             if (tipoDeOrdenacao != null) {
                 if (tipoDeOrdenacao.equals("decre")) {
-                    Collections.sort(alimentoDao.alimentos);
-                    Collections.reverse(alimentoDao.alimentos);
+                    Collections.sort(alimentoDao.getAlimentos());
+                    Collections.reverse(alimentoDao.getAlimentos());
                 }
             }
 
             model.addAttribute("alimento", new Alimento());
-            model.addAttribute("alimentos", alimentoDao.alimentos);
+            model.addAttribute("alimentos", alimentoDao.getAlimentos());
 
         }
         else {
@@ -80,7 +79,7 @@ public class AlimentoController {
         CategoriaDAO catDao = new CategoriaDAO();
         List<Categoria> listCategoria = catDao.find(categoriaBusca);
 
-       List<Alimento> resultadoBusca = alimentoDao.findporCategoria(listCategoria.get(0));
+       List<Alimento> resultadoBusca = alimentoDao.findPorCategoria(listCategoria.get(0));
 
        if (!resultadoBusca.isEmpty()) {
            model.addAttribute("alimentos", resultadoBusca);
