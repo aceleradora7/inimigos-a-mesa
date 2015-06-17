@@ -27,9 +27,9 @@ public class CategoriaDAO {
         if (categoria.getNomeCategoria().equals("")) {
             return lista;
         } else {
-            for (Categoria a : categorias) {
-                if (a.getNomeCategoria().toLowerCase().equals(categoria.getNomeCategoria().toLowerCase())) {
-                    lista.add(a);
+            for (Categoria cat : categorias) {
+                if (cat.getNomeCategoria().toLowerCase().equals(categoria.getNomeCategoria().toLowerCase())) {
+                    lista.add(cat);
                 }
             }
         }
@@ -37,15 +37,15 @@ public class CategoriaDAO {
     }
 
     public Categoria findPK(int codCategoria) {
-        Categoria c = new Categoria();
+        Categoria categoria = new Categoria();
 
-            for (Categoria a : categorias) {
-                if (a.getCodCategoria()==codCategoria) {
-                    c=a;
+            for (Categoria cat : categorias) {
+                if (cat.getCodCategoria()==codCategoria) {
+                    categoria=cat;
                 }
             }
 
-        return c;
+        return categoria;
     }
 
 
