@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface CategoriaRepository extends CrudRepository<Categoria, Integer>{
 
-    public Categoria findFirstByNomeLikeIgnoreCase(@Param("nome") String nome);
+    public Categoria findFirstByNomeLikeIgnoreCase(String nome);
 }
