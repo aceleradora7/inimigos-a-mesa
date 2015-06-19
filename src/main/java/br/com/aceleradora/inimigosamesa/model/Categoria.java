@@ -7,7 +7,8 @@ import java.util.List;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geradorId")
+    @SequenceGenerator(initialValue = 15, allocationSize = 1, name="geradorId", sequenceName = "categoria_sequence")
     @Column(name="codcategoria")
     private int codigo;
 
