@@ -1,6 +1,5 @@
 package br.com.aceleradora.inimigosamesa.model;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 import java.util.List;
 
