@@ -39,8 +39,7 @@ public class AlimentoController {
     @RequestMapping(value = "/busca", method = RequestMethod.GET)
     public String busca(Alimento alimento, Model model) {
 
-
-        List<Alimento> alimentosBanco = repositorioAlimento.findByNomeLikeIgnoreCase(alimento.getNome());
+        List<Alimento> alimentosBanco = repositorioAlimento.findByNomeLikeIgnoreCase("%" + alimento.getNome() + "%");
 
         if (!alimentosBanco.isEmpty()) {
             model.addAttribute("alimentos", alimentosBanco);
@@ -74,11 +73,11 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/detalhe")
-    public String detalhe(Model model, @RequestParam(value = "nomeAlimento", required = false) String nome){
+    public String detalhe(Model model, @RequestParam(value = "alimento", required = false) int codigo){
 
-        List<Alimento> lista= repositorioAlimento.findByNomeLikeIgnoreCase(nome);
+        Alimento alimento= repositorioAlimento.findOne(codigo);
 
-        model.addAttribute("alimento", lista.get(0));
+        model.addAttribute("alimento", alimento);
 
         return "detalhe";
     }
