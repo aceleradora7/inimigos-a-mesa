@@ -5,8 +5,6 @@
     <title>Lista de Alimentos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css"/>
-
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <script th:replace="fragmentos/header :: jquery"> </script>
 
@@ -14,12 +12,6 @@
 
     <link rel="stylesheet" type="text/css" href="css/principal.css"/>
 
-    <script>
-        function ordenar(){
-            var formulario = document.getElementById("form-ordenacao");
-            formulario.submit();
-        }
-    </script>
 </head>
 
 <body>
@@ -48,13 +40,12 @@
             <br/>
             <br/>
 
-            <form id="form-ordenacao"  th:action="@{/lista}" method="GET">
-                <label> Ordenar por nome </label>
-                <select name="opcao-ordenar">
-                    <option value="cre" onclick="ordenar()">Crescente</option>
-                    <option value="decre" onclick="ordenar()">Decrescente</option>
-                </select>
-            </form>
+            <label> Ordenar por nome </label>
+            <select id="opcao-ordenar" name="opcao-ordenar">
+                <option value="cre" >Crescente</option>
+                <option value="decre">Decrescente</option>
+            </select>
+
         </center>
 
         <p th:text="${erro}"></p>
@@ -62,7 +53,7 @@
         <div class="list-group">
             <div th:each="alimento : ${alimentos}">
 
-                <a th:href="@{'/detalheDoProduto?nomeAlimento=' + ${alimento.nomeAlimento}}" class="list-group-item">
+                <a th:href="@{'/detalhe?nomeAlimento=' + ${alimento.nome}}" class="list-group-item">
 
                     <div id="infoAlimento" class="media">
 
@@ -71,9 +62,9 @@
                         </div>
 
                         <div class="media-body">
-                            <h2 class="media-heading" th:text="${alimento.nomeAlimento}" id="alimento"></h2>
+                            <h2 class="media-heading" th:text="${alimento.nome}" id="alimento"></h2>
 
-                            <p id="categoria" th:text="${alimento.getNomeCategoria()}"></p>
+                            <p id="categoria" th:text="${alimento.getCategoria().getNome()}"></p>
                         </div>
                     </div>
                 </a>

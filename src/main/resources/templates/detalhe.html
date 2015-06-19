@@ -24,7 +24,7 @@
 </div>
 <div class="container" th:object="${alimento}" id="mostraAlimento">
     <div class = "row" id="infoAlimento">
-        <h4 th:text="${alimento.nomeAlimento}" id="alimento"></h4>
+        <h4 th:text="${alimento.nome}" id="alimento"></h4>
     </div>
     <div class = "row">
         <h4>Tags</h4>
@@ -46,15 +46,15 @@
                     Para porção de 100g
                 </li>
                 <li class="list-group-item">
-                    <span class="badge" th:text="${alimento.quantidadeCaloria} + ' kcal'"> </span>
+                    <span class="badge" th:text="${alimento.calorias} + ' kcal'"> </span>
                     Calorias
                 </li>
                 <li class="list-group-item">
-                    <span class="badge" th:text="${alimento.quantidadeAcucarGramas} + ' g'"></span>
+                    <span class="badge" th:text="${alimento.acucarGramas} + ' g'"></span>
                     Açucar
                 </li>
                 <li class="list-group-item">
-                    <span class="badge" th:text="${alimento.quantidadeSodioMiligramas} + ' g'"></span>
+                    <span class="badge" th:text="${alimento.sodioMiligramas} + ' g'"></span>
                     Sódio
                 </li>
             </ul>

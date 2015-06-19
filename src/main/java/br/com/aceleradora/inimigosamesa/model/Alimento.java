@@ -1,52 +1,142 @@
 package br.com.aceleradora.inimigosamesa.model;
 
-import br.com.aceleradora.inimigosamesa.dao.AlimentoDAO;
-import br.com.aceleradora.inimigosamesa.dao.CategoriaDAO;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+@Entity(name = "alimento")
 public class Alimento implements Comparable<Alimento>, Serializable{
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int codAlimento;
-    private int codCategoria;
-    private String nomeAlimento;
+    @Column(name = "codalimento")
+    private int codigo;
+
+    @JoinColumn(name = "codcategoria", referencedColumnName = "codcategoria")
+    @ManyToOne
+    private Categoria categoria;
+
+    @Column(name = "nomealimento")
+    private String nome;
+
+    @Column(name = "quantidadeacucargramas")
+    private double acucarGramas;
+
+    @Column(name = "valorpercentualacucardiario")
+    private double percentualDiarioAcucar;
+
+    @Column(name = "quantidadesodiomiligramas")
+    private double sodioMiligramas;
+
+    @Column(name = "valorpercentualsodiodiario")
+    private double percentualDiarioSodio;
+
+    @Column(name = "quantidadegorduragramas")
+    private double gorduraGramas;
+
+    @Column(name = "valorpercentualgorduradiaria")
+    private double percentualDiarioGordura;
+
+    @Column(name = "quantidadecalorias")
+    private double calorias;
+
     private String urlImagem;
-    private double quantidadeAcucarGramas;
-    private double valorPercentualDiarioAcucar;
-    private double quantidadeSodioMiligramas;
-    private double valorPercentualSodio;
-    private double quantidadeGorduraGramas;
-    private double valorPercentualGordura;
-    private double quantidadeCaloria;
 
     public Alimento() {
 
     }
 
-    public Alimento(int codAlimento, int codCategoria, String nomeAlimento, String urlImagem,
-                    double quantidadeAcucarGramas, double valorPercentualDiarioAcucar,
-                    double quantidadeSodioMiligramas, double valorPercentualSodio,
-                    double quantidadeGorduraGramas, double valorPercentualGordura,
-                    double quantidadeCaloria) {
-
-
-        this.codAlimento = codAlimento;
-        this.codCategoria = codCategoria;
-        this.nomeAlimento = nomeAlimento;
+    public Alimento(int codigo, Categoria categoria, String nome, double acucarGramas, double percentualDiarioAcucar, double sodioMiligramas, double percentualDiarioSodio, double gorduraGramas, double percentualDiarioGordura, double calorias, String urlImagem) {
+        this.codigo = codigo;
+        this.categoria = categoria;
+        this.nome = nome;
+        this.acucarGramas = acucarGramas;
+        this.percentualDiarioAcucar = percentualDiarioAcucar;
+        this.sodioMiligramas = sodioMiligramas;
+        this.percentualDiarioSodio = percentualDiarioSodio;
+        this.gorduraGramas = gorduraGramas;
+        this.percentualDiarioGordura = percentualDiarioGordura;
+        this.calorias = calorias;
         this.urlImagem = urlImagem;
-        this.quantidadeAcucarGramas = quantidadeAcucarGramas;
-        this.valorPercentualDiarioAcucar = valorPercentualDiarioAcucar;
-        this.quantidadeSodioMiligramas = quantidadeSodioMiligramas;
-        this.valorPercentualSodio = valorPercentualSodio;
-        this.quantidadeGorduraGramas = quantidadeGorduraGramas;
-        this.valorPercentualGordura = valorPercentualGordura;
-        this.quantidadeCaloria = quantidadeCaloria;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getAcucarGramas() {
+        return acucarGramas;
+    }
+
+    public void setAcucarGramas(double acucarGramas) {
+        this.acucarGramas = acucarGramas;
+    }
+
+    public double getPercentualDiarioAcucar() {
+        return percentualDiarioAcucar;
+    }
+
+    public void setPercentualDiarioAcucar(double percentualDiarioAcucar) {
+        this.percentualDiarioAcucar = percentualDiarioAcucar;
+    }
+
+    public double getSodioMiligramas() {
+        return sodioMiligramas;
+    }
+
+    public void setSodioMiligramas(double sodioMiligramas) {
+        this.sodioMiligramas = sodioMiligramas;
+    }
+
+    public double getPercentualDiarioSodio() {
+        return percentualDiarioSodio;
+    }
+
+    public void setPercentualDiarioSodio(double percentualDiarioSodio) {
+        this.percentualDiarioSodio = percentualDiarioSodio;
+    }
+
+    public double getGorduraGramas() {
+        return gorduraGramas;
+    }
+
+    public void setGorduraGramas(double gorduraGramas) {
+        this.gorduraGramas = gorduraGramas;
+    }
+
+    public double getPercentualDiarioGordura() {
+        return percentualDiarioGordura;
+    }
+
+    public void setPercentualDiarioGordura(double percentualDiarioGordura) {
+        this.percentualDiarioGordura = percentualDiarioGordura;
+    }
+
+    public double getCalorias() {
+        return calorias;
+    }
+
+    public void setCalorias(double calorias) {
+        this.calorias = calorias;
     }
 
     public String getUrlImagem() {
@@ -57,99 +147,8 @@ public class Alimento implements Comparable<Alimento>, Serializable{
         this.urlImagem = urlImagem;
     }
 
-    public int getCodCategoria() {
-        return codCategoria;
-    }
-
-    public void setCodCategoria(int codCategoria) {
-        this.codCategoria = codCategoria;
-    }
-
-    public int getCodAlimento() {
-        return this.codAlimento;
-    }
-
-    public void setcodAlimento(int codAlimento) {
-        this.codAlimento = codAlimento;
-    }
-
-    public String getNomeAlimento() {
-        return nomeAlimento;
-    }
-
-    public void setnomeAlimento(String nomeAlimento) {
-        this.nomeAlimento = nomeAlimento;
-    }
-
-    public double getQuantidadeAcucarGramas() {
-        return quantidadeAcucarGramas;
-    }
-
-    public void setQuantidadeAcucarGramas(double quantidadeAcucarGramas) {
-        this.quantidadeAcucarGramas = quantidadeAcucarGramas;
-    }
-
-    public double getValorPercentualDiarioAcucar() {
-        return valorPercentualDiarioAcucar;
-    }
-
-    public void setValorPercentualDiarioAcucar(double valorPercentualDiarioAcucar) {
-        this.valorPercentualDiarioAcucar = valorPercentualDiarioAcucar;
-    }
-
-    public double getQuantidadeSodioMiligramas() {
-        return quantidadeSodioMiligramas;
-    }
-
-    public void setQuantidadeSodioMiligramas(double quantidadeSodioMiligramas) {
-        this.quantidadeSodioMiligramas = quantidadeSodioMiligramas;
-    }
-
-    public double getValorPercentualSodio() {
-        return valorPercentualSodio;
-    }
-
-    public void setValorPercentualSodio(double valorPercentualSodio) {
-        this.valorPercentualSodio = valorPercentualSodio;
-    }
-
-    public double getQuantidadeGorduraGramas() {
-        return quantidadeGorduraGramas;
-    }
-
-    public void setQuantidadeGorduraGramas(double quantidadeGorduraGramas) {
-        this.quantidadeGorduraGramas = quantidadeGorduraGramas;
-    }
-
-    public double getValorPercentualGordura() {
-        return valorPercentualGordura;
-    }
-
-    public void setValorPercentualGordura(double valorPercentualGordura) {
-        this.valorPercentualGordura = valorPercentualGordura;
-    }
-
-    public double getQuantidadeCaloria() {
-        return quantidadeCaloria;
-    }
-
-    public void setQuantidadeCaloria(double quantidadeCaloria) {
-        this.quantidadeCaloria = quantidadeCaloria;
-    }
-
     @Override
     public int compareTo(Alimento o) {
-        return this.getNomeAlimento().compareTo(o.getNomeAlimento());
+        return this.getNome().compareTo(o.getNome());
     }
-
-
-    public String getNomeCategoria() {
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        Categoria categoria = categoriaDAO.findPK(this.codCategoria);
-
-        return categoria.getNomeCategoria();
-
-    }
-
-
 }
