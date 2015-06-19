@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -30,41 +32,24 @@ public class AlimentoController {
             Alimento alimento,
             Model model) {
 
-        if (!alimentoDao.getAlimentos().isEmpty()) {
-            if (tipoDeOrdenacao != null) {
-                if (tipoDeOrdenacao.equals("cre")) {
-                    Collections.sort(alimentoDao.getAlimentos());
-                }
-            }
 
-            if (tipoDeOrdenacao != null) {
-                if (tipoDeOrdenacao.equals("decre")) {
-                    Collections.sort(alimentoDao.getAlimentos());
-                    Collections.reverse(alimentoDao.getAlimentos());
-                }
-            }
+        model.addAttribute("alimentos", repositorio.findAll());
 
-            model.addAttribute("alimento", new Alimento());
-            model.addAttribute("alimentos", alimentoDao.getAlimentos());
-
-        }
-        else {
-            model.addAttribute("erro", "Nenhum alimento encontrado!");
-        }
         return "lista";
     }
 
 
     @RequestMapping(value = "/busca", method = RequestMethod.GET)
     public String busca(Alimento alimento, Model model) {
-        List<Alimento> resultadoBusca = alimentoDao.find(alimento);
 
-        if (!resultadoBusca.isEmpty()) {
-            model.addAttribute("alimentos", resultadoBusca);
+
+        List<Alimento> alimentosBanco = repositorio.findByNome(alimento.getNome());
+
+        if (!alimentosBanco.isEmpty()) {
+            model.addAttribute("alimentos", alimentosBanco);
         } else {
             model.addAttribute("erro", "Nenhum alimento encontrado!");
         }
-
 
         return "lista";
     }
@@ -88,5 +73,18 @@ public class AlimentoController {
       }
 
         return "lista";
+    }
+
+    @RequestMapping(value = "/detalhe")
+    public String detalhe(Model model, @RequestParam(value = "nomeAlimento", required = false) String nome){
+        Alimento alimento = new Alimento();
+        alimento.setNome(nome);
+
+        AlimentoDAO adao = new AlimentoDAO();
+        List<Alimento> lista= adao.find(alimento);
+
+        model.addAttribute("alimento", lista.get(0));
+
+        return "detalhe";
     }
 }
