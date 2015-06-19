@@ -40,7 +40,7 @@ public class AlimentoController {
     public String busca(Alimento alimento, Model model) {
 
 
-        List<Alimento> alimentosBanco = repositorioAlimento.findByNome(alimento.getNome());
+        List<Alimento> alimentosBanco = repositorioAlimento.findByNomeLikeIgnoreCase(alimento.getNome());
 
         if (!alimentosBanco.isEmpty()) {
             model.addAttribute("alimentos", alimentosBanco);
@@ -76,7 +76,7 @@ public class AlimentoController {
     @RequestMapping(value = "/detalhe")
     public String detalhe(Model model, @RequestParam(value = "nomeAlimento", required = false) String nome){
 
-        List<Alimento> lista= repositorioAlimento.findByNome(nome);
+        List<Alimento> lista= repositorioAlimento.findByNomeLikeIgnoreCase(nome);
 
         model.addAttribute("alimento", lista.get(0));
 
