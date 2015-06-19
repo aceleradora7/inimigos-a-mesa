@@ -1,8 +1,7 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
-import br.com.aceleradora.inimigosamesa.dao.AlimentoDAO;
 import br.com.aceleradora.inimigosamesa.dao.AlimentoRepository;
-import br.com.aceleradora.inimigosamesa.dao.CategoriaDAO;
+import br.com.aceleradora.inimigosamesa.dao.CategoriaRepository;
 import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,19 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 @Controller
 public class AlimentoController {
 
     @Autowired
-    AlimentoRepository repositorio;
+    private AlimentoRepository repositorioAlimento;
 
     @Autowired
-    AlimentoDAO alimentoDao;
+    private CategoriaRepository repositorioCategoria;
+
+
 
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public String listar(
@@ -32,8 +30,7 @@ public class AlimentoController {
             Alimento alimento,
             Model model) {
 
-
-        model.addAttribute("alimentos", repositorio.findAll());
+        model.addAttribute("alimentos", repositorioAlimento.findAll());
 
         return "lista";
     }
@@ -43,7 +40,7 @@ public class AlimentoController {
     public String busca(Alimento alimento, Model model) {
 
 
-        List<Alimento> alimentosBanco = repositorio.findByNome(alimento.getNome());
+        List<Alimento> alimentosBanco = repositorioAlimento.findByNome(alimento.getNome());
 
         if (!alimentosBanco.isEmpty()) {
             model.addAttribute("alimentos", alimentosBanco);
@@ -55,33 +52,31 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/buscaCategoria", method = RequestMethod.GET)
-    public String buscaPorCategoria(@RequestParam(value = "categoria") String categoria, Model model) {
+    public String buscaPorCategoria(@RequestParam(value = "categoria") String nome, Model model) {
         model.addAttribute("alimento", new Alimento());
-        
-        Categoria categoriaBusca = new Categoria();
-        categoriaBusca.setNomeCategoria(categoria);
 
-        CategoriaDAO catDao = new CategoriaDAO();
-        List<Categoria> listCategoria = catDao.find(categoriaBusca);
+        Categoria categoria = repositorioCategoria.findFirstByNomeLikeIgnoreCase(nome);
 
-       List<Alimento> resultadoBusca = alimentoDao.findPorCategoria(listCategoria.get(0));
+        if(categoria == null){
+            model.addAttribute("erro", "Nenhuma categoria encontrada!");
+            return "lista";
+        }
 
-       if (!resultadoBusca.isEmpty()) {
-           model.addAttribute("alimentos", resultadoBusca);
-        } else {
-           model.addAttribute("erro", "Nenhum Alimento encontrado!");
-      }
+        List<Alimento> alimentosCategoria = categoria.getAlimentos();
 
+        if(alimentosCategoria.isEmpty()){
+            model.addAttribute("erro", "Nenhum alimento encontrado!");
+            return "lista";
+        }
+
+        model.addAttribute("alimentos", alimentosCategoria);
         return "lista";
     }
 
     @RequestMapping(value = "/detalhe")
     public String detalhe(Model model, @RequestParam(value = "nomeAlimento", required = false) String nome){
-        Alimento alimento = new Alimento();
-        alimento.setNome(nome);
 
-        AlimentoDAO adao = new AlimentoDAO();
-        List<Alimento> lista= adao.find(alimento);
+        List<Alimento> lista= repositorioAlimento.findByNome(nome);
 
         model.addAttribute("alimento", lista.get(0));
 
