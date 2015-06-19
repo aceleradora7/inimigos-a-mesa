@@ -9,7 +9,7 @@ public class ApresentacaoController {
 
     @RequestMapping("/")
     public String home(Alimento alimento){
-        return "home";
+        return "index";
     }
 
     public String sobre(){

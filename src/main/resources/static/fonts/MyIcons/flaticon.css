@@ -1,0 +1,59 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;}
+@font-face {
+	font-family: "pan";
+	src: url("pan.eot");
+	src: url("pan.eot#iefix") format("embedded-opentype"),
+	url("pan.woff") format("woff"),
+	url("pan.ttf") format("truetype"),
+	url("pan.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+
+}.flaticon-balance13:before {
+	content: "\e000";
+}
+.flaticon-books71:before {
+	content: "\e001";
+}
+.flaticon-cook4:before {
+	content: "\e002";
+}
+.flaticon-cutlery22:before {
+	content: "\e003";
+}
+.flaticon-first-aid:before {
+	content: "\e004";
+}
+.flaticon-heart36:before {
+	content: "\e005";
+}
+.flaticon-info28:before {
+	content: "\e006";
+}
+.flaticon-mail59:before {
+	content: "\e007";
+}
+
+[class^="pan-"]:before, [class*=" pan-"]:before,
+[class^="pan-"]:after, [class*=" pan-"]:after {   
+	font-family: pan;
+        font-size: 20px;
+font-style: normal;
+}.pan-cooking26:before {
+	content: "\e000";
+}
+
