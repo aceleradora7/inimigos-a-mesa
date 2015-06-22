@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <meta charset="UTF-8"/>
+    <title>Detalhe do Produto</title>
 
-</body>
+
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/detalhe-do-produto.css" rel="stylesheet"/>
+</head>
+    <body>
+
+        <nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+        <div class="jumbotron">
+            <center>
+                <h2>Cadastro de Alimento</h2>
+            </center>
+        </div>
+        <div class="containder">
+            <form action="">
+                Nome Alimento:
+                <input type="text" name="nomeAlimento" value="">
+                <br/>
+                Selecione uma categoria:
+                <select>
+                    <option value="#">catego1</option>
+                </select>
+                <br/>
+                Açucar:
+                    <input type="text" name="acucar" value="">
+                Sal:
+                    <input type="text" name="sal" value="">
+                Gordura:
+                    <input type="text" name="gordura" value="">
+
+            </form>
+        </div>
+
+    </body>
 </html>
