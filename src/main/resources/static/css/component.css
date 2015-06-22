@@ -50,7 +50,7 @@
 .cbp-ig-grid li > a {
 	display: block;
 	height: 100%;
-	color: #007280;
+	color: #04A222;
 	-webkit-transition: background 0.2s;
 	-moz-transition: background 0.2s;
 	transition: background 0.2s;
@@ -91,7 +91,7 @@
 .cbp-ig-grid .cbp-ig-title:before {
 	content: '';
 	position: absolute;
-	background: black;
+	background: #04A222;
 	width: 160px;
 	height: 6px;
 	top: 0px;
@@ -129,7 +129,7 @@
 
 
 .cbp-ig-grid li > a:hover {
-	background: #007280;
+	background: #04A222;
 }
 
 .cbp-ig-grid li > a:hover .cbp-ig-icon {

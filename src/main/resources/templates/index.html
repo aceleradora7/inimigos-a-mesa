@@ -18,7 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/component.css" />
 		<link rel="stylesheet" type="text/css" href="../css/principal.css" />
 
-		<link th:replace="fragmentos/header :: bootstrap-css" />
+		<link th:replace="fragmentos/headerhome :: bootstrap-css" />
 
 		<script src="js/modernizr.custom.js">
 
@@ -27,13 +27,13 @@
 	</head>
 
 	<body>
-	<nav th:replace="fragmentos/header :: cabecalho"></nav>
+	<nav th:replace="fragmentos/headerhome :: cabecalho"></nav>
 
 	<div class="container">
 		
 			<br/>
 				
-			<div class="main">
+			<div class="main homeprincipal">
 					
 				<ul class="cbp-ig-grid">
 						
@@ -94,16 +94,42 @@
 					</li>
 						
 					<!-- Logo/ Buscar/ Slogan - INICIO -->
-					
+
 					<li>
-							
-						<h3>INIMIGOS À MESA</h3>								
-					
+
+
+						<div class="logo">
+							<span class="cbp-ig-icon avocado-fruit68"></span>
+
+							<h3 class="logoh3">Descubra o que você realmente come</h3>
+								<br/>
+							<center>
+							<form role="search"  th:object="${alimento}" th:action="@{/busca}" method="get">
+
+									<div class="buscar">
+
+										<div class="input-group">
+
+											<input type="text" class="form-control" placeholder="Pesquise por..."/>
+     											 <span class="input-group-btn">
+        											<button class="btn btn-default" type="button">Buscar!</button>
+												 </span>
+
+										</div>
+
+									</div>
+
+
+							</form>
+							</center>
+						</div>
+
 					</li>
+
 
 					<!-- Logo/ Buscar/ Slogan - FIM -->
 
-						
+
 					<li>
 											
 						<a href="#">
