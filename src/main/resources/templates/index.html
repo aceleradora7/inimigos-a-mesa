@@ -104,15 +104,15 @@
 							<h3 class="logoh3">Descubra o que você realmente come</h3>
 								<br/>
 							<center>
-							<form role="search"  th:object="${alimento}" th:action="@{/busca}" method="get">
+							<form role="search"  th:object="${alimento}" th:action="@{/busca}" method="get ">
 
 									<div class="buscar">
 
 										<div class="input-group">
 
-											<input type="text" class="form-control" placeholder="Pesquise por..."/>
+											<input type="text" class="form-control" placeholder="Pesquise por..." id="input_busca" maxlength="256" th:field="*{nome}"/>
      											 <span class="input-group-btn">
-        											<button class="btn btn-default" type="button">Buscar!</button>
+        											<button type="submit" class="btn btn-default">Buscar!</button>
 												 </span>
 
 										</div>
