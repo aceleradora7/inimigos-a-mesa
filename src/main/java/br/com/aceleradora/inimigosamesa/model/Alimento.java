@@ -15,37 +15,41 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     @ManyToOne
     private Categoria categoria;
 
-    @Column(name = "nomealimento")
+    @Column(name = "nomealimento", length = 255)
     private String nome;
 
-    @Column(name = "quantidadeacucargramas")
-    private double acucarGramas;
+    @Column(name = "quantidadeacucargramas", length = 15)
+    private String acucarGramas;
 
-    @Column(name = "valorpercentualacucardiario")
-    private double percentualDiarioAcucar;
+    @Column(name = "valorpercentualacucardiario", length = 15)
+    private String percentualDiarioAcucar;
 
-    @Column(name = "quantidadesodiomiligramas")
-    private double sodioMiligramas;
+    @Column(name = "quantidadesodiomiligramas", length = 15)
+    private String sodioMiligramas;
 
-    @Column(name = "valorpercentualsodiodiario")
-    private double percentualDiarioSodio;
+    @Column(name = "valorpercentualsodiodiario", length = 15)
+    private String percentualDiarioSodio;
 
-    @Column(name = "quantidadegorduragramas")
-    private double gorduraGramas;
+    @Column(name = "quantidadegorduragramas", length = 15)
+    private String gorduraGramas;
 
-    @Column(name = "valorpercentualgorduradiaria")
-    private double percentualDiarioGordura;
+    @Column(name = "valorpercentualgorduradiaria", length = 15)
+    private String percentualDiarioGordura;
 
-    @Column(name = "quantidadecalorias")
-    private double calorias;
+    @Column(name = "quantidadecalorias", length = 15)
+    private String calorias;
 
+    @Column(name = "urlimagem", length = 255)
     private String urlImagem;
 
     public Alimento() {
 
     }
 
-    public Alimento(int codigo, Categoria categoria, String nome, double acucarGramas, double percentualDiarioAcucar, double sodioMiligramas, double percentualDiarioSodio, double gorduraGramas, double percentualDiarioGordura, double calorias, String urlImagem) {
+    public Alimento(int codigo, Categoria categoria,
+                    String nome, String acucarGramas,
+                    String percentualDiarioAcucar,
+                    String sodioMiligramas, String percentualDiarioSodio, String gorduraGramas, String percentualDiarioGordura, String calorias, String urlImagem) {
         this.codigo = codigo;
         this.categoria = categoria;
         this.nome = nome;
@@ -83,59 +87,59 @@ public class Alimento implements Comparable<Alimento>, Serializable{
         this.nome = nome;
     }
 
-    public double getAcucarGramas() {
+    public String getAcucarGramas() {
         return acucarGramas;
     }
 
-    public void setAcucarGramas(double acucarGramas) {
+    public void setAcucarGramas(String acucarGramas) {
         this.acucarGramas = acucarGramas;
     }
 
-    public double getPercentualDiarioAcucar() {
+    public String getPercentualDiarioAcucar() {
         return percentualDiarioAcucar;
     }
 
-    public void setPercentualDiarioAcucar(double percentualDiarioAcucar) {
+    public void setPercentualDiarioAcucar(String percentualDiarioAcucar) {
         this.percentualDiarioAcucar = percentualDiarioAcucar;
     }
 
-    public double getSodioMiligramas() {
+    public String getSodioMiligramas() {
         return sodioMiligramas;
     }
 
-    public void setSodioMiligramas(double sodioMiligramas) {
+    public void setSodioMiligramas(String sodioMiligramas) {
         this.sodioMiligramas = sodioMiligramas;
     }
 
-    public double getPercentualDiarioSodio() {
+    public String getPercentualDiarioSodio() {
         return percentualDiarioSodio;
     }
 
-    public void setPercentualDiarioSodio(double percentualDiarioSodio) {
+    public void setPercentualDiarioSodio(String percentualDiarioSodio) {
         this.percentualDiarioSodio = percentualDiarioSodio;
     }
 
-    public double getGorduraGramas() {
+    public String getGorduraGramas() {
         return gorduraGramas;
     }
 
-    public void setGorduraGramas(double gorduraGramas) {
+    public void setGorduraGramas(String gorduraGramas) {
         this.gorduraGramas = gorduraGramas;
     }
 
-    public double getPercentualDiarioGordura() {
+    public String getPercentualDiarioGordura() {
         return percentualDiarioGordura;
     }
 
-    public void setPercentualDiarioGordura(double percentualDiarioGordura) {
+    public void setPercentualDiarioGordura(String percentualDiarioGordura) {
         this.percentualDiarioGordura = percentualDiarioGordura;
     }
 
-    public double getCalorias() {
+    public String getCalorias() {
         return calorias;
     }
 
-    public void setCalorias(double calorias) {
+    public void setCalorias(String calorias) {
         this.calorias = calorias;
     }
 
