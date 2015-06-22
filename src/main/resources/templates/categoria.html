@@ -5,21 +5,35 @@
     <title>Cadastro de categoria</title>
     <link th:replace="fragmentos/header :: bootstrap-css" />
 </head>
-    <body>
+<body>
 
-        <form th:action="@{/cadastrarCategoria}" th:object="${categoria}" method="POST">
+<form th:action="@{/cadastrarCategoria}" th:object="${categoria}" method="POST">
 
-            <div class="form-group">
-                <label>Nome: </label>
-                <input type="text" class="form-control" th:field="*{nome}"/>
+    <div class="form-group">
+        <label>Nome: </label>
+        <input type="text" class="form-control" th:field="*{nome}"/>
+    </div>
+
+    <div>
+        <input type="submit" value="Cadastrar" class="btn btn-primary"/>
+    </div>
+
+</form>
+<p th:text="${mensagemDeRetorno}"> </p>
+
+<div th:each="categoria : ${categorias}">
+
+    <a th:href="@{'/cadastrarCategoria?codigo=' + ${categoria.codigo}}" class="list-group-item">
+
+        <div id="infoCategoria" class="media">
+
+            <div class="media-body">
+                <h2 class="media-heading" th:text="${categoria.nome}" id="categoria"></h2>
+
+                <p id="codcategoria" th:text="${categoria.codigo}"></p>
             </div>
-
-            <div>
-                <input type="submit" value="Cadastrar" class="btn btn-primary"/>
-            </div>
-
-        </form>
-        <p th:text="${mensagemDeRetorno}"> </p>
-
-    </body>
+        </div>
+    </a>
+</div>
+</body>
 </html>
