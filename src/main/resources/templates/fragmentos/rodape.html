@@ -1,124 +1,133 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-<link rel="stylesheet" type="text/css" href="/css/principal.css" />
-<nav th:fragment="rodape">
-    <footer id="footer" class="container-fluid">
-        <div class="container-fluid">
-            <div id="footer-menu">
-                <div id="footer-sites">
-                    <div class="main">
-                        <center>
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <th>
-                                        ALIMENTOS
-                                    </th>
-                                    <th>
-                                        SITES
-                                    </th>
-                                    <th>
-                                        OUTROS
-                                    </th>
-                                    <th colspan="3">
-                                        COMPARTILHAMENTO
-                                    </th>
-                                    <th>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <a>Bebidas</a>
-                                            </li>
-                                            <li>
-                                                <a>Carnes</a>
-                                            </li>
-                                            <li>
-                                                <a>Cereais</a>
-                                            </li>
-                                            <li>
-                                                <a>Doces/Gorduras</a>
-                                            </li>
-                                            <li>
-                                                <a>Frutas</a>
-                                            </li>
-                                            <li>
-                                                <a>Laticínios</a>
-                                            </li>
-                                            <li>
-                                                <a>Legumes</a>
-                                            </li>
-                                            <li>
-                                                <a>Verduras</a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <a>Alimentos</a>
-                                            </li>
-                                            <li>
-                                                <a>Dicas de hábitos saudáveis</a>
-                                            </li>
-                                            <li>
-                                                <a>Doenças</a>
-                                            </li>
-                                            <li>
-                                                <a>Receitas</a>
-                                            </li>
-                                            <li>
-                                                <a>Tutorial</a>
-                                            </li>
-                                            <li>
-                                                <a>Informações legais</a>
-                                            </li>
-                                            <li>
-                                                <a>Sobre</a>
-                                            </li>
-                                            <li>
-                                                <a>Contato</a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <a>Alimentos</a>
-                                            </li>
-                                            <li>
-                                                <a>Dicas de hábitos saudáveis</a>
-                                            </li>
-                                            <li>
-                                                <a>Doenças</a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <a>Facebook</a>
-                                            </li>
-                                            <li>
-                                                <a>Twitter</a>
-                                            </li>
-                                            <li>
-                                                <a>Google+</a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </center>
+    <link rel="stylesheet" type="text/css" href="/css/principal.css" />
+    <link th:fragment="bootstrap-css" href="webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+
+    <nav th:fragment="rodape">
+        <footer id="footer" class="container">
+            <div class="container">
+                <div id="footer-menu">
+                    <div id="footer-sites">
+                        <div class="main">
+                            <center>
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <th>
+                                            ALIMENTOS
+                                        </th>
+                                        <th>
+                                            SITES
+                                        </th>
+                                        <th colspan="3">
+                                            COMPARTILHAMENTO
+                                        </th>
+                                        <th>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=10">Bebidas</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=7">Carnes</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=11">Cereais</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=14">Doces</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=1">Frutas</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=6">Gorduras e Óleos</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=5">Latícinios</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=4">Leguminosas</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=2">Nozes e Sementes</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=8">Pescados e Frutos do Mar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=9">Industrializados</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/buscaCategoria?categoria=3">Verduras e Hortaliças</a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="lista.html">Alimentos</a>
+                                                </li>
+                                                <li>
+                                                    <a>Dicas de hábitos saudáveis</a>
+                                                </li>
+                                                <li>
+                                                    <a>Doenças</a>
+                                                </li>
+                                                <li>
+                                                    <a>Receitas</a>
+                                                </li>
+                                                <li>
+                                                    <a>Tutorial</a>
+                                                </li>
+                                                <li>
+                                                    <a>Informações legais</a>
+                                                </li>
+                                                <li>
+                                                    <a>Sobre</a>
+                                                </li>
+                                                <li>
+                                                    <a>Contato</a>
+                                                </li>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Facebook</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Twitter</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Google+</a>
+                                                </li>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </center>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-</nav>
+        </footer>
+    </nav>
 </html>
