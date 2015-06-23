@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -30,7 +31,11 @@ public class AlimentoController {
             Alimento alimento,
             Model model) {
 
-        model.addAttribute("alimentos", repositorioAlimento.findAll());
+
+        List<Alimento> alimentos = (List<Alimento>) repositorioAlimento.findAll();
+        alimentos = ordenar(alimentos,tipoDeOrdenacao);
+
+        model.addAttribute("alimentos", alimentos);
 
         return "lista";
     }
@@ -51,10 +56,13 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/buscaCategoria", method = RequestMethod.GET)
-    public String buscaPorCategoria(@RequestParam(value = "categoria") String nome, Model model) {
+    public String buscaPorCategoria(@RequestParam(value = "categoria") String codigo,
+                                    @RequestParam(value = "opcao-ordenar", required = false, defaultValue = "cre") String tipoDeOrdenacao,
+                                    Model model) {
         model.addAttribute("alimento", new Alimento());
 
-        Categoria categoria = repositorioCategoria.findFirstByNomeLikeIgnoreCase(nome);
+
+        Categoria categoria = repositorioCategoria.findOne(Integer.parseInt(codigo));
 
         if(categoria == null){
             model.addAttribute("erro", "Nenhuma categoria encontrada!");
@@ -67,6 +75,8 @@ public class AlimentoController {
             model.addAttribute("erro", "Nenhum alimento encontrado!");
             return "lista";
         }
+
+        alimentosCategoria = ordenar(alimentosCategoria,tipoDeOrdenacao);
 
         model.addAttribute("alimentos", alimentosCategoria);
         return "lista";
@@ -82,6 +92,16 @@ public class AlimentoController {
         return "detalhe";
     }
 
+
+    public List<Alimento> ordenar(List<Alimento> alimentos, String tipoDeOrdenacao){
+        if(tipoDeOrdenacao.equals("cre")){
+            Collections.sort(alimentos);
+        }else if(tipoDeOrdenacao.equals("decre")){
+            Collections.sort(alimentos);
+            Collections.reverse(alimentos);
+        }
+        return alimentos;
+    }
 //    @RequestMapping(value = "/cadastraAlimento")
 //    public String
 }
