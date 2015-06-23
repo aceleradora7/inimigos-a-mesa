@@ -13,7 +13,7 @@ function associarEventosOpcaoDeOrdenacao(){
     selectOrdenacao.on("click", onClickSelectDeOrdenacao);
 }
 
-var onClickSelectOrdenacao =  function onClickSelectDeOrdenacao(){
+var onClickSelectDeOrdenacao =  function onClickSelectDeOrdenacao(){
     var opcaoSelecionada = $(this).find(":selected");
 
     var link = "/listar?opcao-ordernar=" + opcaoSelecionada.val();
