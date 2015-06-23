@@ -8,23 +8,18 @@ function associarEventosMenuCategoria(){
 }
 
 function associarEventosOpcaoDeOrdenacao(){
-    var selectOrdenacao = $("opcao-ordenar");
 
-    selectOrdenacao.on("click", onClickSelectDeOrdenacao);
-}
+    var teste = $("#selectdeordenar").val();
+    var link = "/lista?opcao-ordenar=" + teste;
 
-var onClickSelectDeOrdenacao =  function onClickSelectDeOrdenacao(){
-    var opcaoSelecionada = $(this).find(":selected");
-
-    var link = "/listar?opcao-ordernar=" + opcaoSelecionada.val();
-
-    console.log(link);
 
     window.location.replace(link);
-};
+   }
+
+
 
 var onClickBotaoCategoria = function onClickBotaoCategoria(){
-    var categoria = $(this).text();
+    var categoria = $(this).val();
 
     var link = "/buscaCategoria?categoria=" + categoria;
 
@@ -33,7 +28,7 @@ var onClickBotaoCategoria = function onClickBotaoCategoria(){
 
 var associarEventos = function associarEventos(){
     associarEventosMenuCategoria();
-    associarEventosOpcaoDeOrdenacao();
+   // associarEventosOpcaoDeOrdenacao();
 };
 
 $(document).ready(function(){
