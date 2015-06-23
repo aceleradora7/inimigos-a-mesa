@@ -56,13 +56,14 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/buscaCategoria", method = RequestMethod.GET)
-    public String buscaPorCategoria(@RequestParam(value = "categoria") String codigo,
-                                    @RequestParam(value = "opcao-ordenar", required = false, defaultValue = "cre") String tipoDeOrdenacao,
+    public String buscaPorCategoria(@RequestParam(value = "categoria") String parametros,
                                     Model model) {
         model.addAttribute("alimento", new Alimento());
 
+        String divideparametros[] = parametros.split("-");
 
-        Categoria categoria = repositorioCategoria.findOne(Integer.parseInt(codigo));
+        Categoria categoria = repositorioCategoria.findOne(Integer.parseInt(divideparametros[0]));
+
 
         if(categoria == null){
             model.addAttribute("erro", "Nenhuma categoria encontrada!");
@@ -71,16 +72,24 @@ public class AlimentoController {
 
         List<Alimento> alimentosCategoria = categoria.getAlimentos();
 
+        if(divideparametros.length>1){
+            if(divideparametros[1].equals("cre")){
+                Collections.sort(alimentosCategoria);
+            }else if(divideparametros[1].equals("decre")){
+                Collections.sort(alimentosCategoria);
+                Collections.reverse(alimentosCategoria);
+            }
+        }
+
         if(alimentosCategoria.isEmpty()){
             model.addAttribute("erro", "Nenhum alimento encontrado!");
             return "lista";
         }
 
-        alimentosCategoria = ordenar(alimentosCategoria,tipoDeOrdenacao);
-
         model.addAttribute("alimentos", alimentosCategoria);
         return "lista";
     }
+
 
     @RequestMapping(value = "/detalhe")
     public String detalhe(Model model, @RequestParam(value = "alimento", required = false) int codigo){
