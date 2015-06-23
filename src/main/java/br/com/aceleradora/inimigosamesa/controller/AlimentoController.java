@@ -87,6 +87,38 @@ public class AlimentoController {
 
         Alimento alimento= repositorioAlimento.findOne(codigo);
 
+        if(Double.parseDouble(alimento.getCalorias())>0 && Double.parseDouble(alimento.getCalorias())<=0.5){
+            alimento.setCalorias("TR");
+        }else if(alimento.getCalorias()==null){
+            alimento.setCalorias("NA");
+        }else{
+            alimento.setCalorias(alimento.getCalorias()+" kcal");
+        }
+
+        if(Double.parseDouble(alimento.getAcucarGramas())>0 && Double.parseDouble(alimento.getAcucarGramas())<=0.5){
+            alimento.setAcucarGramas("TR");
+        }else if(alimento.getAcucarGramas()==null){
+            alimento.setAcucarGramas("NA");
+        }else{
+            alimento.setAcucarGramas(alimento.getAcucarGramas()+" g");
+        }
+
+        if (Double.parseDouble(alimento.getSodioMiligramas())>0 && Double.parseDouble(alimento.getSodioMiligramas())<=0.5){
+            alimento.setSodioMiligramas("TR");
+        }else if(alimento.getSodioMiligramas()==null){
+            alimento.setSodioMiligramas("NA");
+        }else{
+            alimento.setSodioMiligramas(alimento.getSodioMiligramas()+" mg");
+        }
+
+        if (Double.parseDouble(alimento.getGorduraGramas())>0 && Double.parseDouble(alimento.getGorduraGramas())<=0.5){
+            alimento.setGorduraGramas("TR");
+        }else if(alimento.getGorduraGramas()==null){
+            alimento.setGorduraGramas("NA");
+        }else{
+            alimento.setGorduraGramas(alimento.getGorduraGramas()+" g");
+        }
+
         model.addAttribute("alimento", alimento);
 
         return "detalhe";
