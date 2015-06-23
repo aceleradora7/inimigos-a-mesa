@@ -1,64 +1,62 @@
 .container{
-margin-top:70px !important;
+	margin-top:70px !important;
 }
 .homeprincipal{
-margin-top:-70px !important;
-}
-a{
-text-decoration : none !important;
+	margin-top:-70px !important;
 }
 
-.logo{display: block;
-height: 100%;
-color: #2A841D;
+a{
+	text-decoration : none !important;
+}
+
+.logo{
+	display: block;
+	height: 100%;
+	color: #2A841D;
 }
 
 .logoh3{
-margin: 20px 0 10px 0;
-padding: 20px 0 0 0;
-position: relative;
--webkit-transition: -webkit-transform 0.2s;
--moz-transition: -moz-transform 0.2s;
-transition: transform 0.2s;
-font-size: 18px;
+	margin: 20px 0 10px 0;
+	padding: 20px 0 0 0;
+	position: relative;
+	-webkit-transition: -webkit-transform 0.2s;
+	-moz-transition: -moz-transform 0.2s;
+	transition: transform 0.2s;
+	font-size: 18px;
 }
 
 .logoh3:before {
-content: '';
-position: absolute;
-background: #04A222;
-width: 160px;
-height: 6px;
-top: 0px;
-left: 50%;
-margin: -10px 0 0 -80px;
--webkit-transition: margin-top 0.2s; /* top or translate does not seem to work in Firefox */
--moz-transition: margin-top 0.2s;
-transition: margin-top 0.2s;
+	content: '';
+	position: absolute;
+	background: #04A222;
+	width: 160px;
+	height: 6px;
+	top: 0px;
+	left: 50%;
+	margin: -10px 0 0 -80px;
+	-webkit-transition: margin-top 0.2s; /* top or translate does not seem to work in Firefox */
+	-moz-transition: margin-top 0.2s;
+	transition: margin-top 0.2s;
 }
 
 .buscar{
-width: 200px !important;
+	width: 200px !important;
 }
 
 .escritaheader{
-margin-top: 15px;
-
+	margin-top: 15px;
 }
 
 .test {
-float:left;
+	float:left;
 }
-
 
 .logoheader{
-font-size: 8px;
-margin-top: -15px !important;
-float: left;
-margin-right: 15px;
-}
-{
-text-decoration : none !important;
+	font-size: 8px;
+	margin-top: -15px !important;
+	float: left;
+	margin-right: 15px;
+	text-decoration : none !important;
 }
 
 
