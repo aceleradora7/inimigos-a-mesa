@@ -2,3 +2,15 @@
     height: 300px;
     weight: 300px;
 }
+
+.alimentonome{
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.alimentocategoria{
+    font-weight: italic;
+    font-size: 16px;
+    padding-left: 15px;
+}
+

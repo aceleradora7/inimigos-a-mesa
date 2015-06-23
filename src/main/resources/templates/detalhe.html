@@ -24,11 +24,10 @@
 </div>
 <div class="container" th:object="${alimento}" id="mostraAlimento">
     <div class = "row" id="infoAlimento">
-        <h4 th:text="${alimento.nome}" id="alimento"></h4>
+        <h3 th:text="${alimento.nome}" class="alimentonome"></h3>
+        <h4 th:text="${alimento.getCategoria().getNome()}" class="alimentocategoria"></h4>
     </div>
-    <div class = "row">
-        <h4>Tags</h4>
-    </div>
+
     <div class="row">
         <div class="col-xs-6 col-md-5">
             <img th:src="${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
@@ -38,7 +37,7 @@
                 <center>
                     <li class="list-group-item">
                         <h3>
-                            Tabela Nutricional
+                            <b>Tabela Nutricional</b>
                         </h3>
                     </li>
                 </center>
@@ -57,14 +56,29 @@
                     <span class="badge" th:text="${alimento.sodioMiligramas} + ' g'"></span>
                     Sódio
                 </li>
+                <li class="list-group-item">
+                    <span class="badge" th:text="${alimento.gorduraGramas} + ' g'"></span>
+                    Gordura
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        <b><center>Legenda</center></b>
+
+                    </h4>
+
+                    <h6 class="list-group-item">
+                        <B>NA</B> - Não avaliado
+                        <br />
+                        <b>TR</b> - Traço para medidas entre 0 à 0.5
+
+                    </h6>
+                </li>
             </ul>
         </div>
 
     </div>
 
-    <div class="row">
-        MedidasVisuais
-    </div>
+
 </div>
 </body>
 </html>
