@@ -27,29 +27,35 @@
             <br/>
 
             <div id="menu-categoria" class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-primary btn-lg">Cereais</button>
-                <button type="button" class="btn btn-primary btn-lg">Frutas</button>
-                <button type="button" class="btn btn-primary btn-lg">Verduras</button>
-                <button type="button" class="btn btn-primary btn-lg">Legumes</button>
-                <button type="button" class="btn btn-primary btn-lg">Carnes</button>
-                <button type="button" class="btn btn-primary btn-lg">Laticínios</button>
-                <button type="button" class="btn btn-primary btn-lg">Doces/Gorduras</button>
-                <button type="button" class="btn btn-primary btn-lg">Bebidas</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="10">Bebidas</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="7">Carnes</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="11">Cereais</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="14">Doces</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="1">Frutas</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="6">Gorduras e Óleos</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="5">Latícinios</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="4">Leguminosas</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="2">Nozes e Sementes</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="8">Pescados e Frutos do Mar</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="9">Industrializados</button>
+                <button type="button" class="btn btn-primary btn-lg correcaocategoria" value="3">Verduras e Hortaliças</button>
             </div>
 
             <br/>
             <br/>
 
             <label> Ordenar por nome </label>
-            <select id="opcao-ordenar" name="opcao-ordenar">
-                <option value="cre" >Crescente</option>
+            <select id="selectdeordenar" name="selectdeordenar" onchange="associarEventosOpcaoDeOrdenacao()">
+                <option></option>
                 <option value="decre">Decrescente</option>
+                <option value="cre" >Crescente</option>
             </select>
 
         </center>
-
+        <br />
+        <center>
         <p th:text="${erro}"></p>
-
+        </center>
         <div class="list-group">
             <div th:each="alimento : ${alimentos}">
 
