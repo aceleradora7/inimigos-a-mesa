@@ -57,13 +57,14 @@ margin-top: -15px !important;
 float: left;
 margin-right: 15px;
 }
-
+{
 text-decoration : none !important;
 }
 
-#footer {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    color: #FFF;
-    background: #2E2E2E none repeat scroll 0% 0%;
+
+#footer{
+padding-top: 30px;
+padding-bottom: 30px;
+color: #FFF;
+background: #2E2E2E none repeat scroll 0% 0%;
 }
