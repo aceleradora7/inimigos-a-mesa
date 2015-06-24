@@ -44,7 +44,7 @@ public class AlimentoController {
     @RequestMapping(value = "/busca", method = RequestMethod.GET)
     public String busca(Alimento alimento, Model model) {
 
-        List<Alimento> alimentosBanco = repositorioAlimento.findByNomeLikeIgnoreCase("%" + alimento.getNome() + "%");
+        List<Alimento> alimentosBanco = repositorioAlimento.buscaAlimentoPorNomeSemAcentos(alimento.getNome() + "%");
 
         if (!alimentosBanco.isEmpty()) {
             model.addAttribute("alimentos", alimentosBanco);
