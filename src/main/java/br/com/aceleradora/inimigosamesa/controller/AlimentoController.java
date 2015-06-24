@@ -143,6 +143,4 @@ public class AlimentoController {
         }
         return alimentos;
     }
-//    @RequestMapping(value = "/cadastraAlimento")
-//    public String
 }

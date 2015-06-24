@@ -7,12 +7,9 @@ import java.util.List;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geradorId")
-    @SequenceGenerator(initialValue = 15, allocationSize = 1, name="geradorId", sequenceName = "categoria_sequence")
-    @Column(name="codcategoria")
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int codigo;
 
-    @Column(name="nomecategoria")
     private String nome;
 
     @OneToMany(mappedBy = "categoria")
@@ -50,4 +47,5 @@ public class Categoria {
     public void setAlimentos(List<Alimento> alimentos) {
         this.alimentos = alimentos;
     }
+
 }

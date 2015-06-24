@@ -7,39 +7,20 @@ import java.io.Serializable;
 public class Alimento implements Comparable<Alimento>, Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "codalimento")
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int codigo;
 
-    @JoinColumn(name = "codcategoria", referencedColumnName = "codcategoria")
+    @JoinColumn(name = "cod_categoria", referencedColumnName = "codigo")
     @ManyToOne
     private Categoria categoria;
-
-    @Column(name = "nomealimento", length = 255)
     private String nome;
-
-    @Column(name = "quantidadeacucargramas", length = 15)
     private String acucarGramas;
-
-    @Column(name = "valorpercentualacucardiario", length = 15)
     private String percentualDiarioAcucar;
-
-    @Column(name = "quantidadesodiomiligramas", length = 15)
     private String sodioMiligramas;
-
-    @Column(name = "valorpercentualsodiodiario", length = 15)
     private String percentualDiarioSodio;
-
-    @Column(name = "quantidadegorduragramas", length = 15)
     private String gorduraGramas;
-
-    @Column(name = "valorpercentualgorduradiaria", length = 15)
     private String percentualDiarioGordura;
-
-    @Column(name = "quantidadecalorias", length = 15)
     private String calorias;
-
-    @Column(name = "urlimagem", length = 255)
     private String urlImagem;
 
     public Alimento() {
@@ -155,4 +136,5 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     public int compareTo(Alimento o) {
         return this.getNome().compareTo(o.getNome());
     }
+
 }
