@@ -31,7 +31,7 @@ a{
 	background: #04A222;
 	width: 160px;
 	height: 6px;
-	top: 0px;
+	top: 0px;<link href="css/principal.css" rel="stylesheet"/>
 	left: 50%;
 	margin: -10px 0 0 -80px;
 	-webkit-transition: margin-top 0.2s; /* top or translate does not seem to work in Firefox */
@@ -71,4 +71,18 @@ a{
 .correcaocategoria {
     border-radius: 0px !important;
 
+}
+
+.medidas-visuais{
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+.medidas-visuais-titulo{
+	float: left;
+}
+
+.colher {
+	margin-left: 10px;
+	float: left;
 }
