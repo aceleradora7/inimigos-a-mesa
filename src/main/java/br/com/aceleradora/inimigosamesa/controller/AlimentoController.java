@@ -7,6 +7,7 @@ import br.com.aceleradora.inimigosamesa.model.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -90,8 +91,8 @@ public class AlimentoController {
     }
 
 
-    @RequestMapping(value = "/detalhe")
-    public String detalhe(Model model, @RequestParam(value = "alimento", required = false) int codigo) {
+    @RequestMapping(value = "/detalhe/{codigo}")
+    public String detalhe(Model model, @PathVariable("codigo") int codigo) {
 
         Alimento alimento = repositorioAlimento.findOne(codigo);
 

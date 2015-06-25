@@ -37,7 +37,8 @@
                  buscaDados(request, response);
             },
             select:function(event, ui){
-                var link = "/detalhe?alimento=" + ui.item.value;
+                var id = ui.item.value
+                var link = "/detalhe/" + id;
                 window.location.replace(link);
             }
         });

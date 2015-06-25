@@ -64,7 +64,7 @@
         <div class="list-group">
             <div th:each="alimento : ${alimentos}">
 
-                <a th:href="@{'/detalhe?alimento=' + ${alimento.codigo}}" class="list-group-item">
+                <a th:href="@{'/detalhe/' + ${alimento.codigo}}" class="list-group-item">
 
                     <div id="infoAlimento" class="media">
 
