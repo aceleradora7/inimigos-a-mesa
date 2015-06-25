@@ -1,5 +1,7 @@
 package br.com.aceleradora.inimigosamesa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -19,6 +21,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
 
     @JoinColumn(name = "cod_categoria", referencedColumnName = "codigo")
     @ManyToOne
+    @JsonIgnore
     private Categoria categoria;
     private String nome;
     private String acucarGramas;
@@ -62,6 +65,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
         this.codigo = codigo;
     }
 
+    @JsonIgnore
     public Categoria getCategoria() {
         return categoria;
     }
