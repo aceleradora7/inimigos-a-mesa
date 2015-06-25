@@ -8,12 +8,12 @@ import java.io.Serializable;
 @Entity(name = "alimento")
 public class Alimento implements Comparable<Alimento>, Serializable{
 
-    private static final transient String TRACO = "TR";
-    private static final transient String NAO_AVALIADO = "NA";
+    public static final transient String TRACO = "TR";
+    public static final transient String NAO_AVALIADO = "NA";
 
-    private static final transient String GRAMAS = "g";
-    private static final transient String MILIGRAMAS = "mg";
-    private static final transient String CALORIAS = "kcal";
+    public static final transient String GRAMAS = " g";
+    public static final transient String MILIGRAMAS = " mg";
+    public static final transient String CALORIAS = " kcal";
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -23,6 +23,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     @ManyToOne
     @JsonIgnore
     private Categoria categoria;
+
     private String nome;
     private String acucarGramas;
     private String percentualDiarioAcucar;
@@ -37,13 +38,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
 
     }
 
-    public Alimento(int codigo, Categoria categoria,
-                    String nome, String acucarGramas,
-                    String percentualDiarioAcucar,
-                    String sodioMiligramas, String percentualDiarioSodio,
-                    String gorduraGramas, String percentualDiarioGordura,
-                    String calorias, String urlImagem) {
-
+    public Alimento(int codigo, Categoria categoria, String nome, String acucarGramas, String percentualDiarioAcucar, String sodioMiligramas, String percentualDiarioSodio, String gorduraGramas, String percentualDiarioGordura, String calorias, String urlImagem) {
         this.codigo = codigo;
         this.categoria = categoria;
         this.nome = nome;
@@ -88,14 +83,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     }
 
     public void setAcucarGramas(String acucarGramas) {
-
-        if(acucarGramas == null){
-            this.acucarGramas = NAO_AVALIADO;
-            return;
-        }
-
-        double valorNumericoAcucar = Double.parseDouble(acucarGramas);
-        this.acucarGramas = (valorNumericoAcucar > 0 && valorNumericoAcucar <= 0.5)? TRACO: acucarGramas.concat(GRAMAS) ;
+        this.acucarGramas=acucarGramas;
     }
 
     public String getPercentualDiarioAcucar() {
@@ -111,14 +99,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     }
 
     public void setSodioMiligramas(String sodioMiligramas) {
-
-        if(sodioMiligramas== null){
-            this.sodioMiligramas = NAO_AVALIADO;
-            return;
-        }
-
-        double valorNumericoSodio = Double.parseDouble(sodioMiligramas);
-        this.acucarGramas = (valorNumericoSodio > 0 && valorNumericoSodio <= 0.5)? TRACO: sodioMiligramas.concat(MILIGRAMAS);
+        this.sodioMiligramas = sodioMiligramas;
     }
 
     public String getPercentualDiarioSodio() {
@@ -135,13 +116,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
 
     public void setGorduraGramas(String gorduraGramas) {
 
-        if(gorduraGramas== null){
-            this.gorduraGramas= NAO_AVALIADO;
-            return;
-        }
-
-        double valorNumericoGordura = Double.parseDouble(gorduraGramas);
-        this.gorduraGramas = (valorNumericoGordura > 0 && valorNumericoGordura <= 0.5)? TRACO: gorduraGramas.concat(MILIGRAMAS);
+        this.gorduraGramas = gorduraGramas;
     }
 
     public String getPercentualDiarioGordura() {
@@ -157,14 +132,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     }
 
     public void setCalorias(String calorias) {
-
-        if(calorias == null){
-            this.calorias = NAO_AVALIADO;
-            return;
-        }
-
-        double valorNumericoCalorias = Double.parseDouble(calorias);
-        this.calorias = (valorNumericoCalorias > 0 && valorNumericoCalorias <= 0.5)? TRACO: calorias.concat(CALORIAS);
+        this.calorias = calorias;
     }
 
     public String getUrlImagem() {

@@ -18,6 +18,9 @@ import java.util.List;
 @Controller
 public class AlimentoController {
 
+    private static final String ORDENACAO_CRESCENTE = "cre";
+    private static final String ORDENACAO_DECRESCENTE = "decre";
+
     @Autowired
     private AlimentoRepository repositorioAlimento;
 
@@ -27,13 +30,17 @@ public class AlimentoController {
 
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public String listar(
-            @RequestParam(value = "opcao-ordenar", required = false, defaultValue = "cre") String tipoDeOrdenacao,
+            @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
+            @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
             Alimento alimento,
             Model model) {
 
+        List<Alimento> alimentos;
 
-        List<Alimento> alimentos = (List<Alimento>) repositorioAlimento.findAll();
-        alimentos = ordenar(alimentos, tipoDeOrdenacao);
+        alimentos = (List) ((categoria == 0) ? repositorioAlimento.findAll() :
+                    repositorioCategoria.findOne(categoria).getAlimentos());
+
+        ordenar(alimentos, tipoDeOrdenacao);
 
         model.addAttribute("alimentos", alimentos);
 
@@ -72,14 +79,7 @@ public class AlimentoController {
 
         List<Alimento> alimentosCategoria = categoria.getAlimentos();
 
-        if (divideparametros.length > 1) {
-            if (divideparametros[1].equals("cre")) {
-                Collections.sort(alimentosCategoria);
-            } else if (divideparametros[1].equals("decre")) {
-                Collections.sort(alimentosCategoria);
-                Collections.reverse(alimentosCategoria);
-            }
-        }
+        ordenar(alimentosCategoria, divideparametros[1]);
 
         if (alimentosCategoria.isEmpty()) {
             model.addAttribute("erro", "Nenhum alimento encontrado!");
@@ -95,20 +95,38 @@ public class AlimentoController {
     public String detalhe(Model model, @PathVariable("codigo") int codigo) {
 
         Alimento alimento = repositorioAlimento.findOne(codigo);
-
+        legendar(alimento);
         model.addAttribute("alimento", alimento);
 
         return "detalhe";
     }
 
 
-    public List<Alimento> ordenar(List<Alimento> alimentos, String tipoDeOrdenacao) {
-        if (tipoDeOrdenacao.equals("cre")) {
-            Collections.sort(alimentos);
-        } else if (tipoDeOrdenacao.equals("decre")) {
-            Collections.sort(alimentos);
+    private void ordenar(List<Alimento> alimentos, String tipoDeOrdenacao) {
+
+        Collections.sort(alimentos);
+
+        if (tipoDeOrdenacao.equals("decre")) {
             Collections.reverse(alimentos);
         }
-        return alimentos;
     }
+
+    private void legendar(Alimento alimento) {
+        alimento.setCalorias(traduzirLegenda(alimento.getCalorias(), Alimento.CALORIAS));
+        alimento.setAcucarGramas(traduzirLegenda(alimento.getAcucarGramas(), Alimento.GRAMAS));
+        alimento.setSodioMiligramas(traduzirLegenda(alimento.getSodioMiligramas(), Alimento.MILIGRAMAS));
+        alimento.setGorduraGramas(traduzirLegenda(alimento.getGorduraGramas(), Alimento.GRAMAS));
+    }
+
+    private String traduzirLegenda(String valor, String unidadeDeMedida) {
+
+        if (valor == null) {
+            return Alimento.NAO_AVALIADO;
+        }
+
+        double valorNumerico = Double.parseDouble(valor);
+
+        return (valorNumerico > 0 && valorNumerico <= 0.5) ? Alimento.TRACO : valor.concat(unidadeDeMedida);
+    }
+
 }
