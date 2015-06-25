@@ -18,14 +18,11 @@ function associarEventosOpcaoDeOrdenacao(){
     }else if(url.indexOf("buscaCategoria")>-1){
              var link = url.split('-')[0] + "-" +selectdeordenar;
          }
-
     window.location.replace(link);
 }
 
-
-
 var onClickBotaoCategoria = function onClickBotaoCategoria(){
-   var categoria = $(this).val();
+    var categoria = $(this).val();
 
     var link = "/buscaCategoria?categoria=" + categoria;
 

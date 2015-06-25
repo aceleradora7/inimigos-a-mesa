@@ -1,10 +1,27 @@
-function calculaMedidasVisuais() {
-    alert("Hello! I am an alert box!!");
-    var colher;
-    var acucar = $("#valor-calorias").val();
-    alert (acucar + "1");
+function calculaMedidasVisuais(){
+    var colher = 0;
+    var calorias = document.getElementById('valor-caloria').innerHTML;
 
-        if (acucar === 0){
-            colher = acucar%3.5;
-            }
+    if (calorias != 0){
+       colher = calorias / 4;
+       console.log("colheres" + colher);
+       var teste = mostraColher(colher);
+
+       return teste;
+    }
 }
+
+function mostraColher(numeroDeColheres) {
+
+    var img = document.createElement("IMG");
+    img.src = "img/colher.png";
+
+    for (i = 0; i <= numeroDeColheres; i++){
+       var colherinha =  colherinha + '1';
+    }
+    return colherinha;
+}
+
+/*"<div id="imagem-colher" class="colher">
+                 <img id="image" src="img/colher.png" class="img-rounded media-object colher-img"/>
+             </div>" */
