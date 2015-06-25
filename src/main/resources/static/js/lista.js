@@ -1,5 +1,3 @@
-
-
 function associarEventosMenuCategoria(){
     var menuCategorias = $("#menu-categoria");
     var botoesMenuCategoria = menuCategorias.find(".btn");
@@ -7,26 +5,24 @@ function associarEventosMenuCategoria(){
     botoesMenuCategoria.each(function(){
         $(this).on("click", onClickBotaoCategoria);
     });
-}
+};
 
 function associarEventosOpcaoDeOrdenacao(){
 
-    var url = window.location.href;
+    var url= window.location.href;
+    console.log(url);
+
     var selectdeordenar = $("#selectdeordenar").val();
-    if(url.indexOf("lista")>-1){
-        var link = "/lista?opcao-ordenar=" + selectdeordenar;
-    }else if(url.indexOf("buscaCategoria")>-1){
-             var link = url.split('-')[0] + "-" +selectdeordenar;
-         }
-    window.location.replace(link);
 }
 
 var onClickBotaoCategoria = function onClickBotaoCategoria(){
     var categoria = $(this).val();
+    console.log("onClickBotaoCategoria -- : "+categoria);
 
-    var link = "/buscaCategoria?categoria=" + categoria;
+    var link = "/lista?categoria=" + categoria;
+    console.log("onClickBotaoCategoria -- : "+link);
 
-    window.location.replace(link);
+//    window.location.replace(link);
 };
 
 var associarEventos = function associarEventos(){
