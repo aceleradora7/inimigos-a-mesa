@@ -8,8 +8,11 @@
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: principal-css" />
 
+    <script th:replace="fragmentos/header :: jquery"> </script>
+    <script type="text/javascript" src="/js/detalhe.js"></script>
+
 </head>
-<body>
+<body onload="calculaMedidasVisuais();">
 
     <nav th:replace="fragmentos/header :: cabecalho"></nav>
 
@@ -31,7 +34,7 @@
                     <div class="col-xs-6 col-md-5">
                         <img th:src="${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
                     </div>
-                    <div class="col-xs-6 col-md-5">
+                    <div class="col-xs-6 col-md-5" id="tabela-nutricional">
                         <ul class="list-group">
                             <center>
                                 <li class="list-group-item">
@@ -44,15 +47,15 @@
                                 Para porção de 100g
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" th:text="${alimento.calorias}"> </span>
+                                <span id="valor-caloria" class="badge" th:text="${alimento.calorias}"> </span>
                                 Calorias
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" th:text="${alimento.acucarGramas}"></span>
+                                <label id="valor-acucar" class="badge" th:text="${alimento.acucarGramas}" ></label>
                                 Açucar
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" th:text="${alimento.sodioMiligramas}"></span>
+                                <span id="valor-sodio" class="badge" th:text="${alimento.sodioMiligramas}"></span>
                                 Sódio
                             </li>
                             <li class="list-group-item">
@@ -78,9 +81,12 @@
 
                     <div class="col-md-8">
                         <h3 class="medidas-visuais-titulo">Açucar:</h3>
-                        <div id="imagem-colher" class="media-left media-middle colher">
-                            <img height="50px" width="50px" src="img/colher.png" class="img-rounded media-object"/>
-                        </div>
+
+
+                            <div id="imagem-colher" class="colher">
+                                <img src="img/colher.png" class="img-rounded media-object colher-img"/>
+                            </div>
+
                     </div>
                     <div class="col-md-8">
                         <h3 class="medidas-visuais-titulo">Sal:</h3>

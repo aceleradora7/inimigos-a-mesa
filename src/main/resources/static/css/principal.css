@@ -83,6 +83,11 @@ a{
 }
 
 .colher {
-	margin-left: 10px;
+	margin-left: 5px;
 	float: left;
+}
+
+.colher-img {
+	height: 50px;
+	width: 30px;
 }
