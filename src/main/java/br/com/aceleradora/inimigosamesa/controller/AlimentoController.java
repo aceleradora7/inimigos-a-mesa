@@ -24,7 +24,6 @@ public class AlimentoController {
     private CategoriaRepository repositorioCategoria;
 
 
-
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public String listar(
             @RequestParam(value = "opcao-ordenar", required = false, defaultValue = "cre") String tipoDeOrdenacao,
@@ -33,7 +32,7 @@ public class AlimentoController {
 
 
         List<Alimento> alimentos = (List<Alimento>) repositorioAlimento.findAll();
-        alimentos = ordenar(alimentos,tipoDeOrdenacao);
+        alimentos = ordenar(alimentos, tipoDeOrdenacao);
 
         model.addAttribute("alimentos", alimentos);
 
@@ -65,23 +64,23 @@ public class AlimentoController {
         Categoria categoria = repositorioCategoria.findOne(Integer.parseInt(divideparametros[0]));
 
 
-        if(categoria == null){
+        if (categoria == null) {
             model.addAttribute("erro", "Nenhuma categoria encontrada!");
             return "lista";
         }
 
         List<Alimento> alimentosCategoria = categoria.getAlimentos();
 
-        if(divideparametros.length>1){
-            if(divideparametros[1].equals("cre")){
+        if (divideparametros.length > 1) {
+            if (divideparametros[1].equals("cre")) {
                 Collections.sort(alimentosCategoria);
-            }else if(divideparametros[1].equals("decre")){
+            } else if (divideparametros[1].equals("decre")) {
                 Collections.sort(alimentosCategoria);
                 Collections.reverse(alimentosCategoria);
             }
         }
 
-        if(alimentosCategoria.isEmpty()){
+        if (alimentosCategoria.isEmpty()) {
             model.addAttribute("erro", "Nenhum alimento encontrado!");
             return "lista";
         }
@@ -92,41 +91,9 @@ public class AlimentoController {
 
 
     @RequestMapping(value = "/detalhe")
-    public String detalhe(Model model, @RequestParam(value = "alimento", required = false) int codigo){
+    public String detalhe(Model model, @RequestParam(value = "alimento", required = false) int codigo) {
 
-        Alimento alimento= repositorioAlimento.findOne(codigo);
-
-        if(Double.parseDouble(alimento.getCalorias())>0 && Double.parseDouble(alimento.getCalorias())<=0.5){
-            alimento.setCalorias("TR");
-        }else if(alimento.getCalorias()==null){
-            alimento.setCalorias("NA");
-        }else{
-            alimento.setCalorias(alimento.getCalorias()+" kcal");
-        }
-
-        if(Double.parseDouble(alimento.getAcucarGramas())>0 && Double.parseDouble(alimento.getAcucarGramas())<=0.5){
-            alimento.setAcucarGramas("TR");
-        }else if(alimento.getAcucarGramas()==null){
-            alimento.setAcucarGramas("NA");
-        }else{
-            alimento.setAcucarGramas(alimento.getAcucarGramas()+" g");
-        }
-
-        if (Double.parseDouble(alimento.getSodioMiligramas())>0 && Double.parseDouble(alimento.getSodioMiligramas())<=0.5){
-            alimento.setSodioMiligramas("TR");
-        }else if(alimento.getSodioMiligramas()==null){
-            alimento.setSodioMiligramas("NA");
-        }else{
-            alimento.setSodioMiligramas(alimento.getSodioMiligramas()+" mg");
-        }
-
-        if (Double.parseDouble(alimento.getGorduraGramas())>0 && Double.parseDouble(alimento.getGorduraGramas())<=0.5){
-            alimento.setGorduraGramas("TR");
-        }else if(alimento.getGorduraGramas()==null){
-            alimento.setGorduraGramas("NA");
-        }else{
-            alimento.setGorduraGramas(alimento.getGorduraGramas()+" g");
-        }
+        Alimento alimento = repositorioAlimento.findOne(codigo);
 
         model.addAttribute("alimento", alimento);
 
@@ -134,10 +101,10 @@ public class AlimentoController {
     }
 
 
-    public List<Alimento> ordenar(List<Alimento> alimentos, String tipoDeOrdenacao){
-        if(tipoDeOrdenacao.equals("cre")){
+    public List<Alimento> ordenar(List<Alimento> alimentos, String tipoDeOrdenacao) {
+        if (tipoDeOrdenacao.equals("cre")) {
             Collections.sort(alimentos);
-        }else if(tipoDeOrdenacao.equals("decre")){
+        } else if (tipoDeOrdenacao.equals("decre")) {
             Collections.sort(alimentos);
             Collections.reverse(alimentos);
         }
