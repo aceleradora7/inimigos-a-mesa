@@ -4,27 +4,19 @@
     <meta charset="UTF-8"/>
     <title>Detalhe do Produto</title>
 
-
-    <script type="text/javascript" src="/js/detalhe.js"></script>
-
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: principal-css" />
 
     <script th:replace="fragmentos/header :: jquery"> </script>
-
+    <script type="text/javascript" src="js/detalhe.js"></script>
 
 </head>
 
-<script type="javascript">
-    var colherinha = calculaMedidasVisuais();
-     $("#imagem-acucar").replaceWith( colherinha );
 
-</script>
 
-<body >
+<body>
 
     <nav th:replace="/fragmentos/header :: cabecalho"></nav>
-
 
         <div class="jumbotron">
             <center>
@@ -87,22 +79,16 @@
                     </div>
                 </div>
                 <div class="row medidas-visuais">
-
-                    <div class="col-md-8" id="imagem-acucar">
-                        <h3 class="medidas-visuais-titulo">Açucar:</h3>
-
-
-                    </div>
-                    <div class="col-md-8">
-                        <h3 class="medidas-visuais-titulo">Sal:</h3>
-                    </div>
-                    <div class="col-md-8">
-                        <h3 class="medidas-visuais-titulo">Gordura:</h3>
-                    </div>
+                    <h3 class="medidas-visuais-titulo">Açucar:</h3>
+                    <div class="col-md-8" id="imagem-colher-acucar"></div>
+                    <h3 class="medidas-visuais-titulo">Sal:</h3>
+                    <div class="col-md-8" id="imagem-colher-sal"></div>
+                    <h3 class="medidas-visuais-titulo">Gordura:</h3>
+                    <div class="col-md-8" id="imagem-colher-gordura"></div>
                 </div>
-
-
             </div>
-
+    <div id="template-colher" class="colher" style="display:none">
+        <img id="image" src="img/colher.png" class="img-rounded media-object colher-img"/>
+    </div>
 </body>
 </html>
