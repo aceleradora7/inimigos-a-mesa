@@ -3,6 +3,9 @@
     <link th:fragment="bootstrap-css" href="webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link th:fragment="principal-css" href="css/principal.css" rel="stylesheet"/>
     <script th:fragment="jquery" src="webjars/jquery/2.1.3/jquery.min.js"></script>
+    <script th:fragment="jqueryui" src="webjars/jquery-ui/1.11.4/jquery-ui.min.js"></script>
+    <script th:fragment="busca" src="js/busca.js"></script>
+
 
 
     <nav th:fragment="cabecalho" class="cabecalho navbar navbar-trans navbar-fixed-top navbar-inverse" role="navigation">
@@ -25,7 +28,7 @@
 
                 <form class="navbar-form navbar-left" role="search"  th:object="${alimento}" th:action="@{/busca}" method="get">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Buscar" id="input_busca" maxlength="256" th:field="*{nome}"/>
+                        <input type="text" class="form-control" placeholder="Buscar" id="input-busca" maxlength="256" th:field="*{nome}"/>
                     </div>
                     <button type="submit" class="btn btn-default"> Buscar </button>
                 </form>

@@ -7,10 +7,15 @@
 
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <script th:replace="fragmentos/header :: jquery"> </script>
+    <script th:replace="fragmentos/header :: jqueryui"> </script>
+
 
     <script src="js/lista.js"> </script>
+    <script src="js/busca.js"> </script>
+
 
     <link rel="stylesheet" type="text/css" href="css/principal.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
 
 </head>
 
@@ -82,5 +87,6 @@
         </center>
     </div>
     <nav th:replace="fragmentos/rodape :: rodape"></nav>
+
 </body>
 </html>
