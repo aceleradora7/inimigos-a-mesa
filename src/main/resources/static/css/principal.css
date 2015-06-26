@@ -86,6 +86,7 @@ a{
 .colher {
 	margin-left: 5px;
 	float: left;
+
 }
 
 
@@ -119,3 +120,12 @@ a{
     color: #FFFFFF !important;
     font-family: Arial,Helvetica,sans-serif;
     }
+
+#template-colher{
+	margin-left: 5px;
+    float: left;
+}
+.sem-colher{
+	float: left;
+}
+
