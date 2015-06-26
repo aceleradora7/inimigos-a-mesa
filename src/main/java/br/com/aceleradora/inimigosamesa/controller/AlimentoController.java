@@ -26,39 +26,38 @@ public class AlimentoController {
     @Autowired
     private CategoriaRepository repositorioCategoria;
 
-
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public String listar(
+            @RequestParam(value="busca", required = false) String busca,
             @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
             @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
-            Alimento alimento,
             Model model) {
 
         List<Alimento> alimentos;
 
-        alimentos = (List) ((categoria == 0) ? repositorioAlimento.findAll() :
-                    repositorioCategoria.findOne(categoria).getAlimentos());
+        if(busca != null){
+            alimentos = busca(busca);
+        }else{
+            alimentos = (List) ((categoria == 0) ? repositorioAlimento.findAll() : buscaPorCategoria(categoria));
+        }
 
-        ordenar(alimentos, tipoDeOrdenacao);
 
-        model.addAttribute("alimentos", alimentos);
+        if(alimentos.isEmpty()){
+            model.addAttribute("erro", "Nenhum alimento encontrado.");
+        }else{
+            ordenar(alimentos, tipoDeOrdenacao);
+            model.addAttribute("alimentos", alimentos);
+        }
 
         return "lista";
     }
 
+    public List<Alimento> buscaPorCategoria(int codigoCategoria){
+        return repositorioCategoria.findOne(codigoCategoria).getAlimentos();
+    }
 
-    @RequestMapping(value = "/busca", method = RequestMethod.GET)
-    public String busca(Alimento alimento, Model model) {
-
-        List<Alimento> alimentosBanco = repositorioAlimento.findByNomeLikeIgnoreCase(alimento.getNome() + "%");
-
-        if (!alimentosBanco.isEmpty()) {
-            model.addAttribute("alimentos", alimentosBanco);
-        } else {
-            model.addAttribute("erro", "Nenhum alimento encontrado!");
-        }
-
-        return "lista";
+    public List<Alimento> busca(String busca) {
+        return repositorioAlimento.findByNomeLikeIgnoreCase(busca + "%");
     }
 
     @RequestMapping(value = "/detalhe/{codigo}")
@@ -66,7 +65,7 @@ public class AlimentoController {
 
         Alimento alimento = repositorioAlimento.findOne(codigo);
         legendar(alimento);
-        model.addAttribute("alimento", alimento);
+        model.addAttribute("alimentoDetalhe", alimento);
 
         return "detalhe";
     }
