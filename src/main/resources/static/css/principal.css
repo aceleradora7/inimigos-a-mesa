@@ -65,6 +65,7 @@ a{
     color: #FFF;
     background: #2E2E2E none repeat scroll 0% 0%;
 	width: auto;
+	padding-left: 30%;
 
 }
 
@@ -87,7 +88,37 @@ a{
 	float: left;
 }
 
+<<<<<<< HEAD
 .colher-img {
 	height: 50px;
 	width: 30px;
 }
+=======
+/* Footer */
+.alinhar{
+	list-style-type:none;
+	float: left;
+	width: 200px;
+
+	}
+
+.alimento{
+	text-align: left;
+    color: #FFFFFF !important;
+    font-family: Arial,Helvetica,sans-serif;
+    }
+
+.sites {
+	text-align: left;
+    color: #FFFFFF !important;
+    font-family: Arial,Helvetica,sans-serif;
+    }
+
+.compartilhamento {
+	text-align: left;
+    color: #FFFFFF !important;
+    font-family: Arial,Helvetica,sans-serif;
+    }
+
+
+>>>>>>> #Rodape <Eduardo, Rafael> - Adicinando os links do rodapeitens no rodape
