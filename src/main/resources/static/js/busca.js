@@ -1,48 +1,45 @@
+function criaBusca(){
 
-    function criaBusca(){
-
-        function buscaDados(request, response){
-            $.ajax({
-                dataType: "json",
-                url: "/autoCompletar",
-                type: "GET",
-                data : {
-                    "textoDigitado" : request.term
-                },
-                success: function(dados){
-                    console.log(dados);
-
-                    var sugestoes = [];
-
-                    for(var i = 0; i< dados.length; i++){
-
-                        var sugestao = {
-                            label : dados[i].nome,
-                            value : dados[i].codigo
-                        };
-
-                        sugestoes.push(sugestao);
-                    }
-
-                    console.log(sugestoes);
-
-                    response(sugestoes);
-                }
-            })
-        };
-
-        $("#input-busca").autocomplete({
-            minLength: 3,
-            source:function (request, response){
-                 buscaDados(request, response);
+    function buscaDados(request, response){
+        $.ajax({
+            dataType: "json",
+            url: "/autoCompletar",
+            type: "GET",
+            data : {
+                "textoDigitado" : request.term
             },
-            select:function(event, ui){
-                var id = ui.item.value
-                var link = "/detalhe/" + id;
-                window.location.replace(link);
+            success: function(dados){
+                console.log(dados);
+
+                var sugestoes = [];
+
+                for(var i = 0; i< dados.length; i++){
+
+                    var sugestao = {
+                        label : dados[i].nome,
+                        value : dados[i].codigo
+                    };
+
+                    sugestoes.push(sugestao);
+                }
+
+                response(sugestoes);
             }
-        });
+        })
     };
+
+    $("#input-busca").autocomplete({
+        minLength: 3,
+        source:function (request, response){
+             buscaDados(request, response);
+        },
+        select:function(event, ui){
+            var id = ui.item.value
+            var link = "/detalhe/" + id;
+            window.location.replace(link);
+        }
+    });
+};
 
 function eventoDesbloquearBotaoPesquisar() {
     $("#input-busca").keyup(function() {
@@ -52,7 +49,17 @@ function eventoDesbloquearBotaoPesquisar() {
     });
 }
 
+function onClickBotaoBusca(){
+    setParametro("busca", $("#input-busca").val());
+    removerParametro("categoria");
+    acessarPaginaComParametros("lista");
+}
+
+function associarEventoBotaoBusca(){
+    $("#btn-busca").on("click", onClickBotaoBusca);
+}
+
 $(document).ready(function() {
     eventoDesbloquearBotaoPesquisar();
-
+    associarEventoBotaoBusca();
 });
