@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-<head lang="en">
+<head> lang="en">
     <meta charset="UTF-8"/>
     <title>Detalhe do Produto</title>
 
@@ -8,15 +8,15 @@
     <link th:replace="fragmentos/header :: principal-css" />
 
     <script th:replace="fragmentos/header :: jquery"> </script>
-    <script type="text/javascript" src="/js/detalhe.js"></script>
+    <script th:replace="fragmentos/header :: detalhe"> </script>
+
 
 </head>
-
-
-
 <body>
 
-    <nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+
+    <nav th:replace="/fragmentos/header :: cabecalho"></nav>
 
         <div class="jumbotron">
             <center>
@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-xs-6 col-md-5">
                         <img th:src="${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
-                    </div>categoria
+                    </div>
                     <div class="col-xs-6 col-md-5" id="tabela-nutricional">
                         <ul class="list-group">
                             <center>
@@ -56,17 +56,16 @@
                                 Açucar
                             </li>
                             <li class="list-group-item">
-                                <span id="valor-sodio" class="badge" th:text="${alimento.sodioMiligramas}"></span>
+                                <span id="valor-sodio" class="badge" th:text="${alimento.sodioMiligramas}" th:value="${alimento.sodioMiligramas}"></span>
                                 Sódio
                             </li>
                             <li class="list-group-item">
-                                <span class="badge" th:text="${alimento.gorduraGramas}"></span>
+                                <span id="valor-gordura" class="badge" th:text="${alimento.gorduraGramas}" th:value="${alimento.gorduraGramas}"></span>
                                 Gordura
                             </li>
                             <li class="list-group-item">
                                 <h4>
                                     <b><center>Legenda</center></b>
-
                                 </h4>
 
                                 <h6 class="list-group-item">
@@ -79,16 +78,31 @@
                     </div>
                 </div>
                 <div class="row medidas-visuais">
-                    <h3 class="medidas-visuais-titulo">Açucar:</h3>
+
+                    <div class="col-md-8">
+                        <h3 class="medidas-visuais-titulo">Açucar:</h3>
+                    </div>
                     <div class="col-md-8" id="imagem-colher-acucar"></div>
-                    <h3 class="medidas-visuais-titulo">Sal:</h3>
+
+                    <div class="col-md-8">
+                        <h3 class="medidas-visuais-titulo">Sal:</h3>
+                    </div>
                     <div class="col-md-8" id="imagem-colher-sal"></div>
-                    <h3 class="medidas-visuais-titulo">Gordura:</h3>
+
+                    <div class="col-md-8">
+                        <h3 class="medidas-visuais-titulo">Gordura:</h3>
+                    </div>
                     <div class="col-md-8" id="imagem-colher-gordura"></div>
                 </div>
             </div>
+
     <div id="template-colher" class="colher" style="display:none">
-        <img id="image" src="/img/colher.png" class="img-rounded media-object colher-img"/>
+        <img id="image" src="/img/colher.png" class="colher"/>
     </div>
+
+    <div id="template-sem-colher" class="sem-colher" style="display:none">
+       <p>Não há dados. </p>
+    </div>
+
 </body>
 </html>

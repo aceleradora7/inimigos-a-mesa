@@ -82,13 +82,13 @@ public class AlimentoController {
     }
 
     private void legendar(Alimento alimento) {
-        alimento.setCalorias(traduzirLegenda(alimento.getCalorias(), Alimento.CALORIAS));
-        alimento.setAcucarGramas(traduzirLegenda(alimento.getAcucarGramas(), Alimento.GRAMAS));
-        alimento.setSodioMiligramas(traduzirLegenda(alimento.getSodioMiligramas(), Alimento.MILIGRAMAS));
-        alimento.setGorduraGramas(traduzirLegenda(alimento.getGorduraGramas(), Alimento.GRAMAS));
+        alimento.setCalorias(traduzirLegenda(alimento.getCalorias()));
+        alimento.setAcucarGramas(traduzirLegenda(alimento.getAcucarGramas()));
+        alimento.setSodioMiligramas(traduzirLegenda(alimento.getSodioMiligramas()));
+        alimento.setGorduraGramas(traduzirLegenda(alimento.getGorduraGramas()));
     }
 
-    private String traduzirLegenda(String valor, String unidadeDeMedida) {
+    private String traduzirLegenda(String valor) {
 
         if (valor == null) {
             return Alimento.NAO_AVALIADO;
@@ -96,7 +96,7 @@ public class AlimentoController {
 
         double valorNumerico = Double.parseDouble(valor);
 
-        return (valorNumerico > 0 && valorNumerico <= 0.5) ? Alimento.TRACO : valor.concat(unidadeDeMedida);
+        return (valorNumerico > 0 && valorNumerico <= 0.5) ? Alimento.TRACO : valor;
     }
 
 }
