@@ -106,7 +106,7 @@ public class AlimentoController {
 
         Collections.sort(alimentos);
 
-        if (tipoDeOrdenacao.equals("decre")) {
+        if (tipoDeOrdenacao.equals(ORDENACAO_DECRESCENTE)) {
             Collections.reverse(alimentos);
         }
     }

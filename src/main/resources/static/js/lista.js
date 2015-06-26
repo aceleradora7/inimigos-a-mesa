@@ -1,3 +1,28 @@
+function adicionarParametroNaUrl(nome, valor){
+    var parametrosUrl = window.location.search;
+
+    if(parametrosUrl.indexOf(nome) != -1){
+        console.log(parametrosUrl);
+        return;
+    }
+
+    (parametrosUrl.indexOf("?") === -1)? parametrosUrl += "?" : parametrosUrl += "&";
+
+    parametrosUrl += (nome + "=" + valor);
+    return parametrosUrl;
+}
+
+function onClickOpcaoDeOrdenacao(){
+     window.location.search = adicionarParametroNaUrl("opcao-ordenar" , $(this).val());
+}
+
+function onClickBotaoCategoria(){
+    var categoria = $(this).val();
+
+    window.location.search = adicionarParametroNaUrl("categoria", categoria);
+};
+
+
 function associarEventosMenuCategoria(){
     var menuCategorias = $("#menu-categoria");
     var botoesMenuCategoria = menuCategorias.find(".btn");
@@ -8,25 +33,15 @@ function associarEventosMenuCategoria(){
 };
 
 function associarEventosOpcaoDeOrdenacao(){
-
-    var url= window.location.href;
-    console.log(url);
-
-    var selectdeordenar = $("#selectdeordenar").val();
+    var selectDeOrdenacao = $("#select-ordenacao");
+    selectDeOrdenacao.find("option").each(function(){
+        $(this).on("click", onClickOpcaoDeOrdenacao);
+    });
 }
 
-var onClickBotaoCategoria = function onClickBotaoCategoria(){
-    var categoria = $(this).val();
-    console.log("onClickBotaoCategoria -- : "+categoria);
-
-    var link = "/lista?categoria=" + categoria;
-    console.log("onClickBotaoCategoria -- : "+link);
-
-//    window.location.replace(link);
-};
-
-var associarEventos = function associarEventos(){
+function associarEventos(){
     associarEventosMenuCategoria();
+    associarEventosOpcaoDeOrdenacao();
 };
 
 $(document).ready(function(){
