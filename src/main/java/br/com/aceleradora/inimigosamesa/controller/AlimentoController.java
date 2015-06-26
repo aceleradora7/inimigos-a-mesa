@@ -3,7 +3,6 @@ package br.com.aceleradora.inimigosamesa.controller;
 import br.com.aceleradora.inimigosamesa.dao.AlimentoRepository;
 import br.com.aceleradora.inimigosamesa.dao.CategoriaRepository;
 import br.com.aceleradora.inimigosamesa.model.Alimento;
-import br.com.aceleradora.inimigosamesa.model.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,35 +60,6 @@ public class AlimentoController {
 
         return "lista";
     }
-
-    @RequestMapping(value = "/buscaCategoria", method = RequestMethod.GET)
-    public String buscaPorCategoria(@RequestParam(value = "categoria") String parametros,
-                                    Model model) {
-        model.addAttribute("alimento", new Alimento());
-
-        String divideparametros[] = parametros.split("-");
-
-        Categoria categoria = repositorioCategoria.findOne(Integer.parseInt(divideparametros[0]));
-
-
-        if (categoria == null) {
-            model.addAttribute("erro", "Nenhuma categoria encontrada!");
-            return "lista";
-        }
-
-        List<Alimento> alimentosCategoria = categoria.getAlimentos();
-
-        ordenar(alimentosCategoria, divideparametros[1]);
-
-        if (alimentosCategoria.isEmpty()) {
-            model.addAttribute("erro", "Nenhum alimento encontrado!");
-            return "lista";
-        }
-
-        model.addAttribute("alimentos", alimentosCategoria);
-        return "lista";
-    }
-
 
     @RequestMapping(value = "/detalhe/{codigo}")
     public String detalhe(Model model, @PathVariable("codigo") int codigo) {
