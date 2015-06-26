@@ -1,25 +1,51 @@
-function adicionarParametroNaUrl(nome, valor){
-    var parametrosUrl = window.location.search;
+function getParametros(){
+    var parametros = window.location.search;
+    var params = {};
 
-    if(parametrosUrl.indexOf(nome) != -1){
-        console.log(parametrosUrl);
-        return;
+    function getParametro(parametro){
+        var nome  = parametro.split("=")[0];
+        var valor = parametro.split("=")[1];
+
+        params[nome] = valor;
     }
 
-    (parametrosUrl.indexOf("?") === -1)? parametrosUrl += "?" : parametrosUrl += "&";
+    if(parametros.indexOf("?") === -1){
+        return {};
+    }
 
-    parametrosUrl += (nome + "=" + valor);
-    return parametrosUrl;
+    parametros = parametros.replace("?", "");
+
+    if(parametros.indexOf("&") === -1){
+        getParametro(parametros);
+        return params;
+    }
+
+    var listaDeParametro = parametros.split("&");
+
+    listaDeParametro.forEach(function(parametro){
+        getParametro(parametro);
+    });
+
+    return params;
+}
+
+
+function setParametro(nome, valor){
+
+    var parametrosUrl = getParametros();
+
+    parametrosUrl[nome] = valor;
+
+    window.location.search = $.param(parametrosUrl);
 }
 
 function onClickOpcaoDeOrdenacao(){
-     window.location.search = adicionarParametroNaUrl("opcao-ordenar" , $(this).val());
+    setParametro("opcao-ordenar" , $(this).val());
 }
 
 function onClickBotaoCategoria(){
     var categoria = $(this).val();
-
-    window.location.search = adicionarParametroNaUrl("categoria", categoria);
+    setParametro("categoria", categoria);
 };
 
 
@@ -45,5 +71,13 @@ function associarEventos(){
 };
 
 $(document).ready(function(){
+
+    var parametros = getParametros();
+
+    if(parametros["opcao-ordenar"] != undefined){
+        console.log("Sim");
+        $("#select-ordenacao").val(parametros["opcao-ordenar"]);
+    }
+
     associarEventos();
 });
