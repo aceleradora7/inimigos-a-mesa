@@ -6,15 +6,17 @@
 
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: principal-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
 
     <script th:replace="fragmentos/header :: jquery"> </script>
+    <script th:replace="fragmentos/header :: jqueryui"> </script>
+    <script th:replace="fragmentos/header :: query-string-js"> </script>
+    <script th:replace="fragmentos/header :: busca"> </script>
     <script th:replace="fragmentos/header :: detalhe"> </script>
-
 
 </head>
 <body>
-
-
+>>>>>>> #00: <Lucas, Yasser> - Refatorando forma de buscar, removendo form
 
     <nav th:replace="/fragmentos/header :: cabecalho"></nav>
 
@@ -25,15 +27,15 @@
                 </h2>
             </center>
         </div>
-            <div class="container" th:object="${alimento}" id="mostraAlimento">
+            <div class="container" th:object="${alimentoDetalhe}" id="mostraAlimento">
                 <div class = "row" id="infoAlimento">
-                    <h3 th:text="${alimento.nome}" class="alimentonome"></h3>
-                    <h4 th:text="${alimento.getCategoria().getNome()}" class="alimentocategoria"></h4>
+                    <h3 th:text="*{nome}" class="alimentonome"></h3>
+                    <h4 th:text="*{getCategoria().getNome()}" class="alimentocategoria"></h4>
                 </div>
 
                 <div class="row">
                     <div class="col-xs-6 col-md-5">
-                        <img th:src="${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
+                        <img th:src="*{urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
                     </div>
                     <div class="col-xs-6 col-md-5" id="tabela-nutricional">
                         <ul class="list-group">
@@ -48,19 +50,19 @@
                                 Para porção de 100g
                             </li>
                             <li class="list-group-item">
-                                <label  value="calorias" id="valor-caloria" class="badge" th:text="${alimento.calorias}" th:value="${alimento.calorias}"> </label>
+                                <label  value="calorias" id="valor-caloria" class="badge" th:text="*{calorias}" th:value="*{calorias}"> </label>
                                 Calorias
                             </li>
                             <li class="list-group-item">
-                                <label id="valor-acucar" class="badge" th:text="${alimento.acucarGramas}" th:value="${alimento.acucarGramas}" ></label>
+                                <label id="valor-acucar" class="badge" th:text="*{acucarGramas}" th:value="*{acucarGramas}" ></label>
                                 Açucar
                             </li>
                             <li class="list-group-item">
-                                <span id="valor-sodio" class="badge" th:text="${alimento.sodioMiligramas}" th:value="${alimento.sodioMiligramas}"></span>
+                                <span id="valor-sodio" class="badge" th:text="*{sodioMiligramas}"></span>
                                 Sódio
                             </li>
                             <li class="list-group-item">
-                                <span id="valor-gordura" class="badge" th:text="${alimento.gorduraGramas}" th:value="${alimento.gorduraGramas}"></span>
+                                <span class="badge" th:text="*{gorduraGramas}"></span>
                                 Gordura
                             </li>
                             <li class="list-group-item">

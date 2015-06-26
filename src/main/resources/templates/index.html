@@ -10,181 +10,185 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 		
 
-		<link rel="stylesheet" type="text/css" href="../fonts/MyIcons/flaticon.css"/>		
-		<link rel="stylesheet" type="text/css" href="../css/index.css" />
-		<link rel="stylesheet" type="text/css" href="../css/principal.css" />
+		<link rel="stylesheet" type="text/css" href="fonts/MyIcons/flaticon.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/principal.css" />
+
 		<link th:replace="fragmentos/header :: bootstrap-css" />
+		<link th:replace="fragmentos/header :: jqueryui-css" />
 
+		<script th:replace="fragmentos/header :: jquery"> </script>
+		<script th:replace="fragmentos/header :: jqueryui"> </script>
 
-		<script src="js/modernizr.custom.js">
+		<script th:replace="fragmentos/header :: query-string-js"> </script>
+		<script th:replace="fragmentos/header :: busca"> </script>
 
-		</script>
-
+		<script src="js/modernizr.custom.js"> </script>
 	</head>
 
 	<body>
-	<nav th:replace="fragmentos/headerhome :: cabecalho"></nav>
+		<nav th:replace="fragmentos/header :: cabecalho-home"></nav>
 
-	<div class="container">
+		<div class="container">
 
-			<br/>
+				<br/>
 
-			<div class="main">
+				<div class="main">
 
-				<ul class="cbp-ig-grid">
+					<ul class="cbp-ig-grid">
 
-					<li>
+						<li>
 
-						<a href="lista">
+							<a href="lista">
 
-							<span class="cbp-ig-icon flaticon-cutlery22"></span>
+								<span class="cbp-ig-icon flaticon-cutlery22"></span>
 
-							<h3 class="cbp-ig-title">Alimentos</h3>
+								<h3 class="cbp-ig-title">Alimentos</h3>
 
-							<span class="cbp-ig-category">Em breve</span>
+								<span class="cbp-ig-category">Em breve</span>
 
-						</a>
+							</a>
 
-					</li>
+						</li>
 
-					<li>
+						<li>
 
-						<a href="#">
+							<a href="#">
 
-							<span class="cbp-ig-icon flaticon-heart36"></span>
+								<span class="cbp-ig-icon flaticon-heart36"></span>
 
-							<h3 class="cbp-ig-title">Dicas de hábitos saudáveis</h3>
+								<h3 class="cbp-ig-title">Dicas de hábitos saudáveis</h3>
 
-							<span class="cbp-ig-category">Em breve</span>
+								<span class="cbp-ig-category">Em breve</span>
 
-						</a>
+							</a>
 
-					</li>
+						</li>
 
-					<li>
+						<li>
 
-						<a href="#">
+							<a href="#">
 
-							<span class="cbp-ig-icon flaticon-first-aid"></span>
+								<span class="cbp-ig-icon flaticon-first-aid"></span>
 
-							<h3 class="cbp-ig-title">Doenças</h3>
+								<h3 class="cbp-ig-title">Doenças</h3>
 
-							<span class="cbp-ig-category">Em breve</span>
+								<span class="cbp-ig-category">Em breve</span>
 
-						</a>
+							</a>
 
-					</li>
+						</li>
 
-					<li>
+						<li>
 
-						<a href="#">
+							<a href="#">
 
-							<span class="cbp-ig-icon pan-cooking26"></span>
+								<span class="cbp-ig-icon pan-cooking26"></span>
 
-							<h3 class="cbp-ig-title">Receitas</h3>
+								<h3 class="cbp-ig-title">Receitas</h3>
 
-							<span class="cbp-ig-category">Em breve</span>
+								<span class="cbp-ig-category">Em breve</span>
 
-						</a>
+							</a>
 
-					</li>
+						</li>
 
-					<!-- Logo/ Buscar/ Slogan - INICIO -->
+						<!-- Logo/ Buscar/ Slogan - INICIO -->
 
-					<li>
+						<li>
 
-						<div class="logo">
-							<span class="cbp-ig-icon avocado-fruit68"></span>
+							<div class="logo">
+								<span class="cbp-ig-icon avocado-fruit68"></span>
 
-							<h3 class="logoh3">Descubra o que você realmente come</h3>
-								<br/>
-							<center>
-							<form role="search"  th:object="${alimento}" th:action="@{/busca}" method="get ">
+								<h3 class="logoh3">Descubra o que você realmente come</h3>
+									<br/>
+								<center>
 
-									<div class="buscar">
+								<div class="buscar">
 
-										<div class="input-group">
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="Pesquise por..." id="input-busca" maxlength="256" />
 
-											<input type="text" class="form-control" placeholder="Pesquise por..." id="input_busca" maxlength="256" th:field="*{nome}"/>
-     											 <span class="input-group-btn">
-        											<button type="submit" class="btn btn-default">Buscar</button>
-												 </span>
-
-										</div>
-
+										 <span class="input-group-btn">
+											<button type="submit" id="btn-busca" class="btn btn-success">
+												<span class="glyphicon glyphicon-search"></span>
+											</button>
+										</span>
 									</div>
 
-
-							</form>
-							</center>
-						</div>						
-
-					</li>
-
-					<!-- Logo/ Buscar/ Slogan - FIM -->
+								</div>
 
 
-					<li>
-											
-						<a href="#">
-												
-							<span class="cbp-ig-icon flaticon-books71"></span>
-														
-							<h3 class="cbp-ig-title">Tutorial</h3>
-														
-							<span class="cbp-ig-category">Em breve</span>
-													
-						</a>
-										
-					</li>
-						
-					<li>
-												
-						<a href="#">
-													
-							<span class="cbp-ig-icon flaticon-balance13"></span>
-														
-							<h3 class="cbp-ig-title">Informações legais</h3>
-														
-							<span class="cbp-ig-category">Em breve</span>
-													
-						</a>
-											
-					</li>
-						
-					<li>
-											
-						<a href="#">
-												
-							<span class="cbp-ig-icon flaticon-info28"></span>
-														
-							<h3 class="cbp-ig-title">Sobre</h3>
-														
-							<span class="cbp-ig-category">Em breve</span>
-													
-						</a>
-										
-					</li>
-						
-					<li>
-											
-						<a href="#" target="_blank">
-												
-							<span class="cbp-ig-icon flaticon-mail59"></span>
-														
-							<h3 class="cbp-ig-title">Contato</h3>
-														
-							<span class="cbp-ig-category">Em breve</span>
-													
-						</a>
-										
-					</li>
-					
-				</ul>
-				
+
+								</center>
+							</div>
+
+						</li>
+
+						<!-- Logo/ Buscar/ Slogan - FIM -->
+
+
+						<li>
+
+							<a href="#">
+
+								<span class="cbp-ig-icon flaticon-books71"></span>
+
+								<h3 class="cbp-ig-title">Tutorial</h3>
+
+								<span class="cbp-ig-category">Em breve</span>
+
+							</a>
+
+						</li>
+
+						<li>
+
+							<a href="#">
+
+								<span class="cbp-ig-icon flaticon-balance13"></span>
+
+								<h3 class="cbp-ig-title">Informações legais</h3>
+
+								<span class="cbp-ig-category">Em breve</span>
+
+							</a>
+
+						</li>
+
+						<li>
+
+							<a href="#">
+
+								<span class="cbp-ig-icon flaticon-info28"></span>
+
+								<h3 class="cbp-ig-title">Sobre</h3>
+
+								<span class="cbp-ig-category">Em breve</span>
+
+							</a>
+
+						</li>
+
+						<li>
+
+							<a href="#" target="_blank">
+
+								<span class="cbp-ig-icon flaticon-mail59"></span>
+
+								<h3 class="cbp-ig-title">Contato</h3>
+
+								<span class="cbp-ig-category">Em breve</span>
+
+							</a>
+
+						</li>
+
+					</ul>
+
+				</div>
 			</div>
-		</div>
-	<nav th:replace="fragmentos/rodape :: rodape"></nav>
+		<nav th:replace="fragmentos/rodape :: rodape"></nav>
 	</body>
 
 </html>

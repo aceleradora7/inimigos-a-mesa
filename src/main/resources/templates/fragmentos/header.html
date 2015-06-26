@@ -2,15 +2,17 @@
 
     <link th:fragment="bootstrap-css" href="/webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link th:fragment="principal-css" href="/css/principal.css" rel="stylesheet"/>
+
+    <link th:fragment="jqueryui-css" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
     <script th:fragment="jquery" src="/webjars/jquery/2.1.3/jquery.min.js"></script>
     <script th:fragment="jqueryui" src="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"></script>
     <script th:fragment="busca" src="/js/busca.js"></script>
     <script th:fragment="detalhe" src="/js/detalhe.js"></script>
+    <script th:fragment="query-string-js" src="/js/queryString.js"></script>
 
 
 
     <nav th:fragment="cabecalho" class="cabecalho navbar navbar-trans navbar-fixed-top navbar-inverse" role="navigation">
-
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
@@ -27,12 +29,19 @@
                     <li><a href="/lista">Lista dos Alimentos</a></li>
                 </ul>
 
-                <form class="navbar-form navbar-left" role="search"  th:object="${alimento}" th:action="@{/busca}" method="get">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Buscar" id="input-busca" maxlength="256" th:field="*{nome}"/>
+                <div class="navbar-form navbar-left" role="search" >
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar" id="input-busca" maxlength="256"/>
+
+                        <span class="input-group-btn">
+                            <button type="button" id="btn-busca" class="btn btn-success">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+
                     </div>
-                    <button type="submit" class="btn btn-default"> Buscar </button>
-                </form>
+
+                </div>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-apple"></i></a></li>
@@ -40,4 +49,31 @@
             </div>
         </div>
     </nav>
+
+
+    <nav th:fragment="cabecalho-home" class="cabecalho navbar navbar-trans" role="navigation">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <label class="cbp-ig-icon avocado-fruit68 logoheader"></label><label class="escritaheader">Inimigos à mesa</label>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar-collapsible">
+
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-apple"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
 </html>
