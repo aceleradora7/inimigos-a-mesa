@@ -28,23 +28,23 @@ public class AlimentoController {
 
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public String listar(
-            @RequestParam(value="busca", required = false) String busca,
+            @RequestParam(value = "busca", required = false) String busca,
             @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
             @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
             Model model) {
 
         List<Alimento> alimentos;
 
-        if(busca != null){
+        if (busca != null) {
             alimentos = busca(busca);
-        }else{
+        } else {
             alimentos = (List) ((categoria == 0) ? repositorioAlimento.findAll() : buscaPorCategoria(categoria));
         }
 
 
-        if(alimentos.isEmpty()){
+        if (alimentos.isEmpty()) {
             model.addAttribute("erro", "Nenhum alimento encontrado.");
-        }else{
+        } else {
             ordenar(alimentos, tipoDeOrdenacao);
             model.addAttribute("alimentos", alimentos);
         }
@@ -52,7 +52,7 @@ public class AlimentoController {
         return "lista";
     }
 
-    public List<Alimento> buscaPorCategoria(int codigoCategoria){
+    public List<Alimento> buscaPorCategoria(int codigoCategoria) {
         return repositorioCategoria.findOne(codigoCategoria).getAlimentos();
     }
 
@@ -67,9 +67,18 @@ public class AlimentoController {
         legendar(alimento);
         model.addAttribute("alimentoDetalhe", alimento);
 
+        double colher;
+        colher = valorColherGordura(alimento);
+        model.addAttribute("gordura", colher);
+
+        colher = valorColherAcucar(alimento);
+        model.addAttribute("acucar", colher);
+
+        colher = valorColherSal(alimento);
+        model.addAttribute("sal", colher);
+
         return "detalhe";
     }
-
 
     private void ordenar(List<Alimento> alimentos, String tipoDeOrdenacao) {
 
@@ -97,5 +106,43 @@ public class AlimentoController {
 
         return (valorNumerico > 0 && valorNumerico <= 0.5) ? Alimento.TRACO : valor;
     }
+
+    private double valorColherGordura(Alimento alimento) {
+        double colher = 0;
+        if (alimento.getGorduraGramas().equals(Alimento.TRACO) || alimento.getGorduraGramas().equals(Alimento.NAO_AVALIADO)) {
+            return colher;
+        }
+        double gordura = Double.parseDouble(alimento.getGorduraGramas());
+        if (gordura != 0) {
+            colher = gordura / 2;
+        }
+        return colher;
+    }
+
+    private double valorColherAcucar(Alimento alimento) {
+        double colher = 0;
+        if (alimento.getAcucarGramas().equals(Alimento.TRACO) || alimento.getAcucarGramas().equals(Alimento.NAO_AVALIADO)) {
+           return colher;
+        }
+        double acucar = Double.parseDouble(alimento.getAcucarGramas());
+        if (acucar != 0) {
+            colher = acucar / 1.76;
+        }
+        return colher;
+    }
+
+    private double valorColherSal(Alimento alimento) {
+        double colher = 0;
+        if (alimento.getSodioMiligramas().equals(Alimento.TRACO) || alimento.getSodioMiligramas().equals(Alimento.NAO_AVALIADO)) {
+            return colher;
+        }
+        double sodio = Double.parseDouble(alimento.getSodioMiligramas());
+        double sal = ((sodio * 100) / 39) * 0.001;
+        if (sal != 0) {
+            colher = sal / 2.06;
+        }
+        return colher;
+    }
+
 
 }
