@@ -130,3 +130,6 @@ a{
 	float: left;
 }
 
+.ui-widget{
+	z-index: 5000 !important;
+}
