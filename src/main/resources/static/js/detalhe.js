@@ -1,7 +1,7 @@
 //  <![CDATA[
 function mostraColherGordura(){
    var colher = $("#gordura").attr("value");
-   if (colher != 0){
+   if (colher >= 2){
 
        $("#imagem-colher-gordura").empty();
        for(i=0; i <= colher; i++){
@@ -15,7 +15,7 @@ function mostraColherGordura(){
 
 function mostraColherAcucar(){
    var colher = $("#acucar").attr("value");
-   if (colher != 0){
+   if (colher >= 1.5){
        $("#imagem-colher-acucar").empty();
        for(i=0; i <= colher; i++){
             $("#imagem-colher-acucar").append($("#template-colher").find("img").clone());
@@ -28,7 +28,7 @@ function mostraColherAcucar(){
 
 function mostraColherSal(){
    var colher = $("#sal").attr("value");
-   if (colher != 0){
+   if (colher >= 2){
 
        $("#imagem-colher-sal").empty();
        for(i=0; i <= colher; i++){
