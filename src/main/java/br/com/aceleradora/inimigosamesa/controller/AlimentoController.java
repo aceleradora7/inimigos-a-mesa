@@ -100,7 +100,7 @@ public class AlimentoController {
 
     private String traduzirLegenda(String valor, String unidade) {
 
-        if (valor == null) {
+        if (valor == null || valor.isEmpty()) {
             return Alimento.NAO_AVALIADO;
         }
 
