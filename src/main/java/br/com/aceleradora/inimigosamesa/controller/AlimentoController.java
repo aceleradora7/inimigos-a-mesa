@@ -64,8 +64,7 @@ public class AlimentoController {
     public String detalhe(Model model, @PathVariable("codigo") int codigo) {
 
         Alimento alimento = repositorioAlimento.findOne(codigo);
-        legendar(alimento);
-        model.addAttribute("alimentoDetalhe", alimento);
+
 
         double colher;
         colher = valorColherGordura(alimento);
@@ -76,6 +75,9 @@ public class AlimentoController {
 
         colher = valorColherSal(alimento);
         model.addAttribute("sal", colher);
+
+        legendar(alimento);
+        model.addAttribute("alimentoDetalhe", alimento);
 
         return "detalhe";
     }
@@ -90,13 +92,13 @@ public class AlimentoController {
     }
 
     private void legendar(Alimento alimento) {
-        alimento.setCalorias(traduzirLegenda(alimento.getCalorias()));
-        alimento.setAcucarGramas(traduzirLegenda(alimento.getAcucarGramas()));
-        alimento.setSodioMiligramas(traduzirLegenda(alimento.getSodioMiligramas()));
-        alimento.setGorduraGramas(traduzirLegenda(alimento.getGorduraGramas()));
+        alimento.setCalorias(traduzirLegenda(alimento.getCalorias(),"kcal"));
+        alimento.setAcucarGramas(traduzirLegenda(alimento.getAcucarGramas(),"g"));
+        alimento.setSodioMiligramas(traduzirLegenda(alimento.getSodioMiligramas(),"mg"));
+        alimento.setGorduraGramas(traduzirLegenda(alimento.getGorduraGramas(),"g"));
     }
 
-    private String traduzirLegenda(String valor) {
+    private String traduzirLegenda(String valor, String unidade) {
 
         if (valor == null) {
             return Alimento.NAO_AVALIADO;
@@ -104,7 +106,7 @@ public class AlimentoController {
 
         double valorNumerico = Double.parseDouble(valor);
 
-        return (valorNumerico > 0 && valorNumerico <= 0.5) ? Alimento.TRACO : valor;
+        return (valorNumerico > 0 && valorNumerico <= 0.5) ? Alimento.TRACO : valor + " " + unidade;
     }
 
     private double valorColherGordura(Alimento alimento) {
