@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.yaml.snakeyaml.events.AliasEvent;
 
 import java.util.Collections;
 import java.util.List;
@@ -100,7 +101,7 @@ public class AlimentoController {
 
     private String traduzirLegenda(String valor, String unidade) {
 
-        if (valor == null || valor.isEmpty()) {
+        if (valor == null  || valor.isEmpty()) {
             return Alimento.NAO_AVALIADO;
         }
 
@@ -111,9 +112,11 @@ public class AlimentoController {
 
     private double valorColherGordura(Alimento alimento) {
         double colher = 0;
-        if (alimento.getGorduraGramas().equals(Alimento.TRACO) || alimento.getGorduraGramas().equals(Alimento.NAO_AVALIADO)) {
+
+        if(alimento.getGorduraGramas().isEmpty()){
             return colher;
         }
+
         double gordura = Double.parseDouble(alimento.getGorduraGramas());
         if (gordura != 0) {
             colher = gordura / 2;
@@ -123,9 +126,11 @@ public class AlimentoController {
 
     private double valorColherAcucar(Alimento alimento) {
         double colher = 0;
-        if (alimento.getAcucarGramas().equals(Alimento.TRACO) || alimento.getAcucarGramas().equals(Alimento.NAO_AVALIADO)) {
-           return colher;
+
+        if(alimento.getAcucarGramas().isEmpty()){
+            return colher;
         }
+
         double acucar = Double.parseDouble(alimento.getAcucarGramas());
         if (acucar != 0) {
             colher = acucar / 1.76;
@@ -135,16 +140,20 @@ public class AlimentoController {
 
     private double valorColherSal(Alimento alimento) {
         double colher = 0;
-        if (alimento.getSodioMiligramas().equals(Alimento.TRACO) || alimento.getSodioMiligramas().equals(Alimento.NAO_AVALIADO)) {
+
+        if(alimento.getSodioMiligramas().isEmpty()){
             return colher;
         }
+
+        System.out.println("SODIO :: " + alimento.getSodioMiligramas());
+
         double sodio = Double.parseDouble(alimento.getSodioMiligramas());
         double sal = ((sodio * 100) / 39) * 0.001;
         if (sal != 0) {
             colher = sal / 2.06;
         }
+
+        System.out.println("COLHER :: " + colher);
         return colher;
     }
-
-
 }
