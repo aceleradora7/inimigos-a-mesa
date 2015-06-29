@@ -12,6 +12,6 @@ public interface AlimentoRepository extends CrudRepository<Alimento, Integer> {
 
     List<Alimento> findByNomeLikeIgnoreCase(String nome);
 
-    @Query(value = "SELECT * FROM alimento WHERE lower(unaccent(alimento.nomealimento)) LIKE lower(unaccent(:nome));", nativeQuery = true)
-    List<Alimento> buscaAlimentoPorNomeSemAcentos(@Param(value = "nome") String nome);
+    @Query(value = "SELECT * FROM alimento WHERE lower(unaccent(nome)) LIKE lower(unaccent(:busca));", nativeQuery = true)
+    List<Alimento> buscaAlimentoPorNomeSemAcentos(@Param(value = "busca") String busca);
 }

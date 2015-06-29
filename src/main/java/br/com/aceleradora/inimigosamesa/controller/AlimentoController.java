@@ -57,7 +57,7 @@ public class AlimentoController {
     }
 
     public List<Alimento> busca(String busca) {
-        return repositorioAlimento.findByNomeLikeIgnoreCase(busca + "%");
+        return repositorioAlimento.buscaAlimentoPorNomeSemAcentos(busca + "%");
     }
 
     @RequestMapping(value = "/detalhe/{codigo}")

@@ -19,7 +19,7 @@ private AlimentoRepository repositorioAlimento;
 
         @RequestMapping(value = "/autoCompletar", method = RequestMethod.GET)
         public List<Alimento> autocompletar(@RequestParam(value="textoDigitado") String textoDigitado) {
-            return repositorioAlimento.findByNomeLikeIgnoreCase(textoDigitado + "%");
+            return repositorioAlimento.buscaAlimentoPorNomeSemAcentos(textoDigitado + "%");
         }
 
 
