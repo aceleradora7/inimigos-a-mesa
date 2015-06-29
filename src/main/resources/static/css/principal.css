@@ -18,7 +18,6 @@ a{
 .logoh3{
 	margin: 20px 0 10px 0;
 	padding: 20px 0 0 0;
-	position: relative;
 	-webkit-transition: -webkit-transform 0.2s;
 	-moz-transition: -moz-transform 0.2s;
 	transition: transform 0.2s;
