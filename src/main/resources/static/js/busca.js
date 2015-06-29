@@ -34,14 +34,19 @@ function criaBusca(){
              buscaDados(request, response);
         },
         select:function(event, ui){
+
             var id = ui.item.value
             var link = "/detalhe/" + id;
-            window.location.replace(link);
-        }
+           window.location.replace(link);
+        },
+        focus: function(event, ui) {
+                event.preventDefault();
+                $(this).val(ui.item.label);
+            }
     });
 };
 
-function eventoDesbloquearBotaoPesquisar() {
+function eventoBotaoPesquisar() {
     $("#input-busca").keyup(function() {
         if ($(this).val().length >= 1) {
             criaBusca();
@@ -59,7 +64,18 @@ function associarEventoBotaoBusca(){
     $("#btn-busca").on("click", onClickBotaoBusca);
 }
 
+function buscaEnter(){
+ $("#input-busca").keypress(function(e)
+
+{
+	if (e.which == 13)
+	{
+		onClickBotaoBusca();
+	}
+})};
+
 $(document).ready(function() {
-    eventoDesbloquearBotaoPesquisar();
+    eventoBotaoPesquisar();
     associarEventoBotaoBusca();
+    buscaEnter();
 });
