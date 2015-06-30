@@ -13,18 +13,12 @@ function onClickBotaoCategoria(){
 
 function associarEventosMenuCategoria(){
     var menuCategorias = $("#menu-categoria");
-    var botoesMenuCategoria = menuCategorias.find(".btn");
-
-    botoesMenuCategoria.each(function(){
-        $(this).on("click", onClickBotaoCategoria);
-    });
+    menuCategorias.on("click", ".btn", onClickBotaoCategoria);
 };
 
 function associarEventosOpcaoDeOrdenacao(){
     var selectDeOrdenacao = $("#select-ordenacao");
-    selectDeOrdenacao.find("option").each(function(){
-        $(this).on("click", onClickOpcaoDeOrdenacao);
-    });
+    selectDeOrdenacao.on("click", "option", onClickOpcaoDeOrdenacao);
 }
 
 function associarEventos(){
