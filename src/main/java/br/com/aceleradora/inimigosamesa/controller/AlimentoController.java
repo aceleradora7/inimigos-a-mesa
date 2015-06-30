@@ -46,10 +46,10 @@ public class AlimentoController {
 
         if(alimentos.isEmpty()){
             model.addAttribute("erro", "Nenhum alimento encontrado.");
-            return "lista";
+        }else{
+            model.addAttribute("alimentos", alimentos);
         }
 
-        model.addAttribute("alimentos", alimentos);
         return "lista";
     }
 
