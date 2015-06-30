@@ -1,17 +1,17 @@
 package br.com.aceleradora.inimigosamesa.dao;
 
 import br.com.aceleradora.inimigosamesa.model.Alimento;
-import org.springframework.data.jpa.repository.Query;
+import br.com.aceleradora.inimigosamesa.model.Categoria;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 public interface AlimentoRepository extends CrudRepository<Alimento, Integer> {
 
+    List<Alimento> findByNomeLikeIgnoreCase(String nome, Sort ordenacao);
 
-    List<Alimento> findByNomeLikeIgnoreCase(String nome);
+    List<Alimento> findByCategoria(Categoria categoria, Sort ordenacao);
 
-    @Query(value = "SELECT * FROM alimento WHERE lower(unaccent(nome)) LIKE lower(unaccent(:busca));", nativeQuery = true)
-    List<Alimento> buscaAlimentoPorNomeSemAcentos(@Param(value = "busca") String busca);
+    List<Alimento> findAll(Sort sort);
 }
