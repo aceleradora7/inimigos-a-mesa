@@ -133,3 +133,7 @@ a{
 .ui-widget{
 	z-index: 5000 !important;
 }
+
+.st-facebook-counter, .st-twitter-counter {
+	height:30px !important;
+}
