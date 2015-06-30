@@ -1,13 +1,13 @@
 function onClickOpcaoDeOrdenacao(){
     setParametro("opcao-ordenar" , $(this).val());
-    acessarPaginaComParametros("lista");
+    acessarPaginaComParametros("grid");
 }
 
 function onClickBotaoCategoria(){
     var categoria = $(this).val();
     setParametro("categoria", categoria);
     removerParametro("busca");
-    acessarPaginaComParametros("lista");
+    acessarPaginaComParametros("grid");
 };
 
 
