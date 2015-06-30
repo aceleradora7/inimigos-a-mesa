@@ -8,13 +8,6 @@ import java.io.Serializable;
 @Entity(name = "alimento")
 public class Alimento implements Comparable<Alimento>, Serializable{
 
-    public static final transient String TRACO = "TR";
-    public static final transient String NAO_AVALIADO = "NA";
-
-    public static final transient String GRAMAS = " g";
-    public static final transient String MILIGRAMAS = " mg";
-    public static final transient String CALORIAS = " kcal";
-
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int codigo;
