@@ -1,8 +1,9 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
-import br.com.aceleradora.inimigosamesa.dao.AlimentoRepository;
-import br.com.aceleradora.inimigosamesa.dao.CategoriaRepository;
 import br.com.aceleradora.inimigosamesa.model.Alimento;
+import br.com.aceleradora.inimigosamesa.model.Legenda;
+import br.com.aceleradora.inimigosamesa.model.MedidasVisuais;
+import br.com.aceleradora.inimigosamesa.service.AlimentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,23 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.yaml.snakeyaml.events.AliasEvent;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
 public class AlimentoController {
 
-    private static final String ORDENACAO_CRESCENTE = "cre";
-    private static final String ORDENACAO_DECRESCENTE = "decre";
+    private static final String ORDENACAO_CRESCENTE = "ASC";
+    private static final String ORDENACAO_DECRESCENTE = "DESC";
 
     @Autowired
-    private AlimentoRepository repositorioAlimento;
-
-    @Autowired
-    private CategoriaRepository repositorioCategoria;
+    private AlimentoService servicoAlimento;
 
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public String listar(
@@ -37,20 +32,24 @@ public class AlimentoController {
 
         List<Alimento> alimentos;
 
-        if (busca != null) {
-            alimentos = busca(busca);
-        } else {
-            alimentos = (List) ((categoria == 0) ? repositorioAlimento.findAll() : buscaPorCategoria(categoria));
+        if(busca != null){
+            alimentos = servicoAlimento.buscaPorNome(busca, tipoDeOrdenacao);
         }
 
+        else if(categoria != 0){
+            alimentos = servicoAlimento.buscaPorCategoria(categoria, tipoDeOrdenacao);
+        }
 
-        if (alimentos.isEmpty()) {
+        else {
+            alimentos = servicoAlimento.buscaTodos(tipoDeOrdenacao);
+        }
+
+        if(alimentos.isEmpty()){
             model.addAttribute("erro", "Nenhum alimento encontrado.");
-        } else {
-            ordenar(alimentos, tipoDeOrdenacao);
-            model.addAttribute("alimentos", alimentos);
+            return "lista";
         }
 
+        model.addAttribute("alimentos", alimentos);
         return "lista";
     }
 
@@ -62,126 +61,38 @@ public class AlimentoController {
             Model model) {
 
         List<Alimento> alimentos;
-
-        if (busca != null) {
-            alimentos = busca(busca);
-        } else {
-            alimentos = (List) ((categoria == 0) ? repositorioAlimento.findAll() : buscaPorCategoria(categoria));
+        if(busca != null){
+            alimentos = servicoAlimento.buscaPorNome(busca, tipoDeOrdenacao);
         }
 
+        else if(categoria != 0){
+            alimentos = servicoAlimento.buscaPorCategoria(categoria, tipoDeOrdenacao);
+        }
 
-        if (alimentos.isEmpty()) {
+        else {
+            alimentos = servicoAlimento.buscaTodos(tipoDeOrdenacao);
+        }
+
+        if(alimentos.isEmpty()){
             model.addAttribute("erro", "Nenhum alimento encontrado.");
-        } else {
-            ordenar(alimentos, tipoDeOrdenacao);
-            model.addAttribute("alimentos", alimentos);
+            return "grid";
         }
 
+        model.addAttribute("alimentos", alimentos);
         return "grid";
-    }
-
-
-    public List<Alimento> buscaPorCategoria(int codigoCategoria) {
-        return repositorioCategoria.findOne(codigoCategoria).getAlimentos();
-    }
-
-    public List<Alimento> busca(String busca) {
-        return repositorioAlimento.buscaAlimentoPorNomeSemAcentos(busca + "%");
     }
 
     @RequestMapping(value = "/detalhe/{codigo}")
     public String detalhe(Model model, @PathVariable("codigo") int codigo) {
 
-        Alimento alimento = repositorioAlimento.findOne(codigo);
+        Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
+        MedidasVisuais medidas = servicoAlimento.getMedidasVisuais(alimento);
+        Legenda legendas = servicoAlimento.getLegendas(alimento);
 
-
-        double colher;
-        colher = valorColherGordura(alimento);
-        model.addAttribute("gordura", colher);
-
-        colher = valorColherAcucar(alimento);
-        model.addAttribute("acucar", colher);
-
-        colher = valorColherSal(alimento);
-        model.addAttribute("sal", colher);
-
-        legendar(alimento);
-        model.addAttribute("alimentoDetalhe", alimento);
+        model.addAttribute("alimento", alimento);
+        model.addAttribute("medidas", medidas);
+        model.addAttribute("legenda", legendas);
 
         return "detalhe";
-    }
-
-    private void ordenar(List<Alimento> alimentos, String tipoDeOrdenacao) {
-
-        Collections.sort(alimentos);
-
-        if (tipoDeOrdenacao.equals(ORDENACAO_DECRESCENTE)) {
-            Collections.reverse(alimentos);
-        }
-    }
-
-    private void legendar(Alimento alimento) {
-        alimento.setCalorias(traduzirLegenda(alimento.getCalorias(),"kcal"));
-        alimento.setAcucarGramas(traduzirLegenda(alimento.getAcucarGramas(),"g"));
-        alimento.setSodioMiligramas(traduzirLegenda(alimento.getSodioMiligramas(),"mg"));
-        alimento.setGorduraGramas(traduzirLegenda(alimento.getGorduraGramas(),"g"));
-    }
-
-    private String traduzirLegenda(String valor, String unidade) {
-
-        if (valor == null  || valor.isEmpty()) {
-            return Alimento.NAO_AVALIADO;
-        }
-
-        double valorNumerico = Double.parseDouble(valor);
-
-        return (valorNumerico > 0 && valorNumerico <= 0.5) ? Alimento.TRACO : valor + " " + unidade;
-    }
-
-    private double valorColherGordura(Alimento alimento) {
-        double colher = 0;
-
-        if(alimento.getGorduraGramas().isEmpty()){
-            return colher;
-        }
-
-        double gordura = Double.parseDouble(alimento.getGorduraGramas());
-        if (gordura != 0) {
-            colher = gordura / 2;
-        }
-        return colher;
-    }
-
-    private double valorColherAcucar(Alimento alimento) {
-        double colher = 0;
-
-        if(alimento.getAcucarGramas().isEmpty()){
-            return colher;
-        }
-
-        double acucar = Double.parseDouble(alimento.getAcucarGramas());
-        if (acucar != 0) {
-            colher = acucar / 1.76;
-        }
-        return colher;
-    }
-
-    private double valorColherSal(Alimento alimento) {
-        double colher = 0;
-
-        if(alimento.getSodioMiligramas().isEmpty()){
-            return colher;
-        }
-
-        System.out.println("SODIO :: " + alimento.getSodioMiligramas());
-
-        double sodio = Double.parseDouble(alimento.getSodioMiligramas());
-        double sal = ((sodio * 100) / 39) * 0.001;
-        if (sal != 0) {
-            colher = sal / 2.06;
-        }
-
-        System.out.println("COLHER :: " + colher);
-        return colher;
     }
 }
