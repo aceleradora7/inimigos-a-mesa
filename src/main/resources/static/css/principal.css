@@ -134,6 +134,14 @@ a{
 	z-index: 5000 !important;
 }
 
-.st-facebook-counter, .st-twitter-counter {
+.st-facebook-counter, .st-twitter-counter, .st-googleplus-count {
 	height:30px !important;
+}
+
+.stButton, .stArrow {
+	height:30px !important;
+}
+
+.stButton .stButton_gradient{
+	height:25px !important;
 }
