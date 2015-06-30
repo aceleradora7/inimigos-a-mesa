@@ -50,8 +50,8 @@
 
             <label> Ordenar por nome </label>
             <select id="select-ordenacao" name="select-ordenacao">
-                <option value="decre">Decrescente</option>
-                <option value="cre" >Crescente</option>
+                <option value="DESC">Decrescente</option>
+                <option value="ASC" >Crescente</option>
             </select>
 
         </center>
@@ -72,8 +72,8 @@
 
                         <div class="media-body">
                             <h2 class="media-heading" th:text="${alimento.nome}" id="alimento"></h2>
+                            <p id="categoria" th:text="${alimento.categoria.nome}"></p>
 
-                            <p id="categoria" th:text="${alimento.getCategoria().getNome()}"></p>
                         </div>
                     </div>
                 </a>

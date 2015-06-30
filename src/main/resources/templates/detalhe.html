@@ -25,19 +25,19 @@
                 </h2>
             </center>
 
-            <p id="gordura" th:value="${gordura}"></p>
-            <p id="acucar" th:value="${acucar}"></p>
-            <p id="sal" th:value="${sal}"></p>
+            <p id="gordura" th:value="${medidas.colheresDeGordura}"></p>
+            <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
+            <p id="sal" th:value="${medidas.colheresDeSal}"></p>
         </div>
-            <div class="container" th:object="${alimentoDetalhe}" id="mostraAlimento">
+            <div class="container" id="mostraAlimento">
                 <div class = "row" id="infoAlimento">
-                    <h3 th:text="*{nome}" class="alimentonome"></h3>
-                    <h4 th:text="*{getCategoria().getNome()}" class="alimentocategoria"></h4>
+                    <h3 th:text="${alimento.nome}" class="alimentonome"></h3>
+                    <h4 th:text="${alimento.categoria.nome}" class="alimentocategoria"></h4>
                 </div>
 
                 <div class="row">
                     <div class="col-xs-6 col-md-5">
-                        <img th:src="*{urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
+                        <img th:src="${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
                     </div>
                     <div class="col-xs-6 col-md-5" id="tabela-nutricional">
                         <ul class="list-group">
@@ -52,19 +52,19 @@
                                 Para porção de 100g
                             </li>
                             <li class="list-group-item">
-                                <label  value="calorias" id="valor-caloria" class="badge" th:text="*{calorias}" th:value="*{calorias}"> </label>
+                                <label  value="calorias" id="valor-caloria" class="badge" th:text="${legenda.calorias}" th:value="${alimento.calorias}"> </label>
                                 Calorias
                             </li>
                             <li class="list-group-item">
-                                <label id="valor-acucar" class="badge" th:text="*{acucarGramas}" th:value="*{acucarGramas}" ></label>
+                                <label id="valor-acucar" class="badge" th:text="${legenda.acucarGramas}" th:value="${alimento.acucarGramas}" ></label>
                                 Açucar
                             </li>
                             <li class="list-group-item">
-                                <span id="valor-sodio" class="badge" th:text="*{sodioMiligramas}" th:value="*{sodioMiligramas}"></span>
+                                <span id="valor-sodio" class="badge" th:text="${legenda.sodioMiligramas}" th:value="${alimento.sodioMiligramas}"></span>
                                 Sódio
                             </li>
                             <li class="list-group-item">
-                                <span id="valor-gordura" class="badge" th:text="*{gorduraGramas}" th:value="*{gorduraGramas}"></span>
+                                <span id="valor-gordura" class="badge" th:text="${legenda.gorduraGramas}" th:value="${alimento.gorduraGramas}"></span>
                                 Gordura
                             </li>
                             <li class="list-group-item">
