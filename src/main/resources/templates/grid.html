@@ -2,14 +2,84 @@
 <html xmlns:th="http://thymeleaf.org">
 	<head>
 		<meta charset="utf-8" />
-		<script src="js/modernizr.grid.js"></script>	
-		
-		<link rel="stylesheet" type="text/css" href="css/grid.css" />
+		<script src="js/modernizr.grid.js"></script>
 
-		<script th:replace="fragmentos/header :: bootstrap-css"> </script>
+		<link th:replace="fragmentos/header :: bootstrap-css" />
+		<link th:replace="fragmentos/header :: jqueryui-css" />
+		<link rel="stylesheet" type="text/css" href="css/principal.css"/>
+
 		<script th:replace="fragmentos/header :: jquery"> </script>
+		<script th:replace="fragmentos/header :: jqueryui"> </script>
+
+		<script th:replace="fragmentos/header :: query-string-js"> </script>
+		<script th:replace="fragmentos/header :: busca"> </script>
 	</head>
 	<body>
+
+	<nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+	<div class="container">
+
+		<center>
+
+			<h1> Grid </h1>
+
+			<br/>
+
+
+			<div id="menu-categoria" class="btn-group" role="group" aria-label="...">
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="10">Bebidas</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="7">Carnes</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="11">Cereais</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="14">Doces</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="1">Frutas</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="6">Gorduras e Óleos</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="5">Latícinios</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="4">Leguminosas</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="2">Nozes e Sementes</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="8">Pescados e Frutos do Mar</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="9">Industrializados</button>
+				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="3">Verduras e Hortaliças</button>
+			</div>
+			<br/>
+			<br/>
+
+			<label> Ordenar por nome </label>
+			<select id="select-ordenacao" name="select-ordenacao">
+				<option value="decre">Decrescente</option>
+				<option value="cre" >Crescente</option>
+			</select>
+
+		</center>
+		<br />
+		<center>
+			<p th:text="${erro}"></p>
+		</center>
+
+		<div class="container">
+				<div class="row">
+					<div th:each="alimento : ${alimentos}" class="col-md-4">
+						<a th:href="@{'/detalhe/' + ${alimento.codigo}}" class="list-group-item">
+							<div id="infoAlimento" class="media">
+								<div id="imagemAlimento" class="media-left media-middle" >
+									<img height="140px" width="140px" th:src="${alimento.urlImagem}" class="img-rounded media-object"/>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading" th:text="${alimento.nome}" id="alimento"></h4>
+									<p id="categoria" th:text="${alimento.getCategoria().getNome()}"></p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+		</div>
+
+		<center>
+			<nav th:replace="fragmentos/paginacao :: paginacao"></nav>
+		</center>
+	</div>
+
+	<nav th:replace="fragmentos/rodape :: rodape"></nav>
 
 	</body>
 </html>
