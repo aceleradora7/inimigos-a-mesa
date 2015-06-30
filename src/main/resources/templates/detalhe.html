@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Detalhe do Produto</title>
-
+    <link th:fragment="principal-css" href="/css/detalhe-do-produto.css" rel="stylesheet"/>
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: principal-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
@@ -37,7 +37,7 @@
 
                 <div class="row">
                     <div class="col-xs-6 col-md-5">
-                        <img th:src="${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
+                        <img th:src="'/'+${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
                     </div>
                     <div class="col-xs-6 col-md-5" id="tabela-nutricional">
                         <ul class="list-group">
