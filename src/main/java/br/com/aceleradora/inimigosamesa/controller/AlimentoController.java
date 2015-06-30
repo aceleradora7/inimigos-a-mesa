@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.yaml.snakeyaml.events.AliasEvent;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -52,6 +53,33 @@ public class AlimentoController {
 
         return "lista";
     }
+
+    @RequestMapping(value = "/grid", method = RequestMethod.GET)
+    public String grid(
+            @RequestParam(value = "busca", required = false) String busca,
+            @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
+            @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
+            Model model) {
+
+        List<Alimento> alimentos;
+
+        if (busca != null) {
+            alimentos = busca(busca);
+        } else {
+            alimentos = (List) ((categoria == 0) ? repositorioAlimento.findAll() : buscaPorCategoria(categoria));
+        }
+
+
+        if (alimentos.isEmpty()) {
+            model.addAttribute("erro", "Nenhum alimento encontrado.");
+        } else {
+            ordenar(alimentos, tipoDeOrdenacao);
+            model.addAttribute("alimentos", alimentos);
+        }
+
+        return "grid";
+    }
+
 
     public List<Alimento> buscaPorCategoria(int codigoCategoria) {
         return repositorioCategoria.findOne(codigoCategoria).getAlimentos();
