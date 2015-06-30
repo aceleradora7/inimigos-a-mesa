@@ -73,12 +73,12 @@ public class AlimentoController {
             alimentos = servicoAlimento.buscaTodos(tipoDeOrdenacao);
         }
 
-        if(alimentos.isEmpty()){
+        if(alimentos.isEmpty()) {
             model.addAttribute("erro", "Nenhum alimento encontrado.");
-            return "grid";
+        }else{
+            model.addAttribute("alimentos", alimentos);
         }
 
-        model.addAttribute("alimentos", alimentos);
         return "grid";
     }
 
