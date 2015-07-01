@@ -19,9 +19,4 @@ public class ApresentacaoController {
         return "tutorial";
     }
 
-    @RequestMapping("/grid")
-    public String grid(){
-        return "grid";
-    }
-
 }
