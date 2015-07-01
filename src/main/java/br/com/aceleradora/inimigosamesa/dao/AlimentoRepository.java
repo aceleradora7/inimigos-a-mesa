@@ -2,16 +2,18 @@ package br.com.aceleradora.inimigosamesa.dao;
 
 import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Categoria;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface AlimentoRepository extends CrudRepository<Alimento, Integer> {
+public interface AlimentoRepository extends JpaRepository<Alimento, Integer> {
 
-    List<Alimento> findByNomeLikeIgnoreCase(String nome, Sort ordenacao);
+    Page<Alimento> findByNomeLikeIgnoreCase(String nome, Pageable paginacao);
 
-    List<Alimento> findByCategoria(Categoria categoria, Sort ordenacao);
+    List<Alimento> findByNomeLikeIgnoreCase(String nome);
 
-    List<Alimento> findAll(Sort sort);
+    Page<Alimento> findByCategoria(Categoria categoria, Pageable paginacao);
+
 }

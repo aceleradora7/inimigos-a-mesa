@@ -6,6 +6,8 @@ import br.com.aceleradora.inimigosamesa.model.Categoria;
 import br.com.aceleradora.inimigosamesa.model.Legenda;
 import br.com.aceleradora.inimigosamesa.model.MedidasVisuais;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,10 @@ import java.util.List;
 
 @Service
 public class AlimentoService{
-
-    private static final String CORINGA = "%";
+    private static final String NORMALIZACAO = "[ãáâêéíóú]";
+    private static final String CORINGA_ALL = "%";
+    private static final String CORINGA_REPLACE = "_";
+    private static final int ITENS_POR_PAGINA = 12;
 
     @Autowired
     private AlimentoRepository repositorioAlimento;
@@ -23,22 +27,26 @@ public class AlimentoService{
         return repositorioAlimento.findOne(codigo);
     }
 
-    public List<Alimento> buscaPorNome(String nome, String tipoDeOrdenacao){
-        nome = nome.replaceAll("[ãáâêéíóú]", "_").concat(CORINGA);
-
-        return repositorioAlimento.findByNomeLikeIgnoreCase(nome, ordenacao(tipoDeOrdenacao, "nome"));
+    public Iterable<Alimento> buscaPorNome(String nome){
+        nome = nome.replaceAll(NORMALIZACAO, CORINGA_REPLACE).concat(CORINGA_ALL);
+        return repositorioAlimento.findByNomeLikeIgnoreCase(nome);
     }
 
-    public List<Alimento> buscaPorCategoria(int codigoCategoria, String tipoDeOrdenacao){
-        return repositorioAlimento.findByCategoria(new Categoria(codigoCategoria), ordenacao(tipoDeOrdenacao, "nome"));
+    public Iterable<Alimento> buscaPorNome(String nome, int pagina, String tipoDeOrdenacao){
+        nome = nome.replaceAll(NORMALIZACAO, CORINGA_REPLACE).concat(CORINGA_ALL);
+        return repositorioAlimento.findByNomeLikeIgnoreCase(nome, paginacao(pagina, tipoDeOrdenacao));
     }
 
-    public List<Alimento> buscaTodos(String tipoDeOrdenacao){
-        return repositorioAlimento.findAll(ordenacao(tipoDeOrdenacao, "nome"));
+    public Iterable<Alimento> buscaPorCategoria(int pagina, int codigoCategoria, String tipoDeOrdenacao){
+        return repositorioAlimento.findByCategoria(new Categoria(codigoCategoria), paginacao(pagina, tipoDeOrdenacao));
     }
 
-    private Sort ordenacao(String tipoOrdenacao, String campo){
-        return new Sort(Sort.Direction.fromStringOrNull(tipoOrdenacao), campo);
+    public Iterable<Alimento> buscaTodos(int pagina, String tipoDeOrdenacao){
+        return repositorioAlimento.findAll(paginacao(pagina, tipoDeOrdenacao));
+    }
+
+    private PageRequest paginacao(int paginaAtual, String tipoDeOrdenacao){
+        return new PageRequest(paginaAtual - 1, ITENS_POR_PAGINA, Sort.Direction.fromString(tipoDeOrdenacao), "nome");
     }
 
     public MedidasVisuais getMedidasVisuais(Alimento alimento) {
@@ -48,4 +56,6 @@ public class AlimentoService{
     public Legenda getLegendas(Alimento alimento){
         return new Legenda(alimento);
     }
+
+
 }
