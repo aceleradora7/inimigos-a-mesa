@@ -145,3 +145,11 @@ a{
 .stButton .stButton_gradient{
 	height:25px !important;
 }
+
+.pagina, #pagina-anterior, #proxima-pagina{
+	cursor:pointer;
+}
+
+.pagina-atual{
+	background-color: #DDD !important;
+}

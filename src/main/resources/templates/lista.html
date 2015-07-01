@@ -16,6 +16,7 @@
     <script th:replace="fragmentos/header :: busca"> </script>
 
     <script src="js/lista.js"> </script>
+    <script src="js/paginacao.js"> </script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
 
         <center>
 
-            <h1> Lista Simples </h1>
+            <h1> Alimentos </h1>
 
             <br/>
 
@@ -50,8 +51,8 @@
 
             <label> Ordenar por nome </label>
             <select id="select-ordenacao" name="select-ordenacao">
-                <option value="DESC">Decrescente</option>
                 <option value="ASC" >Crescente</option>
+                <option value="DESC">Decrescente</option>
             </select>
 
         </center>
@@ -81,7 +82,7 @@
         </div>
 
         <center>
-            <nav th:replace="fragmentos/paginacao :: paginacao"></nav>
+            <nav th:if="${erro == null}" th:include="fragmentos/paginacao :: paginacao"></nav>
         </center>
     </div>
 
