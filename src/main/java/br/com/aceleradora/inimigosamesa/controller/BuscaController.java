@@ -17,7 +17,7 @@ public class BuscaController{
 private AlimentoService servicoAlimento;
 
         @RequestMapping(value = "/autoCompletar", method = RequestMethod.GET)
-        public List<Alimento> autocompletar(@RequestParam(value="textoDigitado") String textoDigitado) {
-            return servicoAlimento.buscaPorNome(textoDigitado, null);
+        public Iterable<Alimento> autocompletar(@RequestParam(value="textoDigitado") String textoDigitado) {
+            return servicoAlimento.buscaPorNome(textoDigitado);
         }
 }
