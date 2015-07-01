@@ -26,7 +26,7 @@ public class AlimentoController {
     @Autowired
     private AlimentoService servicoAlimento;
 
-    @RequestMapping(value = {"/lista", "/grid"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/grid"}, method = RequestMethod.GET)
     public String listar(
             @RequestParam(value = "busca", required = false) String busca,
             @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
@@ -35,10 +35,7 @@ public class AlimentoController {
             HttpServletRequest request,
             Model model) {
 
-        pagina = (pagina <= 0)? 1 : pagina;
-
-        String url = (String) request.getAttribute(
-                HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
+        pagina = (pagina <= 0)? 1 : pagina;        
 
         Iterable<Alimento> alimentos;
         if(busca != null){
@@ -61,7 +58,42 @@ public class AlimentoController {
             model.addAttribute("erro", "Nenhum alimento encontrado.");
         }
 
-        return url;
+        return "grid";
+    }
+
+    @RequestMapping(value = {"/lista"}, method = RequestMethod.GET)
+    public String grid(
+            @RequestParam(value = "busca", required = false) String busca,
+            @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
+            @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
+            @RequestParam(value = "pagina", required = false, defaultValue = "1") int pagina,
+            HttpServletRequest request,
+            Model model) {
+
+        pagina = (pagina <= 0)? 1 : pagina;        
+
+        Iterable<Alimento> alimentos;
+        if(busca != null){
+            alimentos = servicoAlimento.buscaPorNome(busca, pagina, tipoDeOrdenacao);
+        }
+
+        else if(categoria != 0){
+            alimentos = servicoAlimento.buscaPorCategoria(pagina,categoria, tipoDeOrdenacao);
+        }
+
+        else {
+            alimentos = servicoAlimento.buscaTodos(pagina,tipoDeOrdenacao);
+        }
+
+        if(alimentos.iterator().hasNext()){
+            model.addAttribute("ultimaPagina", ((Page) alimentos).getTotalPages());
+            model.addAttribute("paginaAtual", pagina);
+            model.addAttribute("alimentos", alimentos);
+        }else{
+            model.addAttribute("erro", "Nenhum alimento encontrado.");
+        }
+
+        return "lista";
     }
 
     @RequestMapping(value = "/detalhe/{codigo}")
