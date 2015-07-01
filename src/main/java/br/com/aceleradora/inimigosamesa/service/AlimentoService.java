@@ -15,7 +15,6 @@ import java.util.List;
 
 @Service
 public class AlimentoService{
-    private static final String NORMALIZACAO = "[ãáâêéíóú]";
     private static final String CORINGA_ALL = "%";
     private static final String CORINGA_REPLACE = "_";
     private static final int ITENS_POR_PAGINA = 12;
@@ -28,13 +27,13 @@ public class AlimentoService{
     }
 
     public Iterable<Alimento> buscaPorNome(String nome){
-        nome = nome.replaceAll(NORMALIZACAO, CORINGA_REPLACE).concat(CORINGA_ALL);
-        return repositorioAlimento.findByNomeLikeIgnoreCase(nome);
+        nome = nome.concat(CORINGA_ALL);
+        return repositorioAlimento.findByNome(nome);
     }
 
-    public Iterable<Alimento> buscaPorNome(String nome, int pagina, String tipoDeOrdenacao){
-        nome = nome.replaceAll(NORMALIZACAO, CORINGA_REPLACE).concat(CORINGA_ALL);
-        return repositorioAlimento.findByNomeLikeIgnoreCase(nome, paginacao(pagina, tipoDeOrdenacao));
+    public Iterable<Alimento> buscaPorNome(String nome, int pagina, String tipoDeOrdenacao) {
+        nome = nome.concat(CORINGA_ALL);
+        return repositorioAlimento.findByNome(nome, paginacao(pagina, tipoDeOrdenacao));
     }
 
     public Iterable<Alimento> buscaPorCategoria(int pagina, int codigoCategoria, String tipoDeOrdenacao){
@@ -56,6 +55,4 @@ public class AlimentoService{
     public Legenda getLegendas(Alimento alimento){
         return new Legenda(alimento);
     }
-
-
 }
