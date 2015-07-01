@@ -3,20 +3,19 @@
 
     <nav th:fragment="paginacao">
         <ul class="pagination">
-            <li>
-                <a href="#" aria-label="Previous">
+            <li th:if="${ paginaAtual != 1}">
+                <a aria-label="Previous" id="pagina-anterior">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
 
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <li th:each="i :  ${#numbers.sequence(1, __${ultimaPagina}__)}">
+                <a th:text="${i}" class="pagina"></a>
+            </li>
 
-            <li>
-                <a href="#" aria-label="Next">
+
+            <li th:if="${ paginaAtual != ultimaPagina}">
+                <a aria-label="Next" id="proxima-pagina">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
