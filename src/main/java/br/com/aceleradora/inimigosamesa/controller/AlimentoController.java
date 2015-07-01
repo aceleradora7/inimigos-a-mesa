@@ -5,13 +5,16 @@ import br.com.aceleradora.inimigosamesa.model.Legenda;
 import br.com.aceleradora.inimigosamesa.model.MedidasVisuais;
 import br.com.aceleradora.inimigosamesa.service.AlimentoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.HandlerMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -23,63 +26,42 @@ public class AlimentoController {
     @Autowired
     private AlimentoService servicoAlimento;
 
-    @RequestMapping(value = "/lista", method = RequestMethod.GET)
+    @RequestMapping(value = {"/lista", "/grid"}, method = RequestMethod.GET)
     public String listar(
             @RequestParam(value = "busca", required = false) String busca,
             @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
             @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
+            @RequestParam(value = "pagina", required = false, defaultValue = "1") int pagina,
+            HttpServletRequest request,
             Model model) {
 
-        List<Alimento> alimentos;
+        pagina = (pagina <= 0)? 1 : pagina;
 
+        String url = (String) request.getAttribute(
+                HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
+
+        Iterable<Alimento> alimentos;
         if(busca != null){
-            alimentos = servicoAlimento.buscaPorNome(busca, tipoDeOrdenacao);
+            alimentos = servicoAlimento.buscaPorNome(busca);
         }
 
         else if(categoria != 0){
-            alimentos = servicoAlimento.buscaPorCategoria(categoria, tipoDeOrdenacao);
+            alimentos = servicoAlimento.buscaPorCategoria(pagina,categoria, tipoDeOrdenacao);
         }
 
         else {
-            alimentos = servicoAlimento.buscaTodos(tipoDeOrdenacao);
+            alimentos = servicoAlimento.buscaTodos(pagina,tipoDeOrdenacao);
         }
 
-        if(alimentos.isEmpty()){
-            model.addAttribute("erro", "Nenhum alimento encontrado.");
-        }else{
+        if(alimentos.iterator().hasNext()){
+            model.addAttribute("ultimaPagina", ((Page) alimentos).getTotalPages());
+            model.addAttribute("paginaAtual", pagina);
             model.addAttribute("alimentos", alimentos);
-        }
-
-        return "lista";
-    }
-
-    @RequestMapping(value = "/grid", method = RequestMethod.GET)
-    public String grid(
-            @RequestParam(value = "busca", required = false) String busca,
-            @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
-            @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
-            Model model) {
-
-        List<Alimento> alimentos;
-        if(busca != null){
-            alimentos = servicoAlimento.buscaPorNome(busca, tipoDeOrdenacao);
-        }
-
-        else if(categoria != 0){
-            alimentos = servicoAlimento.buscaPorCategoria(categoria, tipoDeOrdenacao);
-        }
-
-        else {
-            alimentos = servicoAlimento.buscaTodos(tipoDeOrdenacao);
-        }
-
-        if(alimentos.isEmpty()) {
-            model.addAttribute("erro", "Nenhum alimento encontrado.");
         }else{
-            model.addAttribute("alimentos", alimentos);
+            model.addAttribute("erro", "Nenhum alimento encontrado.");
         }
 
-        return "grid";
+        return url;
     }
 
     @RequestMapping(value = "/detalhe/{codigo}")
