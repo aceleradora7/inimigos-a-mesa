@@ -34,7 +34,7 @@ function criaBusca(){
              buscaDados(request, response);
         },
         select:function(event, ui){
-
+            event.preventDefault();
             var id = ui.item.value
             var link = "/detalhe/" + id;
            window.location.replace(link);
