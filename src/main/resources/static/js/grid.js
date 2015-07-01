@@ -10,7 +10,6 @@ function onClickBotaoCategoria(){
     acessarPaginaComParametros("grid");
 };
 
-
 function associarEventosMenuCategoria(){
     var menuCategorias = $("#menu-categoria");
     menuCategorias.on("click", ".btn", onClickBotaoCategoria);
