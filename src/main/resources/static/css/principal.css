@@ -71,6 +71,7 @@ a{
 
 .correcaocategoria {
     border-radius: 0px !important;
+    font-size: 14px;
 
 }
 
@@ -154,3 +155,24 @@ a{
 .pagina-atual{
 	background-color: #DDD !important;
 }
+
+.categorias{
+	margin-top:60px;
+	background-color: #449D44;
+	border-color: #398439;
+}
+
+.btn-primary{
+	border-color:#449D44;
+	background-color: #449D44;
+	}
+
+.btn-primary:hover{
+	border-color:#3A7D3A;
+	background-color: #3A7D3A;
+	}
+
+	.categoria-atual{
+    background-color: #3A7D3A;
+    border-color: #3A7D3A;
+    }
