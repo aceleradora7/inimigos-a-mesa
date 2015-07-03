@@ -7,6 +7,7 @@
 		<link th:replace="fragmentos/header :: bootstrap-css" />
 		<link th:replace="fragmentos/header :: jqueryui-css" />
 		<link rel="stylesheet" type="text/css" href="css/principal.css"/>
+		<link rel="stylesheet" type="text/css" href="css/grid.css"/>
 
 		<script th:replace="fragmentos/header :: jquery"> </script>
 		<script th:replace="fragmentos/header :: jqueryui"> </script>
@@ -65,7 +66,7 @@
 						<a th:href="@{'/detalhe/' + ${alimento.codigo}}" class="list-group-item">
 							<div id="infoAlimento" class="media">
 								<div id="imagemAlimento" class="media-left media-middle" >
-									<img height="140px" width="140px" th:src="${alimento.urlImagem}" class="img-rounded media-object"/>
+									<img th:src="${alimento.urlImagem}" class="img-rounded media-object imagem-grid"/>
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading" th:text="${alimento.nome}" id="alimento"></h4>
