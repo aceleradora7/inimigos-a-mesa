@@ -3,25 +3,12 @@ function onClickOpcaoDeOrdenacao(){
     acessarPaginaComParametros("grid");
 }
 
-function onClickBotaoCategoria(){
-    var categoria = $(this).val();
-    setParametro("categoria", categoria);
-    removerParametro("busca");
-    acessarPaginaComParametros("grid");
-};
-
-function associarEventosMenuCategoria(){
-    var menuCategorias = $("#menu-categoria");
-    menuCategorias.on("click", ".btn", onClickBotaoCategoria);
-};
-
 function associarEventosOpcaoDeOrdenacao(){
     var selectDeOrdenacao = $("#select-ordenacao");
     selectDeOrdenacao.on("click", "option", onClickOpcaoDeOrdenacao);
 }
 
 function associarEventos(){
-    associarEventosMenuCategoria();
     associarEventosOpcaoDeOrdenacao();
 };
 

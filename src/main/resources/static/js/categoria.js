@@ -1,7 +1,21 @@
-function marcaBotaoCategoriaAtual(){
-    var categorias = $(".categorias");
+function associarEventosMenuCategoria(){
+    var menuCategorias = $("#menu-categoria");
+    menuCategorias.on("click", ".categoria", onClickBotaoCategoria);
+};
 
-    var botoeCategorias = categorias.find("button").each(function(){
+function onClickBotaoCategoria(){
+    var categoria = $(this).val();
+    setParametro("categoria", categoria);
+    removerParametro("busca");
+    removerParametro("pagina");
+    acessarPaginaComParametros("grid");
+};
+
+function marcaBotaoCategoriaAtual(){
+    var categorias = $("#menu-categoria");
+
+    var botoesCategorias = categorias.find(".categoria").each(function(){
+
         if($(this).val() === getParametros()["categoria"]){
             $(this).toggleClass("categoria-atual");
             $(this).on("click", function(){return false;});
@@ -10,5 +24,6 @@ function marcaBotaoCategoriaAtual(){
 }
 
 $(document).ready(function(){
+    associarEventosMenuCategoria();
     marcaBotaoCategoriaAtual();
 });
