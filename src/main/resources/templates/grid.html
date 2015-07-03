@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 	<head>
+
+		<title>Alimentos</title>
+
 		<meta charset="utf-8" />
 		<script src="js/modernizr.grid.js"></script>
 
@@ -22,13 +25,11 @@
 
 	<nav th:replace="fragmentos/header :: cabecalho"></nav>
 
-	<div class="container">
+	<div class="container wrapper-conteudo">
 
 		<center>
 
 			<h1> Alimentos </h1>
-
-			<br/>
 
 
 			<div id="menu-categoria" class="btn-group" role="group" aria-label="...">
@@ -45,8 +46,6 @@
 				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="9">Industrializados</button>
 				<button type="button" class="btn btn-primary btn-lg correcaocategoria" value="3">Verduras e Hortaliças</button>
 			</div>
-			<br/>
-			<br/>
 
 			<label> Ordenar por nome </label>
 			<select id="select-ordenacao" name="select-ordenacao">
