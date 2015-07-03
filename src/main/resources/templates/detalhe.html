@@ -25,9 +25,11 @@
                 </h2>
             </center>
 
-            <p id="gordura" th:value="${medidas.colheresDeGordura}"></p>
-            <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
-            <p id="sal" th:value="${medidas.colheresDeSal}"></p>
+            <div>
+                <p id="gordura" th:value="${medidas.colheresDeGordura}"></p>
+                <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
+                <p id="sal" th:value="${medidas.colheresDeSal}"></p>
+            </div>
         </div>
             <div class="container" id="mostraAlimento">
                 <div class = "row" id="infoAlimento">
@@ -57,7 +59,7 @@
                             </li>
                             <li class="list-group-item">
                                 <label id="valor-acucar" class="badge" th:text="${legenda.acucarGramas}" th:value="${alimento.acucarGramas}" ></label>
-                                Açucar
+                                Açúcar
                             </li>
                             <li class="list-group-item">
                                 <span id="valor-sodio" class="badge" th:text="${legenda.sodioMiligramas}" th:value="${alimento.sodioMiligramas}"></span>
@@ -83,27 +85,41 @@
                 </div>
                 <div class="row medidas-visuais">
 
-                    <div class="col-md-8">
-                        <h3 class="medidas-visuais-titulo">Açucar:</h3>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3 class="medidas-visuais-titulo">Açúcar:</h3>
+                        </div>
                     </div>
-                    <div class="col-md-8" id="imagem-colher-acucar" data-toggle="popover" title="Cada colher de chá contém 1.76g de açúcar."></div>
 
-                    <div class="col-md-8">
-                        <h3 class="medidas-visuais-titulo">Sal:</h3>
+                    <div class="row">
+                        <div class="col-md-10" id="imagem-colher-acucar" data-toggle="popover" title="Cada colher de chá contém 1.76g de açúcar."></div>
                     </div>
-                    <div class="col-md-8" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
 
-                    <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3 class="medidas-visuais-titulo">Sal:</h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-10" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
+                    </div>
+
+
+                    <div class="col-md-10">
                         <h3 class="medidas-visuais-titulo">Gordura:</h3>
                     </div>
-                    <div class="col-md-8" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
+
+                    <div class="row">
+                        <div class="col-md-10" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
+                    </div>
                 </div>
             </div>
 
 
 
     <div id="template-colher" class="colher" style="display:none">
-        <img id="image" src="/img/colher.png" class="colher"/>
+        <img id="image" class="colher"/>
     </div>
 
     <div id="template-sem-colher" class="sem-colher" style="display:none">
