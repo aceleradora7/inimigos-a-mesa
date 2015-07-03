@@ -3,9 +3,17 @@
 
     <nav th:fragment="paginacao">
         <ul class="pagination">
-            <li th:if="${ paginaAtual != 1}">
-                <a aria-label="Previous" id="pagina-anterior">
-                    <span aria-hidden="true">&laquo;</span>
+            <li th:if="${ paginaAtual != 1}" >
+                <a aria-label="Previous"  id="primeira-pagina">
+                    <span aria-hidden="true">&Lang;</span>
+                </a>
+            </li>
+
+            <li th:if="${ paginaAtual != 1}" >
+                <a id="pagina-anterior">
+                    <span aria-hidden="true">
+                        &lang;
+                    </span>
                 </a>
             </li>
 
@@ -13,10 +21,20 @@
                 <a th:text="${i}" class="pagina"></a>
             </li>
 
+            <li th:if="${ paginaAtual != ultimaPagina}">
+                <a id="proxima-pagina">
+                    <span aria-hidden="true">
+                        &rang;
+                    </span>
+                </a>
+            </li>
+
 
             <li th:if="${ paginaAtual != ultimaPagina}">
-                <a aria-label="Next" id="proxima-pagina">
-                    <span aria-hidden="true">&raquo;</span>
+                <a aria-label="Next"  id="ultima-pagina">
+                    <span aria-hidden="true">
+                        &Rang;
+                    </span>
                 </a>
             </li>
         </ul>

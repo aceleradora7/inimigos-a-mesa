@@ -148,7 +148,7 @@ a{
 	height:25px !important;
 }
 
-.pagina, #pagina-anterior, #proxima-pagina{
+.pagina, #pagina-anterior, #proxima-pagina, #primeira-pagina, #ultima-pagina{
 	cursor:pointer;
 }
 
