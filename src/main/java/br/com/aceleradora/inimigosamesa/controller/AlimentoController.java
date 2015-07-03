@@ -1,11 +1,14 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
 import br.com.aceleradora.inimigosamesa.model.Alimento;
+import br.com.aceleradora.inimigosamesa.model.Categoria;
 import br.com.aceleradora.inimigosamesa.model.Legenda;
 import br.com.aceleradora.inimigosamesa.model.MedidasVisuais;
 import br.com.aceleradora.inimigosamesa.service.AlimentoService;
+import br.com.aceleradora.inimigosamesa.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +29,9 @@ public class AlimentoController {
     @Autowired
     private AlimentoService servicoAlimento;
 
+    @Autowired
+    private CategoriaService servicoCategoria;
+
     @RequestMapping(value = {"/lista", "/grid"}, method = RequestMethod.GET)
     public void listar(
             @RequestParam(value = "busca", required = false) String busca,
@@ -33,6 +39,10 @@ public class AlimentoController {
             @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
             @RequestParam(value = "pagina", required = false, defaultValue = "1") int pagina,
             Model model) {
+
+        Sort sort = new Sort(Sort.Direction.ASC, "nome");
+        List<Categoria> categorias = (List) servicoCategoria.buscaTodos(sort);
+        model.addAttribute("categorias",categorias);
 
         pagina = (pagina <= 0)? 1 : pagina;        
 
