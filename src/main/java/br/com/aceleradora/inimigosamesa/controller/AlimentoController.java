@@ -58,41 +58,6 @@ public class AlimentoController {
         }
     }
 
-//    @RequestMapping(value = {"/lista"}, method = RequestMethod.GET)
-//    public String grid(
-//            @RequestParam(value = "busca", required = false) String busca,
-//            @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
-//            @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
-//            @RequestParam(value = "pagina", required = false, defaultValue = "1") int pagina,
-//            HttpServletRequest request,
-//            Model model) {
-//
-//        pagina = (pagina <= 0)? 1 : pagina;
-//
-//        Iterable<Alimento> alimentos;
-//        if(busca != null){
-//            alimentos = servicoAlimento.buscaPorNome(busca, pagina, tipoDeOrdenacao);
-//        }
-//
-//        else if(categoria != 0){
-//            alimentos = servicoAlimento.buscaPorCategoria(pagina,categoria, tipoDeOrdenacao);
-//        }
-//
-//        else {
-//            alimentos = servicoAlimento.buscaTodos(pagina,tipoDeOrdenacao);
-//        }
-//
-//        if(alimentos.iterator().hasNext()){
-//            model.addAttribute("ultimaPagina", ((Page) alimentos).getTotalPages());
-//            model.addAttribute("paginaAtual", pagina);
-//            model.addAttribute("alimentos", alimentos);
-//        }else{
-//            model.addAttribute("erro", "Nenhum alimento encontrado.");
-//        }
-//
-//        return "lista";
-//    }
-
     @RequestMapping(value = "/detalhe/{codigo}")
     public String detalhe(Model model, @PathVariable("codigo") int codigo) {
 
