@@ -7,13 +7,27 @@
 
     <link th:replace="fragmentos/header :: bootstrap-css" />
 
-    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
-    <link href="css/detalhe-do-produto.css" rel="stylesheet"/>
-
+    <script th:replace="fragmentos/header :: jquery"> </script>
+    <script th:replace="fragmentos/header :: jqueryui"> </script>
+    <script th:replace="fragmentos/header :: bootstrap-js"> </script>
     <script th:replace="fragmentos/header :: cadastro-alimento-js"> </script>
 
 </head>
     <body>
+
+        <script>
+            $(document).ready(function(){
+                var uploadFinished = $(".js-upload-finished");
+                var botaoUpload = $("#js-upload-files");
+
+                uploadFinished.hide();
+
+                botaoUpload.on("click", function(){
+                       uploadFinished.show();
+                });
+            });
+        </script>
+
 
         <nav th:replace="fragmentos/header :: cabecalho"></nav>
 
@@ -24,7 +38,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <form  action="">
+                <form  action="" id="js-upload-form">
                 <div class="col-xs-6 col-md-5">
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>Imagem Alimento</strong></div>
@@ -51,7 +65,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Upload Finished -->
+                                <!--&lt;!&ndash; Upload Finished &ndash;&gt;-->
                                 <div class="js-upload-finished">
                                     <h3>Subindo Imagem</h3>
                                     <div class="list-group">
@@ -60,6 +74,7 @@
                                 </div>
                             </div>
                     </div>
+                    <button class="btn btn-default alinha-esquerda" type="submit" >Cancela</button>
                 </div>
                 <div class="col-xs-6 col-md-5">
                     <!--<form  action="">-->
@@ -128,8 +143,7 @@
                                     </h6>
                                 </li>
                             </ul>
-                            <imput class="btn btn-default" type="submit">Cadastra</imput>
-
+                            <button class="btn btn-default alinha-direita" type="submit" id="js-upload-submit">Cadastra</button>
                 </div>
                 </form>
             </div>

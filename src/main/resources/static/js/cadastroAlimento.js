@@ -1,29 +1,30 @@
 //  <![CDATA[
-+ function($) {
+
++ function ($) {
     'use strict';
 
     // UPLOAD CLASS DEFINITION
     // ======================
 
-    var dropZone = document.getElementById('drop-zone');
-    var uploadForm = document.getElementById('js-upload-form');
+    var dropZone = $('#drop-zone');
+    var uploadForm = $('#js-upload-form');
 
     var startUpload = function(files) {
         console.log(files)
     }
 
-    uploadForm.addEventListener('submit', function(e) {
-        var uploadFiles = document.getElementById('js-upload-files').files;
-        e.preventDefault()
+    uploadForm.on('submit', function(e) {
+        var uploadFiles = $('#js-upload-files').files;
+        e.preventDefault();
 
-        startUpload(uploadFiles)
+        startUpload(uploadFiles);
     })
 
     dropZone.ondrop = function(e) {
         e.preventDefault();
         this.className = 'upload-drop-zone';
 
-        startUpload(e.dataTransfer.files)
+        startUpload(e.dataTransfer.files);
     }
 
     dropZone.ondragover = function() {
@@ -37,4 +38,5 @@
     }
 
 }(jQuery);
+
 //]]>
