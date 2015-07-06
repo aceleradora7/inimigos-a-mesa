@@ -23,13 +23,14 @@
 <nav th:replace="fragmentos/header :: cabecalho"></nav>
 
 
-
+<center>
 <div class="estilo-contato container">
+    <h1>Contato</h1>
 
     <form class="form-horizontal">
-        <center>
+
         <div class="form-group">
-            <label for="nome" class="col-sm-2 control-label">Nome</label>
+            <label for="nome" class="col-sm-4 control-label">Nome</label>
             <div class="col-sm-4">
                 <input type="nome" class="form-control" id="nome" placeholder="Nome" required="true"/>
             </div>
@@ -37,13 +38,13 @@
 
 
         <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
+            <label for="email" class="col-sm-4 control-label">Email</label>
             <div class="col-sm-4">
                 <input type="email" class="form-control" id="email" placeholder="Email" required="true"/>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Assunto</label>
+            <label class="col-sm-4 control-label">Assunto</label>
             <div class="col-sm-4">
             <select class="form-control">
                 <option></option>
@@ -54,23 +55,26 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Mensagem</label>
+            <label class="col-sm-4 control-label">Mensagem</label>
             <div class="col-sm-4">
                 <textarea class="form-control texto-contato" rows="3" placeholder="Mensagem" required="true"></textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-4">
+            <div class="col-sm-offset-4 col-sm-4">
 
                 <button type="submit" class="btn btn-default">Enviar</button>
             </div>
         </div>
-        </center>
     </form>
 
 </div>
+</center>
 <nav th:replace="fragmentos/rodape :: rodape"></nav>
 
 </body>
 </html>
+
+
+
