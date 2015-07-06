@@ -176,3 +176,14 @@ a{
     background-color: #3A7D3A;
     border-color: #3A7D3A;
 }
+
+.estilo-contato{
+	margin-top: 80px;
+}
+.texto-contato{
+	max-width: 100%;
+	min-width: 100%;
+	max-height: 150px;
+	min-height: 150px;
+	resize:nome;
+}
