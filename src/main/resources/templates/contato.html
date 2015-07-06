@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+
+    <title>Contato</title>
+
+    <meta charset="utf-8" />
+
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link rel="stylesheet" type="text/css" href="css/principal.css"/>
+
+    <script th:replace="fragmentos/header :: jquery"> </script>
+    <script th:replace="fragmentos/header :: jqueryui"> </script>
+
+    <script th:replace="fragmentos/header :: query-string-js"> </script>
+    <script th:replace="fragmentos/header :: busca"> </script>
+
+
+</head>
+<body>
+
+<nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+
+
+<div class="estilo-contato container">
+
+    <form class="form-horizontal">
+        <center>
+        <div class="form-group">
+            <label for="nome" class="col-sm-2 control-label">Nome</label>
+            <div class="col-sm-4">
+                <input type="nome" class="form-control" id="nome" placeholder="Nome" required="true"/>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control" id="email" placeholder="Email" required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Assunto</label>
+            <div class="col-sm-4">
+            <select class="form-control">
+                <option></option>
+                <option value="duvidas" id="duvidas">Dúvidas</option>
+                <option value="reclamacoes" id="reclamacoes">Reclamações</option>
+                <option value="sugestoes" id="sugestoes">Sugestões</option>
+            </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Mensagem</label>
+            <div class="col-sm-4">
+                <textarea class="form-control texto-contato" rows="3" placeholder="Mensagem" required="true"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+
+                <button type="submit" class="btn btn-default">Enviar</button>
+            </div>
+        </div>
+        </center>
+    </form>
+
+</div>
+<nav th:replace="fragmentos/rodape :: rodape"></nav>
+
+</body>
+</html>
