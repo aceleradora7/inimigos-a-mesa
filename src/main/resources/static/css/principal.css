@@ -1,3 +1,20 @@
+@font-face{
+	font-family: 'SourceSansPro';
+	src: url(/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf);
+}
+
+*{
+	font-family: SourceSansPro;
+}
+
+h1{ font-size:3.3em; font-weight:bold; }
+h2{ font-size:2.5em; font-weight:bold;}
+h3{ font-size: 1.7em; font-weight:bold;}
+h4 {font-size:1.2em;font-weight:bold;}
+
+button, p, a {font-size:1.1em;}
+
+
 .wrapper-conteudo{
 	margin-top:70px !important;
 }
@@ -69,11 +86,6 @@ a{
 
 }
 
-.correcaocategoria {
-    border-radius: 0px !important;
-    font-size: 14px;
-
-}
 
 .medidas-visuais{
 	margin-top: 30px;
@@ -160,6 +172,12 @@ a{
 	margin-top:51px;
 	background-color: #449D44;
 	border-color: #398439;
+
+}
+
+.categoria{
+	border-radius: 0px !important;
+	font-size:1.2em;
 }
 
 .btn-primary{
