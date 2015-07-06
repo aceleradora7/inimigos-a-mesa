@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.HandlerMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -80,5 +78,10 @@ public class AlimentoController {
         model.addAttribute("legenda", legendas);
 
         return "detalhe";
+    }
+
+    @RequestMapping(value = "/cadastroAlimento")
+    public void cadastrarAlimento(){
+
     }
 }

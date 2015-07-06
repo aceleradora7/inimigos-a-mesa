@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Detalhe do Produto</title>
+    <link href="css/cadastroAlimento.css" rel="stylesheet"/>
+
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/detalhe-do-produto.css" rel="stylesheet"/>
+</head>
+    <body>
+
+        <nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+        <div class="jumbotron">
+            <center>
+                <h2>Cadastro de Alimento</h2>
+            </center>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-md-5">
+
+                    teste de div
+                </div>
+                <div class="col-xs-6 col-md-5">
+                    <form  action="">
+                        <div class="form-group">
+                            <label >Nome Alimento</label>
+                            <input type="text" class="form-control" name="nomeAlimento" value=""/>
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <label >Selecione uma categoria</label>
+                            <select class="form-control">
+                                <option value="#">Selecione uma categoria</option>
+                            </select>
+                        </div>
+
+                        <br/>
+                            <ul class="list-group">
+                                <center>
+                                    <li class="list-group-item">
+                                        <h3>
+                                            <b>Tabela Nutricional</b>
+                                        </h3>
+                                    </li>
+                                </center>
+                                    <li class="list-group-item">
+                                        Porção alimento:
+                                        <label class="radio-inline alinha-direita ">
+                                            <input type="radio" name="ml" id="inlineRadio2" value="ml"/>
+                                            ml
+                                        </label>
+                                        <label class="radio-inline alinha-direita">
+                                            <input type="radio" name="g" id="inlineRadio3" value="g" />
+                                            g
+                                        </label>
+                                        <input type="text" name="porcao" value="" class="alinha-direita"/>
+                                    </li>
+                                <li class="list-group-item">
+                                    Calorias:
+                                    <div class="alinha-direita ">kcal</div>
+                                    <input type="text" name="calorias" value="" class=" alinha-direita"/>
+                                </li>
+                                <li class="list-group-item">
+                                    Açúcar:
+                                    <div class="alinha-direita ">g</div>
+                                    <input type="text" name="acucar" value="" class="alinha-direita"/>
+                                </li>
+                                <li class="list-group-item">
+                                    Sódio:
+                                    <div class="alinha-direita ">mg</div>
+                                    <input type="text" name="sal" value="" class="alinha-direita"/>
+                                </li>
+                                <li class="list-group-item">
+                                    Gordura:
+                                    <div class="alinha-direita ">g</div>
+                                    <input type="text" name="gordura" value="" class="alinha-direita"/>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>
+                                        <b><center>Legenda</center></b>
+                                    </h4>
+
+                                    <h6 class="list-group-item">
+                                        <B>NA</B> - Não avaliado
+                                        <br />
+                                        <b>TR</b> - Traço para medidas entre 0 à 0.5
+                                    </h6>
+                                </li>
+                            </ul>
+                            <imput class="btn btn-default" type="submit">Cadastra</imput>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
