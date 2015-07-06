@@ -20,4 +20,9 @@ public class ApresentacaoController {
         return "tutorial";
     }
 
+    @RequestMapping("/contato")
+    public String contato(){
+        return "contato";
+    }
+
 }
