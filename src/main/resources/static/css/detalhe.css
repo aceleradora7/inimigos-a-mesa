@@ -2,14 +2,3 @@
     height: 80%;
     width: 85%;
 }
-
-.alimentonome{
-    font-weight: bold;
-    font-size: 26px;
-}
-
-.alimentocategoria{
-    font-weight: italic;
-    font-size: 16px;
-    padding-left: 15px;
-}
