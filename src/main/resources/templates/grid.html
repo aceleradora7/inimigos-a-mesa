@@ -3,6 +3,8 @@
 	<head>
 
 		<title>Alimentos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 
 		<meta charset="utf-8" />
 
@@ -10,6 +12,7 @@
 		<link th:replace="fragmentos/header :: jqueryui-css" />
 		<link rel="stylesheet" type="text/css" href="css/principal.css"/>
 		<link rel="stylesheet" type="text/css" href="css/grid.css"/>
+
 
 		<script th:replace="fragmentos/header :: jquery"> </script>
 		<script th:replace="fragmentos/header :: jqueryui"> </script>
@@ -29,7 +32,7 @@
 		<center>
 			<div class="row">
 				<div class="col-lg-12 col-md-12">
-					<button class="col-lg-2 col-md-3 col-sm-3 col-xs-12 btn btn-primary btn-lg correcaocategoria categoria" th:each="categoria : ${categorias}" type="button" th:value="${categoria.codigo}" th:text="${categoria.nome}">
+					<button class="col-lg-2 col-md-3 col-sm-3 col-xs-12 btn btn-primary btn-lg categoria" th:each="categoria : ${categorias}" type="button" th:value="${categoria.codigo}" th:text="${categoria.nome}">
 					</button>
 				</div>
 			</div>
