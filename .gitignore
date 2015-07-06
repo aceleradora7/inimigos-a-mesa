@@ -8,4 +8,5 @@ build/
 .classpath
 *.class
 *.jar
-.project
+.project/
+out/

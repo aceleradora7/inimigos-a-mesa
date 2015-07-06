@@ -11,6 +11,7 @@ public class ApresentacaoController {
         return "index";
     }
 
+    @RequestMapping("/sobre")
     public String sobre(){
         return "sobre";
     }
