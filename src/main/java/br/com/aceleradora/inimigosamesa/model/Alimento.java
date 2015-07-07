@@ -1,12 +1,10 @@
 package br.com.aceleradora.inimigosamesa.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity(name = "alimento")
-public class Alimento implements Comparable<Alimento>, Serializable{
+public class Alimento implements Comparable<Alimento>, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -16,7 +14,6 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     @ManyToOne
     @JsonIgnore
     private Categoria categoria;
-
     private String nome;
     private String acucarGramas;
     private String percentualDiarioAcucar;
@@ -28,7 +25,6 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     private String urlImagem;
 
     public Alimento() {
-
     }
 
     public Alimento(int codigo, Categoria categoria, String nome, String acucarGramas, String percentualDiarioAcucar, String sodioMiligramas, String percentualDiarioSodio, String gorduraGramas, String percentualDiarioGordura, String calorias, String urlImagem) {
@@ -76,7 +72,7 @@ public class Alimento implements Comparable<Alimento>, Serializable{
     }
 
     public void setAcucarGramas(String acucarGramas) {
-        this.acucarGramas=acucarGramas;
+        this.acucarGramas = acucarGramas;
     }
 
     public String getPercentualDiarioAcucar() {
