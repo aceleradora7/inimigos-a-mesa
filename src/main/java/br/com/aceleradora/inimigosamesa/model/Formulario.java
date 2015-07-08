@@ -1,20 +1,20 @@
 package br.com.aceleradora.inimigosamesa.model;
 
-public class FormularioEmail {
+public class Formulario {
     private String nome;
     private String emailRemetente;
     private String assunto;
     private String mensagem;
 
 
-    public FormularioEmail(String nome, String emailRemetente, String assunto, String mensagem) {
+    public Formulario(String nome, String emailRemetente, String assunto, String mensagem) {
         this.nome = nome;
         this.emailRemetente = emailRemetente;
         this.assunto = assunto;
         this.mensagem = mensagem;
     }
 
-    public FormularioEmail(){
+    public Formulario(){
 
     }
 
