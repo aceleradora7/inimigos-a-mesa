@@ -1,86 +1,78 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-    <head>
+<head>
 
-        <title>Contato</title>
+    <title>Contato</title>
 
-        <meta charset="utf-8" />
-        <script>
-            function validacao()
-            {
-               alert("Email enviado com sucesso, responderemos o mais breve possível, ou não. Obrigado!");
-            }
-        </script>
-        <link th:replace="fragmentos/header :: bootstrap-css" />
-        <link th:replace="fragmentos/header :: jqueryui-css" />
-        <link rel="stylesheet" type="text/css" href="css/principal.css"/>
+    <meta charset="utf-8" />
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link rel="stylesheet" type="text/css" href="css/principal.css"/>
 
-        <script th:replace="fragmentos/header :: jquery"> </script>
-        <script th:replace="fragmentos/header :: jqueryui"> </script>
+    <script th:replace="fragmentos/header :: jquery"> </script>
+    <script th:replace="fragmentos/header :: jqueryui"> </script>
 
-        <script th:replace="fragmentos/header :: query-string-js"> </script>
-        <script th:replace="fragmentos/header :: busca"> </script>
+    <script th:replace="fragmentos/header :: query-string-js"> </script>
+    <script th:replace="fragmentos/header :: busca"> </script>
 
 
-    </head>
-    <body>
+</head>
+<body>
+<nav th:replace="fragmentos/header :: cabecalho"></nav>
+<center>
+    <div class="estilo-contato container">
+        <h1>Contato</h1>
 
-        <nav th:replace="fragmentos/header :: cabecalho"></nav>
+        <form class="form-horizontal" method="POST">
 
-
-        <center>
-        <div class="estilo-contato container">
-            <h1>Contato</h1>
-
-            <form class="form-horizontal" method="post">
-
-                <div class="form-group">
-                    <label for="nome" class="col-sm-4 control-label">Nome</label>
-                    <div class="col-sm-4">
-                        <input type="nome" class="form-control" id="nome" placeholder="Nome" required="true"/>
-                    </div>
+            <div class="form-group">
+                <label for="nome" class="col-sm-4 control-label">Nome</label>
+                <div class="col-sm-4">
+                    <input type="nome" class="form-control" id="nome" placeholder="Nome" required="true"/>
                 </div>
+            </div>
 
-
-                <div class="form-group">
-                    <label for="email" class="col-sm-4 control-label">Email</label>
-                    <div class="col-sm-4">
-                        <input type="email" class="form-control" id="email" placeholder="Email" required="true"/>
-                    </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-4 control-label">Email</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" placeholder="Email" required="true"/>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Assunto</label>
-                    <div class="col-sm-4">
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Assunto</label>
+                <div class="col-sm-4">
                     <select class="form-control"  required="true">
                         <option value="sugestoes" id="sugestoes">Sugestões</option>
                         <option value="comentarios" id="comentarios">Comentários</option>
                         <option value="outros" id="outros">Outros</option>
                     </select>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Mensagem</label>
-                    <div class="col-sm-4">
-                        <textarea class="form-control texto-contato" rows="3" placeholder="Mensagem" required="true"></textarea>
-                    </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Mensagem</label>
+                <div class="col-sm-4">
+                    <textarea class="form-control texto-contato" rows="3" placeholder="Mensagem" required="true"></textarea>
                 </div>
+            </div>
 
-                <script th:if="${erroCaptcha}">alert("Valide a verificação antes de prosseguir");</script>
-                <div class="g-recaptcha" data-sitekey="6Lf3XAkTAAAAAKuOQUrYZCqdJ7dCkBq8yFvjoXVo"></div>
-                    <br/>
-                <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-4">
+            <script th:if="${erroCaptcha}">alert("Valide a verificação antes de prosseguir");</script>
+            <div class="g-recaptcha" data-sitekey="6Lf3XAkTAAAAAKuOQUrYZCqdJ7dCkBq8yFvjoXVo"></div>
+            <br/>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
 
-                        <button type="submit" class="btn btn-default" onclick="validacao();">Enviar</button>
-                    </div>
+                    <button type="submit" class="btn btn-default">Enviar</button>
                 </div>
-            </form>
+            </div>
+        </form>
+    </div>
 
-        </div>
-        </center>
-        <nav th:replace="fragmentos/rodape :: rodape"></nav>
-        <script src='https://www.google.com/recaptcha/api.js'></script>
-    </body>
+</center>
+<nav th:replace="fragmentos/rodape :: rodape"></nav>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</body>
 </html>
 
 
