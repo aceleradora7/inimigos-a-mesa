@@ -82,7 +82,7 @@ a{
     color: #FFF;
     background: #2E2E2E none repeat scroll 0% 0%;
 	width: auto;
-	padding-left: 30%;
+
 
 
 }
@@ -113,9 +113,11 @@ a{
 
 /* Footer */
 .alinhar{
+	vertical-align: top;
 	list-style-type:none;
-	float: left;
+	display: inline-block;
 	width: 200px;
+	margin-top: 10px;
 
 	}
 
@@ -136,6 +138,7 @@ a{
     color: #FFFFFF !important;
     font-family: Arial,Helvetica,sans-serif;
     }
+
 
 #template-colher{
 	margin-left: 5px;
