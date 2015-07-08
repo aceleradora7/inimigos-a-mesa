@@ -1,5 +1,6 @@
 package br.com.aceleradora.inimigosamesa.controller;
-
+import br.com.aceleradora.inimigosamesa.model.Email;
+import br.com.aceleradora.inimigosamesa.model.FormularioEmail;
 import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class ApresentacaoController {
     }
 
     @RequestMapping(value = "/contato", method = RequestMethod.POST)
-    public String enviaContato(@RequestParam(value="g-recaptcha-response",required = true) String response, Model model){
+    public String enviaContato(@RequestParam(value="g-recaptcha-response",required = true) String response, FormularioEmail formularioEmail, Model model){
         StringBuilder builder = new StringBuilder();
         builder.append("https://www.google.com/recaptcha/api/siteverify");
         builder.append("?secret=");
@@ -41,7 +42,9 @@ public class ApresentacaoController {
         RestTemplate restTemplate = new RestTemplate();
         RecaptchaResult resultado = restTemplate.getForObject(builder.toString(), RecaptchaResult.class);
         if(resultado.success) {
-            //ok
+            Email email = new Email();
+            System.out.println("If Sucess: "+formularioEmail.getNome());
+            email.enviar(formularioEmail);
         }
         else
         {
