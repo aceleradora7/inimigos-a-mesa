@@ -57,7 +57,9 @@
                 </div>
             </div>
 
-            <script th:if="${erroCaptcha}">alert("Valide a verificação antes de prosseguir");</script>
+            <div th:if="${sucesso} != null" th:text="${sucesso}" class="alert alert-success" role="alert">  </div>
+            <div th:if="${erroCaptcha} != null" th:text="${erroCaptcha}" class="alert alert-danger" role="alert">  </div>
+
             <div class="g-recaptcha" data-sitekey="6Lf3XAkTAAAAAKuOQUrYZCqdJ7dCkBq8yFvjoXVo"></div>
             <br/>
             <div class="form-group">
