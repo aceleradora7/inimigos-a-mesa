@@ -42,6 +42,8 @@ dependencies {
     compile('com.cloudinary:cloudinary-http42:1.2.1')
     compile('com.cloudinary:cloudinary-core:1.2.1')
 
+    compile('javax.mail:mail:1.4.7')
+
     testCompile("junit:junit")
 }
 
