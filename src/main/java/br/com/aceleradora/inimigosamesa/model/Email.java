@@ -48,9 +48,9 @@ public class Email {
         try {
             Message mensagemMime = new MimeMessage(sessao);
             mensagemMime.setFrom(new InternetAddress(EMAIL_ORIGEM));
-            mensagemMime.setSubject("[Contato]" + formulario.getAssunto());
+            mensagemMime.setSubject("[Contato] - " + formulario.getAssunto());
 
-            Address[] destinatario = InternetAddress.parse("johan.kovalsikoski@gmail.com");
+            Address[] destinatario = InternetAddress.parse(EMAIL_ORIGEM);
 
             mensagemMime.setRecipients(Message.RecipientType.TO, destinatario);
 
@@ -60,7 +60,7 @@ public class Email {
 
             Transport.send(mensagemMime);
 
-        }catch(MessagingException e){
+        } catch (MessagingException e){
             throw new RuntimeException(e);
         }
     }
