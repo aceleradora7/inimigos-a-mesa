@@ -14,12 +14,19 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     @ManyToOne
     @JsonIgnore
     private Categoria categoria;
+
+
+    @Transient
+    private String idCategoria;
     private String nome;
-    private String acucarGramas;
-    private String percentualDiarioAcucar;
-    private String sodioMiligramas;
-    private String percentualDiarioSodio;
-    private String gorduraGramas;
+    @Column(name="acucar_gramas")
+    private String acucar;
+    private String porcaoAlimento;
+    @Column(name="sodio_miligramas")
+    private String sodio;
+    private String unidade;
+    @Column(name = "gordura_gramas")
+    private String gordura;
     private String percentualDiarioGordura;
     private String calorias;
     private String urlImagem;
@@ -27,15 +34,15 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     public Alimento() {
     }
 
-    public Alimento(int codigo, Categoria categoria, String nome, String acucarGramas, String percentualDiarioAcucar, String sodioMiligramas, String percentualDiarioSodio, String gorduraGramas, String percentualDiarioGordura, String calorias, String urlImagem) {
+    public Alimento(int codigo, Categoria categoria, String nome, String acucar, String porcaoAlimento, String sodio, String unidade, String gordura, String percentualDiarioGordura, String calorias, String urlImagem) {
         this.codigo = codigo;
         this.categoria = categoria;
         this.nome = nome;
-        this.acucarGramas = acucarGramas;
-        this.percentualDiarioAcucar = percentualDiarioAcucar;
-        this.sodioMiligramas = sodioMiligramas;
-        this.percentualDiarioSodio = percentualDiarioSodio;
-        this.gorduraGramas = gorduraGramas;
+        this.acucar = acucar;
+        this.porcaoAlimento = porcaoAlimento;
+        this.sodio = sodio;
+        this.unidade = unidade;
+        this.gordura = gordura;
         this.percentualDiarioGordura = percentualDiarioGordura;
         this.calorias = calorias;
         this.urlImagem = urlImagem;
@@ -67,45 +74,47 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         this.nome = nome;
     }
 
-    public String getAcucarGramas() {
-        return acucarGramas;
+    public String getAcucar() {
+        return acucar;
     }
 
-    public void setAcucarGramas(String acucarGramas) {
-        this.acucarGramas = acucarGramas;
+
+    public void setAcucar(String acucar) {
+        this.acucar = acucar;
+
     }
 
-    public String getPercentualDiarioAcucar() {
-        return percentualDiarioAcucar;
+    public String getPorcaoAlimento() {
+        return porcaoAlimento;
     }
 
-    public void setPercentualDiarioAcucar(String percentualDiarioAcucar) {
-        this.percentualDiarioAcucar = percentualDiarioAcucar;
+    public void setPorcaoAlimento(String porcaoAlimento) {
+        this.porcaoAlimento = porcaoAlimento;
     }
 
-    public String getSodioMiligramas() {
-        return sodioMiligramas;
+    public String getSodio() {
+        return sodio;
     }
 
-    public void setSodioMiligramas(String sodioMiligramas) {
-        this.sodioMiligramas = sodioMiligramas;
+    public void setSodio(String sodio) {
+        this.sodio = sodio;
     }
 
-    public String getPercentualDiarioSodio() {
-        return percentualDiarioSodio;
+    public String getUnidade() {
+        return unidade;
     }
 
-    public void setPercentualDiarioSodio(String percentualDiarioSodio) {
-        this.percentualDiarioSodio = percentualDiarioSodio;
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
     }
 
-    public String getGorduraGramas() {
-        return gorduraGramas;
+    public String getGordura() {
+        return gordura;
     }
 
-    public void setGorduraGramas(String gorduraGramas) {
+    public void setGordura(String gordura) {
 
-        this.gorduraGramas = gorduraGramas;
+        this.gordura = gordura;
     }
 
     public String getPercentualDiarioGordura() {
@@ -130,6 +139,14 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
     public void setUrlImagem(String urlImagem) {
         this.urlImagem = urlImagem;
+    }
+
+    public String getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(String idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     @Override

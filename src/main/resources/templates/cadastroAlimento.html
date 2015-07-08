@@ -38,7 +38,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <form  action="" id="js-upload-form">
+                <form  th:action="@{/cadastroAlimento}" th:object="${alimento}" method="POST" id="js-upload-form">
                 <div class="col-xs-6 col-md-5">
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>Imagem Alimento</strong></div>
@@ -48,45 +48,45 @@
                                 <h4>Selecione uma imagem em seu Pc.</h4>
                                     <div class="form-inline">
                                         <div class="form-group">
-                                            <input type="file" name="files[]" id="js-upload-files" />
+                                            <input type="text" name="files" id="js-upload-files" th:field="*{urlImagem}"/>
                                         </div>
                                     </div>
 
-                                <!-- Drop Zone -->
-                                <h4>Ou arraste uma imagem</h4>
-                                <div class="upload-drop-zone" id="drop-zone">
-                                    Arraste uma imagem aqui!!!
-                                </div>
+                                <!--&lt;!&ndash; Drop Zone &ndash;&gt;-->
+                                <!--<h4>Ou arraste uma imagem</h4>-->
+                                <!--<div class="upload-drop-zone" id="drop-zone">-->
+                                    <!--Arraste uma imagem aqui!!!-->
+                                <!--</div>-->
 
-                                <!-- Progress Bar -->
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 6%;">
-                                        <span class="sr-only">6% Complete</span>
-                                    </div>
-                                </div>
+                                <!--&lt;!&ndash; Progress Bar &ndash;&gt;-->
+                                <!--<div class="progress">-->
+                                    <!--<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 6%;">-->
+                                        <!--<span class="sr-only">6% Complete</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
 
-                                <!--&lt;!&ndash; Upload Finished &ndash;&gt;-->
-                                <div class="js-upload-finished">
-                                    <h3>Subindo Imagem</h3>
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-01.jpg</a>
-                                    </div>
-                                </div>
+                                <!--&lt;!&ndash;&lt;!&ndash; Upload Finished &ndash;&gt;&ndash;&gt;-->
+                                <!--<div class="js-upload-finished">-->
+                                    <!--<h3>Subindo Imagem</h3>-->
+                                    <!--<div class="list-group">-->
+                                        <!--<a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-01.jpg</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                             </div>
                     </div>
-                    <button class="btn btn-default alinha-esquerda" type="submit" >Cancela</button>
+                    <button href="##" class="btn btn-default alinha-esquerda" type="submit" >Cancela</button>
                 </div>
                 <div class="col-xs-6 col-md-5">
                     <!--<form  action="">-->
                         <div class="form-group">
                             <label >Nome Alimento</label>
-                            <input type="text" class="form-control" name="nomeAlimento" value=""/>
+                            <input type="text" th:field="*{nome}" class="form-control" name="nomeAlimento"/>
                         </div>
                         <br/>
                         <div class="form-group">
                             <label >Selecione uma categoria</label>
-                            <select class="form-control">
-                                <option value="#">Selecione uma categoria</option>
+                            <select class="form-control" th:field="*{idCategoria}">
+                                <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}" >Selecione uma categoria</option>
                             </select>
                         </div>
 
@@ -102,34 +102,34 @@
                                     <li class="list-group-item">
                                         Porção alimento:
                                         <label class="radio-inline alinha-direita ">
-                                            <input type="radio" name="ml" id="inlineRadio2" value="ml"/>
+                                            <input th:field="*{unidade}" type="radio" name="ml" id="ml" value="ml"/>
                                             ml
                                         </label>
                                         <label class="radio-inline alinha-direita">
-                                            <input type="radio" name="g" id="inlineRadio3" value="g" />
+                                            <input th:field="*{unidade}" type="radio" name="g" id="g" value="g" />
                                             g
                                         </label>
-                                        <input type="text" name="porcao" value="" class="alinha-direita"/>
+                                        <input th:field="*{porcaoAlimento}" type="text" name="porcao" value="" class="alinha-direita"/>
                                     </li>
                                 <li class="list-group-item">
                                     Calorias:
                                     <div class="alinha-direita ">kcal</div>
-                                    <input type="text" name="calorias" value="" class=" alinha-direita"/>
+                                    <input th:field="*{calorias}" type="text" name="calorias" value="" class=" alinha-direita"/>
                                 </li>
                                 <li class="list-group-item">
                                     Açúcar:
                                     <div class="alinha-direita ">g</div>
-                                    <input type="text" name="acucar" value="" class="alinha-direita"/>
+                                    <input th:field="*{acucar}" type="text" name="acucar" value="" class="alinha-direita"/>
                                 </li>
                                 <li class="list-group-item">
                                     Sódio:
                                     <div class="alinha-direita ">mg</div>
-                                    <input type="text" name="sal" value="" class="alinha-direita"/>
+                                    <input th:field="*{sodio}" type="text" name="sal" value="" class="alinha-direita"/>
                                 </li>
                                 <li class="list-group-item">
                                     Gordura:
                                     <div class="alinha-direita ">g</div>
-                                    <input type="text" name="gordura" value="" class="alinha-direita"/>
+                                    <input th:field="*{gordura}" type="text" name="gordura" value="" class="alinha-direita"/>
                                 </li>
                                 <li class="list-group-item">
                                     <h4>
@@ -143,7 +143,8 @@
                                     </h6>
                                 </li>
                             </ul>
-                            <button class="btn btn-default alinha-direita" type="submit" id="js-upload-submit">Cadastra</button>
+                            <input class="btn btn-default alinha-direita" type="submit"  id="js-upload-submit">Cadastra</input>
+                            <input type="reset" value="Reset" />
                 </div>
                 </form>
             </div>

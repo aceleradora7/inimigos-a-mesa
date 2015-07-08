@@ -11,11 +11,11 @@ public class MedidasVisuais {
     public double getColheresDeSal(){
         double colher = 0;
 
-        if(alimento.getSodioMiligramas().isEmpty()){
+        if(alimento.getSodio().isEmpty()){
             return colher;
         }
 
-        double sodio = Double.parseDouble(alimento.getSodioMiligramas());
+        double sodio = Double.parseDouble(alimento.getSodio());
         double sal = ((sodio * 100) / 39) * 0.001;
         if (sal != 0) {
             colher = sal / 2.06;
@@ -27,11 +27,11 @@ public class MedidasVisuais {
     public double getColheresDeAcucar(){
         double colher = 0;
 
-        if(alimento.getAcucarGramas().isEmpty()){
+        if(alimento.getAcucar().isEmpty()){
             return colher;
         }
 
-        double acucar = Double.parseDouble(alimento.getAcucarGramas());
+        double acucar = Double.parseDouble(alimento.getAcucar());
         if (acucar != 0) {
             colher = acucar / 1.76;
         }
@@ -41,11 +41,11 @@ public class MedidasVisuais {
     public double getColheresDeGordura(){
         double colher = 0;
 
-        if(alimento.getGorduraGramas().isEmpty()){
+        if(alimento.getGordura().isEmpty()){
             return colher;
         }
 
-        double gordura = Double.parseDouble(alimento.getGorduraGramas());
+        double gordura = Double.parseDouble(alimento.getGordura());
         if (gordura != 0) {
             colher = gordura / 2;
         }

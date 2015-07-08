@@ -1,5 +1,7 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
+import br.com.aceleradora.inimigosamesa.dao.AlimentoRepository;
+import br.com.aceleradora.inimigosamesa.dao.CategoriaRepository;
 import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Categoria;
 import br.com.aceleradora.inimigosamesa.model.Legenda;
@@ -8,7 +10,9 @@ import br.com.aceleradora.inimigosamesa.service.AlimentoService;
 import br.com.aceleradora.inimigosamesa.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +33,12 @@ public class AlimentoController {
 
     @Autowired
     private CategoriaService servicoCategoria;
+
+    @Autowired
+    private AlimentoRepository alimentoRepository;
+
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
     @RequestMapping(value = {"/lista", "/grid"}, method = RequestMethod.GET)
     public void listar(
@@ -80,9 +90,26 @@ public class AlimentoController {
         return "detalhe";
     }
 
-    @RequestMapping(value = "/cadastroAlimento")
-    public void cadastrarAlimento(){
+    @RequestMapping(value = "/cadastroAlimento", method = RequestMethod.GET)
+    public String cadastrarAlimento(Model model){
+        Alimento alimento = new Alimento();
+        model.addAttribute("alimento", alimento);
+        model.addAttribute("categorias", categoriaRepository.findAll());
 
+        return "cadastroAlimento";
+
+    }
+
+    @RequestMapping(value = "/cadastroAlimento", method = RequestMethod.POST)
+    public String cadastrarAlimentoFormulario(Model model, Alimento alimento){
+        Categoria c = new Categoria();
+        System.out.println(alimento.getIdCategoria());
+        c.setCodigo(Integer.parseInt(alimento.getIdCategoria()));
+        alimento.setCategoria(c);
+        alimentoRepository.save(alimento);
+
+
+        return "cadastroAlimento";
     }
 
 }
