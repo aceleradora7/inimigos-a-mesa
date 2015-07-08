@@ -30,7 +30,9 @@ public class Formulario {
         return emailRemetente;
     }
 
-    public void setEmailRemetente(String emailRemetente) { this.emailRemetente = emailRemetente; }
+    public void setEmailRemetente(String emailRemetente) {
+        this.emailRemetente = emailRemetente;
+    }
 
     public String getAssunto() {
         return assunto;
