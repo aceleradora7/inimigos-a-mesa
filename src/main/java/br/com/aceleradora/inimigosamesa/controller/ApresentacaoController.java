@@ -51,10 +51,11 @@ public class ApresentacaoController {
         if(resultado.success) {
             Email email = new Email();
             email.enviar(formulario);
+            model.addAttribute("sucesso", "E-mail enviado com sucesso!");
         }
         else
         {
-            model.addAttribute("erroCaptcha", true);
+            model.addAttribute("erroCaptcha", "Por favor verifique se você não é um robô.");
         }
         return "contato";
     }
