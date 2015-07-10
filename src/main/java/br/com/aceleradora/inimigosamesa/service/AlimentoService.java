@@ -6,12 +6,9 @@ import br.com.aceleradora.inimigosamesa.model.Categoria;
 import br.com.aceleradora.inimigosamesa.model.Legenda;
 import br.com.aceleradora.inimigosamesa.model.MedidasVisuais;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class AlimentoService{
@@ -44,6 +41,9 @@ public class AlimentoService{
         return repositorioAlimento.findAll(paginacao(pagina, tipoDeOrdenacao));
     }
 
+    public void salvar(Alimento alimento){
+        repositorioAlimento.save(alimento);
+    }
     private PageRequest paginacao(int paginaAtual, String tipoDeOrdenacao){
         return new PageRequest(paginaAtual - 1, ITENS_POR_PAGINA, Sort.Direction.fromString(tipoDeOrdenacao), "nome");
     }

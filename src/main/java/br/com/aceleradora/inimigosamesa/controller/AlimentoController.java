@@ -1,7 +1,5 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
-import br.com.aceleradora.inimigosamesa.dao.AlimentoRepository;
-import br.com.aceleradora.inimigosamesa.dao.CategoriaRepository;
 import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Categoria;
 import br.com.aceleradora.inimigosamesa.model.Legenda;
@@ -31,12 +29,6 @@ public class AlimentoController {
 
     @Autowired
     private CategoriaService servicoCategoria;
-
-    @Autowired
-    private AlimentoRepository alimentoRepository;
-
-    @Autowired
-    private CategoriaRepository categoriaRepository;
 
     @RequestMapping(value = {"/lista", "/grid"}, method = RequestMethod.GET)
     public void listar(
@@ -91,10 +83,11 @@ public class AlimentoController {
     @RequestMapping(value = "/cadastroAlimento", method = RequestMethod.GET)
     public String cadastrarAlimento(Model model){
         Alimento alimento = new Alimento();
+        Sort sort = new Sort(Sort.Direction.ASC, "nome");
         model.addAttribute("alimento", alimento);
-        model.addAttribute("categorias", categoriaRepository.findAll());
+        model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
 
-        return "cadastroAlimento";
+        return "formularioAlimento";
 
     }
 
@@ -104,20 +97,32 @@ public class AlimentoController {
         System.out.println(alimento.getIdCategoria());
         c.setCodigo(Integer.parseInt(alimento.getIdCategoria()));
         alimento.setCategoria(c);
-        alimentoRepository.save(alimento);
+        servicoAlimento.salvar(alimento);
 
 
-        return "cadastroAlimento";
+        return "formularioAlimento";
     }
 
     @RequestMapping(value = "/editarAlimento", method = RequestMethod.GET)
-    public String editarAlimentoFormulario(Model model, @RequestParam(value = "codigo", required = false) String codigo){
+    public String editarAlimento(Model model, @RequestParam(value = "codigo", required = false) String codigo){
         Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
-        model.addAttribute("categorias", categoriaRepository.findAll());
+        Sort sort = new Sort(Sort.Direction.ASC, "nome");
+        model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
         model.addAttribute("alimento", alimento);
 
 
-        return "cadastroAlimento";
+        return "formularioAlimento";
+    }
+
+    @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
+    public String gerenciarAlimento(Model model, Alimento alimento){
+
+        if(alimento.getUrlImagem().equals("")){
+            alimento.setUrlImagem("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
+        }
+        servicoAlimento.salvar(alimento);
+
+        return "formularioAlimento";
     }
 
 }
