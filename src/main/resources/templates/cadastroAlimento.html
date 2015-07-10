@@ -89,7 +89,7 @@
                         <br/>
                         <div class="form-group">
                             <label >Selecione uma categoria</label>
-                            <select class="form-control" th:field="*{categoria}">
+                            <select class="form-control" th:field="*{idCategoria}">
                                 <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}" >Selecione uma categoria</option>
                             </select>
                         </div>

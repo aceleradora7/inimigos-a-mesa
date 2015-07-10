@@ -7,7 +7,8 @@ import java.io.Serializable;
 public class Alimento implements Comparable<Alimento>, Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "alimento_codigo_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geradorId")
     private int codigo;
 
     @JoinColumn(name = "cod_categoria", referencedColumnName = "codigo")
