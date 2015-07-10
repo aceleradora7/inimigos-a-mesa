@@ -31,11 +31,13 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     private String percentualDiarioGordura;
     private String calorias;
     private String urlImagem;
+    @Column(name="url_imagem_h")
+    private String urlImagemGrande;
 
     public Alimento() {
     }
 
-    public Alimento(int codigo, Categoria categoria, String nome, String acucar, String porcaoAlimento, String sodio, String unidade, String gordura, String percentualDiarioGordura, String calorias, String urlImagem) {
+    public Alimento(int codigo, Categoria categoria, String nome, String acucar, String porcaoAlimento, String sodio, String unidade, String gordura, String percentualDiarioGordura, String calorias, String urlImagem, String urlImagemGrande) {
         this.codigo = codigo;
         this.categoria = categoria;
         this.nome = nome;
@@ -47,6 +49,7 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         this.percentualDiarioGordura = percentualDiarioGordura;
         this.calorias = calorias;
         this.urlImagem = urlImagem;
+        this.urlImagemGrande = urlImagemGrande;
     }
 
     public int getCodigo() {
@@ -148,6 +151,14 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
     public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
+    }
+
+    public String getUrlImagemGrande() {
+        return urlImagemGrande;
+    }
+
+    public void setUrlImagemGrande(String urlImagemGrande) {
+        this.urlImagemGrande = urlImagemGrande;
     }
 
     @Override

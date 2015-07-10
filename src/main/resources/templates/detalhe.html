@@ -36,7 +36,7 @@
 
             <div class="row">
                 <div class="col-xs-6 col-md-5">
-                    <img th:src="'/'+${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
+                    <img th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
                 </div>
                 <div class="col-xs-6 col-md-5" id="tabela-nutricional">
                     <ul class="list-group">
