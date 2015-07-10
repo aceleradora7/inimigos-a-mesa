@@ -1,0 +1,77 @@
+.alinha-direita {
+    horizontal-align: right;
+  	list-style-type:none;
+  	display: inline-block;
+  	width: 74%;
+  	margin-top: 10px;
+
+}
+
+.alinha-esquerda {
+      horizontal-align: left;
+      list-style-type:none;
+      display: inline-block;
+      width: 25%;
+      margin-top: 10px;
+
+}
+
+.centralizar{
+margin:0 auto !important;
+}
+
+.input-alimento{
+    width:70%
+}
+.botao-enviar {
+          	width: 65%;
+          	margin-top: 10px;
+}
+.botao-cancelar {
+          	width: 34%;
+          	margin-top: 10px;
+}
+
+/* layout.css Style */
+.upload-drop-zone {
+  height: 200px;
+  border-width: 2px;
+  margin-bottom: 20px;
+}
+
+/* skin.css Style*/
+.upload-drop-zone {
+  color: #ccc;
+  border-style: dashed;
+  border-color: #ccc;
+  line-height: 200px;
+  text-align: center;
+}
+.upload-drop-zone.drop {
+  color: #222;
+  border-color: #222;
+}
+
+.block{
+  	display: inline-block;
+}
+
+
+.bloco-login{
+  width: 800px;
+  height: 300px;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.titulo-login{
+  padding-top: 40px;
+  font-size: 80px;
+  text-align: center;
+
+}
+
+.imagem-detalhe-produto{
+    height: 80%;
+    width: 85%;
+}
