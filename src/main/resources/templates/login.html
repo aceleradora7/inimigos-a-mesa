@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Detalhe do Produto</title>
+    <link href="css/cadastroAlimento.css" rel="stylesheet"/>
+
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+
+    <script th:replace="fragmentos/header :: jquery"> </script>
+    <script th:replace="fragmentos/header :: jqueryui"> </script>
+    <script th:replace="fragmentos/header :: bootstrap-js"> </script>
+    <script th:replace="fragmentos/header :: cadastro-alimento-js"> </script>
+
+</head>
+<body>
+<nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+<div class="jumbotron">
+    <center>
+        <p class="titulo-login">Tela de login</p>
+    </center>
+    </div>
+        <div class="container-fluid">
+                <div class="bloco-login">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"/> Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4">
+                        <button type="submit" class="btn btn-default">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

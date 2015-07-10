@@ -60,4 +60,9 @@ public class ApresentacaoController {
         return "contato";
     }
 
+    @RequestMapping(value = "/login")
+    public void login() {
+
+    }
+
 }
