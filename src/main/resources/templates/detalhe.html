@@ -30,6 +30,10 @@
                 <h4 th:text="${alimento.categoria.nome}"></h4>
             </div>
 
+            <div>
+                <a th:href="@{'/editarAlimento/?codigo=' + ${alimento.codigo}}" class="list-group-item">EDITAR</a>
+            </div>
+
             <div class="row">
                 <div class="col-xs-6 col-md-5">
                     <img th:src="'/'+${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
