@@ -2,15 +2,19 @@
 <html xmlns:th="http://thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalhe do Produto</title>
-    <link href="css/cadastroAlimento.css" rel="stylesheet"/>
 
     <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link rel="stylesheet" type="text/css" href="css/principal.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/cadastroAlimento.css"/>
+
 
     <script th:replace="fragmentos/header :: jquery"> </script>
     <script th:replace="fragmentos/header :: jqueryui"> </script>
-    <script th:replace="fragmentos/header :: bootstrap-js"> </script>
     <script th:replace="fragmentos/header :: cadastro-alimento-js"> </script>
+
 
 </head>
     <body>
@@ -85,7 +89,7 @@
                         <br/>
                         <div class="form-group">
                             <label >Selecione uma categoria</label>
-                            <select class="form-control" th:field="*{idCategoria}">
+                            <select class="form-control" th:field="*{categoria}">
                                 <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}" >Selecione uma categoria</option>
                             </select>
                         </div>
@@ -100,36 +104,50 @@
                                     </li>
                                 </center>
                                     <li class="list-group-item">
-                                        Porção alimento:
-                                        <label class="radio-inline alinha-direita ">
-                                            <input th:field="*{unidade}" type="radio" name="ml" id="ml" value="ml"/>
-                                            ml
-                                        </label>
-                                        <label class="radio-inline alinha-direita">
-                                            <input th:field="*{unidade}" type="radio" name="g" id="g" value="g" />
-                                            g
-                                        </label>
-                                        <input th:field="*{porcaoAlimento}" type="text" name="porcao" value="" class="alinha-direita"/>
+                                        <div class="alinha-esquerda">
+                                            Porção alimento:
+                                        </div>
+
+                                        <div class="alinha-direita" >
+                                            <input th:field="*{porcaoAlimento}" type="text" name="porcao" value=""/>
+                                            <label class="radio-inline">
+                                                <input th:field="*{unidade}" type="radio" name="ml" id="ml" value="ml"/>
+                                                ml
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input th:field="*{unidade}" type="radio" name="g" id="g" value="g" />
+                                                g
+                                            </label>
+
+                                        </div>
                                     </li>
                                 <li class="list-group-item">
-                                    Calorias:
-                                    <div class="alinha-direita ">kcal</div>
-                                    <input th:field="*{calorias}" type="text" name="calorias" value="" class=" alinha-direita"/>
+                                    <div class="alinha-esquerda">Calorias:</div>
+                                    <div class="alinha-direita">
+                                        <input th:field="*{calorias}" type="text" name="calorias" value=""/>
+                                        kcal
+                                    </div>
                                 </li>
                                 <li class="list-group-item">
-                                    Açúcar:
-                                    <div class="alinha-direita ">g</div>
-                                    <input th:field="*{acucar}" type="text" name="acucar" value="" class="alinha-direita"/>
+                                    <div class="alinha-esquerda">Açucar:</div>
+                                    <div class="alinha-direita">
+                                        <input th:field="*{acucar}" type="text" name="acucar" value=""/>
+                                        g
+                                    </div>
                                 </li>
                                 <li class="list-group-item">
-                                    Sódio:
-                                    <div class="alinha-direita ">mg</div>
-                                    <input th:field="*{sodio}" type="text" name="sal" value="" class="alinha-direita"/>
+                                    <div class="alinha-esquerda">Sódio:</div>
+                                    <div class="alinha-direita">
+                                        <input th:field="*{sodio}" type="text" name="sodio" value=""/>
+                                        mg
+                                    </div>
                                 </li>
                                 <li class="list-group-item">
-                                    Gordura:
-                                    <div class="alinha-direita ">g</div>
-                                    <input th:field="*{gordura}" type="text" name="gordura" value="" class="alinha-direita"/>
+                                    <div class="alinha-esquerda">Gordura:</div>
+                                    <div class="alinha-direita">
+                                        <input th:field="*{gordura}" type="text" name="gordura" value=""/>
+                                        g
+                                    </div>
                                 </li>
                                 <li class="list-group-item">
                                     <h4>
@@ -143,12 +161,16 @@
                                     </h6>
                                 </li>
                             </ul>
-                            <input class="btn btn-default alinha-direita" type="submit"  id="js-upload-submit">Cadastra</input>
-                            <input type="reset" value="Reset" />
+                            <input class="btn btn-default alinha-direita" type="submit"  id="enviar" value="Enviar Dados"/>
+                            <input class="btn btn-default alinha-esquerda" type="submit"  id="cancelar" value="Cancelar"/>
+                    <br/><br/><br/>
                 </div>
                 </form>
             </div>
 
         </div>
+
+        <nav th:replace="fragmentos/rodape :: rodape"></nav>
+
     </body>
 </html>

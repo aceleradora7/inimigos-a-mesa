@@ -1,9 +1,19 @@
 .alinha-direita {
-  float: right;
+    horizontal-align: right;
+  	list-style-type:none;
+  	display: inline-block;
+  	width: 65%;
+  	margin-top: 10px;
+
 }
 
 .alinha-esquerda {
-  float: left;
+  horizontal-align: left;
+    	list-style-type:none;
+    	display: inline-block;
+    	width: 34%;
+    	margin-top: 10px;
+
 }
 
 /* layout.css Style */
@@ -26,6 +36,17 @@
   border-color: #222;
 }
 
+.block{
+  	display: inline-block;
+}
+
+.unidade{
+  	float: right;
+}
+
+.imput-tabela{
+  	float: left;
+}
 .bloco-login{
   width: 800px;
   height: 300px;
