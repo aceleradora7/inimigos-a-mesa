@@ -10,9 +10,7 @@ import br.com.aceleradora.inimigosamesa.service.AlimentoService;
 import br.com.aceleradora.inimigosamesa.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -107,6 +105,16 @@ public class AlimentoController {
         c.setCodigo(Integer.parseInt(alimento.getIdCategoria()));
         alimento.setCategoria(c);
         alimentoRepository.save(alimento);
+
+
+        return "cadastroAlimento";
+    }
+
+    @RequestMapping(value = "/editarAlimento", method = RequestMethod.GET)
+    public String editarAlimentoFormulario(Model model, @RequestParam(value = "codigo", required = false) String codigo){
+        Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
+        model.addAttribute("categorias", categoriaRepository.findAll());
+        model.addAttribute("alimento", alimento);
 
 
         return "cadastroAlimento";
