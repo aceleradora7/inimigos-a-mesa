@@ -11,7 +11,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int codigo;
-    
+
     private String nome;
     private String email;
     private String senha;
