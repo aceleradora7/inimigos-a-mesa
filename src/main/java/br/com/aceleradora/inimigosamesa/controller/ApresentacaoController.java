@@ -1,17 +1,25 @@
 package br.com.aceleradora.inimigosamesa.controller;
-import br.com.aceleradora.inimigosamesa.model.Email;
-import br.com.aceleradora.inimigosamesa.model.Formulario;
-import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
+
+import br.com.aceleradora.inimigosamesa.app.WebSecurityConfig;
+import br.com.aceleradora.inimigosamesa.model.*;
+import br.com.aceleradora.inimigosamesa.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.ui.Model;
+
+import java.util.List;
 
 @Controller
 public class ApresentacaoController {
+
+    @Autowired
+    private UsuarioService servicoUsuario;
 
     @RequestMapping("/")
     public String home(){
@@ -60,8 +68,14 @@ public class ApresentacaoController {
         return "contato";
     }
 
-    @RequestMapping(value = "/login")
-    public void login() {
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model) {
+        model.addAttribute("usuario", new Usuario());
+        return "login";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public void loginPost(Usuario usuario) {
 
     }
 
