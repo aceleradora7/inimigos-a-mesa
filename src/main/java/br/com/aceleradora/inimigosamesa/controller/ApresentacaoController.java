@@ -1,10 +1,11 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
-import br.com.aceleradora.inimigosamesa.app.WebSecurityConfig;
-import br.com.aceleradora.inimigosamesa.model.*;
+import br.com.aceleradora.inimigosamesa.model.Email;
+import br.com.aceleradora.inimigosamesa.model.Formulario;
+import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
+import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 @Controller
 public class ApresentacaoController {
@@ -76,6 +75,11 @@ public class ApresentacaoController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public void loginPost(Usuario usuario) {
+
+    }
+
+    @RequestMapping(value = "/recuperarSenha")
+    public void recuperarSenha() {
 
     }
 

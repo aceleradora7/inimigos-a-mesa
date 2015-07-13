@@ -213,8 +213,9 @@ a{
 }
 
 .titulo-login{
-	margin-top: 50px;
+	padding-top: 80px;
 	width: 800px;
-	height: 70px;
+	height: 150px;
+	text-align: center;
 	margin: 0 auto;
 }
