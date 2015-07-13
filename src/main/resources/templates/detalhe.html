@@ -48,7 +48,9 @@
                             </li>
                         </center>
                         <li class="list-group-item">
-                            Para porção de 100g
+                            Para porção de
+                            <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoAlimento}"> </text>
+                            <text  value="unidade" id="unidade"  th:text="${alimento.unidade}"> </text>
                         </li>
                         <li class="list-group-item">
                             <label  value="calorias" id="valor-caloria" class="badge" th:text="${legenda.calorias}" th:value="${alimento.calorias}"> </label>
