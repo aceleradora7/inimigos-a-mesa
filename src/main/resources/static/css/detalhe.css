@@ -2,3 +2,12 @@
     height: 80%;
     width: 80%;
 }
+
+.botao-editar{
+    margin-top: 22px;
+}
+
+.tiraPadding{
+    padding-left: 0px !important;
+}
+

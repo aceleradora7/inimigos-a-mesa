@@ -26,22 +26,32 @@
 
         <div class="container wrapper-conteudo" id="mostraAlimento">
             <div class = "row" id="infoAlimento">
-                <h2 th:text="${alimento.nome}"></h2>
-                <h4 th:text="${alimento.categoria.nome}"></h4>
+                <div>
+                    <div class="col-lg-11 col-md-2 tiraPadding">
+                        <h2 th:text="${alimento.nome}"></h2>
+                    </div>
+                    <div th:if="${#httpServletRequest.remoteUser != null}">
+                    <div class="col-lg-1 col-md-2">
+                        <a th:href="@{'/editarAlimento/?codigo=' + ${alimento.codigo}}">
+
+                                <button type="button" align="right" class="btn btn-danger botao-editar">
+                                    Editar
+                                </button>
+
+                        </a>
+                    </div>
+                        </div>
+                </div>
+                <div class = "row col-lg-12">
+                    <h4 th:text="${alimento.categoria.nome}"></h4>
+                </div>
             </div>
-
-            <div th:if="${#httpServletRequest.remoteUser != null}">
-                <a th:href="@{'/editarAlimento/?codigo=' + ${alimento.codigo}}" class="list-group-item">EDITAR</a>
-
-
-            </div>
-
 
             <div class="row">
-                <div class="col-xs-6 col-md-5">
+                <div class="col-xs-6 col-md-5 col-lg-6">
                     <img th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
                 </div>
-                <div class="col-xs-6 col-md-5" id="tabela-nutricional">
+                <div class="col-xs-6 col-md-5 col-lg-6" id="tabela-nutricional">
                     <ul class="list-group">
                         <center>
                             <li class="list-group-item">
