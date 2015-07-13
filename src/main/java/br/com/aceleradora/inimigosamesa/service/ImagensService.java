@@ -17,6 +17,7 @@ public class ImagensService {
     public void uploadImagem(){
 
     String file = "//home//aluno05//IdeaProjects//inimigos-a-mesa//src//main//resources//static//img//frutas//abacaxi.png";
+        String nomeArquivo = file.trim();
         Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
                 "cloud_name", "dq5mndrjt",
                 "api_key", "157778992886617",
