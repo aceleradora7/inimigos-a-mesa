@@ -30,9 +30,12 @@
                 <h4 th:text="${alimento.categoria.nome}"></h4>
             </div>
 
-            <div>
+            <div th:if="${#httpServletRequest.remoteUser != null}">
                 <a th:href="@{'/editarAlimento/?codigo=' + ${alimento.codigo}}" class="list-group-item">EDITAR</a>
+
+
             </div>
+
 
             <div class="row">
                 <div class="col-xs-6 col-md-5">

@@ -1,16 +1,16 @@
  <html xmlns:th="http://thymeleaf.org">
 
-    <link th:fragment="bootstrap-css" href="/webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-    <link th:fragment="principal-css" href="/css/principal.css" rel="stylesheet"/>
+    <link th:fragment="bootstrap-css" type="text/css" href="/webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link th:fragment="principal-css" type="text/css" href="/css/principal.css" rel="stylesheet"/>
 
-    <script th:fragment="bootstrap-js" src="/webjars/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script th:fragment="bootstrap-js" type="text/javascript" src="/webjars/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-    <link th:fragment="jqueryui-css" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
-    <script th:fragment="jquery" src="/webjars/jquery/2.1.3/jquery.min.js"></script>
-    <script th:fragment="jqueryui" src="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"></script>
-    <script th:fragment="busca" src="/js/busca.js"></script>
-    <script th:fragment="detalhe" src="/js/detalhe.js"></script>
-    <script th:fragment="query-string-js" src="/js/queryString.js"></script>
+    <link th:fragment="jqueryui-css" type="text/css"  href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+    <script th:fragment="jquery" type="text/javascript" src="/webjars/jquery/2.1.3/jquery.min.js"/>
+    <script th:fragment="jqueryui" type="text/javascript" src="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>
+    <script th:fragment="busca" type="text/javascript" src="/js/busca.js"/>
+    <script th:fragment="detalhe" type="text/javascript" src="/js/detalhe.js"/>
+    <script th:fragment="query-string-js" type="text/javascript" src="/js/queryString.js"/>
 
 
 
@@ -42,12 +42,14 @@
                             </button>
                         </span>
 
+
+
                     </div>
 
                 </div>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-apple"></i></a></li>
+                <ul th:if="${#httpServletRequest.remoteUser != null}" class="nav navbar-nav navbar-right">
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -69,8 +71,8 @@
 
             <div class="navbar-collapse collapse" id="navbar-collapsible">
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-apple"></i></a></li>
+                <ul th:if="${#httpServletRequest.remoteUser != null}" class="nav navbar-nav navbar-right">
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
             </div>
         </div>
