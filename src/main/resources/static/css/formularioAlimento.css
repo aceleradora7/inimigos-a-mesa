@@ -1,4 +1,5 @@
 .alinha-direita {
+<<<<<<< HEAD:src/main/resources/static/css/formularioAlimento.css
     horizontal-align: right;
   	list-style-type:none;
   	display: inline-block;
@@ -14,6 +15,21 @@
       width: 25%;
       margin-top: 10px;
 
+=======
+  horizontal-align: right;
+  list-style-type:none;
+  display: inline-block;
+  width: 65%;
+  margin-top: 10px;
+}
+
+.alinha-esquerda {
+  horizontal-align: left;
+  list-style-type:none;
+  display: inline-block;
+  width: 34%;
+  margin-top: 10px;
+>>>>>>> #8.2 <Eduardo, Raphael> - Trocando a cor dos botões do formularioAlimento:src/main/resources/static/css/cadastroAlimento.css
 }
 
 .centralizar{
@@ -53,10 +69,20 @@ margin:0 auto !important;
 }
 
 .block{
-  	display: inline-block;
+  display: inline-block;
 }
 
+<<<<<<< HEAD:src/main/resources/static/css/formularioAlimento.css
 
+=======
+.unidade{
+  float: right;
+}
+
+.imput-tabela{
+  float: left;
+}
+>>>>>>> #8.2 <Eduardo, Raphael> - Trocando a cor dos botões do formularioAlimento:src/main/resources/static/css/cadastroAlimento.css
 .bloco-login{
   width: 800px;
   height: 500px;
