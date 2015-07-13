@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <title>Detalhe do Produto</title>
     <link href="css/cadastroAlimento.css" rel="stylesheet"/>
-
+    <link href="css/principal.css" rel="stylesheet"/>
     <link th:replace="fragmentos/header :: bootstrap-css" />
 
     <script th:replace="fragmentos/header :: jquery"> </script>
@@ -14,45 +14,42 @@
 
 </head>
 <body>
-<nav th:replace="fragmentos/header :: cabecalho"></nav>
 
-<div class="jumbotron">
-    <center>
-        <p class="titulo-login">Tela de login</p>
-    </center>
-    </div>
+
+        <div class="titulo-login"><h1>Tela Login</h1></div>
         <div class="container-fluid">
-                <div class="bloco-login">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-4">
-                        <label for="inputEmail3" class="control-label">E-mail:</label>
-                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-4">
-                        <label for="inputPassword3" class="control-label">Senha:</label>
-                        <a href="#" class="alinha-link">Esqueci a senha</a>
-                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-4">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"/> Lembrar
-                            </label>
+            <div class="bloco-login">
+                <form class="form-horizontal" th:action="@{/Login}" th:object="${Usuario}" method="POST">
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <label for="inputEmail3" class="control-label">E-mail:</label>
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email"/>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-4">
-                        <button type="submit" class="btn btn-default">Sign in</button>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <label for="inputPassword3" class="control-label">Senha:</label>
+                            <a href="#" class="alinha-link">Esqueci a senha</a>
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Senha"/>
+                        </div>
                     </div>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"/> Lembrar
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <button type="submit" class="btn btn-default">Entrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+
 </body>
 </html>

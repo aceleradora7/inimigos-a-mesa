@@ -212,3 +212,9 @@ a{
 	resize:nome;
 }
 
+.titulo-login{
+	margin-top: 50px;
+	width: 800px;
+	height: 70px;
+	margin: 0 auto;
+}
