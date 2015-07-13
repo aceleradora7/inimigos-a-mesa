@@ -91,18 +91,6 @@ public class AlimentoController {
 
     }
 
-    @RequestMapping(value = "/cadastroAlimento", method = RequestMethod.POST)
-    public String cadastrarAlimentoFormulario(Model model, Alimento alimento){
-        Categoria c = new Categoria();
-        System.out.println(alimento.getIdCategoria());
-        c.setCodigo(Integer.parseInt(alimento.getIdCategoria()));
-        alimento.setCategoria(c);
-        servicoAlimento.salvar(alimento);
-
-
-        return "formularioAlimento";
-    }
-
     @RequestMapping(value = "/editarAlimento", method = RequestMethod.GET)
     public String editarAlimento(Model model, @RequestParam(value = "codigo", required = false) String codigo){
         Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
