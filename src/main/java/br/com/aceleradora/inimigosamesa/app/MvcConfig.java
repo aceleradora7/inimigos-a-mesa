@@ -11,6 +11,9 @@ public class MvcConfig extends WebMvcConfigurerAdapter{
     public void addViewControllers(ViewControllerRegistry registro) {
         registro.addViewController("/grid").setViewName("grid");
         registro.addViewController("/lista").setViewName("lista");
+        registro.addViewController("/index").setViewName("index");
+        registro.addViewController("/").setViewName("index");
+        registro.addViewController("/login").setViewName("login");
     }
 
 }
