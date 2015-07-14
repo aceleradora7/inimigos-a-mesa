@@ -224,3 +224,21 @@ a{
 	float: right;
 	font-size: 14px;
 }
+
+.botao-editar{
+
+    margin-top: 22px;
+}
+
+.botao-deletar{
+
+    margin-top: 22px;
+}
+
+.botao-salvar{
+    margin-top: 22dpx;
+}
+
+.grupo-btn{
+    float: right !important;
+}
