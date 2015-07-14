@@ -135,6 +135,37 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog ajuste-recuperar" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusão do alimento</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                        <div id="infoAlimentoDeletar" class="media">
+                                            <div id="imagemAlimento" class="media-left media-middle" >
+                                                <img th:src="${alimento.urlImagem}" class="img-rounded media-object imagem-grid"/>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading" th:text="${alimento.nome}" id="alimento"></h4>
+                                                <p id="categoria" th:text="${alimento.getCategoria().getNome()}"></p>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     <nav th:replace="fragmentos/rodape :: rodape"></nav>
