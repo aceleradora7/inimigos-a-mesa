@@ -56,9 +56,6 @@ margin:0 auto !important;
   display: inline-block;
 }
 
-<<<<<<< HEAD:src/main/resources/static/css/formularioAlimento.css
-
-=======
 .unidade{
   float: right;
 }
@@ -66,7 +63,7 @@ margin:0 auto !important;
 .imput-tabela{
   float: left;
 }
->>>>>>> #8.2 <Eduardo, Raphael> - Trocando a cor dos botões do formularioAlimento:src/main/resources/static/css/cadastroAlimento.css
+
 .bloco-login{
   width: 800px;
   height: 500px;
