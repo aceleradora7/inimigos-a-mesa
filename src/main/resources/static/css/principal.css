@@ -164,14 +164,6 @@ a{
 	height:25px !important;
 }
 
-.pagina, #pagina-anterior, #proxima-pagina, #primeira-pagina, #ultima-pagina{
-	cursor:pointer;
-}
-
-.pagina-atual{
-	background-color: #DDD !important;
-}
-
 .categorias{
 	margin-top:51px;
 	background-color: #449D44;
