@@ -2,14 +2,20 @@
 <html xmlns:th="http://thymeleaf.org">
 
     <nav th:fragment="paginacao">
-        <ul class="pagination">
-            <li th:if="${ paginaAtual != 1}" >
+        <script type="text/javascript" th:inline="javascript">
+            /*<![CDATA[*/
+            var ultimaPagina = [[${paginas.totalPages}]];
+            /*]]>*/
+        </script>
+
+        <ul class="pagination" >
+            <li th:if="${ not paginas.first }" >
                 <a aria-label="Previous"  id="primeira-pagina">
                     <span aria-hidden="true">&Lang;</span>
                 </a>
             </li>
 
-            <li th:if="${ paginaAtual != 1}" >
+            <li th:if="${ not paginas.first }" >
                 <a id="pagina-anterior">
                     <span aria-hidden="true">
                         &lang;
@@ -17,11 +23,15 @@
                 </a>
             </li>
 
-            <li th:each="i :  ${#numbers.sequence(1, __${ultimaPagina}__)}">
+            <li th:if="${paginas.number + 1 le paginas.totalPages - 7}" th:each="i :  ${#numbers.sequence((paginas.number + 1),  paginas.number + 7)}">
                 <a th:text="${i}" class="pagina"></a>
             </li>
 
-            <li th:if="${ paginaAtual != ultimaPagina}">
+            <li th:if="${paginas.number + 1 gt paginas.totalPages - 7}" th:each="i : ${#numbers.sequence(paginas.totalPages - 7, paginas.totalPages)}">
+                <a th:text="${i}" class="pagina"></a>
+            </li>
+
+            <li th:if="${ not paginas.last }" th:unless="${paginas.number gt paginas.totalPages - 7}">
                 <a id="proxima-pagina">
                     <span aria-hidden="true">
                         &rang;
@@ -29,8 +39,7 @@
                 </a>
             </li>
 
-
-            <li th:if="${ paginaAtual != ultimaPagina}">
+            <li th:if="${ not paginas.last}" th:unless="${paginas.number gt paginas.totalPages - 7}">
                 <a aria-label="Next"  id="ultima-pagina">
                     <span aria-hidden="true">
                         &Rang;

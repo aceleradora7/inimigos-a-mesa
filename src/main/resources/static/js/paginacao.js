@@ -1,3 +1,4 @@
+/*<![CDATA[*/
 function getCaminho(){
     return window.location.pathname.replace("/", "");
 }
@@ -9,7 +10,6 @@ function onClickPrimeiraPagina(){
 }
 
 function onClickUltimaPagina(){
-    var ultimaPagina = $(".pagination .pagina").last().text();
     getParametros()["pagina"] = ultimaPagina;
     acessarPaginaComParametros(getCaminho());
 }
@@ -52,8 +52,6 @@ function marcaBotaoPaginaAtual(){
     });
 }
 
-
-
 function associarEventosPaginacao(){
     var paginas = $(".pagination");
     paginas.on("click", ".pagina", onClickPaginas);
@@ -71,3 +69,5 @@ $(document).ready(function(){
     associarEventosPaginacao();
     marcaBotaoPaginaAtual();
 });
+
+/*]]>*/
