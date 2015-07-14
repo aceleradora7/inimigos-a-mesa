@@ -222,6 +222,10 @@ a{
 
 .ajuste-recuperar{
 	padding-top: 10%;
+}
 
-
+.link-senha {
+	padding-top: 8px;
+	float: right;
+	font-size: 14px;
 }
