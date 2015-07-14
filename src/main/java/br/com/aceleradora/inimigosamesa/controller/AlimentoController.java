@@ -103,12 +103,13 @@ public class AlimentoController {
         return "formularioAlimento";
     }
 
-    @RequestMapping(value = "/deletarAlimento", method = RequestMethod.DELETE)
-    public void deletarAlimento(Model model, @RequestParam(value = "codigo", required = false) String codigo){
-        Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
-        Sort sort = new Sort(Sort.Direction.ASC, "nome");
 
-        //return "grid";
+    @RequestMapping(value = "/deletarAlimento", method = RequestMethod.GET)
+    public String deletarAlimento(Model model, @RequestParam(value = "codigo", required = false) String codigo){
+        Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
+        servicoAlimento.deletar(alimento);
+
+        return "index";
     }
 
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)

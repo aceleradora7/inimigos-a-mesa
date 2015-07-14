@@ -44,6 +44,11 @@ public class AlimentoService{
     public void salvar(Alimento alimento){
         repositorioAlimento.save(alimento);
     }
+
+    public void deletar(Alimento alimento){
+        repositorioAlimento.delete(alimento);
+    }
+
     private PageRequest paginacao(int paginaAtual, String tipoDeOrdenacao){
         return new PageRequest(paginaAtual - 1, ITENS_POR_PAGINA, Sort.Direction.fromString(tipoDeOrdenacao), "nome");
     }
@@ -55,4 +60,5 @@ public class AlimentoService{
     public Legenda getLegendas(Alimento alimento){
         return new Legenda(alimento);
     }
+
 }
