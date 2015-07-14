@@ -93,8 +93,8 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/editarAlimento", method = RequestMethod.GET)
-    public String editarAlimento(Model model, @RequestParam(value = "codigo", required = false) String codigo){
-        Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
+    public String editarAlimento(Model model, @RequestParam(value = "codigo", required = false) int codigo){
+        Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
         Sort sort = new Sort(Sort.Direction.ASC, "nome");
         model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
         model.addAttribute("alimento", alimento);
@@ -109,18 +109,19 @@ public class AlimentoController {
         Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
         servicoAlimento.deletar(alimento);
 
-        return "index";
+        return "redirect:/grid";
     }
 
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
     public String gerenciarAlimento(Model model, Alimento alimento){
-
-        if(alimento.getUrlImagem().equals("")){
+        alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
+        alimento.setUrlImagem("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
+/*        if(alimento.getUrlImagem().equals("")){
             alimento.setUrlImagem("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
-        }
+        }*/
         servicoAlimento.salvar(alimento);
 
-        return "formularioAlimento";
+        return "redirect:/detalhe/"+alimento.getCodigo();
     }
 
 }
