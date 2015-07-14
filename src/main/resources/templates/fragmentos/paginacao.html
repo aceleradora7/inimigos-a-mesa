@@ -11,15 +11,13 @@
         <ul class="pagination" >
             <li th:if="${ not paginas.first}" >
                 <a aria-label="Previous"  id="primeira-pagina">
-                    <span aria-hidden="true">&Lang;</span>
+                    <span aria-hidden="true"> &#10094; &#10094; </span>
                 </a>
             </li>
 
             <li th:if="${ not paginas.first}" th:unless="${paginas.totalPages lt 7 }">
                 <a id="pagina-anterior">
-                    <span aria-hidden="true">
-                        &lang;
-                    </span>
+                    <span aria-hidden="true">&#10094;</span>
                 </a>
             </li>
 
@@ -41,17 +39,13 @@
 
             <li th:if="${ not paginas.last }" th:unless="${paginas.number gt paginas.totalPages - 7}">
                 <a id="proxima-pagina">
-                    <span aria-hidden="true">
-                        &rang;
-                    </span>
+                    <span aria-hidden="true">&#10095;</span>
                 </a>
             </li>
 
             <li th:if="${ not paginas.last}" th:unless="${paginas.totalPages ge 7 and paginas.number gt paginas.totalPages - 7}">
                 <a aria-label="Next"  id="ultima-pagina">
-                    <span aria-hidden="true">
-                        &Rang;
-                    </span>
+                    <span aria-hidden="true"> &#10095; &#10095; </span>
                 </a>
             </li>
         </ul>
