@@ -9,13 +9,13 @@
         </script>
 
         <ul class="pagination" >
-            <li th:if="${ not paginas.first }" >
+            <li th:if="${ not paginas.first}" >
                 <a aria-label="Previous"  id="primeira-pagina">
                     <span aria-hidden="true">&Lang;</span>
                 </a>
             </li>
 
-            <li th:if="${ not paginas.first }" >
+            <li th:if="${ not paginas.first}" th:unless="${paginas.totalPages lt 7 }">
                 <a id="pagina-anterior">
                     <span aria-hidden="true">
                         &lang;
@@ -23,13 +23,21 @@
                 </a>
             </li>
 
+
+
+            <li th:if="${paginas.totalPages lt 7}" th:each="i :  ${#numbers.sequence(1,  paginas.totalPages)}">
+                <a th:text="${i}" class="pagina"></a>
+            </li>
+
             <li th:if="${paginas.number + 1 le paginas.totalPages - 7}" th:each="i :  ${#numbers.sequence((paginas.number + 1),  paginas.number + 7)}">
                 <a th:text="${i}" class="pagina"></a>
             </li>
 
-            <li th:if="${paginas.number + 1 gt paginas.totalPages - 7}" th:each="i : ${#numbers.sequence(paginas.totalPages - 7, paginas.totalPages)}">
+            <li th:if="${paginas.number + 1 gt paginas.totalPages - 7 and paginas.totalPages gt 7}" th:each="i : ${#numbers.sequence(paginas.totalPages - 7, paginas.totalPages)}">
                 <a th:text="${i}" class="pagina"></a>
             </li>
+
+
 
             <li th:if="${ not paginas.last }" th:unless="${paginas.number gt paginas.totalPages - 7}">
                 <a id="proxima-pagina">
@@ -39,7 +47,7 @@
                 </a>
             </li>
 
-            <li th:if="${ not paginas.last}" th:unless="${paginas.number gt paginas.totalPages - 7}">
+            <li th:if="${ not paginas.last}" th:unless="${paginas.totalPages ge 7 and paginas.number gt paginas.totalPages - 7}">
                 <a aria-label="Next"  id="ultima-pagina">
                     <span aria-hidden="true">
                         &Rang;
