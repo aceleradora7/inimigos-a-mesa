@@ -58,9 +58,10 @@ public class AlimentoController {
         }
 
         if(alimentos.iterator().hasNext()){
-            model.addAttribute("ultimaPagina", ((Page) alimentos).getTotalPages());
-            model.addAttribute("paginaAtual", pagina);
+            
+            model.addAttribute("paginas", ((Page) alimentos));
             model.addAttribute("alimentos", alimentos);
+
         }else{
             model.addAttribute("erro", "Nenhum alimento encontrado.");
         }
@@ -100,6 +101,14 @@ public class AlimentoController {
 
 
         return "formularioAlimento";
+    }
+
+    @RequestMapping(value = "/deletarAlimento", method = RequestMethod.DELETE)
+    public void deletarAlimento(Model model, @RequestParam(value = "codigo", required = false) String codigo){
+        Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
+        Sort sort = new Sort(Sort.Direction.ASC, "nome");
+
+        //return "grid";
     }
 
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
