@@ -10,12 +10,13 @@
     <link rel="stylesheet" type="text/css" href="/css/principal.css"/>
     <link rel="stylesheet" type="text/css" href="/css/formularioAlimento.css"/>
 
+    <script type="text/javascript" src="js/teste.js"> </script>
+
 
     <script th:replace="fragmentos/header :: jquery"> </script>
     <script th:replace="fragmentos/header :: jqueryui"> </script>
     <script th:replace="fragmentos/header :: query-string-js"> </script>
     <script src="js/formularioAlimento.js"> </script>
-
 
 
 </head>
@@ -34,20 +35,13 @@
                 <div class="col-xs-6 col-md-5 esquerda">
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>Imagem Alimento</strong></div>
-                            <div class="panel-body">
+
 
                                 <!-- Standar Form -->
                                 <h4>Selecione uma imagem em seu Pc.</h4>
-                                    <div class="form-inline">
-                                        <div class="form-group">
-                                            <input type="text" name="files" id="js-upload-files" th:field="*{urlImagem}"/>
-                                            <img th:src="'/'+${alimento.urlImagem}" alt="Imagem do Alimento" class="imagem-detalhe-produto" id="imagemProduto"/>
-                                        </div>
-                                    </div>
-                            </div>
                     </div>
 
-                </div>
+
                 <div class="col-xs-6 col-md-5 direita">
                     <!--<form  action="">-->
                         <div class="form-group">
