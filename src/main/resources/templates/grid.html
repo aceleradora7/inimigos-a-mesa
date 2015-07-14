@@ -41,6 +41,13 @@
 		</center>
 
 	</div>
+	<div class="col-lg-2 col-md-2 grupo-btn"  th:if="${#httpServletRequest.remoteUser != null}" >
+		<a th:href="@{/cadastroAlimento}" class="botao-salvar">
+			<button type="button" class="btn btn-danger">
+				Cadastrar Alimento
+			</button>
+		</a>
+	</div>
 
 	<div class="container wrapper-conteudo">
 		<center>
