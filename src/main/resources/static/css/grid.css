@@ -6,3 +6,23 @@
 .col-md-offset-0{
 	margin-bottom: 1.5em;
 }
+
+body{
+	background-color: #ecf0f1;
+}
+
+.item-grid{
+	background-color:#F9F9F9;
+
+	color:#000 !important;
+	border-radius:0 !important;
+
+	-webkit-box-shadow: 1px 1px 14px -4px rgba(145,146,150,0.96);
+    -moz-box-shadow: 1px 1px 14px -4px rgba(145,146,150,0.96);
+    box-shadow: 1px 1px 14px -4px rgba(145,146,150,0.96);
+
+    transition:0.2s ease-in;
+}
+	.item-grid:hover{
+		background-color:#E1E1E1 !important;
+	}
