@@ -45,25 +45,25 @@ public class ApresentacaoController {
 
     @RequestMapping(value = "/contato", method = RequestMethod.POST)
     public String enviaContato(@ModelAttribute(value="formulario") Formulario formulario,
-    @RequestParam(value="g-recaptcha-response",required = true) String response, Model model){
+    @RequestParam(value="g-recaptcha-response",required = false) String response, Model model){
 
-        StringBuilder builder = new StringBuilder();
-        builder.append("https://www.google.com/recaptcha/api/siteverify");
-        builder.append("?secret=");
-        builder.append("6Lf3XAkTAAAAALT5KTgNMygdZg7Bo-lO0p_RcO48");
-        builder.append("&response=");
-        builder.append(response);
-        RestTemplate restTemplate = new RestTemplate();
-        RecaptchaResult resultado = restTemplate.getForObject(builder.toString(), RecaptchaResult.class);
-        if(resultado.success) {
+//        StringBuilder builder = new StringBuilder();
+//        builder.append("https://www.google.com/recaptcha/api/siteverify");
+//        builder.append("?secret=");
+//        builder.append("6Lf3XAkTAAAAALT5KTgNMygdZg7Bo-lO0p_RcO48");
+//        builder.append("&response=");
+//        builder.append(response);
+//        RestTemplate restTemplate = new RestTemplate();
+//        RecaptchaResult resultado = restTemplate.getForObject(builder.toString(), RecaptchaResult.class);
+//        if(resultado.success) {
             Email email = new Email();
             email.enviar(formulario);
             model.addAttribute("sucesso", "E-mail enviado com sucesso!");
-        }
-        else
-        {
-            model.addAttribute("erroCaptcha", "Por favor verifique se você não é um robô.");
-        }
+//        }
+//        else
+//        {
+//            model.addAttribute("erroCaptcha", "Por favor verifique se você não é um robô.");
+//        }
         return "contato";
     }
 
