@@ -28,7 +28,7 @@
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
-        <form class="form-horizontal" th:action="@{/formularioCadastroAdmin}" th:object="${usuario}" method="POST">
+        <form class="form-horizontal" th:action="@{/formularioUsuario}" th:object="${usuario}" method="POST">
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-4">
                     <label for="inputNome" class="control-label">Nome:</label>
@@ -50,6 +50,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-4">
                     <button type="submit" class="btn btn-default">Cadastrar</button>
+                    <a href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat"><button class="btn btn-default">Deletar</button></a>
                 </div>
             </div>
         </form>
