@@ -27,14 +27,23 @@
         <div class="container wrapper-conteudo" id="mostraAlimento">
             <div class = "row" id="infoAlimento">
                 <div>
-                    <div th:if="${#httpServletRequest.remoteUser != null}">
-                        <div class="col-lg-1 col-md-2">
-                            <a th:href="@{'/editarAlimento/?codigo=' + ${alimento.codigo}}">
-                                <button type="button" align="right" class="btn btn-danger botao-editar">
+
+                    <div class="col-lg-11 col-md-2 tiraPadding">
+                        <h2 th:text="${alimento.nome}"></h2>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 grupo-btn"  th:if="${#httpServletRequest.remoteUser != null}" >
+                        <a th:href="@{'/editarAlimento/?codigo=' + ${alimento.codigo}}" class="botao-editar">
+                                <button type="button" class="btn btn-danger">
                                     Editar
                                 </button>
-                            </a>
-                        </div>
+                        </a>
+                        <a th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}" class="botao-deletar">
+                            <button type="button" class="btn btn-danger">
+                                Deletar
+                            </button>
+                        </a>
+
                     </div>
                 </div>
 
@@ -43,11 +52,6 @@
                     <h4 th:text="${alimento.categoria.nome}"></h4>
                 </div>
 
-                <div th:if="${#httpServletRequest.remoteUser != null}">
-                    <a th:href="@{'/editarAlimento/?codigo=' + ${alimento.codigo}}" class="list-group-item">EDITAR</a>
-                    <a th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}" class="list-group-item">DELETAR</a>
-
-                </div>
 
                 <div class="row">
                     <div class="col-xs-6 col-md-5 col-lg-6">

@@ -212,6 +212,9 @@ a{
 	margin: 0 auto;
 }
 
+.block{
+  display: inline-block;
+}
 .ajuste-recuperar{
 	padding-top: 10%;
 }
