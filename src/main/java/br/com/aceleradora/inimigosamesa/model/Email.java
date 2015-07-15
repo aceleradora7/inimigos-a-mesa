@@ -37,19 +37,19 @@ public class Email {
 
     }
 
-    public void enviar(Formulario formulario){
+    public void enviar(FormularioEmail formularioEmail){
         try {
             Message mensagemMime = new MimeMessage(sessao);
             mensagemMime.setFrom(new InternetAddress(EMAIL_ORIGEM));
-            mensagemMime.setSubject("[Contato] - " + formulario.getAssunto());
+            mensagemMime.setSubject("[Contato] - " + formularioEmail.getAssunto());
 
             Address[] destinatario = InternetAddress.parse(EMAIL_ORIGEM);
 
             mensagemMime.setRecipients(Message.RecipientType.TO, destinatario);
 
-            mensagemMime.setText("Nome remetente: "+formulario.getNome() +
-                    "\nE-mail rementente: "+formulario.getEmailRemetente()+
-                    "\n\n"+formulario.getMensagem());
+            mensagemMime.setText("Nome remetente: "+ formularioEmail.getNome() +
+                    "\nE-mail rementente: "+ formularioEmail.getEmailRemetente()+
+                    "\n\n"+ formularioEmail.getMensagem());
 
             Transport.send(mensagemMime);
 
