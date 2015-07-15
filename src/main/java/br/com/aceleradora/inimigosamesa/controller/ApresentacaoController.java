@@ -1,8 +1,7 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
 import br.com.aceleradora.inimigosamesa.model.Email;
-import br.com.aceleradora.inimigosamesa.model.Formulario;
-import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
+import br.com.aceleradora.inimigosamesa.model.FormularioEmail;
 import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class ApresentacaoController {
@@ -37,14 +35,14 @@ public class ApresentacaoController {
     @RequestMapping(value = "/contato", method = RequestMethod.GET)
     public String contato(Model model){
 
-        Formulario formulario = new Formulario();
-        model.addAttribute("formulario", formulario);
+        FormularioEmail formularioEmail = new FormularioEmail();
+        model.addAttribute("formularioEmail", formularioEmail);
 
         return "contato";
     }
 
     @RequestMapping(value = "/contato", method = RequestMethod.POST)
-    public String enviaContato(@ModelAttribute(value="formulario") Formulario formulario,
+    public String enviaContato(@ModelAttribute(value="formularioEmail") FormularioEmail formularioEmail,
     @RequestParam(value="g-recaptcha-response",required = false) String response, Model model){
 
 //        StringBuilder builder = new StringBuilder();
@@ -57,7 +55,7 @@ public class ApresentacaoController {
 //        RecaptchaResult resultado = restTemplate.getForObject(builder.toString(), RecaptchaResult.class);
 //        if(resultado.success) {
             Email email = new Email();
-            email.enviar(formulario);
+            email.enviar(formularioEmail);
             model.addAttribute("sucesso", "E-mail enviado com sucesso!");
 //        }
 //        else
