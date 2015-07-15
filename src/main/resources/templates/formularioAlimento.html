@@ -41,34 +41,17 @@
 
                                 <!-- Standar Form -->
                                 <h4>Selecione uma imagem em seu Pc.</h4>
-<<<<<<< HEAD
-                                    <script>
-                                            var urlParte1 = urla.slice(0,48);
-                                            var final = urla.lastIndexOf("png");
-                                            var inicial = urla.indexOf("upload"+12);
-                                            alert(inicial);
-                                            alert(final);
-                                            var urlImagemPequena = inicial.concat(tamanhoPequeno);
-                                            alert(urlImagemPequena);
-                                            var urlImagemPequenaFinal = urlImagemPequena.concat(final);
-                                            alert(urlImagemPequenaFinal);
 
-                                            &lt;!&ndash;alert(JSON.stringify(result, null, 2));&ndash;&gt;
-
-                                            alert(meuResult);
-
-                                    </script>
-=======
                                 <div>
                                     <a href="#" id="upload_widget_opener">Upload multiple images</a>
 
                                     <input TYPE="hidden" NAME="urlImagemPequena" id="urlImagemPequena" th:field="*{urlImagem}"/>
                                     <input TYPE="hidden" NAME="urlImagemGrande" id="urlImagemGrande" th:field="*{urlImagemGrande}"/>
->>>>>>> #8.2 <Eduardo, Rafael> - Cadastro das fotos com cloudinary
 
                                 </div>
                             </div>
                         </div>
+                </div>
 
                 <div class="col-xs-6 col-md-5 direita">
                     <!--<form  action="">-->
@@ -157,6 +140,7 @@
                     <br/><br/><br/>
                 </div>
                 </form>
+                
             </div>
 
 
