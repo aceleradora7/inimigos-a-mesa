@@ -83,4 +83,10 @@ public class ApresentacaoController {
 
     }
 
+    @RequestMapping(value = "/formularioCadastroAdmin")
+    public String cadastrarNovoAdministrador(){
+
+        return "formularioCadastroAdmin";
+    }
+
 }

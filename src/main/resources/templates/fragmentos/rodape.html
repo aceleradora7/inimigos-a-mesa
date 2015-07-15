@@ -75,6 +75,18 @@
                          <a th:href="@{/contato}">Contato</a>
                      </li>
              </div>
+            <div class="compartilhamento alinhar">
+                ADMINISTRADOR
+                <li th:if="${#httpServletRequest.remoteUser == null}">
+                    <a th:href="@{/login}">Login</a>
+                </li>
+                <li th:if="${#httpServletRequest.remoteUser != null}">
+                    <a th:href="@{/logout}">Logout</a>
+                </li>
+                <li th:if="${#httpServletRequest.remoteUser != null}">
+                    <a href="/formularioCadastroAdmin">Cadastro Administrador</a>
+                </li>
+            </div>
              <div class="compartilhamento alinhar">
                  COMPARTILHAMENTO
                      <li>
@@ -86,12 +98,7 @@
                         
                      </li>
              </div>
-            <div class="compartilhamento alinhar">
-                ADMINISTRADOR
-                <li>
-                    <a th:href="@{/login}">Login</a>
-                </li>
-            </div>
+
         </center>
      </footer>
  </nav>
