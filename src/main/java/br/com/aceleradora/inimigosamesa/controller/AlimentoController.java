@@ -114,11 +114,13 @@ public class AlimentoController {
 
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
     public String gerenciarAlimento(Model model, Alimento alimento){
-        alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
-        alimento.setUrlImagem("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
-/*        if(alimento.getUrlImagem().equals("")){
+
+        if(alimento.getUrlImagem().isEmpty()){
             alimento.setUrlImagem("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
-        }*/
+        }
+        if(alimento.getUrlImagemGrande().isEmpty()){
+            alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1436535224/lkt8uygy36ldiig3xglo.png");
+        }
         servicoAlimento.salvar(alimento);
 
         return "redirect:/detalhe/"+alimento.getCodigo();
