@@ -3,15 +3,14 @@
 <head lang="en">
     <meta charset="UTF-8"/>
 
-    <title>Detalhe do Produto</title>
     <title>Login</title>
+
     <link href="css/formularioAlimento.css" rel="stylesheet"/>
     <link href="css/principal.css" rel="stylesheet"/>
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <script th:replace="fragmentos/header :: jquery"> </script>
     <script th:replace="fragmentos/header :: jqueryui"> </script>
     <script th:replace="fragmentos/header :: bootstrap-js"> </script>
-    <script th:replace="fragmentos/header :: formulario-alimento-js"> </script>
     <script src="js/validacoes.js"> </script>
 
 </head>
@@ -22,19 +21,25 @@
         <div class="container-fluid">
             <div class="bloco-login">
 
-                <div th:if="${param.error}">
-                    Invalid username and password.
-                </div>
-                <div th:if="${param.logout}">
-                    You have been logged out.
-                </div>
-                <form class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
+                <!--<div th:if="${param.error}">-->
+                    <!--Invalid username and password.-->
+                <!--</div>-->
+                <!--<div th:if="${param.logout}">-->
+                    <!--You have been logged out.-->
+                <!--</div>-->
+                <form name="dados" id="validarLogin" class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-4">
-                            <label for="inputEmail3" class="control-label">E-mail:</label>
-                            <input type="email" name="username" class="form-control" id="inputEmail3" placeholder="Email"/>
+                            <label for="emailLogin" class="control-label">E-mail:</label>
+                            <input type="text" name="emailLogin" class="form-control" id="emailLogin" placeholder="Email"/>
                         </div>
                     </div>
+
+                    <div id="espacoErro">
+                        <div class="col-sm-offset-4 col-sm-4" id="erro-email-login">
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-4">
                             <label for="inputPassword3" class="control-label">Senha:</label>
@@ -54,15 +59,14 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-4">
-                            <button type="submit" class="btn btn-default">Entrar</button>
+                            <button type="submit" id="btn-entrar" class="btn btn-default">Entrar</button>
                         </div>
                     </div>
 
                 </form>
-
-
 
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -77,21 +81,18 @@
                                     <form name="dados" onSubmit="return validarRecuperacao();" class="form-horizontal" th:object="${Usuario}" th:action="@{/login}" id="recuperarSenha" method="POST">
                                         <div class="form-group">
                                             <div class="col-sm-offset-4 col-sm-5">
-                                                <label for="inputEmail3" class="control-label">E-mail:</label>
-                                                <input onclick="alterandoDisplay();" name="inputEmail" type="text" class="form-control formbutton" id="inputEmail" placeholder="Email" />
+                                                <label for="emailRecuperacao" class="control-label">E-mail:</label>
+                                                <input onclick="alterandoDisplay();" name="inputEmail" type="text" class="form-control formbutton" id="emailRecuperacao" placeholder="Email" />
                                             </div>
 
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-sm-offset-4 col-sm-5 alert alert-danger" style="display: none; text-align:center;" id="trocaEmail">
-
-                                                    <label for="inputEmail3">Preencha com um e-mail válido!</label>
-
+                                            <div class="col-sm-offset-4 col-sm-5" id="erro-email-recuperacao">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-4 col-sm-4">
-                                                <button type="submit" class="btn btn-default" id="submit" value="recuperar" onclick="return btnClick();">Recuperar</button>
+                                                <button type="submit" class="btn btn-default" id="submit" value="recuperar">Recuperar</button>
                                             </div>
                                         </div>
                                         <div th:if="${sucesso} != null" th:text="${sucesso}" class="alert alert-success" role="alert">  </div>
@@ -106,6 +107,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+
+
+        <div class="col-sm-offset-4 col-sm-5 alert alert-danger" id="msg-erro-email" style="display:none;">
+            <label>Preencha com um e-mail válido!</label>
         </div>
 
 
