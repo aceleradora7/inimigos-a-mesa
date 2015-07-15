@@ -12,7 +12,7 @@
     <script th:replace="fragmentos/header :: jqueryui"> </script>
     <script th:replace="fragmentos/header :: bootstrap-js"> </script>
     <script th:replace="fragmentos/header :: formulario-alimento-js"> </script>
-
+    <script src="js/validacoes.js"> </script>
 
 </head>
 <body>
@@ -74,16 +74,24 @@
                             </div>
                             <div class="modal-body">
                                 <div>
-                                    <form class="form-horizontal" th:action="@{/recuperarSenha}" th:object="${Usuario}" method="POST">
+                                    <form name="dados" onSubmit="return validarRecuperacao();" class="form-horizontal" th:object="${Usuario}" th:action="@{/login}" id="recuperarSenha" method="POST">
                                         <div class="form-group">
                                             <div class="col-sm-offset-4 col-sm-5">
                                                 <label for="inputEmail3" class="control-label">E-mail:</label>
-                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email" required="true"/>
+                                                <input onclick="alterandoDisplay();" name="inputEmail" type="text" class="form-control formbutton" id="inputEmail" placeholder="Email" />
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-5 alert alert-danger" style="display: none; text-align:center;" id="trocaEmail">
+
+                                                    <label for="inputEmail3">Preencha com um e-mail válido!</label>
+
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-4 col-sm-4">
-                                                <button type="submit" class="btn btn-default" value="recuperar">Recuperar</button>
+                                                <button type="submit" class="btn btn-default" id="submit" value="recuperar" onclick="return btnClick();">Recuperar</button>
                                             </div>
                                         </div>
                                         <div th:if="${sucesso} != null" th:text="${sucesso}" class="alert alert-success" role="alert">  </div>
@@ -91,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                                <button name="Submit" type="submit"  value="Enviar dados" class="btn btn-primary formobjects" data-dismiss="modal">Fechar</button>
 
                             </div>
                         </div>
@@ -103,9 +111,7 @@
 
 
 
-
         <nav th:replace="fragmentos/rodape :: rodape"></nav>
-
 
 </body>
 </html>
