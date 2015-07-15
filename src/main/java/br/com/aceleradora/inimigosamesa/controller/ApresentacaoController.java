@@ -5,6 +5,7 @@ import br.com.aceleradora.inimigosamesa.model.FormularioEmail;
 import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -81,10 +82,18 @@ public class ApresentacaoController {
 
     }
 
-    @RequestMapping(value = "/formularioCadastroAdmin")
-    public String cadastrarNovoAdministrador(){
+    @RequestMapping(value = "/formularioCadastroAdmin", method = RequestMethod.GET)
+    public String cadastrarNovoAdministrador(Model model){
+        Usuario usuario = new Usuario();
+        model.addAttribute("usuario", usuario);
 
         return "formularioCadastroAdmin";
+    }
+
+    @RequestMapping(value = "/formularioCadastroAdmin", method = RequestMethod.POST)
+    public String gererenciarUsuario(Model model, Usuario usuario){
+        servicoUsuario.salvar(usuario);
+        return "redirect:/index";
     }
 
 }

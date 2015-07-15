@@ -28,23 +28,23 @@
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
-        <form class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
+        <form class="form-horizontal" th:action="@{/formularioCadastroAdmin}" th:object="${usuario}" method="POST">
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-4">
                     <label for="inputNome" class="control-label">Nome:</label>
-                    <input type="nome" name="nome" class="form-control" id="inputnome" placeholder="Nome usuário"/>
+                    <input th:field="*{nome}" type="nome" name="nome" class="form-control" id="inputnome" placeholder="Nome usuário"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-4">
                     <label for="inputEmail3" class="control-label">E-mail:</label>
-                    <input type="email" name="username" class="form-control" id="inputEmail3" placeholder="Email"/>
+                    <input th:field="*{email}" type="email" name="username" class="form-control" id="inputEmail3" placeholder="Email"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-4">
                     <label for="inputPassword3" class="control-label">Senha:</label>
-                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Senha"/>
+                    <input th:field="*{senha}" type="password" name="password" class="form-control" id="inputPassword3" placeholder="Senha"/>
                 </div>
             </div>
             <div class="form-group">

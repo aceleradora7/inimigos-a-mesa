@@ -1,15 +1,13 @@
 package br.com.aceleradora.inimigosamesa.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "usuario")
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "usuario_codigo_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geradorId")
     private int codigo;
 
     private String nome;

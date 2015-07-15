@@ -11,11 +11,13 @@ import java.util.List;
 public class UsuarioService {
 
     @Autowired
-    private UsuarioRepository UsuarioRepository;
+    private UsuarioRepository repositorioUsuario;
 
     public List<Usuario> buscaTodos(){
-        return UsuarioRepository.findAll();
+        return repositorioUsuario.findAll();
     }
 
-
+    public void salvar(Usuario usuario) {
+        repositorioUsuario.save(usuario);
+    }
 }
