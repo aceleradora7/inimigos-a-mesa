@@ -15,8 +15,7 @@
     <script th:replace="fragmentos/header :: query-string-js"> </script>
     <script th:replace="fragmentos/header :: busca"> </script>
 
-
-</head>
+</head>title="T
 <body>
 <nav th:replace="fragmentos/header :: cabecalho"></nav>
 <center>
@@ -28,14 +27,14 @@
             <div class="form-group">
                 <label for="nome" class="col-sm-4 control-label">Nome</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="nome" placeholder="Nome" th:field="${formulario.nome}" required="true"/>
+                    <input class="form-control" id="nome" pattern="[a-z]{2}$" title="Nome Sobrenome" placeholder="Nome" th:field="${formulario.nome}" required="true"/>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="email" class="col-sm-4 control-label">Email</label>
                 <div class="col-sm-4">
-                    <input type="email" class="form-control" id="email" placeholder="E-mail" th:field="${formulario.emailRemetente}" required="true"/>
+                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="nome@dominio.com" class="form-control" id="email" placeholder="E-mail" th:field="${formulario.emailRemetente}" required="true"/>
                 </div>
             </div>
 
@@ -53,7 +52,7 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label">Mensagem</label>
                 <div class="col-sm-4">
-                    <textarea class="form-control texto-contato" rows="3" placeholder="Mensagem" th:field="*{mensagem}" required="true"></textarea>
+                    <textarea class="form-control texto-contato" rows="3" id="mensagem" placeholder="Mensagem" th:field="*{mensagem}" required="true"></textarea>
                 </div>
             </div>
 
