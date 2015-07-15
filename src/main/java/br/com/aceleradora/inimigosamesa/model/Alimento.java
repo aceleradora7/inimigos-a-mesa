@@ -16,37 +16,32 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     @JsonIgnore
     private Categoria categoria;
 
-
     @Transient
     private String idCategoria;
+
     private String nome;
-    @Column(name="acucar_gramas")
     private String acucar;
-    private String porcaoAlimento;
-    @Column(name="sodio_miligramas")
+    private String porcao;
     private String sodio;
     private String unidade;
-    @Column(name = "gordura_gramas")
     private String gordura;
-    private String percentualDiarioGordura;
     private String calorias;
     private String urlImagem;
-    @Column(name="url_imagem_h")
     private String urlImagemGrande;
 
     public Alimento() {
     }
 
-    public Alimento(int codigo, Categoria categoria, String nome, String acucar, String porcaoAlimento, String sodio, String unidade, String gordura, String percentualDiarioGordura, String calorias, String urlImagem, String urlImagemGrande) {
+    public Alimento(int codigo, Categoria categoria, String nome, String acucar, String porcao, String sodio, String unidade, String gordura, String calorias, String urlImagem, String urlImagemGrande) {
         this.codigo = codigo;
         this.categoria = categoria;
         this.nome = nome;
         this.acucar = acucar;
-        this.porcaoAlimento = porcaoAlimento;
+        this.porcao = porcao;
         this.sodio = sodio;
         this.unidade = unidade;
         this.gordura = gordura;
-        this.percentualDiarioGordura = percentualDiarioGordura;
+
         this.calorias = calorias;
         this.urlImagem = urlImagem;
         this.urlImagemGrande = urlImagemGrande;
@@ -88,12 +83,12 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
     }
 
-    public String getPorcaoAlimento() {
-        return porcaoAlimento;
+    public String getPorcao() {
+        return porcao;
     }
 
-    public void setPorcaoAlimento(String porcaoAlimento) {
-        this.porcaoAlimento = porcaoAlimento;
+    public void setPorcao(String porcao) {
+        this.porcao = porcao;
     }
 
     public String getSodio() {
@@ -119,14 +114,6 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     public void setGordura(String gordura) {
 
         this.gordura = gordura;
-    }
-
-    public String getPercentualDiarioGordura() {
-        return percentualDiarioGordura;
-    }
-
-    public void setPercentualDiarioGordura(String percentualDiarioGordura) {
-        this.percentualDiarioGordura = percentualDiarioGordura;
     }
 
     public String getCalorias() {

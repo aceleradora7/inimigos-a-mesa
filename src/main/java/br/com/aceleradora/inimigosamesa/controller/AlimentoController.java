@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -124,6 +128,42 @@ public class AlimentoController {
         servicoAlimento.salvar(alimento);
 
         return "redirect:/detalhe/"+alimento.getCodigo();
+    }
+
+    @RequestMapping("/importaAlimentos")
+    public void importaAlimentos() throws IOException {
+        FileReader reader = new FileReader(new File("alimentos_import_5.csv"));
+        BufferedReader readr = new BufferedReader(reader);
+
+        String linha = "";
+        while((linha = readr.readLine()) != null){
+            String [] dados = linha.split(";");
+            Alimento a = new Alimento();
+
+            a.setNome(dados[0]);
+            a.setAcucar(dados[1]);
+            a.setCalorias(dados[2]);
+            a.setGordura(dados[3]);
+            a.setSodio(dados[4]);
+            a.setPorcao(dados[5]);
+            a.setUnidade(dados[6]);
+            a.setUrlImagem(dados[7]);
+            a.setUrlImagemGrande(dados[8]);
+
+            Categoria c = new Categoria();
+            int cod = Integer.parseInt(dados[9]);
+
+            if(cod > 8){
+                cod--;
+            }
+
+            c.setCodigo(cod);
+
+            a.setCategoria(c);
+
+            System.out.println(">>> " + linha);
+            servicoAlimento.salvar(a);
+        }
     }
 
 }
