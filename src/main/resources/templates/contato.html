@@ -8,12 +8,15 @@
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
     <link rel="stylesheet" type="text/css" href="css/principal.css"/>
+    <link rel="stylesheet" type="text/css" href="css/validacaoContato.css" />
 
     <script th:replace="fragmentos/header :: jquery"> </script>
     <script th:replace="fragmentos/header :: jqueryui"> </script>
 
     <script th:replace="fragmentos/header :: query-string-js"> </script>
     <script th:replace="fragmentos/header :: busca"> </script>
+
+    <script type="text/javascript" src="js/validacaoContato.js"></script>
 
 </head>title="T
 <body>
@@ -22,26 +25,41 @@
     <div class="estilo-contato container">
         <h1>Contato</h1>
 
-        <form class="form-horizontal" th:action="@{/contato}" th:object="${formularioEmail}" method="post">
+        <form class="form-horizontal" th:action="@{/contato}" th:object="${formularioEmail}" onSubmit="return validarRecuperacao();" name="dados" method="post">
 
             <div class="form-group">
                 <label for="nome" class="col-sm-4 control-label">Nome</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="nome" pattern="[a-z]{2}$" title="Nome Sobrenome" placeholder="Nome" th:field="${formularioEmail.nome}" required="true"/>
+                    <input class="form-control" id="nome" placeholder="Nome" th:field="${formularioEmail.nome}"/>
+                     </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro" id="erro-nome" >
+
+                    <label for="nome">Preencha com um nome valido, sem caracteres numéricos.</label>
+
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group voar-voar-subir-subir">
                 <label for="email" class="col-sm-4 control-label">Email</label>
                 <div class="col-sm-4">
-                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="nome@dominio.com" class="form-control" id="email" placeholder="E-mail" th:field="${formularioEmail.emailRemetente}" required="true"/>
+                    <input type="text" class="form-control" id="email" placeholder="E-mail" th:field="${formularioEmail.emailRemetente}" />
+                     </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro" id="erro-email" >
+
+                    <label for="email">Preencha com um e-mail valido no formato nome@dominio.com.</label>
+
+
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group voar-voar-subir-subir">
                 <label class="col-sm-4 control-label">Assunto</label>
                 <div class="col-sm-4">
-                    <select class="form-control"  required="true" th:field="${formularioEmail.assunto}">
+                    <select class="form-control" th:field="${formularioEmail.assunto}">
                         <option value="Sugestoes" id="sugestoes">Sugestões</option>
                         <option value="Comentarios" id="comentarios">Comentários</option>
                         <option value="Outros" id="outros">Outros</option>
@@ -52,9 +70,16 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label">Mensagem</label>
                 <div class="col-sm-4">
-                    <textarea class="form-control texto-contato" rows="3" id="mensagem" placeholder="Mensagem" th:field="*{mensagem}" required="true"></textarea>
+                    <textarea class="form-control texto-contato" rows="3" id="mensagem" placeholder="Mensagem" th:field="*{mensagem}" ></textarea>
+                    </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro"  id="erro-mensagem" >
+                    <label for="mensagem">Preencha com uma mensagem valida.</label>
                 </div>
             </div>
+
 
             <!--<div th:if="${sucesso} != null" th:text="${sucesso}" class="alert alert-success" role="alert">  </div>-->
             <!--<div th:if="${erroCaptcha} != null" th:text="${erroCaptcha}" class="alert alert-danger" role="alert">  </div>-->
