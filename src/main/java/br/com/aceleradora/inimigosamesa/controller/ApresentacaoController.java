@@ -63,7 +63,8 @@ public class ApresentacaoController {
 //        {
 //            model.addAttribute("erroCaptcha", "Por favor verifique se você não é um robô.");
 //        }
-        return "contato";
+
+        return "redirect:/contato";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
