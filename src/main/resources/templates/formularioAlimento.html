@@ -57,12 +57,13 @@
                     <!--<form  action="">-->
                         <div class="form-group">
                             <label >Nome Alimento</label>
-                            <input type="text" th:field="*{nome}" class="form-control" name="nomeAlimento"/>
+                            <input type="text" th:field="*{nome}" placeholder="Ex.: Abacate" pattern="[a-z]+{2}$" title="Alimento" required="true" class="form-control" name="nomeAlimento"/>
                         </div>
                         <br/>
                         <div class="form-group">
                             <label >Selecione uma categoria</label>
-                            <select class="form-control" th:field="*{categoria}">
+                            <select class="form-control" th:field="*{categoria}" required="true">
+                                <option value="0">Selecione uma categoria</option>
                                 <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}" >Selecione uma categoria</option>
                             </select>
                         </div>
@@ -82,8 +83,8 @@
                                         </div>
 
                                         <div class="alinha-direita" >
-                                            <input class="input-alimento" th:field="*{porcaoAlimento}" type="text" name="porcao" value=""/>
-                                            <label class="radio-inline">
+                                            <input class="input-alimento" placeholder="Ex.: 100" pattern="[0-9]$" title="Valor númerica" required="true" th:field="*{porcaoAlimento}" type="text" name="porcao" value=""/>
+                                            <label class="radio-inline" required="true">
                                                 <input th:field="*{unidade}" type="radio" name="ml" id="ml" value="ml"/>
                                                 ml
                                             </label>
@@ -97,28 +98,28 @@
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Calorias:</div>
                                     <div class="alinha-direita">
-                                        <input class="input-alimento" th:field="*{calorias}" type="text" name="calorias" value=""/>
+                                        <input class="input-alimento" placeholder="Ex.: 100" pattern="[0-9]$" title="Valor númerica" required="true" th:field="*{calorias}" type="text" name="calorias" value=""/>
                                         kcal
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Açucar:</div>
                                     <div class="alinha-direita">
-                                        <input class="input-alimento" th:field="*{acucar}" type="text" name="acucar" value=""/>
+                                        <input class="input-alimento" placeholder="Ex.: 100" pattern="[0-9]$" title="Valor númerica" required="true" th:field="*{acucar}" type="text" name="acucar" value=""/>
                                         g
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Sódio:</div>
                                     <div class="alinha-direita">
-                                        <input class="input-alimento" th:field="*{sodio}" type="text" name="sodio" value=""/>
+                                        <input class="input-alimento" placeholder="Ex.: 100" pattern="[0-9]$" title="Valor númerica" required="true" th:field="*{sodio}" type="text" name="sodio" value=""/>
                                         mg
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Gordura:</div>
                                     <div class="alinha-direita">
-                                        <input class="input-alimento" th:field="*{gordura}" type="text" name="gordura" value=""/>
+                                        <input class="input-alimento" placeholder="Ex.: 100" pattern="[0-9]$" title="Valor númerica" required="true" th:field="*{gordura}" type="text" name="gordura" value=""/>
                                         g
                                     </div>
                                 </li>
