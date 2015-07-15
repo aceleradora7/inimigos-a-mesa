@@ -1,13 +1,9 @@
  //  <![CDATA[
 
 function validarRecuperacao(){
-    if(validarNome() == true){
-        if(validarEmail() == true){
-            if(validarMensagem() == true){
-                  return true;
-            }else{
-                return false;
-            }
+    if(validarNome()){
+        if(validarEmail()){
+           return validarMensagem();
         }else{
             return false;
         }
@@ -21,14 +17,13 @@ function validarRecuperacao(){
 
 function validarEmail(){
 
-  if(document.dados.email.value=="" ||
-          document.dados.email.value.indexOf('@')==-1 ||
-          document.dados.email.value.indexOf('\.')==-1 )
+  if($("#email").val()=="" ||
+         $("#email").val().indexOf('@')==-1 ||
+         $("#email").val().indexOf('\.')==-1 )
      {
-          document.getElementById('erro-email').style.display = "inline";
-          document.getElementById('erro-mensagem').style.display = "none";
-          document.getElementById('erro-nome').style.display = "none";
-          document.dados.email.focus();
+          esconderCamposErro();
+          $("#erro-email").show();
+          $("#email").focus();
           return false;
 
       }
@@ -38,24 +33,12 @@ function validarEmail(){
 
 
 function validarNome(){
+    var padrao = new RegExp(/(?:\d*\.)?\d+/);
 
-  if(document.dados.nome.value=="" ||
-           document.dados.nome.value.indexOf('0')>-1 ||
-           document.dados.nome.value.indexOf('1')>-1 ||
-           document.dados.nome.value.indexOf('2')>-1 ||
-           document.dados.nome.value.indexOf('3')>-1 ||
-           document.dados.nome.value.indexOf('4')>-1 ||
-           document.dados.nome.value.indexOf('5')>-1 ||
-           document.dados.nome.value.indexOf('6')>-1 ||
-           document.dados.nome.value.indexOf('7')>-1 ||
-           document.dados.nome.value.indexOf('8')>-1 ||
-           document.dados.nome.value.indexOf('9')>-1
-           )
-     {
-          document.getElementById('erro-nome').style.display = "inline";
-          document.getElementById('erro-mensagem').style.display = "none";
-          document.getElementById('erro-email').style.display = "none";
-          document.dados.nome.focus();
+  if($("#nome").val()=="" || padrao.test($("#nome").val())){
+          esconderCamposErro();
+          $("#erro-nome").show();
+          $("#nome").focus();
           return false;
 
       }
@@ -63,14 +46,19 @@ function validarNome(){
    return true;
 }
 
+function esconderCamposErro(){
+    $("#erro-nome").hide();
+    $("#erro-email").hide();
+    $("#erro-mensagem").hide();
+}
+
 function validarMensagem(){
 
-  if(document.dados.mensagem.value=="")
+  if($("#mensagem").val()=="")
       {
-          document.getElementById('erro-mensagem').style.display = "inline";
-          document.getElementById('erro-nome').style.display = "none";
-          document.getElementById('erro-email').style.display = "none";
-          document.dados.mensagem.focus();
+          esconderCamposErro();
+          $("#erro-mensagem").show();
+          $("#mensagem").focus();
           return false;
 
       }
