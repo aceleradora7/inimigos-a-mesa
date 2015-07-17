@@ -46,7 +46,7 @@ function criaBusca(){
     });
 };
 
-function eventoBotaoPesquisar() {
+function iniciarBuscarAoDigitar() {
     $("#input-busca").keyup(function() {
         if ($(this).val().length >= 1) {
             criaBusca();
@@ -75,7 +75,7 @@ function buscaEnter(){
 })};
 
 $(document).ready(function() {
-    eventoBotaoPesquisar();
+    iniciarBuscarAoDigitar();
     associarEventoBotaoBusca();
     buscaEnter();
 });
