@@ -6,4 +6,42 @@
     padding-left: 0px !important;
 }
 
+#template-colher{
+	margin-left: 5px;
+    float: left;
+}
+.sem-colher{
+	float: left;
+}
+
+.colher-img {
+	height: 60px;
+	width: 40px;
+}
+
+.colher {
+	margin-left: 5px;
+	float: left;
+	height: 60px;
+    width: 40px;
+}
+
+.texto-numero-colher{
+    margin-left: 30px;
+    float: left;
+}
+
+.texto-colheres{
+    margin-left: 10px;
+    float: left;
+}
+
+.medidas-visuais{
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+.medidas-visuais-titulo{
+	float: left;
+}
 
