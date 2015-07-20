@@ -20,31 +20,37 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     private String idCategoria;
 
     private String nome;
+    //@Column ( nullable = true )
     private String acucar;
-    private String porcao;
     private String sodio;
-    private String unidade;
     private String gordura;
     private String calorias;
-    private String urlImagem;
+    private String porcaoBaseCalculo;
+    private String unidadeBaseCalculo;
+    private String porcaoExibicao;
+    private String unidadeExibicao;
+    private String urlImagemPequena;
     private String urlImagemGrande;
+    private String observacao;
 
     public Alimento() {
     }
 
-    public Alimento(int codigo, Categoria categoria, String nome, String acucar, String porcao, String sodio, String unidade, String gordura, String calorias, String urlImagem, String urlImagemGrande) {
-        this.codigo = codigo;
-        this.categoria = categoria;
+    public Alimento(String idCategoria, String nome, String acucar, String sodio, String gordura, String calorias, String porcaoBaseCalculo, String unidadeBaseCalculo, String porcaoExibicao, String unidadeExibicao, String urlImagemPequena, String urlImagemGrande, String observacao, Categoria categoria) {
+        this.idCategoria = idCategoria;
         this.nome = nome;
         this.acucar = acucar;
-        this.porcao = porcao;
         this.sodio = sodio;
-        this.unidade = unidade;
         this.gordura = gordura;
-
         this.calorias = calorias;
-        this.urlImagem = urlImagem;
+        this.porcaoBaseCalculo = porcaoBaseCalculo;
+        this.unidadeBaseCalculo = unidadeBaseCalculo;
+        this.porcaoExibicao = porcaoExibicao;
+        this.unidadeExibicao = unidadeExibicao;
+        this.urlImagemPequena = urlImagemPequena;
         this.urlImagemGrande = urlImagemGrande;
+        this.observacao = observacao;
+        this.categoria = categoria;
     }
 
     public int getCodigo() {
@@ -61,8 +67,15 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     }
 
     public void setCategoria(Categoria categoria) {
-
         this.categoria = categoria;
+    }
+
+    public String getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(String idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getNome() {
@@ -77,18 +90,8 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         return acucar;
     }
 
-
     public void setAcucar(String acucar) {
         this.acucar = acucar;
-
-    }
-
-    public String getPorcao() {
-        return porcao;
-    }
-
-    public void setPorcao(String porcao) {
-        this.porcao = porcao;
     }
 
     public String getSodio() {
@@ -99,20 +102,11 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         this.sodio = sodio;
     }
 
-    public String getUnidade() {
-        return unidade;
-    }
-
-    public void setUnidade(String unidade) {
-        this.unidade = unidade;
-    }
-
     public String getGordura() {
         return gordura;
     }
 
     public void setGordura(String gordura) {
-
         this.gordura = gordura;
     }
 
@@ -124,20 +118,44 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         this.calorias = calorias;
     }
 
-    public String getUrlImagem() {
-        return urlImagem;
+    public String getPorcaoBaseCalculo() {
+        return porcaoBaseCalculo;
     }
 
-    public void setUrlImagem(String urlImagem) {
-        this.urlImagem = urlImagem;
+    public void setPorcaoBaseCalculo(String porcaoBaseCalculo) {
+        this.porcaoBaseCalculo = porcaoBaseCalculo;
     }
 
-    public String getIdCategoria() {
-        return idCategoria;
+    public String getUnidadeBaseCalculo() {
+        return unidadeBaseCalculo;
     }
 
-    public void setIdCategoria(String idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setUnidadeBaseCalculo(String unidadeBaseCalculo) {
+        this.unidadeBaseCalculo = unidadeBaseCalculo;
+    }
+
+    public String getPorcaoExibicao() {
+        return porcaoExibicao;
+    }
+
+    public void setPorcaoExibicao(String porcaoExibicao) {
+        this.porcaoExibicao = porcaoExibicao;
+    }
+
+    public String getUnidadeExibicao() {
+        return unidadeExibicao;
+    }
+
+    public void setUnidadeExibicao(String unidadeExibicao) {
+        this.unidadeExibicao = unidadeExibicao;
+    }
+
+    public String getUrlImagemPequena() {
+        return urlImagemPequena;
+    }
+
+    public void setUrlImagemPequena(String urlImagemPequena) {
+        this.urlImagemPequena = urlImagemPequena;
     }
 
     public String getUrlImagemGrande() {
@@ -146,6 +164,14 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
     public void setUrlImagemGrande(String urlImagemGrande) {
         this.urlImagemGrande = urlImagemGrande;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
 
     @Override

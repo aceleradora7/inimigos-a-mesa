@@ -11,7 +11,7 @@ public class MedidasVisuais {
     public double getColheresDeSal(){
         double colher = 0;
 
-        if(alimento.getSodio().isEmpty()){
+        if(alimento.getSodio()==null){
             return colher;
         }
 
@@ -27,7 +27,7 @@ public class MedidasVisuais {
     public double getColheresDeAcucar(){
         double colher = 0;
 
-        if(alimento.getAcucar().isEmpty()){
+        if(alimento.getAcucar()==null){
             return colher;
         }
 
@@ -41,7 +41,7 @@ public class MedidasVisuais {
     public double getColheresDeGordura(){
         double colher = 0;
 
-        if(alimento.getGordura().isEmpty()){
+        if(alimento.getGordura()==null){
             return colher;
         }
 

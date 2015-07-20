@@ -57,7 +57,7 @@ function iniciarBuscarAoDigitar() {
 function onClickBotaoBusca(){
     setParametro("busca", $("#input-busca").val());
     removerParametro("categoria");
-    acessarPaginaComParametros("lista");
+    acessarPaginaComParametros("grid");
 }
 
 function associarEventoBotaoBusca(){

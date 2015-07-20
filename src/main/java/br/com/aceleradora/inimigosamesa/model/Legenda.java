@@ -9,6 +9,7 @@ public class Legenda {
     public static final String MILIGRAMAS = " mg";
     public static final String CALORIAS = " kcal";
 
+
     private Alimento alimento;
 
     public Legenda(Alimento alimento) {

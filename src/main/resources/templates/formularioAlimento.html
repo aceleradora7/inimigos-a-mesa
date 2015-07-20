@@ -39,7 +39,10 @@
                                 <h4>Selecione uma imagem em seu Pc.</h4>
                                 <div>
                                     <a href="#" id="upload_widget_opener">Upload multiple images</a>
-                                    <input TYPE="hidden" NAME="urlImagemPequena" id="urlImagemPequena" th:field="*{urlImagem}"/>
+
+
+                                    <input TYPE="hidden" NAME="urlImagemPequena" id="urlImagemPequena" th:field="*{urlImagemPequena}"/>
+
                                     <input TYPE="hidden" NAME="urlImagemGrande" id="urlImagemGrande" th:field="*{urlImagemGrande}"/>
                                 </div>
                             </div>
@@ -82,13 +85,13 @@
                                             Porção alimento:
                                         </div>
                                         <div class="alinha-direita" >
-                                            <input class="input-alimento" placeholder="Ex.: 100" pattern="[0-9]$" title="Valor númerica" required="true" th:field="*{porcaoAlimento}" type="text" name="porcao" value=""/>
+                                            <input class="input-alimento" placeholder="Ex.: 100" pattern="[0-9]$" title="Valor númerica" required="true" th:field="*{porcaoBaseCalculo}" type="text" name="porcao" value=""/>
                                             <label class="radio-inline" required="true">
-                                                <input th:field="*{unidade}" type="radio" name="ml" id="ml" value="ml"/>
+                                                <input th:field="*{unidadeBaseCalculo}" type="radio" name="ml" id="ml" value="ml"/>
                                                 ml
                                             </label>
                                             <label class="radio-inline">
-                                                <input th:field="*{unidade}" type="radio" name="g" id="g" value="g" />
+                                                <input th:field="*{unidadeBaseCalculo}" type="radio" name="g" id="g" value="g" />
                                                 g
                                             </label>
 
