@@ -44,20 +44,6 @@ public class CategoriaController {
         return "categoria";
     }
 
-    @RequestMapping("/importaCategoria")
-    public void importa() throws IOException {
-        FileReader reader = new FileReader(new File("categorias_import_2.csv"));
-        BufferedReader readr = new BufferedReader(reader);
-
-        String linha = "";
-        while((linha = readr.readLine()) != null){
-            Categoria c = new Categoria();
-            c.setNome(linha);
-            System.out.println(">>> " + linha);
-            categoriaRepository.save(c);
-        }
-
-    }
 
 
     @RequestMapping(value="/cadastrarCategoria", method = RequestMethod.GET)

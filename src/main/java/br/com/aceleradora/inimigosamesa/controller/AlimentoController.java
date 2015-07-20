@@ -75,9 +75,13 @@ public class AlimentoController {
     public String detalhe(Model model, @PathVariable("codigo") int codigo) {
 
         Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
+        System.out.println("Nome ::::" + alimento.getNome());
         MedidasVisuais medidas = servicoAlimento.getMedidasVisuais(alimento);
+
+        System.out.println("Medida ::::" + medidas.getColheresDeGordura());
         Legenda legendas = servicoAlimento.getLegendas(alimento);
 
+        System.out.println("Acucar ::::" + legendas.getAcucar());
         model.addAttribute("alimento", alimento);
         model.addAttribute("medidas", medidas);
         model.addAttribute("legenda", legendas);
@@ -119,8 +123,8 @@ public class AlimentoController {
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
     public String gerenciarAlimento(Model model, Alimento alimento){
 
-        if(alimento.getUrlImagem().isEmpty()){
-            alimento.setUrlImagem("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
+        if(alimento.getUrlImagemPequena().isEmpty()){
+            alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
         }
         if(alimento.getUrlImagemGrande().isEmpty()){
             alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1436535224/lkt8uygy36ldiig3xglo.png");
@@ -130,40 +134,5 @@ public class AlimentoController {
         return "redirect:/detalhe/"+alimento.getCodigo();
     }
 
-    @RequestMapping("/importaAlimentos")
-    public void importaAlimentos() throws IOException {
-        FileReader reader = new FileReader(new File("alimentos_import_5.csv"));
-        BufferedReader readr = new BufferedReader(reader);
-
-        String linha = "";
-        while((linha = readr.readLine()) != null){
-            String [] dados = linha.split(";");
-            Alimento a = new Alimento();
-
-            a.setNome(dados[0]);
-            a.setAcucar(dados[1]);
-            a.setCalorias(dados[2]);
-            a.setGordura(dados[3]);
-            a.setSodio(dados[4]);
-            a.setPorcao(dados[5]);
-            a.setUnidade(dados[6]);
-            a.setUrlImagem(dados[7]);
-            a.setUrlImagemGrande(dados[8]);
-
-            Categoria c = new Categoria();
-            int cod = Integer.parseInt(dados[9]);
-
-            if(cod > 8){
-                cod--;
-            }
-
-            c.setCodigo(cod);
-
-            a.setCategoria(c);
-
-            System.out.println(">>> " + linha);
-            servicoAlimento.salvar(a);
-        }
-    }
 
 }
