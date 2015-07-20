@@ -23,6 +23,15 @@ body{
 
     transition:0.2s ease-in;
 }
-	.item-grid:hover{
-		background-color:#E1E1E1 !important;
-	}
+
+.item-grid:hover{
+	background-color:#E1E1E1 !important;
+}
+
+.ordenacao{
+	font-size: 18px;
+}
+
+.msg-erro{
+	font-weight: bold;
+}
