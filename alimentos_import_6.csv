@@ -1,0 +1,267 @@
+\N;48;0.1;Abacaxi ;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;78;0.1;Banana Pacova;\N;\N;\N;1;\N;\N;\N;\N;4
+\N;98;0.1;Banana Prata;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;\N;\N;Banana Catura;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;51;0.2;Laranja da Terra;\N;\N;\N;1;\N;\N;\N;\N;4
+\N;45;0.1;Laranja de Umbigo;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;37;0.1;Laranja Pêra;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;56;\N;Maçã Fuji;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;63;0.2;Maçã Argentina;\N;\N;\N;1;\N;\N;\N;\N;4
+\N;40;0.1;Mamão Papaya;\N;\N;\N;2;\N;\N;\N;\N;4
+\N;45;0.1;Mamão Formosa;\N;\N;\N;3;\N;\N;\N;\N;4
+\N;64;0.3;Manga Haden;\N;\N;\N;1;\N;\N;\N;\N;4
+\N;51;0.2;Manga Tommy;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;33;\N;Melancia;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;53;0.2;Uva Italia;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;49;0.2;Uva Rubi;\N;\N;\N;8;\N;\N;\N;\N;4
+\N;53;\N;Ameixa Crua;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;41;0.2;Figo Cru;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;581;47.3;Ameoa Torrada e Salgada;\N;\N;\N;279;\N;\N;\N;\N;4
+\N;544;43.9;Ameoim Grão Cru;\N;\N;\N;\N;\N;\N;\N;\N;4
+\N;570;46.3;Castanha de Caju Torrada com Sal;\N;\N;\N;125;\N;\N;\N;\N;4
+\N;643;63.5;Castanha do Brasil Crua;\N;\N;\N;1;\N;\N;\N;\N;4
+\N;495;32.3;Linhaça Semente;\N;\N;\N;9;\N;\N;\N;\N;4
+\N;620;59.4;Nozes;\N;\N;\N;5;\N;\N;\N;\N;4
+\N;15;0.2;Abobrinha Italiana COZ.;\N;\N;\N;1;\N;\N;\N;\N;12
+\N;48;0.7;Abóbora Cabotiá COZ.;\N;\N;\N;1;\N;\N;\N;\N;12
+\N;49;0.1;Beterraba Cru;\N;\N;\N;10;\N;\N;\N;\N;12
+\N;34;0.2;Cenoura Cru;\N;\N;\N;3;\N;\N;\N;\N;12
+\N;10;\N;Pepino Cru;\N;\N;\N;\N;\N;\N;\N;\N;12
+\N;21;0.2;Pimentão Verde ;\N;\N;\N;\N;\N;\N;\N;\N;12
+\N;15;0.2;Tomate Cru;\N;\N;\N;1;\N;\N;\N;\N;12
+\N;14;0.1;Alface Lisa;\N;\N;\N;4;\N;\N;\N;\N;12
+\N;17;0.1;Repolho Branco;\N;\N;\N;4;\N;\N;\N;\N;12
+\N;17;0.2;Agrião;\N;\N;\N;7;\N;\N;\N;\N;12
+\N;67;5.4;Espinafre Refogado;\N;\N;\N;47;\N;\N;\N;\N;12
+\N;90;6.6;Couve Manteiga Refogada;\N;\N;\N;11;\N;\N;\N;\N;12
+\N;25;0.5;Brócolis COZ.;\N;\N;\N;2;\N;\N;\N;\N;12
+\N;19;0.3;Couve Flor COZ.;\N;\N;\N;2;\N;\N;\N;\N;12
+\N;19;\N;Chuchu COZ.;\N;\N;\N;2;\N;\N;\N;\N;12
+\N;74;0.4;Ervilha em Lata;\N;\N;\N;372;\N;\N;\N;\N;6
+\N;88;0.5;Ervilha em Vagem;\N;\N;\N;\N;\N;\N;\N;\N;6
+\N;77;0.5;Feijão Preto;\N;\N;\N;2;\N;\N;\N;\N;6
+\N;93;0.5;Lentilha;\N;\N;\N;1;\N;\N;\N;\N;6
+3.25;38.5;1.5;Leite de soja ;\N;\N;\N;95;\N;\N;\N;\N;5
+\N;362;0.9;Leite em pó (Desnatado) ;\N;\N;\N;432;\N;\N;\N;\N;5
+\N;497;26.9;Leite em pó (Integral);\N;\N;\N;323;\N;\N;\N;\N;5
+\N;30;0.25;Leite desnatado UHT ;\N;\N;\N;60;\N;\N;\N;\N;5
+\N;41;1;Leite semi desnatado UHT ;\N;\N;\N;70;\N;\N;\N;\N;5
+\N;55;3;Leite integral UHT ;\N;\N;\N;60;\N;\N;\N;\N;5
+0;264;20.2;Queijo Minas ;\N;\N;\N;31;\N;\N;\N;\N;5
+0;453;33.5;Parmesão (ralado) ;\N;\N;\N;1844;\N;\N;\N;\N;5
+0;330;25.2;Mussarela ;\N;\N;\N;581;\N;\N;\N;\N;5
+0;360;29.1;Queijo Prato ;\N;\N;\N;580;\N;\N;\N;\N;5
+0;366.3;29.97;Colonial;\N;\N;\N;532.8;\N;\N;\N;\N;5
+0;333;26.64;Provolone ;\N;\N;\N;1764.9;\N;\N;\N;\N;5
+0;346.32;26.64;Gorgonzola;\N;\N;\N;1798.2;\N;\N;\N;\N;5
+0;259.74;22.64;Requeijão;\N;\N;\N;366.3;\N;\N;\N;\N;5
+0;153.18;9.57;Requeijão light ;\N;\N;\N;662.67;\N;\N;\N;\N;5
+0;140;8.1;Ricota;\N;\N;\N;283;\N;\N;\N;\N;5
+\N;121;2.8;Petit suisse morango ;\N;\N;\N;412;\N;\N;\N;\N;5
+\N;55;1.9;Bebida láctea com sabor pêssego ;\N;\N;\N;46;\N;\N;\N;\N;5
+\N;51;3;Iogurte natural ;\N;\N;\N;52;\N;\N;\N;\N;5
+\N;77.5;0;Leite fermentado ;\N;\N;\N;31.25;\N;\N;\N;\N;5
+0;221;22.5;Creme de Leite ;\N;\N;\N;52;\N;\N;\N;\N;5
+0;333;33.3;Creme de Leite light ;\N;\N;\N;36.63;\N;\N;\N;\N;5
+0;750;83;Manteiga com sal ;\N;\N;\N;450;\N;\N;\N;\N;5
+0;750;83;Manteiga sem sal ;\N;\N;\N;0;\N;\N;\N;\N;5
+0;212;10.9;CarneMoída cozida ;\N;\N;\N;52;\N;\N;\N;\N;2
+0;272;15.8;Almôega frita ;\N;\N;\N;1030;\N;\N;\N;\N;2
+0;373;27.7;Costela assada ;\N;\N;\N;92;\N;\N;\N;\N;2
+0;219;8.9;Coxão mole cozido ;\N;\N;\N;44;\N;\N;\N;\N;2
+0;194;4.5;Contra-filé s/ gor. Grelhado;\N;\N;\N;58;\N;\N;\N;\N;2
+0;278;15.5;Contra-filé c/ gor. Grelhado;\N;\N;\N;57;\N;\N;\N;\N;2
+0;220;8.8;Filé mignon Grelhado ;\N;\N;\N;58;\N;\N;\N;\N;2
+0;219;7.3;Patinho ;\N;\N;\N;60;\N;\N;\N;\N;2
+0;238;11.3;Picanha sem gordura ;\N;\N;\N;61;\N;\N;\N;\N;2
+0;263;11.9;Charque Cozido ;\N;\N;\N;1443;\N;\N;\N;\N;2
+0;225;9;fígado de boi grelhado ;\N;\N;\N;82;\N;\N;\N;\N;2
+0;315;24.8;Língua cozida ;\N;\N;\N;59;\N;\N;\N;\N;2
+0;133;4.5;Moongo ;\N;\N;\N;38;\N;\N;\N;\N;2
+0;207;12.1;Coração de galinha ;\N;\N;\N;128;\N;\N;\N;\N;2
+0;215;10.4;Coxa c/ pele assada;\N;\N;\N;95;\N;\N;\N;\N;2
+0;167;5.8;Coxa s/ pele cozida;\N;\N;\N;64;\N;\N;\N;\N;2
+0;260;15.2;Sobrecoxa c/pele ass. ;\N;\N;\N;96;\N;\N;\N;\N;2
+0;233;12;Sobrecoxa s/pele ass.;\N;\N;\N;106;\N;\N;\N;\N;2
+0;212;7.6;Peito com pele assado ;\N;\N;\N;56;\N;\N;\N;\N;2
+0;159;3.2;Peito sem pele cozido ;\N;\N;\N;36;\N;\N;\N;\N;2
+0;280;17.4;Bisteca grelhada ;\N;\N;\N;51;\N;\N;\N;\N;2
+0;402;30.3;Costela assada ;\N;\N;\N;63;\N;\N;\N;\N;2
+0;410;38;Bacon ;\N;\N;\N;1050;\N;\N;\N;\N;2
+0;140;4;Bacalhau  salgado refogado;\N;\N;\N;1256;\N;\N;\N;\N;2
+0;116;0.7;Cação Posta Cozido ;\N;\N;\N;115;\N;\N;\N;\N;2
+0;88;1;Camarão Água Salgada Cozido ;\N;\N;\N;367;\N;\N;\N;\N;2
+0;122;0.9;Merluza Filé assado;\N;\N;\N;120;\N;\N;\N;\N;2
+0;154;3.6;Pescada filé frita ;\N;\N;\N;115;\N;\N;\N;\N;2
+0;192;4;Pintado assado;\N;\N;\N;81;\N;\N;\N;\N;2
+0;296;21.9;Lingüiça porco grelhada ;\N;\N;\N;1456;\N;\N;\N;\N;2
+\N;129;6.7;Apresuntado ;\N;\N;\N;943;\N;\N;\N;\N;2
+0;316;20;Copa ;\N;\N;\N;3150;\N;\N;\N;\N;2
+\N;310;25;Mortadela ;\N;\N;\N;1375;\N;\N;\N;\N;2
+\N;230;21;Patê de Frango ;\N;\N;\N;700;\N;\N;\N;\N;2
+\N;260;24;Patê de presunto ;\N;\N;\N;660;\N;\N;\N;\N;2
+0;112.5;2.75;Peito de peru light ;\N;\N;\N;1240;\N;\N;\N;\N;2
+0;102.5;2.5;Presunto cozido sem capa de gordura ;\N;\N;\N;1100;\N;\N;\N;\N;2
+0;155;9.5;Presunto cozido com capa de gordura ;\N;\N;\N;832.5;\N;\N;\N;\N;2
+0;398;30.6;Salame;\N;\N;\N;1574;\N;\N;\N;\N;2
+\N;292;26;Salsicha Hot Dog ;\N;\N;\N;1150;\N;\N;\N;\N;2
+0;146;9.5;Ovo de galinha cozido ;\N;\N;\N;146;\N;\N;\N;\N;2
+\N;300;3.1;Pão Trigo Francês ;\N;\N;\N;648;\N;\N;\N;\N;8
+\N;311;2.8;Pão sovado ;\N;\N;\N;431;\N;\N;\N;\N;8
+\N;253;3.7;Pão Trigo Forma Integral ;\N;\N;\N;506;\N;\N;\N;\N;8
+\N;253;2.7;Pão Glúten Forma ;\N;\N;\N;22;\N;\N;\N;\N;8
+\N;302.5;3.8;Pão bisnaguinha ;\N;\N;\N;330;\N;\N;\N;\N;8
+\N;240;2.4;Pão Centeio ;\N;\N;\N;274;\N;\N;\N;\N;8
+\N;270;6;Pão 7 grãos ;\N;\N;\N;454;\N;\N;\N;\N;8
+\N;264;4;Pão integral multigrãos ;\N;\N;\N;452;\N;\N;\N;\N;8
+\N;250;11;Biscoito Água e Sal;\N;\N;\N;849;\N;\N;\N;\N;8
+\N;488;20;Bolacha Amanteigada Banana e Canela;\N;\N;\N;230;\N;\N;\N;\N;8
+\N;488;20;Bolacha Amanteigada Leite;\N;\N;\N;280;\N;\N;\N;\N;8
+37.13;382;3.2;Biscoito Champanhe Açúcar Cristal;\N;\N;\N;82;\N;\N;\N;\N;8
+\N;489.5;24.3;Cookies Chocolate;\N;\N;\N;210;\N;\N;\N;\N;8
+\N;489.5;24.3;Cookies Tradicional;\N;\N;\N;210;\N;\N;\N;\N;8
+\N;443;12;Biscoito de Maisena;\N;\N;\N;352;\N;\N;\N;\N;8
+\N;456.66;18.3;Biscoito Integral Salgado;\N;\N;\N;713.3;\N;\N;\N;\N;8
+\N;472;19.6;Biscoito Recheado Chocolate;\N;\N;\N;239;\N;\N;\N;\N;8
+\N;486.66;22;Biscoito Recheado Doce de Leite;\N;\N;\N;416.6;\N;\N;\N;\N;8
+\N;471;19.6;Biscoito Recheado Morango;\N;\N;\N;230;\N;\N;\N;\N;8
+\N;502;24.7;Waffer Recheado Chocolate;\N;\N;\N;137;\N;\N;\N;\N;8
+\N;500;30;Salgadinho Sabor Bacon;\N;\N;\N;1150;\N;\N;\N;\N;8
+\N;500;22.5;Salgadinho Sabor Cebola;\N;\N;\N;1050;\N;\N;\N;\N;8
+0;564;38.8;Batata Chips  ;\N;\N;\N;516;\N;\N;\N;\N;8
+0;540;37.6;Batata Chips Cebola e Salsa;\N;\N;\N;680;\N;\N;\N;\N;8
+0;568;40;Batata Chips Churrasco;\N;\N;\N;624;\N;\N;\N;\N;8
+\N;346.25;1.12;Massa Sêmola;\N;\N;\N;25;\N;\N;\N;\N;8
+\N;346.25;1.12;Massa Sêmola Espaguete;\N;\N;\N;25;\N;\N;\N;\N;8
+\N;347.5;1.37;Massa Caseira Ninho Largo;\N;\N;\N;25;\N;\N;\N;\N;8
+\N;347.5;1.37;Massa com Ovos Parafuso;\N;\N;\N;25;\N;\N;\N;\N;8
+\N;113.33;0.13;Nhoque de Batata;\N;\N;\N;100;\N;\N;\N;\N;8
+\N;375;3.75;Fusilli Integral;\N;\N;\N;0;\N;\N;\N;\N;8
+\N;125;0.3;Maioca Cozida;\N;\N;\N;1;\N;\N;\N;\N;8
+\N;128;0.2;Arroz Branco Tipo I Cozido ;\N;\N;\N;1;\N;\N;\N;\N;8
+\N;124;1;Arroz Integral Cozido;\N;\N;\N;1;\N;\N;\N;\N;8
+\N;52;999;Batata Inglesa Cozida ;\N;\N;\N;2;\N;\N;\N;\N;8
+\N;267;13.1;Batata Inglesa Frita ;\N;\N;\N;2;\N;\N;\N;\N;8
+\N;103;0.3;Polenta;\N;\N;\N;442;\N;\N;\N;\N;8
+\N;394;8.5;Aveia em Flocos Crua;\N;\N;\N;5;\N;\N;\N;\N;8
+30;345;4.25;Granola Tradicional;\N;\N;\N;300;\N;\N;\N;\N;8
+40;380;0;Sucrilhos ;\N;\N;\N;606.6;\N;\N;\N;\N;8
+\N;381.81;5;Barra de Cereal Aveia, Banana e Mel;\N;\N;\N;72.7;\N;\N;\N;\N;8
+\N;372;3.6;Barra de Cereal Banana ;\N;\N;\N;72;\N;\N;\N;\N;8
+\N;388;8.4;Barra de Cereal Banana com Chocolate;\N;\N;\N;88;\N;\N;\N;\N;8
+\N;409.09;12.7;Barra de Cereal Brigadeiro;\N;\N;\N;236.36;\N;\N;\N;\N;8
+\N;396;10;Barra de Cereal Castanha do Pará;\N;\N;\N;72;\N;\N;\N;\N;8
+\N;418.18;14.09;Barra de Cereal Castanha com Chocolate;\N;\N;\N;163.63;\N;\N;\N;\N;8
+\N;400;8;Barra de Cereal Coco;\N;\N;\N;160;\N;\N;\N;\N;8
+\N;371.66;16.3;Bolo de Laranja;\N;\N;\N;363.3;\N;\N;\N;\N;8
+\N;410;18.5;Bolo Caseiro de Chocolate;\N;\N;\N;283;\N;\N;\N;\N;8
+\N;361.66;15.5;Bolo Mármore;\N;\N;\N;388.3;\N;\N;\N;\N;8
+55.8;534.88;29.3;Bombom Recheado;\N;\N;\N;148.8;\N;\N;\N;\N;8
+60;524;28;Chocolate ao Leite ;\N;\N;\N;144;\N;\N;\N;\N;8
+56;540;31.6;Chocolate Preto com Avelã ;\N;\N;\N;132;\N;\N;\N;\N;8
+52;508;28.4;Chocolate Amargo ;\N;\N;\N;0;\N;\N;\N;\N;8
+52;516;28.8;Chocolate Meio Amargo e Branco ;\N;\N;\N;112;\N;\N;\N;\N;8
+56;544;32;Chocolate Branco com Cookies;\N;\N;\N;144;\N;\N;\N;\N;8
+60;544;30.4;Chocolate Branco *;\N;\N;\N;176;\N;\N;\N;\N;8
+\N;425.71;12.2;Mousse de Chocolate;\N;\N;\N;71.4;\N;\N;\N;\N;8
+\N;487;26.1;Paçoca;\N;\N;\N;167;\N;\N;\N;\N;8
+\N;503;28;Pé de Moleque;\N;\N;\N;16;\N;\N;\N;\N;8
+\N;166.1;4.19;Picolé de chocolate;\N;\N;\N;66;\N;\N;\N;\N;9
+\N;89.65;\N;Picolé de limão;\N;\N;\N;\N;\N;\N;\N;\N;9
+\N;101.69;\N;Picolé de uva;\N;\N;\N;\N;\N;\N;\N;\N;9
+4.66;34.36;\N;Pudim de baunilha pó;\N;\N;\N;20.45;\N;\N;\N;\N;9
+4.24;32.72;\N;Pudim de chocolate pó;\N;\N;\N;51.5;\N;\N;\N;\N;9
+\N;101;0.9;Pudim de caramelo pronto;\N;\N;\N;55;\N;\N;\N;\N;9
+\N;138.1;5;Pudim de chocolate pronto;\N;\N;\N;102.72;\N;\N;\N;\N;9
+\N;352;0.1;Rapadura de leite;\N;\N;\N;22;\N;\N;\N;\N;9
+\N;475;20.5;Rapadura de ameoim;\N;\N;\N;\N;\N;\N;\N;\N;9
+\N;168;6.33;Sorvete de morango;\N;\N;\N;71.66;\N;\N;\N;\N;9
+\N;180;7.33;Sorvete de chocolate;\N;\N;\N;113.33;\N;\N;\N;\N;9
+\N;178.3;7.5;Sorvete de creme;\N;\N;\N;73.33;\N;\N;\N;\N;9
+\N;178.3;10.16;Sorvete de flocos;\N;\N;\N;61.66;\N;\N;\N;\N;9
+\N;95.2;13.1;Batata inglesa frita;\N;\N;\N;2;\N;\N;\N;\N;9
+\N;273;4;Capeletti de frango;\N;\N;\N;393;\N;\N;\N;\N;9
+\N;273;2.2;Capeletti de carne;\N;\N;\N;390;\N;\N;\N;\N;9
+\N;119.6;6.15;Lasanha á bolonhesa;\N;\N;\N;533.53;\N;\N;\N;\N;9
+\N;152.6;10.15;Lasanha 4 queijos;\N;\N;\N;447.07;\N;\N;\N;\N;9
+\N;363;24.6;Pão de queijo;\N;\N;\N;773;\N;\N;\N;\N;9
+\N;252;10.54;Pizza de mussarela;\N;\N;\N;620;\N;\N;\N;\N;9
+\N;137.8;10.25;Pizza de calabresa;\N;\N;\N;872.72;\N;\N;\N;\N;9
+\N;442;11.8;Coxinha de frango frita;\N;\N;\N;532;\N;\N;\N;\N;9
+\N;164.6;7.69;Bife de frango empanado recheado com presunto e queijo;\N;\N;\N;707.69;\N;\N;\N;\N;9
+\N;180.3;11.6;Hambúrguer de carne bovina;\N;\N;\N;1057.14;\N;\N;\N;\N;9
+\N;219.6;17.14;Hambúrguer de frango;\N;\N;\N;666.07;\N;\N;\N;\N;9
+\N;235.3;16.15;Nuggets de frango;\N;\N;\N;649.23;\N;\N;\N;\N;9
+11;43.5;\N;Refrigerante cola;pepsi;\N;\N;\N;\N;\N;\N;\N;1
+10;41.5;\N;Refrigerante guaraná ;antartica;\N;\N;5.5;\N;\N;\N;\N;1
+\N;47.5;\N;Refrigerante limão ;dolly;\N;\N;7;\N;\N;\N;\N;1
+\N;52;\N;Refrigerante uva ;produtor não enviou os dados;\N;\N;8.5;\N;\N;\N;\N;1
+\N;46;\N;Refrigerante laranja;\N;\N;\N;9;\N;\N;\N;\N;1
+\N;50;0;Suco de laranja caixinha ;Suvalan;\N;\N;7.5;\N;\N;\N;\N;1
+\N;73.5;\N;Suco de uva caixinha ;del valle;\N;\N;11.5;\N;\N;\N;\N;1
+1.7;9;\N;Suco laranja pó;tang;\N;\N;24.5;\N;\N;\N;\N;1
+2.3;11;\N;Suco de uva pó;tang;\N;\N;16.5;\N;\N;\N;\N;1
+9;40;0;Achocolatado pó;toddy;\N;\N;14;\N;\N;\N;\N;1
+5.5;26;0;Bebida láctea morango pó;nesquik;\N;\N;6;\N;\N;\N;\N;1
+13.5;93;2.75;Bebida láctea chocolate pronta;toddynho;\N;\N;80;\N;\N;\N;\N;1
+\N;166;6;Atum enlatado em óleo;\N;\N;\N;362;\N;\N;\N;\N;3
+\N;74;0.4;Ervilha enlatada;\N;\N;\N;372;\N;\N;\N;\N;3
+\N;61;0.2;Extrato de tomate;\N;\N;\N;498;\N;\N;\N;\N;3
+\N;313;6.7;Leite coensado;\N;\N;\N;94;\N;\N;\N;\N;3
+\N;98;2.4;Milho enlatado;\N;\N;\N;260;\N;\N;\N;\N;3
+\N;66.6;2.4;Molho iustrializado de tomate;\N;\N;\N;418;\N;\N;\N;\N;3
+\N;285;24;Sardinha enlatada em óleo;\N;\N;\N;666;\N;\N;\N;\N;3
+\N;19;\N;Aspargo ;\N;\N;\N;286;\N;\N;\N;\N;3
+\N;137;14;Azeitona Verde ;\N;\N;\N;1347;\N;\N;\N;\N;3
+\N;50;\N;Beterraba em Conserva;\N;\N;\N;60;\N;\N;\N;\N;3
+\N;24;\N;Champignon em Conserva;\N;\N;\N;800;\N;\N;\N;\N;3
+\N;184;0.2;Figo em Calda;\N;\N;\N;7;\N;\N;\N;\N;3
+\N;190;0;Abacaxi em Calda Rodelas ;\N;\N;\N;10;\N;\N;\N;\N;3
+\N;63;\N;Pêssego  em Calda;\N;\N;\N;3;\N;\N;\N;\N;3
+\N;225;\N;Geléia Morango ;\N;\N;\N;\N;\N;\N;\N;\N;3
+\N;217.5;\N;Marmelada;\N;\N;\N;\N;\N;\N;\N;\N;3
+\N;158;11.2;Ovo Codorna Conserva;\N;\N;\N;618;\N;\N;\N;\N;3
+\N;23;0.4;Palmito ;\N;\N;\N;514;\N;\N;\N;\N;3
+\N;\N;0;Pepino Conserva;\N;\N;\N;94;\N;\N;\N;\N;3
+\N;5.06;0.3;Caldo de Carne ;\N;\N;\N;465;\N;\N;\N;\N;7
+\N;5.27;0.42;Caldo de Galinha;\N;\N;\N;468.3;\N;\N;\N;\N;7
+\N;6.4;0.48;Caldo de Legumes;\N;\N;\N;360;\N;\N;\N;\N;7
+\N;85.68;\N;Tempero Completo;\N;\N;\N;26028.6;\N;\N;\N;\N;7
+\N;83.33;1.83;Bolognesa ;\N;\N;\N;411.66;\N;\N;\N;\N;7
+6.5;315.38;31.53;Ervas Finas ;\N;\N;\N;1223;\N;\N;\N;\N;7
+\N;225;0;Mostarda ;\N;\N;\N;625;\N;\N;\N;\N;7
+\N;\N;30.5;Maionese;\N;\N;\N;787;\N;\N;\N;\N;7
+6;44;0;Molho Madeira;\N;\N;\N;536;\N;\N;\N;\N;7
+\N;124.5;\N;Catchup Tradicional;\N;\N;\N;557428;\N;\N;\N;\N;7
+\N;20.8;0.96;Molho Branco;\N;\N;\N;142.4;\N;\N;\N;\N;7
+\N;61;0.2;Extrato de Tomate;\N;\N;\N;498;\N;\N;\N;\N;7
+\N;38;0.9;Molho de Tomate;\N;\N;\N;418;\N;\N;\N;\N;7
+9.5;42.6;\N;Molho Inglês;\N;\N;\N;2771.42;\N;\N;\N;\N;7
+\N;423.07;44.61;Molho Pesto;\N;\N;\N;1369.23;\N;\N;\N;\N;7
+\N;80;4;Molho 4 Queijos;\N;\N;\N;360;\N;\N;\N;\N;7
+\N;61;0.3;Shoyu ;\N;\N;\N;5024;\N;\N;\N;\N;7
+\N;34;0.28;Canja;\N;\N;\N;298.4;\N;\N;\N;\N;11
+\N;23.2;0.4;Sopa Creme de Batata com Carne;\N;\N;\N;262.4;\N;\N;\N;\N;11
+\N;20.8;0;Sopa Creme de Cebola;\N;\N;\N;268;\N;\N;\N;\N;11
+\N;23.2;0;Sopa de Ervilha com Bacon;\N;\N;\N;226;\N;\N;\N;\N;11
+\N;35.6;0.48;Sopão de Feijão com Macarrão;\N;\N;\N;320;\N;\N;\N;\N;11
+\N;23.2;0.36;Sopa Creme de Galinha ;\N;\N;\N;240.8;\N;\N;\N;\N;11
+\N;34.8;0.4;Sopa de Legumes;\N;\N;\N;296.4;\N;\N;\N;\N;11
+30.4;368;3.6;Barra de Cereal Diet Sabor Banana ;\N;\N;\N;216;\N;\N;\N;\N;10
+1;410;16.66;Biscoito Sabor Castanha de Caju Diet;\N;\N;\N;256.66;\N;\N;\N;\N;10
+8.75;432.5;10;Granola Maçã com Canela Diet ;\N;\N;\N;55;\N;\N;\N;\N;10
+0;557;33.8;Chocolate ao Leite Diet ;\N;\N;\N;85;\N;\N;\N;\N;10
+\N;155;7;Doce de Leite Diet;\N;\N;\N;245;\N;\N;\N;\N;10
+0;100;0;Geléia de Morango Diet;\N;\N;\N;0;\N;\N;\N;\N;10
+\N;5.65;0;Gelatina de Morango Diet;\N;\N;\N;41.5;\N;\N;\N;\N;10
+1;25;0;Achocolatado Diet;\N;\N;\N;25;\N;\N;\N;\N;10
+0;5.1;0;Suco em Pó Zero Sabor Uva ;\N;\N;\N;15;\N;\N;\N;\N;10
+\N;378;5;Barra de Cereal Banana Aveia e Mel Light;\N;\N;\N;72.72;\N;\N;\N;\N;10
+\N;353.33;7.66;Biscoito Salgado Cracker Light;\N;\N;\N;300;\N;\N;\N;\N;10
+4.5;417.5;7.25;Granola Tradicional Light ;\N;\N;\N;57.5;\N;\N;\N;\N;10
+\N;509;24;Chocolate ao Leite Light;\N;\N;\N;84;\N;\N;\N;\N;10
+\N;265;2;Doce de Leite Light;\N;\N;\N;120;\N;\N;\N;\N;10
+0;200;1.6;Pão Integral Light;\N;\N;\N;396;\N;\N;\N;\N;10
+0;216;0;Pão Branco Light;\N;\N;\N;396;\N;\N;\N;\N;10
+6.3;33;0;Achocolatado Light pó;toddy;\N;\N;15;\N;\N;\N;\N;10
+\N;278;0;Proteina de Soja Texturizada;\N;\N;\N;30;\N;\N;\N;\N;4
