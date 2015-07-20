@@ -6,7 +6,6 @@ import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
 import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -87,6 +86,21 @@ public class ApresentacaoController {
     public void recuperarSenha() {
 
     }
+
+    @RequestMapping(value = "/emailRecuperar", method = RequestMethod.POST)
+    public String emailRecuperarSenha() {
+
+        return "login";
+
+    }
+
+    @RequestMapping(value = "/emailRecuperar", method = RequestMethod.GET)
+    public String emailRecuperar() {
+
+        return "login";
+
+    }
+
 
     @RequestMapping(value = "/formularioUsuario", method = RequestMethod.GET)
     public String cadastrarNovoAdministrador(Model model){

@@ -222,3 +222,7 @@ a{
 .grupo-btn{
     float: right !important;
 }
+
+#msg-sucesso-email {
+	margin-top: 10px;
+}

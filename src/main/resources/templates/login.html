@@ -27,7 +27,7 @@
                 <!--<div th:if="${param.logout}">-->
                     <!--You have been logged out.-->
                 <!--</div>-->
-                <form name="dados" id="validarLogin" class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
+                <form name="dados" id="return validarLogin" class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-4">
                             <label for="emailLogin" class="control-label">E-mail:</label>
@@ -42,12 +42,16 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-4">
-                            <label for="inputPassword3" class="control-label">Senha:</label>
+                            <label for="senhaLogin" class="control-label">Senha:</label>
                             <a class="link-senha" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
                                 Esqueci senha
                             </a>
-                            <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Senha"/>
+                            <input type="password" name="password" class="form-control" id="senhaLogin" placeholder="Senha"/>
 
+                        </div>
+                    </div>
+                    <div id="espacoErroSenha">
+                        <div class="col-sm-offset-4 col-sm-4" id="erro-senha-login">
                         </div>
                     </div>
                     <div class="form-group">
@@ -68,7 +72,6 @@
 
                 </form>
 
-
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                     <div class="modal-dialog ajuste-recuperar" role="document">
                         <div class="modal-content">
@@ -78,17 +81,17 @@
                             </div>
                             <div class="modal-body">
                                 <div>
-                                    <form name="dados" onSubmit="return validarRecuperacao();" class="form-horizontal" th:object="${Usuario}" th:action="@{/login}" id="recuperarSenha" method="POST">
+                                    <form name="dados" onSubmit="return validarRecuperacao();" class="form-horizontal" th:object="${Usuario}" th:action="@{/emailRecuperar}" id="recuperarSenha" method="POST">
                                         <div class="form-group">
                                             <div class="col-sm-offset-4 col-sm-5">
                                                 <label for="emailRecuperacao" class="control-label">E-mail:</label>
-                                                <input onclick="alterandoDisplay();" name="inputEmail" type="text" class="form-control formbutton" id="emailRecuperacao" placeholder="Email" />
+                                                <input onclick="return alterandoDisplay();" name="inputEmail" type="text" class="form-control formbutton" id="emailRecuperacao" placeholder="Email" />
                                             </div>
-
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-4 col-sm-5" id="erro-email-recuperacao">
                                             </div>
+
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-4 col-sm-4">
@@ -106,19 +109,81 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="modal fade" id="ModalSucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog ajuste-recuperar" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="ModalSucessoLabel">Email de recuperação enviado</h4>
+                            </div>
+                            <div class="col-sm-offset-4 col-sm-5 alert alert-success" id="msg-sucesso-email">
+                                <label>Verifique seu e-mail para recuperar sua senha.</label>
+                            </div>
+                            <div class="modal-footer">
+                                <button name="Submit" type="submit"  value="Enviar dados" class="btn btn-primary formobjects" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
-
-
 
         <div class="col-sm-offset-4 col-sm-5 alert alert-danger" id="msg-erro-email" style="display:none;">
-            <label>Preencha com um e-mail válido!</label>
+            <label>Preencha com um e-mail válido. exemplo@exemplo.com</label>
         </div>
 
+
+
+        <div class="col-sm-offset-4 col-sm-5 alert alert-danger" id="msg-erro-senha" style="display:none;">
+            <label>Digite sua senha.</label>
+        </div>
 
 
 
         <nav th:replace="fragmentos/rodape :: rodape"></nav>
-
+        </div>
 </body>
 </html>
