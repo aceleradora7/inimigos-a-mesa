@@ -93,34 +93,8 @@ a{
     color: #FFF;
     background: #2E2E2E none repeat scroll 0% 0%;
 	width: auto;
-
-
-
 }
 
-
-.medidas-visuais{
-	margin-top: 30px;
-	margin-bottom: 50px;
-}
-
-.medidas-visuais-titulo{
-	float: left;
-}
-
-.colher {
-	margin-left: 5px;
-	float: left;
-	height: 50px;
-    	width: 30px;
-
-}
-
-
-.colher-img {
-	height: 50px;
-	width: 30px;
-}
 
 /* Footer */
 .alinhar{
@@ -149,15 +123,6 @@ a{
     color: #FFFFFF !important;
     font-family: Arial,Helvetica,sans-serif;
     }
-
-
-#template-colher{
-	margin-left: 5px;
-    float: left;
-}
-.sem-colher{
-	float: left;
-}
 
 .ui-widget{
 	z-index: 5000 !important;
