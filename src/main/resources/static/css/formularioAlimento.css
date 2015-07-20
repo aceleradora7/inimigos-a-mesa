@@ -73,3 +73,11 @@ margin:0 auto !important;
     height: 80%;
     width: 85%;
 }
+
+.direita{
+float:right;
+}
+
+.esquerda{
+float:left;
+}

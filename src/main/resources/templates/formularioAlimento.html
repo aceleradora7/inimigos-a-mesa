@@ -10,8 +10,6 @@
     <link rel="stylesheet" type="text/css" href="/css/principal.css"/>
     <link rel="stylesheet" type="text/css" href="/css/formularioAlimento.css"/>
 
-    <script type="text/javascript" src="js/teste.js"> </script>
-
 
     <script th:replace="fragmentos/header :: jquery"> </script>
     <script th:replace="fragmentos/header :: jqueryui"> </script>
@@ -48,16 +46,12 @@
                             </div>
                         </div>
                 </div>
-                <div class="col-xs-6 col-md-5 direita">
+                <div class="col-xs-6 col-md-6 direita">
                         <div class="form-group">
                             <label >Nome Alimento</label>
                             <input type="text" th:field="*{nome}" placeholder="Ex.: Abacate" class="form-control" name="nomeAlimento"/>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro"  id="erro-nomeAlimento" >
-                                <label>Preencha com um nome de alimento.</label>
-                            </div>
-                        </div>
+
                         <br/>
                         <div class="form-group">
                             <label >Selecione uma categoria</label>
@@ -66,11 +60,7 @@
                                 <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}" >Selecione uma categoria</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro"  id="erro-categoria" >
-                                <label>Selecione uma categoria</label>
-                            </div>
-                        </div>
+
                         <br/>
                             <ul class="list-group">
                                 <center>
@@ -82,21 +72,39 @@
                                 </center>
                                     <li class="list-group-item">
                                         <div class="alinha-esquerda">
-                                            Porção alimento:
+                                            Porção Base para Calculo:
                                         </div>
                                         <div class="alinha-direita" >
-                                            <input class="input-alimento" placeholder="Ex.: 100" pattern="[0-9]$" title="Valor númerica" required="true" th:field="*{porcaoBaseCalculo}" type="text" name="porcao" value=""/>
+                                            <input class="input-alimento" placeholder="Ex.: 100" th:field="*{porcaoBaseCalculo}" type="text" name="porcao" value=""/>
                                             <label class="radio-inline" required="true">
-                                                <input th:field="*{unidadeBaseCalculo}" type="radio" name="ml" id="ml" value="ml"/>
+                                                <input th:field="*{unidadeBaseCalculo}" type="radio" name="ml" id="mlCalculo" value="ml"/>
                                                 ml
                                             </label>
                                             <label class="radio-inline">
-                                                <input th:field="*{unidadeBaseCalculo}" type="radio" name="g" id="g" value="g" />
+                                                <input th:field="*{unidadeBaseCalculo}" type="radio" name="g" id="gCalculo" value="g" />
                                                 g
                                             </label>
 
                                         </div>
                                     </li>
+
+                                <li class="list-group-item">
+                                    <div class="alinha-esquerda">
+                                        Porção de Exibição:
+                                    </div>
+                                    <div class="alinha-direita" >
+                                        <input class="input-alimento" placeholder="Ex.: 100" th:field="*{porcaoExibicao}" type="text" name="porcao" value=""/>
+                                        <label class="radio-inline" required="true">
+                                            <input th:field="*{unidadeExibicao}" type="radio" name="ml" id="mlExibicao" value="ml"/>
+                                            ml
+                                        </label>ex
+                                        <label class="radio-inline">
+                                            <input th:field="*{unidadeExibicao}" type="radio" name="g" id="gExibicao" value="g" />
+                                            g
+                                        </label>
+
+                                    </div>
+                                </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Calorias:</div>
                                     <div class="alinha-direita">
@@ -123,6 +131,12 @@
                                     <div class="alinha-direita">
                                         <input class="input-alimento" placeholder="Ex.: 100" th:field="*{gordura}" type="text" name="gordura" value=""/>
                                         g
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="alinha-esquerda">Observações:</div>
+                                    <div class="alinha-direita">
+                                        <textarea class="input-alimento" placeholder="Ex.: Marca" th:field="*{observacao}" type="textarea" name="observacao" value=""/>
                                     </div>
                                 </li>
                                 <li class="list-group-item">

@@ -152,7 +152,7 @@
                                 <form class="form-horizontal" th:action="@{/recuperarSenha}" th:object="${Usuario}" method="POST">
                                     <div id="infoAlimentoDeletar" class="media">
                                         <div id="imagemAlimento" class="media-left media-middle" >
-                                            <img th:src="${alimento.urlImagemGrande}" class="img-rounded media-object imagem-grid"/>
+                                            <img th:src="${alimento.urlImagemPequena}" class="img-rounded media-object imagem-grid"/>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading" th:text="${alimento.nome}" id="alimento"></h4>
