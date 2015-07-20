@@ -1,7 +1,5 @@
 package br.com.aceleradora.inimigosamesa.model;
 
-import javafx.util.converter.IntegerStringConverter;
-
 public class MedidasVisuais {
 
     private Alimento alimento;
