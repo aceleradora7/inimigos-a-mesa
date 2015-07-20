@@ -2,6 +2,7 @@ package br.com.aceleradora.inimigosamesa.controller;
 
 import br.com.aceleradora.inimigosamesa.model.Email;
 import br.com.aceleradora.inimigosamesa.model.FormularioEmail;
+import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
 import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class ApresentacaoController {
@@ -44,27 +46,28 @@ public class ApresentacaoController {
 
     @RequestMapping(value = "/contato", method = RequestMethod.POST)
     public String enviaContato(@ModelAttribute(value="formularioEmail") FormularioEmail formularioEmail,
-    @RequestParam(value="g-recaptcha-response",required = false) String response, Model model){
+    @RequestParam(value="g-recaptcha-response",required = true) String response, Model model){
 
-//        StringBuilder builder = new StringBuilder();
-//        builder.append("https://www.google.com/recaptcha/api/siteverify");
-//        builder.append("?secret=");
-//        builder.append("6Lf3XAkTAAAAALT5KTgNMygdZg7Bo-lO0p_RcO48");
-//        builder.append("&response=");
-//        builder.append(response);
-//        RestTemplate restTemplate = new RestTemplate();
-//        RecaptchaResult resultado = restTemplate.getForObject(builder.toString(), RecaptchaResult.class);
-//        if(resultado.success) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("https://www.google.com/recaptcha/api/siteverify");
+        builder.append("?secret=");
+        builder.append("6Lf3XAkTAAAAALT5KTgNMygdZg7Bo-lO0p_RcO48");
+        builder.append("&response=");
+        builder.append(response);
+        RestTemplate restTemplate = new RestTemplate();
+        RecaptchaResult resultado = restTemplate.getForObject(builder.toString(), RecaptchaResult.class);
+        if(resultado.success) {
             Email email = new Email();
             email.enviar(formularioEmail);
             model.addAttribute("sucesso", "E-mail enviado com sucesso!");
-//        }
-//        else
-//        {
-//            model.addAttribute("erroCaptcha", "Por favor verifique se você não é um robô.");
-//        }
+            return "redirect:/contato";
+        }
+        else
+        {
+            model.addAttribute("erroCaptcha", "Por favor verifique se você não é um robô.");
+        }
 
-        return "redirect:/contato";
+        return "/contato";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
