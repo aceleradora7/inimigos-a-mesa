@@ -132,39 +132,6 @@ public class AlimentoController {
         return "redirect:/detalhe/"+alimento.getCodigo();
     }
 
-    @RequestMapping("/importaAlimentos")
-    public void importaAlimentos() throws IOException {
-        FileReader reader = new FileReader(new File("alimentos_import_6.csv"));
-        BufferedReader readr = new BufferedReader(reader);
 
-        String linha = "";
-        while((linha = readr.readLine()) != null){
-            String [] dados = linha.split(";");
-            Alimento a = new Alimento();
-
-            a.setAcucar(dados[0]);
-            a.setCalorias(dados[1]);
-            a.setGordura(dados[2]);
-            a.setNome(dados[3]);
-            a.setObservacao(dados[4]);
-            a.setPorcaoBaseCalculo(dados[5]);
-            a.setPorcaoExibicao(dados[6]);
-            a.setSodio(dados[7]);
-            a.setUnidadeBaseCalculo(dados[8]);
-            a.setUnidadeExibicao(dados[9]);
-            a.setUrlImagemGrande(dados[10]);
-            a.setUrlImagemPequena(dados[11]);
-
-            Categoria c = new Categoria();
-            int cod = Integer.parseInt(dados[12]);
-
-            c.setCodigo(cod);
-
-            a.setCategoria(c);
-
-            System.out.println(">>> " + linha);
-            servicoAlimento.salvar(a);
-        }
-    }
 
 }
