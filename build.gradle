@@ -12,6 +12,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'eclipse'
+apply plugin: 'findbugs'
 
 repositories {
     mavenCentral()
@@ -64,3 +65,21 @@ stage.mustRunAfter(clean)
 clean << {
     project.file('inimigos-a-mesa.jar').delete()
 }
+
+findbugs {
+    toolVersion = "3.0.0"
+    sourceSets = [sourceSets.main]
+    ignoreFailures = true
+    reportsDir = file("$project.buildDir/findbugsReports")
+    effort = "max"
+    reportLevel = "high"
+    visitors = ["FindSqlInjection", "SwitchFallthrough"]
+    omitVisitors = ["FindNonShortCircuit"]
+}
+
+findbugsMain {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+ }
