@@ -8,7 +8,7 @@ import java.util.Properties;
 public class Email {
 
     private static final String HOST = "smtp.gmail.com";
-    private static final String EMAIL_ORIGEM = "inimigosamesa@gmail.com";
+    private static final String EMAIL_DESTINATARIO = "inimigosamesa@gmail.com";
     private static final String PORTA_HOST = "465";
     private static final String SENHA = "inimigos123";
 
@@ -28,7 +28,7 @@ public class Email {
 
         this.sessao = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication(EMAIL_ORIGEM, SENHA);
+                return new PasswordAuthentication(EMAIL_DESTINATARIO, SENHA);
             }
 
         });
@@ -40,16 +40,16 @@ public class Email {
     public void enviar(FormularioEmail formularioEmail){
         try {
             Message mensagemMime = new MimeMessage(sessao);
-            mensagemMime.setFrom(new InternetAddress(EMAIL_ORIGEM));
-            mensagemMime.setSubject("[Contato] - " + formularioEmail.getAssunto());
+            mensagemMime.setFrom(new InternetAddress(EMAIL_DESTINATARIO));
+            mensagemMime.setSubject("[Contato Inimigos à mesa] - " + formularioEmail.getAssunto());
 
-            Address[] destinatario = InternetAddress.parse(EMAIL_ORIGEM);
+            Address[] destinatario = InternetAddress.parse(EMAIL_DESTINATARIO);
 
             mensagemMime.setRecipients(Message.RecipientType.TO, destinatario);
 
             mensagemMime.setText("Nome remetente: "+ formularioEmail.getNome() +
                     "\nE-mail rementente: "+ formularioEmail.getEmailRemetente()+
-                    "\n\n"+ formularioEmail.getMensagem());
+                    "\n\nMensagem: \n" + formularioEmail.getMensagem());
 
             Transport.send(mensagemMime);
 
