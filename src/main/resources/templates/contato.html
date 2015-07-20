@@ -26,7 +26,7 @@
     <div class="estilo-contato container">
         <h1>Contato</h1>
 
-        <form class="form-horizontal" th:action="@{/contato}" th:object="${formularioEmail}" onSubmit="return validarRecuperacao();" name="dados" method="post">
+        <form class="form-horizontal" th:action="@{/contato}" th:object="${formularioEmail}" onSubmit="return validarCampos();" name="dados" method="post">
 
             <div class="form-group">
                 <label for="nome" class="col-sm-4 control-label">Nome</label>
@@ -82,11 +82,12 @@
             </div>
 
 
-            <div th:if="${sucesso} != null" th:text="${sucesso}" class="alert alert-success" role="alert">  </div>
+            <div th:if="${sucesso} != null" th:text="${sucesso}" class="alert alert-success" role="alert"></div>
             <div th:if="${erroCaptcha} != null" th:text="${erroCaptcha}" class="alert alert-danger" role="alert">  </div>
 
             <div class="g-recaptcha" data-sitekey="6Lf3XAkTAAAAAKuOQUrYZCqdJ7dCkBq8yFvjoXVo"></div>
             <br/>
+
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-4">
 
