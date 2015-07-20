@@ -77,7 +77,6 @@ public class AlimentoController {
         Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
         MedidasVisuais medidas = servicoAlimento.getMedidasVisuais(alimento);
 
-        System.out.println("Medida ::::" + medidas.getColheresDeGordura());
         Legenda legendas = servicoAlimento.getLegendas(alimento);
 
         model.addAttribute("alimento", alimento);
