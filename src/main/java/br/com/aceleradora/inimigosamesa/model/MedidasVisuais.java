@@ -18,7 +18,7 @@ public class MedidasVisuais {
         }
 
         double sodio = Double.parseDouble(alimento.getSodio());
-        int sal = (int)(((sodio * 100) / 39) * 0.001);
+        double sal = ((sodio * 100) / 39) * 0.001;
         if (sal != 0) {
             colher = (int)(sal / 2.06);
         }
