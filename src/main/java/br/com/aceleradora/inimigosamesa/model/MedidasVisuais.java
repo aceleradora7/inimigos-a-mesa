@@ -1,5 +1,7 @@
 package br.com.aceleradora.inimigosamesa.model;
 
+import javafx.util.converter.IntegerStringConverter;
+
 public class MedidasVisuais {
 
     private Alimento alimento;
@@ -8,24 +10,23 @@ public class MedidasVisuais {
         this.alimento = alimento;
     }
 
-    public double getColheresDeSal(){
-        double colher = 0;
+    public int getColheresDeSal(){
+        int colher = 0;
 
         if(alimento.getSodio()==null){
             return colher;
         }
 
         double sodio = Double.parseDouble(alimento.getSodio());
-        double sal = ((sodio * 100) / 39) * 0.001;
+        int sal = (int)(((sodio * 100) / 39) * 0.001);
         if (sal != 0) {
-            colher = sal / 2.06;
+            colher = (int)(sal / 2.06);
         }
-
         return colher;
     }
 
-    public double getColheresDeAcucar(){
-        double colher = 0;
+    public int getColheresDeAcucar(){
+        int colher = 0;
 
         if(alimento.getAcucar()==null){
             return colher;
@@ -33,13 +34,13 @@ public class MedidasVisuais {
 
         double acucar = Double.parseDouble(alimento.getAcucar());
         if (acucar != 0) {
-            colher = acucar / 1.76;
+            colher = (int)( acucar / 1.76);
         }
         return colher;
     }
 
-    public double getColheresDeGordura(){
-        double colher = 0;
+    public int getColheresDeGordura(){
+        int colher = 0;
 
         if(alimento.getGordura()==null){
             return colher;
@@ -47,7 +48,7 @@ public class MedidasVisuais {
 
         double gordura = Double.parseDouble(alimento.getGordura());
         if (gordura != 0) {
-            colher = gordura / 2;
+            colher = (int)(gordura / 2);
         }
         return colher;
     }
