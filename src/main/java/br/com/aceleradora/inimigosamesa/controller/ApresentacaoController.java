@@ -60,7 +60,9 @@ public class ApresentacaoController {
             Email email = new Email();
             email.enviar(formularioEmail);
             model.addAttribute("sucesso", "E-mail enviado com sucesso!");
-            return "redirect:/contato";
+
+            return "/contato";
+
         }
         else
         {
