@@ -34,6 +34,10 @@ button, p, a {font-size:1.1em;}
 	margin-top:-70px !important;
 }
 
+.tamanho-minimo-pagina{
+	min-height: 242px !important;
+}
+
 a{
 	text-decoration : none !important;
 }
