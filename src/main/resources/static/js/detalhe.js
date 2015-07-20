@@ -26,7 +26,7 @@ function renderizarColher(tipo){
     var quantidade = getQuantidade();
 
 
-    if(quantidade >= 2){
+    if(quantidade >= 1){
         container.empty();
         for(i = 0; i < quantidade; i++){
             container.append(colher.clone());
