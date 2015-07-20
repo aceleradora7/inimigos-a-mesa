@@ -1,9 +1,11 @@
  //  <![CDATA[
 
-function validarRecuperacao(){
+function validarCampos(){
     if(validarNome()){
         if(validarEmail()){
-           return validarMensagem();
+           if(validarMensagem()){
+            limparCampos();
+           }
         }else{
             return false;
         }
@@ -65,5 +67,12 @@ function validarMensagem(){
 
    return true;
 }
-
+function limparCampos(){
+    var elementos = document.getElementsByClassName("form-control");
+    for (var cont=0; cont < elementos.length; cont++) {
+      if (elementos[cont].type == "text" || elementos[cont].type == "textarea") {
+        elementos[cont].value = "";
+      }
+    }
+}
  //]]>
