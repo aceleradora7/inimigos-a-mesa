@@ -81,3 +81,7 @@ float:right;
 .esquerda{
 float:left;
 }
+
+.alinhaBotaoUpload{
+    padding-left: 15px;
+}

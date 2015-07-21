@@ -34,14 +34,19 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>Imagem Alimento</strong></div>
                             <div class="panel-body">
-                                <h4>Selecione uma imagem em seu Pc.</h4>
-                                <div>
+                                <h4 class="alinhaBotaoUpload">Selecione uma imagem em seu Pc.</h4>
+                                <div class="alinhaBotaoUpload">
                                     <a href="#" id="upload_widget_opener">Upload</a>
 
                                     <input TYPE="hidden" NAME="urlImagemPequena" id="urlImagemPequena" th:field="*{urlImagemPequena}"/>
 
                                     <input TYPE="hidden" NAME="urlImagemGrande" id="urlImagemGrande" th:field="*{urlImagemGrande}"/>
                                 </div>
+                                <br/>
+                                <div class="col-xs-12 col-md-12">
+                                    <img th:src="*{urlImagemGrande}" id='imagemAlimento' alt='Imagem do Alimento'/>
+                                </div>
+
                             </div>
                         </div>
                 </div>

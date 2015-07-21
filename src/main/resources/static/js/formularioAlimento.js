@@ -27,8 +27,6 @@ $(document).ready(function(){
                     var fimPublicId = urlm.indexOf("version");
                     var publicId = urlm.slice(inicioPublicId+13, fimPublicId-8);
 
-                    alert(publicId);
-
                     var urlInicio = urlm.indexOf("Site");
                     var urlFim = urlm.indexOf("secure_url");
 
@@ -47,6 +45,8 @@ $(document).ready(function(){
                     var urlImagemGrande = urlParte1.concat(tamanhoGrande);
                     var urlImagemGrandeFinal = urlImagemGrande.concat(urlParte2);
 
+                    $( ".cloudinary-thumbnails" ).remove();
+                    $( "#imagemAlimento" ).replaceWith( " <img src='"+urlImagemGrandeFinal+"' id='imagemAlimento' alt='Imagem do Alimento'/>" );
 
 
                     $("#urlImagemPequena").val(urlImagemPequenaFinal);
