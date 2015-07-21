@@ -47,7 +47,7 @@ public class CategoriaController {
 
 
     @RequestMapping(value="/cadastrarCategoria", method = RequestMethod.GET)
-    public String categoria(@RequestParam(value = "codigo", required = false) String codigo, Model model){;
+    public String categoria(@RequestParam(value = "codigo", required = false) String codigo, Model model){
         model.addAttribute("categoria", new Categoria());
         listaCategoria =  (List<Categoria>) categoriaRepository.findAll();
         model.addAttribute("categorias",listaCategoria);

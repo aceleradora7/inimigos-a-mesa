@@ -46,7 +46,7 @@ public class AlimentoController {
         List<Categoria> categorias = (List) servicoCategoria.buscaTodos(sort);
         model.addAttribute("categorias",categorias);
 
-        pagina = (pagina <= 0)? 1 : pagina;        
+        pagina = pagina <= 0 ? 1 : pagina;
 
         Iterable<Alimento> alimentos;
         if(busca != null){

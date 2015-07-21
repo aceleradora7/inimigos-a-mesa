@@ -40,6 +40,6 @@ public class Legenda {
 
         double valorNumerico = Double.parseDouble(valor);
 
-        return (valorNumerico > 0 && valorNumerico <= 0.5) ? TRACO : valor + " " + unidade;
+        return valorNumerico > 0 && valorNumerico <= 0.5 ? TRACO : valor + " " + unidade;
     }
 }
