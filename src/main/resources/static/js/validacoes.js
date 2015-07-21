@@ -17,6 +17,20 @@ function sucesso(){
 
 }
 
+function sucessoLogin(){
+
+   var emailRecuperacao = $("#emailRecuperacao");
+
+
+       $('#sucesso-email-recuperacao').addClass('alert');
+       $('#sucesso-email-recuperacao').addClass('alert-success');
+       $('#sucesso-email-recuperacao').append($("#msg-sucesso-email").find("label").clone());
+       emailRecuperacao.focus();
+
+       return true;
+
+}
+
 
 
 function validarRecuperacao(){
@@ -38,10 +52,11 @@ function validarRecuperacao(){
     emailRecuperacao.focus();
     return false;
 }
-    function alterandoDisplay(){
 
-          var erroEmail = $('#msg-erro-email');
-         erroEmail.css({"display" : "none"});
+
+function alterandoDisplayEmail(){
+        var div = $("#espacoErro");
+            div.hide();
 
     }
 
@@ -56,7 +71,6 @@ function validarSenha(){
     $('#erro-senha-login').addClass('alert');
     $('#erro-senha-login').addClass('alert-danger');
     $('#erro-senha-login').append($('#msg-erro-senha').find("label").clone());
-
     $("#espacoErroSenha").addClass('form-group');
 
     senhaLogin.focus();
@@ -70,7 +84,7 @@ function validarLogin(){
 
     if(padraoEmail.test(emailLogin.val())){
     validarSenha();
-
+    alterandoDisplayEmail();
     return true;
     }
     $('#erro-email-login').empty();

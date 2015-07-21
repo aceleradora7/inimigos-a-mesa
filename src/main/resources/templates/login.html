@@ -85,7 +85,7 @@
                                         <div class="form-group">
                                             <div class="col-sm-offset-4 col-sm-5">
                                                 <label for="emailRecuperacao" class="control-label">E-mail:</label>
-                                                <input onclick="return alterandoDisplay();" name="inputEmail" type="text" class="form-control formbutton" id="emailRecuperacao" placeholder="Email" />
+                                                <input name="inputEmail" type="text" class="form-control formbutton" id="emailRecuperacao" placeholder="Email" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -115,61 +115,16 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="ModalSucessoLabel">Email de recuperação enviado</h4>
                             </div>
-                            <div class="col-sm-offset-4 col-sm-5 alert alert-success" id="msg-sucesso-email">
-                                <label>Verifique seu e-mail para recuperar sua senha.</label>
-                            </div>
-                            <div class="modal-footer">
-                                <button name="Submit" type="submit"  value="Enviar dados" class="btn btn-primary formobjects" data-dismiss="modal">Fechar</button>
+                            <div class="modal-footer modal-title" id="ModalSucessoLabel">
+                                <div class="col-sm-offset-1 col-sm-10 alert alert-success mensagem-" id="msg-sucesso-email">
+                                    <label>Verifique seu e-mail para recuperar sua senha.</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
+            </div>
 
         <div class="col-sm-offset-4 col-sm-5 alert alert-danger" id="msg-erro-email" style="display:none;">
             <label>Preencha com um e-mail válido. exemplo@exemplo.com</label>
@@ -181,9 +136,9 @@
             <label>Digite sua senha.</label>
         </div>
 
-
+        </div>
 
         <nav th:replace="fragmentos/rodape :: rodape"></nav>
-        </div>
+
 </body>
 </html>
