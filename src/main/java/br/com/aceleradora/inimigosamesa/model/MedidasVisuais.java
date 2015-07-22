@@ -11,7 +11,7 @@ public class MedidasVisuais {
     public int getColheresDeSal(){
         int colher = 0;
 
-        if(alimento.getSodio()==null){
+        if(alimento.getSodio()==null || alimento.getSodio().isEmpty()){
             return colher;
         }
 
@@ -26,7 +26,7 @@ public class MedidasVisuais {
     public int getColheresDeAcucar(){
         int colher = 0;
 
-        if(alimento.getAcucar()==null){
+        if(alimento.getAcucar()==null || alimento.getAcucar().isEmpty()){
             return colher;
         }
 
@@ -40,7 +40,7 @@ public class MedidasVisuais {
     public int getColheresDeGordura(){
         int colher = 0;
 
-        if(alimento.getGordura()==null){
+        if(alimento.getGordura()==null || alimento.getGordura().isEmpty()){
             return colher;
         }
 
