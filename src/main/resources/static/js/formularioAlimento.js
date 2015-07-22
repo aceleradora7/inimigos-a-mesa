@@ -14,8 +14,8 @@ $(document).ready(function(){
                 { cloud_name: 'dq5mndrjt',
                   upload_preset: 'yga4od15',
                   multiple: false,
-                  sources: ['local','url'],
-                  client_allowed_formats: ["png", "jpg", "jpeg"],
+                  sources: ['local'],
+                  client_allowed_formats: ['png','jpg','jpeg'],
                   button_class: 'btn btn-success',
                   button_caption: 'Escolha uma Imagem',
                   theme: 'white'
@@ -41,7 +41,7 @@ $(document).ready(function(){
                     var tamanhoGrande = "/c_fit,w_390/";
 
                     var urlParte1 = urla.slice(0,48);
-                    var posicaoFinal = urla.lastIndexOf(".png")+4;
+                    var posicaoFinal = urla.lastIndexOf('.')+5;
                     var urlParte2 = urla.slice(49,posicaoFinal);
 
                     var urlImagemPequena = urlParte1.concat(tamanhoPequeno);
@@ -49,6 +49,9 @@ $(document).ready(function(){
 
                     var urlImagemGrande = urlParte1.concat(tamanhoGrande);
                     var urlImagemGrandeFinal = urlImagemGrande.concat(urlParte2);
+
+                    alert(urlImagemPequenaFinal);
+                    alert(urlImagemGrandeFinal);
 
                     $( ".cloudinary-thumbnails" ).remove();
                     $( "#imagemAlimento" ).replaceWith( " <img src='"+urlImagemGrandeFinal+"' id='imagemAlimento' alt='Imagem do Alimento'/>" );
