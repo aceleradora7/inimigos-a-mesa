@@ -8,45 +8,48 @@ public class MedidasVisuais {
         this.alimento = alimento;
     }
 
-    public int getColheresDeSal(){
+    public int getColheresDeSal() {
         int colher = 0;
 
-        if(alimento.getSodio()==null || alimento.getSodio().isEmpty()){
+
+        if (alimento.getSodio() == null || alimento.getSodio().equals("")) {
             return colher;
         }
 
         double sodio = Double.parseDouble(alimento.getSodio());
         double sal = ((sodio * 100) / 39) * 0.001;
         if (sal != 0) {
-            colher = (int)(sal / 2.06);
+            colher = (int) (sal / 2.06);
         }
         return colher;
     }
 
-    public int getColheresDeAcucar(){
+    public int getColheresDeAcucar() {
         int colher = 0;
 
-        if(alimento.getAcucar()==null || alimento.getAcucar().isEmpty()){
+
+        if (alimento.getAcucar() == null || alimento.getAcucar().equals("")) {
             return colher;
         }
 
         double acucar = Double.parseDouble(alimento.getAcucar());
         if (acucar != 0) {
-            colher = (int)( acucar / 1.76);
+            colher = (int) (acucar / 1.76);
         }
         return colher;
     }
 
-    public int getColheresDeGordura(){
+    public int getColheresDeGordura() {
         int colher = 0;
 
-        if(alimento.getGordura()==null || alimento.getGordura().isEmpty()){
+
+        if (alimento.getGordura() == null || alimento.getGordura().equals("")) {
             return colher;
         }
 
         double gordura = Double.parseDouble(alimento.getGordura());
         if (gordura != 0) {
-            colher = (int)(gordura / 2);
+            colher = (int) (gordura / 2);
         }
         return colher;
     }
