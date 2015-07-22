@@ -1,10 +1,27 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusao de usuario</title>
+
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+
+    <script th:replace="fragmentos/header :: jquery"> </script>
+    <script th:replace="fragmentos/header :: jqueryui"> </script>
+    <script th:replace="fragmentos/header :: query-string-js"> </script>
+
 </head>
 <body>
+
+    <div class="form-group">
+        <label >Selecione um usuario: </label>
+        <select class="form-control">
+            <option value="0">Selecione um usuario</option>
+            <option th:each="usuario: ${usuarios}" th:text="${usuario.nome}" th:value="${usuario.codigo}" >Selecione um usuario</option>
+        </select>
+    </div>
 
 </body>
 </html>
