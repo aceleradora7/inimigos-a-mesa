@@ -1,0 +1,119 @@
+#cloudinary-navbar .source.local .label,
+#cloudinary-navbar .source.url .label {
+visibility: hidden;
+}
+
+#cloudinary-navbar .source.local .label:after,
+#cloudinary-navbar .source.url .label:after,
+#cloudinary-navbar .source.camera .label:after {
+display: block;
+visibility: visible;
+position: relative;
+}
+
+#cloudinary-navbar .source.local .label:after {
+content: 'My text for My Files';
+}
+
+#cloudinary-navbar .source.url .label:after {
+content: 'My text for URL';
+}
+
+#cloudinary-navbar .source.camera .label:after {
+content: 'My text for Camera';
+}
+
+#cloudinary-widget .panel.camera .note,
+.widget .panel.url .note {
+visibility: hidden;
+line-height: 1px;
+}
+
+#cloudinary-widget .panel.camera .note:after,
+.widget .panel.url .note:after {
+display: block;
+visibility: visible;
+position: relative;
+line-height: 23px;
+}
+
+.widget .panel.url .note:after {
+content: 'My text for public URL image file';
+}
+
+#cloudinary-widget .panel.camera .note:after {
+content: 'My text for make sure your browser supports camera';
+}
+
+#cloudinary-widget .panel.local .dragarea .dragcontent .label.labelsingle,
+#cloudinary-widget .panel.local .dragarea .dragcontent .label.labelmultiple,
+.widget .panel.local .dragarea .dragcontent .or {
+line-height: 1px;
+visibility: hidden;
+}
+
+#cloudinary-widget .panel.local .dragarea .dragcontent .label.labelsingle:after,
+#cloudinary-widget .panel.local .dragarea .dragcontent .label.labelmultiple:after,
+.widget .panel.local .dragarea .dragcontent .or:after {
+display: block;
+visibility: visible;
+position: relative;
+line-height: 35px;
+}
+
+#cloudinary-widget .panel.local .dragarea .dragcontent .label.label_single:after {
+content: 'My text for drag the file here';
+}
+
+#cloudinary-widget .panel.local .dragarea .dragcontent .label.label_multiple:after {
+content: 'My text for drag the files here';
+}
+
+.widget .panel.local .dragarea .dragcontent .or:after {
+content: 'My text for or';
+}
+
+#cloudinary-widget .button.selectfile.selectsingle,
+#cloudinary-widget .button.selectfile.selectmultiple,
+#cloudinary-widget .button.capture_camera {
+line-height: 1px;
+color: transparent;
+width: 260px;
+}
+
+#cloudinary-widget .button.selectfile.selectsingle:after,
+#cloudinary-widget .button.selectfile.selectmultiple:after,
+#cloudinary-widget .button.capture_camera:after {
+display: block;
+visibility: visible;
+position: relative;
+line-height: 30px;
+color: #CE3340;
+}
+
+.widget .panel.local .uploadbuttonholder input[type="file"] {
+width: 262px;
+}
+
+#cloudinary-widget .uploadbuttonholder {
+width: 260px;
+cursor: pointer;
+}
+
+#cloudinary-widget .uploadbuttonholder:hover .button.selectfile.selectsingle:after,
+#cloudinary-widget .uploadbuttonholder:hover .button.selectfile.selectmultiple:after,
+#cloudinary-widget .buttonholder:hover .button.capturecamera:after {
+color: #ffffff;
+}
+
+#cloudinary-widget .button.selectfile.selectsingle:after {
+content: 'My text for Select file';
+}
+
+#cloudinary-widget .button.selectfile.selectmultiple:after {
+content: 'My text for Select files';
+}
+
+#cloudinary-widget .button.capture_camera:after {
+content: 'My text for Capture';
+}

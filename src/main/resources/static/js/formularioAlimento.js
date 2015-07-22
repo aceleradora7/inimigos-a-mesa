@@ -19,30 +19,22 @@ $(document).ready(function(){
                   button_class: 'btn btn-success',
                   button_caption: 'Escolha uma Imagem',
                   theme: 'white'
+
                 },
 
-                function(error, result) {console.log(error, result);
-
+               function(error, result) {
+                    console.log(error, result);
                     var meuResult = JSON.stringify(result, null, 2);
-                    var urlm = meuResult.replace('"url": "', "Site");
-
-                    alert(urlm);
-
-                    var inicioPublicId = urlm.indexOf("public_id");
-                    var fimPublicId = urlm.indexOf("version");
-                    var publicId = urlm.slice(inicioPublicId+13, fimPublicId-8);
-
-                    var urlInicio = urlm.indexOf("Site");
-                    var urlFim = urlm.indexOf("secure_url");
-
-                    var urla = urlm.slice(urlInicio+4, urlFim-8);
+                    var json = JSON.stringify(result);
+                    var jsonObject = JSON.parse(json);
+                    var url = jsonObject[0].url;
+                    var publicId = jsonObject[0].public_id;
 
                     var tamanhoPequeno = "/c_fit,w_108/";
                     var tamanhoGrande = "/c_fit,w_390/";
 
-                    var urlParte1 = urla.slice(0,48);
-                    var posicaoFinal = urla.lastIndexOf('.')+5;
-                    var urlParte2 = urla.slice(49,posicaoFinal);
+                    var urlParte1 = url.slice(0,48);
+                    var urlParte2 = url.slice(49,url.length);
 
                     var urlImagemPequena = urlParte1.concat(tamanhoPequeno);
                     var urlImagemPequenaFinal = urlImagemPequena.concat(urlParte2);
