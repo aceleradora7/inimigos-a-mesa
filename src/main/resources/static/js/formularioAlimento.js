@@ -14,14 +14,19 @@ $(document).ready(function(){
                 { cloud_name: 'dq5mndrjt',
                   upload_preset: 'yga4od15',
                   multiple: false,
-                  sources: ['local'],
+                  sources: ['local','url'],
                   client_allowed_formats: ["png", "jpg", "jpeg"],
-                  max_files: 0},
+                  button_class: 'btn btn-success',
+                  button_caption: 'Escolha uma Imagem',
+                  theme: 'white'
+                },
 
                 function(error, result) {console.log(error, result);
 
                     var meuResult = JSON.stringify(result, null, 2);
                     var urlm = meuResult.replace('"url": "', "Site");
+
+                    alert(urlm);
 
                     var inicioPublicId = urlm.indexOf("public_id");
                     var fimPublicId = urlm.indexOf("version");
