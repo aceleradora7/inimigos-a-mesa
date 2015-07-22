@@ -27,16 +27,16 @@
                 <!--<div th:if="${param.logout}">-->
                     <!--You have been logged out.-->
                 <!--</div>-->
-                <form name="dados" id="return validarLogin" class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
+                <form name="dados" data-toggle="validator" role="form" id="validarLogin" class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-4">
                             <label for="emailLogin" class="control-label">E-mail:</label>
-                            <input type="text" name="username" class="form-control" id="emailLogin" placeholder="Email"/>
+                            <input type="text" name="username" class="form-control" id="emailLogin" placeholder="E-mail"/>
                         </div>
                     </div>
-
-                    <div id="espacoErro">
-                        <div class="col-sm-offset-4 col-sm-4" id="erro-email-login">
+                    <div id="espacoErroEmail">
+                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger" id="erro-email-login">
+                            <label>Preencha com um e-mail válido. email@dominio.com</label>
                         </div>
                     </div>
 
@@ -51,7 +51,8 @@
                         </div>
                     </div>
                     <div id="espacoErroSenha">
-                        <div class="col-sm-offset-4 col-sm-4" id="erro-senha-login">
+                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger" id="erro-senha-login">
+                            <label>Digite sua senha.</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -88,8 +89,13 @@
                                                 <input name="inputEmail" type="text" class="form-control formbutton" id="emailRecuperacao" placeholder="Email" />
                                             </div>
                                         </div>
+                                        <div id="espacoErroEmailRecuperacao">
+                                            <div class="col-sm-offset-4 col-sm-5 alert alert-danger" id="espacoErroEmailRecu">
+                                                <label>Preencha com um e-mail válido. email@dominio.com</label>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
-                                            <div class="col-sm-offset-4 col-sm-5" id="erro-email-recuperacao">
+                                            <div class="col-sm-offset-4 col-sm-5" id="espacoErroEmailRecucao">
                                             </div>
 
                                         </div>
@@ -117,7 +123,7 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-footer modal-title" id="ModalSucessoLabel">
-                                <div class="col-sm-offset-1 col-sm-10 alert alert-success mensagem-" id="msg-sucesso-email">
+                                <div class="col-sm-offset-1 col-sm-10 alert alert-success" id="msg-sucesso-email">
                                     <label>Verifique seu e-mail para recuperar sua senha.</label>
                                 </div>
                             </div>
@@ -125,16 +131,6 @@
                     </div>
                 </div>
             </div>
-
-        <div class="col-sm-offset-4 col-sm-5 alert alert-danger" id="msg-erro-email" style="display:none;">
-            <label>Preencha com um e-mail válido. exemplo@exemplo.com</label>
-        </div>
-
-
-
-        <div class="col-sm-offset-4 col-sm-5 alert alert-danger" id="msg-erro-senha" style="display:none;">
-            <label>Digite sua senha.</label>
-        </div>
 
         </div>
 

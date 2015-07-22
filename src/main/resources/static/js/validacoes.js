@@ -1,117 +1,141 @@
 //  <![CDATA[
 
 var padraoEmail = new RegExp(/[a-zA-Z0-9\.\_\-]+[@]+(.)+(\.)+[a-zA-Z0-9]+/);
-var padraoSenha = new RegExp(/[a-zA-Z0-9\.\_\-]/);
-
-function sucesso(){
-
-   var emailRecuperacao = $("#emailRecuperacao");
-
-
-       $('#sucesso-email-recuperacao').addClass('alert');
-       $('#sucesso-email-recuperacao').addClass('alert-success');
-       $('#sucesso-email-recuperacao').append($("#msg-sucesso-email").find("label").clone());
-       emailRecuperacao.focus();
-
-       return true;
-
-}
-
-function sucessoLogin(){
-
-   var emailRecuperacao = $("#emailRecuperacao");
-
-
-       $('#sucesso-email-recuperacao').addClass('alert');
-       $('#sucesso-email-recuperacao').addClass('alert-success');
-       $('#sucesso-email-recuperacao').append($("#msg-sucesso-email").find("label").clone());
-       emailRecuperacao.focus();
-
-       return true;
-
-}
 
 
 
-function validarRecuperacao(){
+    function validarRecuperacao(){
 
-   var emailRecuperacao = $("#emailRecuperacao");
+        var emailRecuperacao = $('#emailRecuperacao');
 
-   if( padraoEmail.test(emailRecuperacao.val())){
-       $('#sucesso-email-recuperacao').addClass('alert');
-       $('#sucesso-email-recuperacao').addClass('alert-success');
-       $('#sucesso-email-recuperacao').append($("#msg-sucesso-email").find("label").clone());
-       emailRecuperacao.focus();
+        if(padraoEmail.test(emailRecuperacao.val())){
+            escondeErroEmailRecuperacao();
+            return true;
+        }else
+        {
+            mostraErroEmailRecuperacao();
+            emailLogin.focus();
 
-       return true;
-   }
-    $('#erro-email-recuperacao').empty();
-    $('#erro-email-recuperacao').addClass('alert');
-    $('#erro-email-recuperacao').addClass('alert-danger');
-    $('#erro-email-recuperacao').append($("#msg-erro-email").find("label").clone());
-    emailRecuperacao.focus();
-    return false;
-}
-
-
-function alterandoDisplayEmail(){
-        var div = $("#espacoErro");
-            div.hide();
-
+            return false;
+        }
     }
 
-function validarSenha(){
-     var senhaLogin = $('#senhaLogin');
-     if(padraoSenha.test(senhaLogin.val())){
-        return true;
+    function mostraErroEmailRecuperacao(){
+        var div = $("#espacoErroEmailRecuperacao");
+        div.show();
+      }
 
+    function escondeErroEmailRecuperacao(){
+        var div = $("#espacoErroEmailRecuperacao");
+        div.hide();
+    }
+
+
+     function mostraSucessoLogin(){
+            var div = $("#sucesso-login");
+            div.show();
         }
 
-    $('#erro-senha-login').empty();
-    $('#erro-senha-login').addClass('alert');
-    $('#erro-senha-login').addClass('alert-danger');
-    $('#erro-senha-login').append($('#msg-erro-senha').find("label").clone());
-    $("#espacoErroSenha").addClass('form-group');
+     function escondeSucessoLogin(){
+                var div = $("#sucesso-login");
+                div.hide();
+            }
 
-    senhaLogin.focus();
-
-    return false;
-}
-
-function validarLogin(){
-
-    var emailLogin = $('#emailLogin');
-
-    if(padraoEmail.test(emailLogin.val())){
-    validarSenha();
-    alterandoDisplayEmail();
-    return true;
+    function mostraErroEmail(){
+        var div = $("#espacoErroEmail");
+        div.show();
     }
-    $('#erro-email-login').empty();
-    $('#erro-email-login').addClass('alert');
-    $('#erro-email-login').addClass('alert-danger');
-    $('#erro-email-login').append($('#msg-erro-email').find("label").clone());
 
-    $("#espacoErro").addClass('form-group');
+    function mostraErroSenha(){
+        var div = $("#espacoErroSenha");
+        div.show();
+    }
 
-    emailLogin.focus();
+    function escondeErroEmail(){
+        var div = $("#espacoErroEmail");
+        div.hide();
+    }
+
+    function escondeErroSenha(){
+        var div = $("#espacoErroSenha");
+        div.hide();
+    }
+
+    function validarSenha(){
+
+         var senhaLogin = $('#senhaLogin');
+
+         if(senhaLogin.val()){
+            escondeErroSenha();
+            return true;
+         }
+         else
+         {
+            mostraErroSenha();
+            senhaLogin.focus();
+            return false;
+         }
+    }
+
+
+
+    function validarEmail(){
+
+        var emailLogin = $('#emailLogin');
+
+        if(padraoEmail.test(emailLogin.val())){
+            escondeErroEmail();
+            return true;
+        }else
+        {
+            $('#senhaLogin').val("");
+            escondeErroSenha();
+            mostraErroEmail();
+            emailLogin.focus();
+
+            return false;
+        }
+    }
+
+
+    function validarLogin(){
+
+    if (validarEmail() && validarSenha() )
+    {
+        return true;
+    }
 
     return false;
-}
 
-
+    }
 
 
 $(document).ready(function(){
-      var link = window.location.href;
+
+
+    var link = window.location.href;
     if(link.indexOf("/emailRecuperar") > 0){
     $('#ModalSucesso').modal('show');
     }
+    escondeErroEmailRecuperacao();
+    escondeSucessoLogin();
+    escondeErroEmail();
+    escondeErroSenha();
 
-     $("#btn-entrar").on("click", function(evento){
-             evento.preventDefault();
-             validarLogin()? $("#validarLogin").submit() : console.log("Erro");
-     });
+
+    $("#validarLogin").submit(function(e){
+
+        if(validarLogin())
+        {
+            return true;
+        }
+        else{
+
+        }
+        return false;
+    });
+
+
 });
 
 //]]>
