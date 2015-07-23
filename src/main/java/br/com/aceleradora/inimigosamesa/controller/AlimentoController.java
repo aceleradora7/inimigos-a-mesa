@@ -25,19 +25,15 @@ import java.util.List;
 @Controller
 public class AlimentoController {
 
-    private static final String ORDENACAO_CRESCENTE = "ASC";
-    private static final String ORDENACAO_DECRESCENTE = "DESC";
-
     @Autowired
     private AlimentoService servicoAlimento;
 
     @Autowired
     private CategoriaService servicoCategoria;
 
-    @RequestMapping(value = {"/lista", "/grid"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/grid"}, method = RequestMethod.GET)
     public void listar(
             @RequestParam(value = "busca", required = false) String busca,
-            @RequestParam(value = "opcao-ordenar", required = false, defaultValue = ORDENACAO_CRESCENTE) String tipoDeOrdenacao,
             @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
             @RequestParam(value = "pagina", required = false, defaultValue = "1") int pagina,
             Model model) {
@@ -50,15 +46,15 @@ public class AlimentoController {
 
         Iterable<Alimento> alimentos;
         if(busca != null){
-            alimentos = servicoAlimento.buscaPorNome(busca, pagina, tipoDeOrdenacao);
+            alimentos = servicoAlimento.buscaPorNome(busca);
         }
 
         else if(categoria != 0){
-            alimentos = servicoAlimento.buscaPorCategoria(pagina,categoria, tipoDeOrdenacao);
+            alimentos = servicoAlimento.buscaPorCategoria(pagina,categoria);
         }
 
         else {
-            alimentos = servicoAlimento.buscaTodos(pagina,tipoDeOrdenacao);
+            alimentos = servicoAlimento.buscaTodos(pagina);
         }
 
         if(alimentos.iterator().hasNext()){

@@ -28,17 +28,12 @@ public class AlimentoService{
         return repositorioAlimento.findByNome(nome);
     }
 
-    public Iterable<Alimento> buscaPorNome(String nome, int pagina, String tipoDeOrdenacao) {
-        nome = nome.concat(CORINGA_ALL);
-        return repositorioAlimento.findByNome(nome, paginacao(pagina, tipoDeOrdenacao));
+    public Iterable<Alimento> buscaPorCategoria(int pagina, int codigoCategoria){
+        return repositorioAlimento.findByCategoria(new Categoria(codigoCategoria), paginacao(pagina));
     }
 
-    public Iterable<Alimento> buscaPorCategoria(int pagina, int codigoCategoria, String tipoDeOrdenacao){
-        return repositorioAlimento.findByCategoria(new Categoria(codigoCategoria), paginacao(pagina, tipoDeOrdenacao));
-    }
-
-    public Iterable<Alimento> buscaTodos(int pagina, String tipoDeOrdenacao){
-        return repositorioAlimento.findAll(paginacao(pagina, tipoDeOrdenacao));
+    public Iterable<Alimento> buscaTodos(int pagina){
+        return repositorioAlimento.findAll(paginacao(pagina));
     }
 
     public void salvar(Alimento alimento){
@@ -49,8 +44,8 @@ public class AlimentoService{
         repositorioAlimento.delete(alimento);
     }
 
-    private PageRequest paginacao(int paginaAtual, String tipoDeOrdenacao){
-        return new PageRequest(paginaAtual - 1, ITENS_POR_PAGINA, Sort.Direction.fromString(tipoDeOrdenacao), "nome");
+    private PageRequest paginacao(int paginaAtual){
+        return new PageRequest(paginaAtual - 1, ITENS_POR_PAGINA);
     }
 
     public MedidasVisuais getMedidasVisuais(Alimento alimento) {
