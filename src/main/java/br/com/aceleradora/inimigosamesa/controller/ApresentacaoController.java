@@ -60,7 +60,7 @@ public class ApresentacaoController {
             email.enviar(formularioEmail);
             model.addAttribute("sucesso", "E-mail enviado com sucesso!");
 
-            return "/contato";
+            return "contato";
 
         }
         else
