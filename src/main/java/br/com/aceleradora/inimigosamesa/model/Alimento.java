@@ -200,9 +200,9 @@ public class Alimento implements Comparable<Alimento>, Serializable {
             return calculoExibicaoCaloria;
         }
     }
-    public double getCaloriasExibicao() {
+    public String getExibicaoCalorias() {
 
-        double caloriasExibicao = calculaExibicaoCalorias();
+        String caloriasExibicao = String.valueOf(calculaExibicaoCalorias());
         return caloriasExibicao;
     }
 
@@ -225,11 +225,58 @@ public class Alimento implements Comparable<Alimento>, Serializable {
             return calculoExibicaoAcucar;
         }
     }
-    public double getExibicaoAcucar(){
+    public String getExibicaoAcucar(){
 
-        double acucarExibicao = calculaExibicaoAcucar();
+        String acucarExibicao = String.valueOf(calculaExibicaoAcucar());
         return acucarExibicao;
     }
 
+    public double calculaExibicaoSodio(){
+        if (Double.parseDouble(getPorcaoExibicao()) == 100) {
 
+            double calculoExibicaoSodio = Double.parseDouble(getSodio());
+            return calculoExibicaoSodio;
+
+        } else if (Double.parseDouble(getPorcaoExibicao()) < 100) {
+
+            double numerador = 100/Double.parseDouble(getPorcaoExibicao());
+            double calculoExibicaoSodio = Double.parseDouble(getCalorias())/numerador;
+            return calculoExibicaoSodio;
+        } else {
+
+            double numerador = Double.parseDouble(getPorcaoExibicao())/100;
+            double calculoExibicaoSodio = Double.parseDouble(getCalorias())*numerador;
+            return calculoExibicaoSodio;
+        }
+    }
+    public String getExibicaoSodio() {
+
+        String sodioExibicao = String.valueOf(calculaExibicaoSodio());
+        return sodioExibicao;
+    }
+
+    public double calculaExibicaoGordura(){
+
+        if (Double.parseDouble(getPorcaoExibicao()) == 100) {
+
+            double calculoExibicaoGordura = Double.parseDouble(getGordura());
+            return calculoExibicaoGordura;
+
+        } else if (Double.parseDouble(getPorcaoExibicao()) < 100) {
+
+            double numerador = 100/Double.parseDouble(getPorcaoExibicao());
+            double calculoExibicaoGordura = Double.parseDouble(getCalorias())/numerador;
+            return calculoExibicaoGordura;
+        } else {
+
+            double numerador = Double.parseDouble(getPorcaoExibicao())/100;
+            double calculoExibicaoGordura = Double.parseDouble(getCalorias())*numerador;
+            return calculoExibicaoGordura;
+        }
+    }
+    public String getExibicaoGordura() {
+
+        String gordurasExibicao = String.valueOf(calculaExibicaoGordura());
+        return gordurasExibicao;
+    }
 }
