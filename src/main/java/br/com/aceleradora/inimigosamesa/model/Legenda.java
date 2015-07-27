@@ -21,15 +21,15 @@ public class Legenda {
     }
 
     public String getAcucar(){
-        return traduzirLegenda(alimento.getAcucar(), GRAMAS);
+        return traduzirLegenda(alimento.getExibicaoAcucar(), GRAMAS);
     }
 
     public String getSodio(){
-        return traduzirLegenda(alimento.getSodio(), MILIGRAMAS);
+        return traduzirLegenda(alimento.getExibicaoSodio(), MILIGRAMAS);
     }
 
     public String getGordura(){
-        return traduzirLegenda(alimento.getGordura(), GRAMAS);
+        return traduzirLegenda(alimento.getExibicaoGordura(), GRAMAS);
     }
 
     private String traduzirLegenda(String valor, String unidade) {

@@ -15,8 +15,8 @@ public class MedidasVisuais {
     public int calculaColherSal() {
         int colher = 0;
 
-        if (!verificaColherVazia(alimento.getSodio())) {
-            double sodio = Double.parseDouble(alimento.getSodio());
+        if (!verificaColherVazia(alimento.getExibicaoSodio())) {
+            double sodio = Double.parseDouble(alimento.getExibicaoSodio());
             double sal = converteSodioEmSal(sodio);
             if (sal != 0) {
                 colher = (int) (sal / GRAMAS_SAL_COLHER);
@@ -32,8 +32,8 @@ public class MedidasVisuais {
     public int calculaColherAcucar() {
         int colher = 0;
 
-        if (!verificaColherVazia(alimento.getAcucar())) {
-            double acucar = Double.parseDouble(alimento.getAcucar());
+        if (!verificaColherVazia(alimento.getExibicaoAcucar())) {
+            double acucar = Double.parseDouble(alimento.getExibicaoAcucar());
             if (acucar != 0) {
                 colher = (int) (acucar / GRAMAS_ACUCAR_COLHER);
             }
@@ -45,8 +45,8 @@ public class MedidasVisuais {
     public int calculaColherGordura() {
         int colher = 0;
 
-        if (!verificaColherVazia(alimento.getGordura())) {
-            double gordura = Double.parseDouble(alimento.getGordura());
+        if (!verificaColherVazia(alimento.getExibicaoGordura())) {
+            double gordura = Double.parseDouble(alimento.getExibicaoGordura());
             if (gordura != 0) {
                 colher = (int) (gordura / ML_GORDURA_COLHER);
             }
