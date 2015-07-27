@@ -17,7 +17,7 @@ public class Legenda {
     }
 
     public String getCalorias(){
-        return traduzirLegenda(alimento.getCalorias(), CALORIAS);
+        return traduzirLegenda(alimento.getExibicaoCalorias(), CALORIAS);
     }
 
     public String getAcucar(){
