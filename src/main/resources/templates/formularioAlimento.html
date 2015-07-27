@@ -21,7 +21,7 @@
 
     <link th:replace="fragmentos/header :: favicon-ico" />
 
-    <script src="js/validacoesCadastroAlimento.js"> </script>
+    <script src="js/validacaoCadastroAlimento.js"> </script>
 
 
 </head>
@@ -34,7 +34,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <form  th:action="@{/gerenciarAlimento}" th:object="${alimento}" method="POST" id="js-upload-form">
+                <form onSubmit="return validarCadastro();" th:action="@{/gerenciarAlimento}" th:object="${alimento}" method="POST" id="js-upload-form">
                     <input TYPE="hidden" NAME="codigo" id="codigo" th:field="*{codigo}"/>
                 <div class="col-xs-6 col-md-5 esquerda">
                         <div class="panel panel-default">
@@ -59,7 +59,7 @@
                 <div class="col-xs-6 col-md-6 direita">
                         <div class="form-group">
                             <label >Nome Alimento</label>
-                            <input id="nomeAlimento" type="text" th:field="*{nome}" placeholder="Ex.: Abacate" class="form-control" name="nomeAlimento" required="true"/>
+                            <input id="nomeAlimento" type="text" th:field="*{nome}" placeholder="Ex.: Abacate" class="form-control" name="nomeAlimento" />
                         </div>
                     <!--<div id="espacoErroNomeAlimento">-->
                         <!--<div class="col-sm-offset-4 col-sm-4 alert alert-danger" id="erroNomeAlimento">-->
@@ -69,7 +69,7 @@
                         <br/>
                         <div class="form-group">
                             <label >Selecione uma categoria</label>
-                            <select class="form-control" th:field="*{categoria}" >
+                            <select id="categoriaSelecionada" class="form-control" th:field="*{categoria}" >
                                 <option value="0">Selecione uma categoria</option>
                                 <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}" >Selecione uma categoria</option>
                             </select>
@@ -89,7 +89,7 @@
                                             Porção Base para Calculo:
                                         </div>
                                         <div class="alinha-direita" >
-                                            <input class="input-alimento" placeholder="Ex.: 100" th:field="*{porcaoBaseCalculo}" type="text" name="porcao" value=""/>
+                                            <input id="porcaoBase" class="input-alimento" placeholder="Ex.: 100" th:field="*{porcaoBaseCalculo}" type="text" name="porcao" value=""/>
                                             <label class="radio-inline" required="true">
                                                 <input th:field="*{unidadeBaseCalculo}" type="radio" name="ml" id="mlCalculo" value="ml"/>
                                                 ml
@@ -122,14 +122,14 @@
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Calorias:</div>
                                     <div class="alinha-direita">
-                                        <input class="input-alimento" placeholder="Ex.: 100" th:field="*{calorias}" type="text" name="calorias" value=""/>
+                                        <input id="porcaoCalorias" class="input-alimento" placeholder="Ex.: 100" th:field="*{calorias}" type="text" name="calorias" value=""/>
                                         kcal
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Açucar:</div>
                                     <div class="alinha-direita">
-                                        <input class="input-alimento" placeholder="Ex.: 100" th:field="*{acucar}" type="text" name="acucar" value=""/>
+                                        <input id="porcaoAcucar" class="input-alimento" placeholder="Ex.: 100" th:field="*{acucar}" type="text" name="acucar" value=""/>
                                         g
                                     </div>
                                 </li>
