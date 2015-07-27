@@ -180,7 +180,9 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     }
 
 
-    public double getCaloriasExibicao() {
+
+    public double calculaExibicaoCalorias(){
+
         if (Double.parseDouble(getPorcaoExibicao()) == 100) {
 
             double calculoExibicaoCaloria = Double.parseDouble(getCalorias());
@@ -198,8 +200,13 @@ public class Alimento implements Comparable<Alimento>, Serializable {
             return calculoExibicaoCaloria;
         }
     }
+    public double getCaloriasExibicao() {
 
-    public double getExibicaoAcucar(){
+        double caloriasExibicao = calculaExibicaoCalorias();
+        return caloriasExibicao;
+    }
+
+    public double calculaExibicaoAcucar(){
 
         if (Double.parseDouble(getPorcaoExibicao()) == 100) {
 
@@ -217,6 +224,11 @@ public class Alimento implements Comparable<Alimento>, Serializable {
             double calculoExibicaoAcucar = Double.parseDouble(getAcucar())*numerador;
             return calculoExibicaoAcucar;
         }
+    }
+    public double getExibicaoAcucar(){
+
+        double acucarExibicao = calculaExibicaoAcucar();
+        return acucarExibicao;
     }
 
 
