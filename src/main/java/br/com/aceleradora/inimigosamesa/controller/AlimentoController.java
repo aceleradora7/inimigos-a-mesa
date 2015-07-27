@@ -46,7 +46,7 @@ public class AlimentoController {
 
         Iterable<Alimento> alimentos;
         if(busca != null){
-            alimentos = servicoAlimento.buscaPorNome(busca);
+            alimentos = servicoAlimento.buscaPorNome(busca,pagina);
         }
 
         else if(categoria != 0){
