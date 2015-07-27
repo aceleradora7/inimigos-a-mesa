@@ -1,77 +1,74 @@
-////  <![CDATA[
-//
-//var padraoAlimento = new RegExp(/[a-zA-Z0-9\.\_\-]/);
-//
-//    function validarNomeCadastroAlimento(){
-//
-//        var nomeAlimento = $('#nomeAlimento');
-//
-//        if(padraoAlimento.test(nomeAlimento.val())){
-//            escondeErroNomeAlimento();
-//            alert("1111");
-//            return true;
-//        }else
-//        {
-//            mostraErroNomeAlimento();
-//            nomeAlimento.focus();
-//            alert("22222");
-//            return false;
-//        }
-//    }
-//
-//    function  mostraErroNomeAlimento(){
-//        var div = $("#espacoErroNomeAlimento");
-//        div.show();
-//      }
-//
-//    function  escondeErroNomeAlimento(){
-//        var div = $("#espacoErroNomeAlimento");
-//        div.hide();
-//    }
-//
-//
-//
-//    function validarCadastroAlimento(){
-//
-//        if (validarNomeCadastroAlimento())
-//        {
-//            alert("deu certo1");
-//            return true;
-//        }
-//        alert("deu certo 2");
-//        return false;
-//
-//        }
-//
-//
-//
-//
-//
-//
-//$(document).ready(function(){
-//
-//
-//    var link = window.location.href;
-//
-//    escondeErroNomeAlimento();
-//
-//    $("#js-upload-form").submit(function(e){
-//
-//        if(validarCadastroAlimento())
-//        {
-//            return true;
-//        }
-//        else{
-//
-//        }
-//        return false;
-//    });
-//
-//
-//});
-//
-//
-//
-//
-//
-////]]>
+
+//<![CDATA[
+
+     var padraoValores = new RegExp(/[0-9\.\,]/);
+
+
+
+    function validarCadastro(){
+
+        if (validarNome() && validarCategoria() && porcaoCalorias() && porcaoAcucar()){
+            alert ("foii");
+            return true;
+        }
+        alert("Errou");
+        return false;
+
+    }
+
+
+    function validarNome(){
+        var nomeAlimento = $('#nomeAlimento');
+
+                if(nomeAlimento.val()){
+                    alert ("111111111");
+                    return true;
+                }else
+                {
+                    alert ("2222222222222");
+                    return false;
+                }
+    }
+
+    function validarCategoria(){
+        var categoriaSelecionada = $('#categoriaSelecionada');
+
+            if(categoriaSelecionada.val() != 0){
+                alert("validarCategoria() True");
+                return true;
+            }else
+            {
+                alert("validarCategoria() False");
+                return false;
+            }
+    }
+
+   function porcaoCalorias(){
+        var porcaoCalorias = $('#porcaoCalorias');
+
+            if(padraoValores.test(porcaoCalorias.val())){
+                alert ("validarPorcaoCaloria() true");
+                return true;
+            }else
+            {
+                alert ("validarPorcaoCaloria() False");
+                return false;
+            }
+    }
+
+    function porcaoAcucar(){
+            var porcaoAcucar = $('#porcaoAcucar');
+
+                if(padraoValores.test(porcaoAcucar.val())){
+                    alert ("validarPorcaoAcucar() true");
+                    return true;
+                }else
+                {
+                    alert ("validarPorcaoAcucar() False");
+                    return false;
+                }
+        }
+
+
+//]]>
+
