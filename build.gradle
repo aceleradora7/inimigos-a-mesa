@@ -82,3 +82,6 @@ pmd {
     sourceSets = [sourceSets.main]
     ignoreFailures = true
 }
+
+build.dependsOn.remove("check")
+build.dependsOn.remove("assemble")
