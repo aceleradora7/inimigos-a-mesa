@@ -44,17 +44,23 @@ a{
 
 .logo{
 	display: block;
-	height: 100%;
+	height: 250px;
 	color: #2A841D;
+	width: 990px;
+	text-align: center;
+
 }
 
-.logoh3{
+hr {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+
+}
+
+.logotexto{
 	margin: 20px 0 10px 0;
 	padding: 20px 0 0 0;
-	-webkit-transition: -webkit-transform 0.2s;
-	-moz-transition: -moz-transform 0.2s;
-	transition: transform 0.2s;
-	font-size: 18px;
+	font-size: 30px;
 }
 
 .logoh3:before {
@@ -63,16 +69,34 @@ a{
 	background: #04A222;
 	width: 160px;
 	height: 6px;
-	top: 0px;<link href="css/principal.css" rel="stylesheet"/>
+	top: 0px;
 	left: 50%;
 	margin: -10px 0 0 -80px;
-	-webkit-transition: margin-top 0.2s; /* top or translate does not seem to work in Firefox */
+	-webkit-transition: margin-top 0.2s;
 	-moz-transition: margin-top 0.2s;
 	transition: margin-top 0.2s;
 }
 
+.li-cor-home {
+	color: #04A222;
+}
+
+.ajuste-ul-home{
+	padding-bottom: 0px !important;
+}
+
+.cbp-ig-grid .alterando-cor-span {
+	color: #04A222 !important;
+	font-weight: bold;
+}
+
+.ajuste-espaco-top {
+	margin-top: -20px;
+}
+
 .buscar{
-	width: 200px !important;
+	width: 400px !important;
+	padding-top: 30px;
 }
 
 .escritaheader{
@@ -229,4 +253,7 @@ a{
 	font-size: 1em;
 }
 
+.espacamento-menu{
+	padding-left: 20px;
+}
 
