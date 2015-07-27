@@ -2,8 +2,6 @@
 
 var padraoEmail = new RegExp(/[a-zA-Z0-9\.\_\-]+[@]+(.)+(\.)+[a-zA-Z0-9]+/);
 
-
-
     function validarRecuperacao(){
 
         var emailRecuperacao = $('#emailRecuperacao');
@@ -29,7 +27,6 @@ var padraoEmail = new RegExp(/[a-zA-Z0-9\.\_\-]+[@]+(.)+(\.)+[a-zA-Z0-9]+/);
         var div = $("#espacoErroEmailRecuperacao");
         div.hide();
     }
-
 
      function mostraSucessoLogin(){
             var div = $("#sucesso-login");
@@ -77,8 +74,6 @@ var padraoEmail = new RegExp(/[a-zA-Z0-9\.\_\-]+[@]+(.)+(\.)+[a-zA-Z0-9]+/);
          }
     }
 
-
-
     function validarEmail(){
 
         var emailLogin = $('#emailLogin');
@@ -97,7 +92,6 @@ var padraoEmail = new RegExp(/[a-zA-Z0-9\.\_\-]+[@]+(.)+(\.)+[a-zA-Z0-9]+/);
         }
     }
 
-
     function validarLogin(){
 
     if (validarEmail() && validarSenha() )
@@ -109,7 +103,6 @@ var padraoEmail = new RegExp(/[a-zA-Z0-9\.\_\-]+[@]+(.)+(\.)+[a-zA-Z0-9]+/);
 
     }
 
-
 $(document).ready(function(){
 
 
@@ -117,11 +110,11 @@ $(document).ready(function(){
     if(link.indexOf("/emailRecuperar") > 0){
     $('#ModalSucesso').modal('show');
     }
+
     escondeErroEmailRecuperacao();
     escondeSucessoLogin();
     escondeErroEmail();
     escondeErroSenha();
-
 
     $("#validarLogin").submit(function(e){
 
