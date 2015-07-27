@@ -48,12 +48,17 @@
 .tamanho-div-imagem{
     width: 600px;
     height: 350px;
+    margin-bottom: 45px;
 }
 
-.alinhaColheres{
+.alinhamentos{
 float: right !important;
 }
 
-.alinhaColheres h3{
+.alinhamentos h3{
     margin-top: 0;
+}
+
+.espacoAcucar, .espacoSal {
+    margin-bottom: 30px;
 }

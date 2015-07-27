@@ -18,7 +18,7 @@ function renderizarColher(tipo){
     }
 
     function mensagemSemColher(){
-        return $("#template-sem-colher").find("p");
+        return $("#template-sem-colher").find("span");
     }
 
     var colher = montaColher(getImagem());

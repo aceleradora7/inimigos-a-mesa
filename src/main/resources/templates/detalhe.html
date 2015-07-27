@@ -105,40 +105,51 @@
 
                     <div class="col-xs-6 col-md-5 col-lg-6 row medidas-visuais">
 
-                        <div class="row">
-                            <div class="col-md-10 alinhaColheres">
-                                <h3 class="medidas-visuais-titulo">Açúcar: </h3>
-                                <h3 class="texto-numero-colher" th:text="${medidas.colheresDeAcucar}"></h3>
-                                <h3 class="texto-colheres">colheres</h3>
+                        <div class="espacoAcucar">
+                            <div class="row">
+                                <div class="col-md-10 alinhamentos">
+                                    <h3 class="medidas-visuais-titulo">Açúcar: </h3>
+                                    <h3 class="texto-numero-colher" th:text="${medidas.colheresDeAcucar}"></h3>
+                                    <h3 class="texto-colheres">colheres </h3>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <span class="col-md-10 alinhamentos"><i>Cada colher de chá contém 1.76g de açúcar.</i></span>
+                                <div class="col-md-10 alinhamentos" id="imagem-colher-acucar" data-toggle="popover" title="Cada colher de chá contém 1.76g de açúcar."></div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-10 alinhaColheres" id="imagem-colher-acucar" data-toggle="popover" title="Cada colher de chá contém 1.76g de açúcar."></div>
-                        </div>
+                        <div class="espacoSal">
+                            <div class="row">
+                                <div class="col-md-10 alinhamentos">
+                                    <h3 class="medidas-visuais-titulo">Sal:</h3>
+                                    <h3 class="texto-numero-colher" th:text="${medidas.colheresDeSal}"></h3>
+                                    <h3 class="texto-colheres">colheres</h3>
+                                </div>
+                            </div>
 
-                        <div class="row">
-                            <div class="col-md-10 alinhaColheres">
-                                <h3 class="medidas-visuais-titulo">Sal:</h3>
-                                <h3 class="texto-numero-colher" th:text="${medidas.colheresDeSal}"></h3>
-                                <h3 class="texto-colheres">colheres</h3>
+                            <div class="row">
+                                <span class="col-md-10 alinhamentos"><i>Cada colher de chá contém 2.06g de sal</i></span>
+                                <div class="col-md-10 alinhamentos" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-10 alinhaColheres" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-10 alinhaColheres">
-                                <h3 class="medidas-visuais-titulo">Gordura:</h3>
-                                <h3 class="texto-numero-colher" th:text="${medidas.colheresDeGordura}"></h3>
-                                <h3 class="texto-colheres">colheres</h3>
+                        <div class="espacoGordura">
+                            <div class="row">
+                                <div class="col-md-10 alinhamentos">
+                                    <h3 class="medidas-visuais-titulo">Gordura:</h3>
+                                    <h3 class="texto-numero-colher" th:text="${medidas.colheresDeGordura}"></h3>
+                                    <h3 class="texto-colheres">colheres</h3>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-10 alinhaColheres" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
+                            <div class="row">
+                                <span class="col-md-10 alinhamentos"><i>Cada colher de chá contém 2.0ml de gordura</i></span>
+                                <div class="col-md-10 alinhamentos" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,7 +199,7 @@
     </div>
 
     <div id="template-sem-colher" class="sem-colher" style="display:none">
-       <p><i>A quantia não é suficiente para uma medida de colher.</i></p>
+       <span><i>A quantia não é suficiente para uma medida de colher.</i></span>
     </div>
 
 </body>
