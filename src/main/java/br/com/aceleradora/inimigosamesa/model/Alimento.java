@@ -180,4 +180,44 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     }
 
 
+    public double getCaloriasExibicao() {
+        if (Double.parseDouble(getPorcaoExibicao()) == 100) {
+
+            double calculoExibicaoCaloria = Double.parseDouble(getCalorias());
+            return calculoExibicaoCaloria;
+
+        } else if (Double.parseDouble(getPorcaoExibicao()) < 100) {
+
+            double numerador = 100/Double.parseDouble(getPorcaoExibicao());
+            double calculoExibicaoCaloria = Double.parseDouble(getCalorias())/numerador;
+            return calculoExibicaoCaloria;
+        } else {
+
+            double numerador = Double.parseDouble(getPorcaoExibicao())/100;
+            double calculoExibicaoCaloria = Double.parseDouble(getCalorias())*numerador;
+            return calculoExibicaoCaloria;
+        }
+    }
+
+    public double getExibicaoAcucar(){
+
+        if (Double.parseDouble(getPorcaoExibicao()) == 100) {
+
+            double calculoExibicaoAcucar = Double.parseDouble(getAcucar());
+            return calculoExibicaoAcucar;
+
+        } else if (Double.parseDouble(getPorcaoExibicao()) < 100) {
+
+            double numerador = 100/Double.parseDouble(getPorcaoExibicao());
+            double calculoExibicaoAcucar = Double.parseDouble(getAcucar())/numerador;
+            return calculoExibicaoAcucar;
+        } else {
+
+            double numerador = Double.parseDouble(getPorcaoExibicao())/100;
+            double calculoExibicaoAcucar = Double.parseDouble(getAcucar())*numerador;
+            return calculoExibicaoAcucar;
+        }
+    }
+
+
 }

@@ -77,6 +77,7 @@ public class AlimentoController {
 
         model.addAttribute("alimento", alimento);
         model.addAttribute("medidas", medidas);
+        model.addAttribute("calorias", medidas.getCalorias());
         model.addAttribute("legenda", legendas);
 
         return "detalhe";
