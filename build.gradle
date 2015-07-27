@@ -84,4 +84,3 @@ pmd {
 }
 
 build.dependsOn.remove("check")
-build.dependsOn.remove("assemble")
