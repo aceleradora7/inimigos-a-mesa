@@ -15,7 +15,7 @@
                 </a>
             </li>
 
-            <li th:if="${ not paginas.first}" th:unless="${paginas.totalPages lt 7 }">
+            <li th:if="${ not paginas.first}">
                 <a id="pagina-anterior">
                     <span aria-hidden="true">&#10094;</span>
                 </a>
@@ -37,7 +37,7 @@
 
 
 
-            <li th:if="${ not paginas.last }" th:unless="${paginas.number gt paginas.totalPages - 7}">
+            <li th:if="${ not paginas.last }" th:unless="${paginas.number gt paginas.totalPages}">
                 <a id="proxima-pagina">
                     <span aria-hidden="true">&#10095;</span>
                 </a>
