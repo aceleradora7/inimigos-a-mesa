@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head lang="en">
+    <title>Página não encontrada</title>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link rel="stylesheet" type="text/css" href="css/principal.css"/>
+    <link rel="stylesheet" type="text/css" href="css/error.css"/>
+    <link th:replace="fragmentos/header :: favicon-ico" />
+    <link href="fonts/MyIcons/flaticon.css" rel="stylesheet" type="text/css" />
+
+    <script th:replace="fragmentos/header :: jquery"> </script>
+    <script th:replace="fragmentos/header :: jqueryui"> </script>
+    <script th:replace="fragmentos/header :: bootstrap-js" > </script>
+    <script th:replace="fragmentos/header :: query-string-js"> </script>
+    <script th:replace="fragmentos/header :: busca"> </script>
+
+</head>
+
+<body>
+    <nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+    <div class="container wrapper-conteudo tamanho-minimo-pagina-erro">
+
+        <h1>Desculpe, essa página não está disponível  :(</h1>
+        <h5>O link que você seguiu pode estar quebrado ou a página pode ter sido removida. Nossa equipe já está trabalhando para resolver esse problema.</h5>
+
+    </div>
+    <nav th:replace="fragmentos/rodape :: rodape"></nav>
+</body>
+</html>
