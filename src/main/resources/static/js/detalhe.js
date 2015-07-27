@@ -25,15 +25,12 @@ function renderizarColher(tipo){
     var container = getContainer();
     var quantidade = getQuantidade();
 
-
+    container.empty();
     if(quantidade >= 1){
-        container.empty();
         for(i = 0; i < quantidade; i++){
             container.append(colher.clone());
         }
-
     }else{
-        container.empty();
         container.append(mensagemSemColher().clone());
     }
 }
