@@ -37,8 +37,8 @@
 }
 
 .medidas-visuais{
-	margin-top: 0;
-	margin-bottom: 50px;
+	margin-top: 45px;
+	margin-bottom: 60px;
 }
 
 .medidas-visuais-titulo{
@@ -51,14 +51,28 @@
     margin-bottom: 45px;
 }
 
-.alinhamentos{
-float: right !important;
-}
-
 .alinhamentos h3{
     margin-top: 0;
 }
 
 .espacoAcucar, .espacoSal {
     margin-bottom: 30px;
+}
+.espacamentoH2{
+margin:0;
+
+}
+
+.tamanhoFonte {
+    font-size: 20px;
+}
+.block {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.aparenciaTabela {
+    font-size: 14px !important;
+    border-radius: 4px !important;
+    backgroud-color: #888;
 }

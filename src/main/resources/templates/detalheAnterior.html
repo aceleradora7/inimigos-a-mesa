@@ -45,24 +45,18 @@
                     </div>
                 </div>
 
-                <div class="row col-lg-12" id="TituloAlimento">
-                    <h2 class="block" th:text="${alimento.nome}"></h2>
-                    <text class="tamanhoFonte">Para porção de</text>
-                    <text class="tamanhoFonte" value="porcaoAlimento" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
-                    <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text >
+                <div class = "row col-lg-12">
+                    <h2 th:text="${alimento.nome}"></h2>
                     <h4 th:text="${alimento.categoria.nome}"></h4>
                 </div>
 
 
                 <div class="row">
-
-                    <div id="imagemTabela">
-
-                        <div class="col-xs-7 col-md-6 col-lg-7 tamanho-div-imagem">
+                    <div class="col-xs-6 col-md-5 col-lg-6">
+                        <div class="tamanho-div-imagem">
                             <img th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
                         </div>
-
-                        <div id="tabela-nutricional" class="col-xs-4 col-md-3 col-lg-4">
+                        <div id="tabela-nutricional">
                             <ul class="list-group">
                                 <center>
                                     <li class="list-group-item">
@@ -79,19 +73,19 @@
 
                                 </li>
                                 <li class="list-group-item">
-                                    <label  value="calorias" id="valor-caloria" class="badge aparenciaTabela" th:text="${legenda.calorias}" th:value="${alimento.calorias}"> </label>
+                                    <label  value="calorias" id="valor-caloria" class="badge" th:text="${legenda.calorias}" th:value="${alimento.calorias}"> </label>
                                     Calorias
                                 </li>
                                 <li class="list-group-item">
-                                    <label id="valor-acucar" class="badge aparenciaTabela" th:text="${legenda.acucar}" th:value="${alimento.acucar}" ></label>
+                                    <label id="valor-acucar" class="badge" th:text="${legenda.acucar}" th:value="${alimento.acucar}" ></label>
                                     Açúcar
                                 </li>
                                 <li class="list-group-item">
-                                    <span id="valor-sodio" class="badge aparenciaTabela" th:text="${legenda.sodio}" th:value="${alimento.sodio}"></span>
+                                    <span id="valor-sodio" class="badge" th:text="${legenda.sodio}" th:value="${alimento.sodio}"></span>
                                     Sódio
                                 </li>
                                 <li class="list-group-item">
-                                    <span id="valor-gordura" class="badge aparenciaTabela" th:text="${legenda.gordura}" th:value="${alimento.gordura}"></span>
+                                    <span id="valor-gordura" class="badge" th:text="${legenda.gordura}" th:value="${alimento.gordura}"></span>
                                     Gordura
                                 </li>
                                 <li class="list-group-item">
@@ -107,56 +101,56 @@
                                 </li>
                             </ul>
                         </div>
-
                     </div>
-                    </div>
-                    <div class="row">
-                        <div class="medidas-visuais">
 
-                            <div class="espacoAcucar">
-                                <div class="row">
-                                    <div class="col-md-11 alinhamentos">
-                                        <h3 class="medidas-visuais-titulo">Açúcar: </h3>
-                                        <h3 class="texto-numero-colher" th:text="${medidas.colheresDeAcucar}"></h3>
-                                        <h3 class="texto-colheres">colheres </h3>
-                                    </div>
+                    <div class="col-xs-6 col-md-5 col-lg-6 row medidas-visuais">
+
+                        <div class="espacoAcucar">
+                            <div class="row">
+                                <div class="col-md-10 alinhamentos">
+                                    <h3 class="medidas-visuais-titulo">Açúcar: </h3>
+                                    <h3 class="texto-numero-colher" th:text="${medidas.colheresDeAcucar}"></h3>
+                                    <h3 class="texto-colheres">colheres </h3>
                                 </div>
 
-                                <div class="row">
-                                    <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 1.76g de açúcar.</i></span>
-                                    <div class="col-md-11 alinhamentos" id="imagem-colher-acucar" data-toggle="popover" title="Cada colher de chá contém 1.76g de açúcar."></div>
+                            </div>
+
+
+                            <div class="row">
+                                <span class="col-md-10 alinhamentos"><i>Cada colher de chá contém 1.76g de açúcar.</i></span>
+                                <div class="col-md-10 alinhamentos" id="imagem-colher-acucar" data-toggle="popover" title="Cada colher de chá contém 1.76g de açúcar."></div>
+                            </div>
+                        </div>
+
+                        <div class="espacoSal">
+                            <div class="row">
+                                <div class="col-md-10 alinhamentos">
+                                    <h3 class="medidas-visuais-titulo">Sal:</h3>
+                                    <h3 class="texto-numero-colher" th:text="${medidas.colheresDeSal}"></h3>
+                                    <h3 class="texto-colheres">colheres</h3>
                                 </div>
                             </div>
 
-                            <div class="espacoSal">
-                                <div class="row">
-                                    <div class="col-md-11 alinhamentos">
-                                        <h3 class="medidas-visuais-titulo">Sal:</h3>
-                                        <h3 class="texto-numero-colher" th:text="${medidas.colheresDeSal}"></h3>
-                                        <h3 class="texto-colheres">colheres</h3>
-                                    </div>
-                                </div>
+                            <div class="row">
+                                <span class="col-md-10 alinhamentos"><i>Cada colher de chá contém 2.06g de sal</i></span>
+                                <div class="col-md-10 alinhamentos" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
+                            </div>
+                        </div>
 
-                                <div class="row">
-                                    <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.06g de sal</i></span>
-                                    <div class="col-md-11 alinhamentos" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
+                        <div class="espacoGordura">
+                            <div class="row">
+                                <div class="col-md-10 alinhamentos">
+                                    <h3 class="medidas-visuais-titulo">Gordura:</h3>
+                                    <h3 class="texto-numero-colher" th:text="${medidas.colheresDeGordura}"></h3>
+                                    <h3 class="texto-colheres">colheres</h3>
                                 </div>
                             </div>
 
-                            <div class="espacoGordura">
-                                <div class="row">
-                                    <div class="col-md-11 alinhamentos">
-                                        <h3 class="medidas-visuais-titulo">Gordura:</h3>
-                                        <h3 class="texto-numero-colher" th:text="${medidas.colheresDeGordura}"></h3>
-                                        <h3 class="texto-colheres">colheres</h3>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.0ml de gordura</i></span>
-                                    <div class="col-md-11 alinhamentos" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
-                                </div>
+                            <div class="row">
+                                <span class="col-md-10 alinhamentos"><i>Cada colher de chá contém 2.0ml de gordura</i></span>
+                                <div class="col-md-10 alinhamentos" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
                             </div>
+                        </div>
                     </div>
                 </div>
 
