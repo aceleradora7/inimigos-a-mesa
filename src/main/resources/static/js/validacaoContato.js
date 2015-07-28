@@ -4,7 +4,7 @@ function validarCampos(){
     if(validarNome()){
         if(validarEmail()){
            if(validarMensagem()){
-            limparCampos();
+            
            }
         }else{
             return false;
