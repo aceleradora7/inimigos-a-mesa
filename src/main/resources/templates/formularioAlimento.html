@@ -40,7 +40,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>Imagem Alimento</strong></div>
                             <div class="panel-body">
-                                <h4 class="alinhaBotaoUpload">Selecione uma imagem em seu Pc.</h4>
+                                <h4 class="alinhaBotaoUpload">Selecione uma imagem de seu computador</h4>
                                 <div class="alinhaBotaoUpload">
                                     <a href="#" id="upload_widget_opener">Upload</a>
 
@@ -61,11 +61,11 @@
                             <label >Nome Alimento</label>
                             <input id="nomeAlimento" type="text" th:field="*{nome}" placeholder="Ex.: Abacate" class="form-control" name="nomeAlimento" />
                         </div>
-                    <!--<div id="espacoErroNomeAlimento">-->
-                        <!--<div class="col-sm-offset-4 col-sm-4 alert alert-danger" id="erroNomeAlimento">-->
-                            <!--<label>errrrro</label>-->
-                        <!--</div>-->
-                    <!--</div>-->
+                        <div id="espacoErroNome">
+                            <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroNome">
+                                <label>Preencha o campo com o nome do alimento.</label>
+                            </div>
+                        </div>
                         <br/>
                         <div class="form-group">
                             <label >Selecione uma categoria</label>
@@ -74,8 +74,13 @@
                                 <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}" >Selecione uma categoria</option>
                             </select>
                         </div>
+                        <div id="espacoErroCategoria">
+                            <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroCategoria">
+                                <label>Selecione uma categoria.</label>
+                            </div>
+                        </div>
 
-                        <br/>
+
                             <ul class="list-group">
                                 <center>
                                     <li class="list-group-item">
@@ -98,7 +103,11 @@
                                                 <input th:field="*{unidadeBaseCalculo}" type="radio" name="g" id="gCalculo" value="g" />
                                                 g
                                             </label>
-
+                                        </div>
+                                        <div id="espacoErroPorcaoBase" class="div-erro">
+                                            <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroPorcaoBase">
+                                                <label>Preencha o campo com números e marque a unidade da porção. </label>
+                                            </div>
                                         </div>
                                     </li>
 
@@ -107,7 +116,7 @@
                                         Porção de Exibição:
                                     </div>
                                     <div class="alinha-direita" >
-                                        <input class="input-alimento" placeholder="Ex.: 100" th:field="*{porcaoExibicao}" type="text" name="porcao" value=""/>
+                                        <input id="porcaoExibicao" class="input-alimento" placeholder="Ex.: 100" th:field="*{porcaoExibicao}" type="text" name="porcao" value=""/>
                                         <label class="radio-inline" required="true">
                                             <input th:field="*{unidadeExibicao}" type="radio" name="ml" id="mlExibicao" value="ml"/>
                                             ml
@@ -118,12 +127,26 @@
                                         </label>
 
                                     </div>
+                                    <div id="espacoErroPorcaoExibicao" class="div-erro">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroPorcaoExibicao">
+                                            <label>Preencha o campo com números e marque a unidade da porção. </label>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Calorias:</div>
                                     <div class="alinha-direita">
                                         <input id="porcaoCalorias" class="input-alimento" placeholder="Ex.: 100" th:field="*{calorias}" type="text" name="calorias" value=""/>
                                         kcal
+                                        <label class="radio-inline">
+                                            <input type="checkbox" class="NA" id="naCalorias" value="porcaoCalorias"/>
+                                            NA
+                                        </label>
+                                    </div>
+                                    <div id="espacoErroCalorias" class="div-erro">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroCalorias">
+                                            <label>Preencha o campo com números ou marque a opção "NA" para calorias. </label>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
@@ -131,20 +154,47 @@
                                     <div class="alinha-direita">
                                         <input id="porcaoAcucar" class="input-alimento" placeholder="Ex.: 100" th:field="*{acucar}" type="text" name="acucar" value=""/>
                                         g
+                                        <label class="radio-inline">
+                                                <input type="checkbox" class="NA" id="naAcucar" value="porcaoAcucar"/>
+                                            NA
+                                        </label>
+                                    </div>
+                                    <div id="espacoErroAcucar" class="div-erro">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroAcucar">
+                                            <label>Preencha o campo com números ou marque a opção "NA" para açucar. </label>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Sódio:</div>
                                     <div class="alinha-direita">
-                                        <input class="input-alimento" placeholder="Ex.: 100" th:field="*{sodio}" type="text" name="sodio" value=""/>
+                                        <input id="porcaoSodio" class="input-alimento" placeholder="Ex.: 100" th:field="*{sodio}" type="text" name="sodio" value=""/>
                                         mg
+                                        <label class="radio-inline">
+                                            <input type="checkbox" class="NA" id="naSodio" value="porcaoSodio"/>
+                                            NA
+                                        </label>
+                                    </div>
+                                    <div id="espacoErroSodio" class="div-erro">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroSodio">
+                                            <label>Preencha o campo com números ou marque a opção "NA" para sodio. </label>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Gordura:</div>
                                     <div class="alinha-direita">
-                                        <input class="input-alimento" placeholder="Ex.: 100" th:field="*{gordura}" type="text" name="gordura" value=""/>
+                                        <input id="porcaoGordura" class="input-alimento" placeholder="Ex.: 100" th:field="*{gordura}" type="text" name="gordura" value=""/>
                                         g
+                                        <label class="radio-inline">
+                                            <input type="checkbox" class="NA" id="naGordura" value="porcaoGordura"/>
+                                            NA
+                                        </label>
+                                    </div>
+                                    <div id="espacoErroGordura" class="div-erro">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroGordura">
+                                            <label>Preencha o campo com números ou marque a opção "NA" para gordura. </label>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">

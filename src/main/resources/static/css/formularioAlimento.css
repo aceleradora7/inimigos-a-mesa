@@ -85,3 +85,12 @@ float:left;
 .alinhaBotaoUpload{
     padding-left: 15px;
 }
+
+#espacoErroCategoria {
+    margin-bottom: 100px;
+}
+
+.div-erro{
+    margin-top: 10px;
+    margin-bottom: 70px;
+}
