@@ -180,15 +180,15 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     }
 
     public String calculaExibicao(String valor) {
-        if (valor == null || valor.equals("") || Double.parseDouble(porcaoExibicao) == 100 ) {
+        if (valor == null || valor.equals("") || Double.parseDouble(porcaoExibicao) == Double.parseDouble(porcaoBaseCalculo)) {
             return valor;
         } else {
             double calculoExibicaoSodio = 0.0;
-           if (Double.parseDouble(porcaoExibicao) < 100) {
-                double numerador = 100 / Double.parseDouble(porcaoExibicao);
+           if (Double.parseDouble(porcaoExibicao) < Double.parseDouble(porcaoBaseCalculo)) {
+                double numerador = Double.parseDouble(porcaoBaseCalculo) / Double.parseDouble(porcaoExibicao);
                calculoExibicaoSodio = Double.parseDouble(valor) / numerador;
             } else {
-                double numerador = Double.parseDouble(porcaoExibicao) / 100;
+                double numerador = Double.parseDouble(porcaoExibicao) / Double.parseDouble(porcaoBaseCalculo);
                 calculoExibicaoSodio = Double.parseDouble(valor) * numerador;
             }
             return String.valueOf(calculoExibicaoSodio);

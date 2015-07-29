@@ -117,7 +117,7 @@ public class AlimentoController {
         if(alimento.getUrlImagemGrande().isEmpty()){
             alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1436535224/lkt8uygy36ldiig3xglo.png");
         }
-        //servicoAlimento.salvar(alimento);
+        servicoAlimento.salvar(alimento);
 
         return "redirect:/detalhe/"+alimento.getCodigo();
     }
