@@ -46,10 +46,12 @@ public class AlimentoService {
     }
 
     public void salvar(Alimento alimento) {
-        Alimento alimentoBuscado = repositorioAlimento.findOne(alimento.getCodigo());
+        if(alimento.getCodigo() != 0) {
+            Alimento alimentoBuscado = repositorioAlimento.findOne(alimento.getCodigo());
 
-        if (!alimento.getUrlImagemGrande().isEmpty()){
-            deletarCloudinaryAImagem(alimentoBuscado);
+            if (!alimento.getUrlImagemGrande().isEmpty()) {
+                deletarCloudinaryAImagem(alimentoBuscado);
+            }
         }
         repositorioAlimento.save(alimento);
     }
