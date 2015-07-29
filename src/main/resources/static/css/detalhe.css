@@ -76,3 +76,8 @@ margin:0;
     border-radius: 4px !important;
     backgroud-color: #888;
 }
+
+.fonte {
+    font-style: italic;
+    font-size: 12px;
+}
