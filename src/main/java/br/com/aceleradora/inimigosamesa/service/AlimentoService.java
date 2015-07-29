@@ -5,10 +5,14 @@ import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Categoria;
 import br.com.aceleradora.inimigosamesa.model.Legenda;
 import br.com.aceleradora.inimigosamesa.model.MedidasVisuais;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
 
 @Service
 public class AlimentoService {
@@ -26,13 +30,11 @@ public class AlimentoService {
     public Iterable<Alimento> buscaPorNome(String nome) {
         nome = nome.concat(CORINGA_ALL);
         return repositorioAlimento.findByNome(nome);
-
     }
 
     public Iterable<Alimento> buscaPorNome(String nome, int pagina) {
         nome = nome.concat(CORINGA_ALL);
         return repositorioAlimento.findByNome(nome, paginacao(pagina));
-
     }
 
     public Iterable<Alimento> buscaPorCategoria(int pagina, int codigoCategoria) {
@@ -44,7 +46,33 @@ public class AlimentoService {
     }
 
     public void salvar(Alimento alimento) {
+        Alimento alimentoBuscado = repositorioAlimento.findOne(alimento.getCodigo());
+
+        if (!alimento.getUrlImagemGrande().isEmpty()){
+            deletarCloudinaryAImagem(alimentoBuscado);
+        }
         repositorioAlimento.save(alimento);
+    }
+
+    private void deletarCloudinaryAImagem(Alimento alimentoBuscado) {
+        Cloudinary cloudinary = new Cloudinary(Cloudinary.asMap("cloud_name", "dq5mndrjt",
+                "api_key", "157778992886617",
+                "api_secret", "6Vk3ZiE8qBH4K2j51agKhmH_DL8"));
+        String idDaImagem = pegaIdDaImagem(alimentoBuscado);
+
+        try {
+            cloudinary.uploader().destroy(idDaImagem, ObjectUtils.emptyMap());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String pegaIdDaImagem (Alimento alimento) {
+        String[] url = alimento.getUrlImagemGrande().split("/");
+        String imagemComExtensao = url[url.length-1];
+        String imagemSemExtensao = imagemComExtensao.split("\\.")[0];
+        System.out.println(imagemSemExtensao);
+        return imagemSemExtensao;
     }
 
     public void deletar(Alimento alimento) {

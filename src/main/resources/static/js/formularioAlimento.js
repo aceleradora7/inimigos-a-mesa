@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 
     cloudinary.applyUploadWidget(document.getElementById('upload_widget_opener'),
-    //$('#upload_widget_opener').cloudinary_upload_widget(
+   //$('#upload_widget_opener').cloudinary_upload_widget(
                 { cloud_name: 'dq5mndrjt',
                   upload_preset: 'yga4od15',
                   multiple: false,
@@ -18,8 +18,7 @@ $(document).ready(function(){
                   client_allowed_formats: ['png','jpg','jpeg'],
                   button_class: 'btn btn-success',
                   button_caption: 'Escolha uma Imagem',
-                  theme: 'white'
-
+                  theme: 'white',
                 },
 
                function(error, result) {
@@ -46,6 +45,7 @@ $(document).ready(function(){
                     alert(urlImagemGrandeFinal);
 
                     $( ".cloudinary-thumbnails" ).remove();
+
                     $( "#imagemAlimento" ).replaceWith( " <img src='"+urlImagemGrandeFinal+"' id='imagemAlimento' alt='Imagem do Alimento'/>" );
 
 
