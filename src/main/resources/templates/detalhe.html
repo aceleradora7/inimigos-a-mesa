@@ -47,9 +47,6 @@
 
                 <div class="row col-lg-12" id="TituloAlimento">
                     <h2 class="block" th:text="${alimento.nome}"></h2>
-                    <text class="tamanhoFonte">Para porção de</text>
-                    <text class="tamanhoFonte" value="porcaoAlimento" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
-                    <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text >
                     <h4 th:text="${alimento.categoria.nome}"></h4>
                 </div>
 
@@ -114,6 +111,12 @@
                     <div class="row">
                         <div class="medidas-visuais">
 
+                            <div id="porcaoAlimento">
+                            <text class="tamanhoFonte">Para porção de</text>
+                            <text class="tamanhoFonte" value="porcaoAlimento" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
+                            <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text >
+                            </div>
+
                             <div class="espacoAcucar">
                                 <div class="row">
                                     <div class="col-md-11 alinhamentos">
@@ -129,21 +132,6 @@
                                 </div>
                             </div>
 
-                            <div class="espacoSal">
-                                <div class="row">
-                                    <div class="col-md-11 alinhamentos">
-                                        <h3 class="medidas-visuais-titulo">Sal:</h3>
-                                        <h3 class="texto-numero-colher" th:text="${medidas.colheresDeSal}"></h3>
-                                        <h3 class="texto-colheres">colheres</h3>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.06g de sal</i></span>
-                                    <div class="col-md-11 alinhamentos" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
-                                </div>
-                            </div>
-
                             <div class="espacoGordura">
                                 <div class="row">
                                     <div class="col-md-11 alinhamentos">
@@ -156,6 +144,21 @@
                                 <div class="row">
                                     <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.0ml de gordura</i></span>
                                     <div class="col-md-11 alinhamentos" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
+                                </div>
+                            </div>
+
+                            <div class="espacoSal">
+                                <div class="row">
+                                    <div class="col-md-11 alinhamentos">
+                                        <h3 class="medidas-visuais-titulo">Sal:</h3>
+                                        <h3 class="texto-numero-colher" th:text="${medidas.colheresDeSal}"></h3>
+                                        <h3 class="texto-colheres">colheres</h3>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.06g de sal</i></span>
+                                    <div class="col-md-11 alinhamentos" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
                                 </div>
                             </div>
                     </div>
