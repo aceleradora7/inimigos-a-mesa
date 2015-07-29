@@ -1,6 +1,7 @@
 package br.com.aceleradora.inimigosamesa.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity(name = "alimento")
@@ -16,15 +17,14 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     @JsonIgnore
     private Categoria categoria;
 
-    @Transient
-    private String idCategoria;
-
     private String nome;
-    //@Column ( nullable = true )
+
     private String acucar;
     private String sodio;
     private String gordura;
     private String calorias;
+
+
     private String porcaoBaseCalculo;
     private String unidadeBaseCalculo;
     private String porcaoExibicao;
@@ -36,8 +36,7 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     public Alimento() {
     }
 
-    public Alimento(String idCategoria, String nome, String acucar, String sodio, String gordura, String calorias, String porcaoBaseCalculo, String unidadeBaseCalculo, String porcaoExibicao, String unidadeExibicao, String urlImagemPequena, String urlImagemGrande, String observacao, Categoria categoria) {
-        this.idCategoria = idCategoria;
+    public Alimento( String nome, String acucar, String sodio, String gordura, String calorias, String porcaoBaseCalculo, String unidadeBaseCalculo, String porcaoExibicao, String unidadeExibicao, String urlImagemPequena, String urlImagemGrande, String observacao, Categoria categoria) {
         this.nome = nome;
         this.acucar = acucar;
         this.sodio = sodio;
@@ -68,14 +67,6 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public String getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(String idCategoria) {
-        this.idCategoria = idCategoria;
     }
 
     public String getNome() {
@@ -210,5 +201,72 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
     public String getExibicaoGordura() {
         return calculaExibicao(gordura);
+    }
+
+    public  boolean temLetraPorcaoBaseCalculo(){
+        if(getPorcaoBaseCalculo()!=null && !getPorcaoBaseCalculo().isEmpty()){
+            try {
+                Double.parseDouble(getPorcaoBaseCalculo());
+            }catch(Exception e){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public  boolean temLetraPorcaoExibicao(){
+        if(getPorcaoExibicao()!=null && !getPorcaoExibicao().isEmpty()){
+            try {
+                Double.parseDouble(getPorcaoExibicao());
+            }catch(Exception e){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public  boolean temLetraAcucar(){
+        if(getAcucar()!=null && !getAcucar().isEmpty())
+        {
+            try{
+                Double.parseDouble(getAcucar());
+            }catch (Exception e){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public  boolean temLetraCalorias(){
+        if(getCalorias()!=null && !getCalorias().isEmpty()){
+            try{
+                Double.parseDouble(getCalorias());
+            }catch (Exception e){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public  boolean temLetraSodio(){
+        if(getSodio()!=null && !getSodio().isEmpty()){
+            try{
+                Double.parseDouble(getSodio());
+            }catch (Exception e){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public  boolean temLetraGordura(){
+        if(getGordura()!=null && !getGordura().isEmpty()){
+            try{
+                Double.parseDouble(getGordura());
+            }catch (Exception e){
+                return true;
+            }
+        }
+        return false;
     }
 }

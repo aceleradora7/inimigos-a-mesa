@@ -11,11 +11,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -26,6 +27,7 @@ public class AlimentoController {
 
     @Autowired
     private CategoriaService servicoCategoria;
+
 
     @RequestMapping(value = {"/grid"}, method = RequestMethod.GET)
     public void listar(
@@ -78,8 +80,10 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/cadastroAlimento", method = RequestMethod.GET)
-    public String cadastrarAlimento(Model model){
-        Alimento alimento = new Alimento();
+    public String cadastrarAlimento(Model model, Alimento alimento){
+        if(alimento == null){
+         alimento = new Alimento();
+        }
         Sort sort = new Sort(Sort.Direction.ASC, "nome");
         model.addAttribute("alimento", alimento);
         model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
@@ -109,7 +113,7 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
-    public String gerenciarAlimento(Model model, Alimento alimento){
+    public String gerenciarAlimento(Model model, @Valid Alimento alimento, BindingResult bindingResult) throws Exception {
 
         if(alimento.getUrlImagemPequena().isEmpty()){
             alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
@@ -117,11 +121,67 @@ public class AlimentoController {
         if(alimento.getUrlImagemGrande().isEmpty()){
             alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1436535224/lkt8uygy36ldiig3xglo.png");
         }
-        servicoAlimento.salvar(alimento);
 
-        return "redirect:/detalhe/"+alimento.getCodigo();
+        String validacao = validacao(model, alimento, bindingResult);
+
+        if(validacao.equals("Salvar")){
+            servicoAlimento.salvar(alimento);
+            return "redirect:/detalhe/"+alimento.getCodigo();
+        }else{
+            return validacao;
+        }
+
     }
 
-
-
+    public String validacao(Model model, @Valid Alimento alimento, BindingResult bindingResult){
+        if(alimento.getNome().isEmpty()){
+            model.addAttribute("erroNome","O nome esta em branco");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.getCategoria()==null) {
+            model.addAttribute("erroCategoria","Precisa selecionar uma categoria");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.getPorcaoBaseCalculo().isEmpty()){
+            model.addAttribute("erroPorcaoBaseCalculo","A porção base para calculo não pode ficar em branco!");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.temLetraPorcaoBaseCalculo()){
+            model.addAttribute("erroPorcaoBaseCalculo","A porção de base para calculo só pode conter caracteres numéricos!");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.getUnidadeBaseCalculo()==null){
+            model.addAttribute("erroUnidadeBaseCalculo","Selecione uma unidade para calculo");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.getPorcaoExibicao().isEmpty()){
+            model.addAttribute("erroPorcaoExibicao","A porção de exibição não pode ficar em branco");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if (alimento.temLetraPorcaoExibicao()){
+            model.addAttribute("erroPorcaoExibicao","Porção de exibiçao só pode conter caracteres numéricos!");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.getUnidadeExibicao()==null){
+            model.addAttribute("erroUnidadeExibicao","Selecione uma unidade para exibição");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.temLetraCalorias()) {
+            model.addAttribute("erroCalorias","O campo calorias só pode conter caracteres numéricos!");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.temLetraAcucar()){
+            model.addAttribute("erroAcucar","O campo açucar só pode conter caracteres numéricos!");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.temLetraSodio()) {
+            model.addAttribute("erroSodio","O campo sodio só pode conter caracteres numéricos!");
+            return cadastrarAlimento(model,alimento);
+        }
+        else if(alimento.temLetraGordura()) {
+            model.addAttribute("erroGordura","O campo gordura só pode conter caracteres numéricos!");
+            return cadastrarAlimento(model,alimento);
+        }
+        return "Salvar";
+    }
 }

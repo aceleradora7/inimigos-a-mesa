@@ -4,28 +4,23 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalhe do Produto</title>
-
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
     <link rel="stylesheet" type="text/css" href="/css/principal.css"/>
     <link rel="stylesheet" type="text/css" href="/css/formularioAlimento.css"/>
     <link rel="stylesheet" type="text/css" href="/css/cloudinary.css"/>
-
-
     <script th:replace="fragmentos/header :: jquery"> </script>
     <script th:replace="fragmentos/header :: jqueryui"> </script>
     <script th:replace="fragmentos/header :: query-string-js"> </script>
     <script src="js/formularioAlimento.js"> </script>
     <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-
-
     <link th:replace="fragmentos/header :: favicon-ico" />
 
     <script src="js/validacaoCadastroAlimento.js"> </script>
 
-
 </head>
     <body>
+    <csrf disabled="true"/>
         <nav th:replace="fragmentos/header :: cabecalho"></nav>
         <div class="jumbotron">
             <center>
@@ -36,16 +31,14 @@
             <div class="row">
                 <form onSubmit="return validarCadastro();" th:action="@{/gerenciarAlimento}" th:object="${alimento}" method="POST" id="js-upload-form">
                     <input TYPE="hidden" NAME="codigo" id="codigo" th:field="*{codigo}"/>
-                <div class="col-xs-6 col-md-5 esquerda">
+                    <div class="col-xs-6 col-md-5 esquerda">
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>Imagem Alimento</strong></div>
                             <div class="panel-body">
                                 <h4 class="alinhaBotaoUpload">Selecione uma imagem de seu computador</h4>
                                 <div class="alinhaBotaoUpload">
                                     <a href="#" id="upload_widget_opener">Upload</a>
-
                                     <input type="hidden" name="urlImagemPequena" id="urlImagemPequena" th:field="*{urlImagemPequena}"/>
-
                                     <input type="hidden" name="urlImagemGrande" id="urlImagemGrande" th:field="*{urlImagemGrande}"/>
                                 </div>
                                 <br/>
@@ -55,6 +48,7 @@
 
                             </div>
                         </div>
+<<<<<<< HEAD
                 </div>
                 <div class="col-xs-6 col-md-6 direita">
                         <div class="form-group">
@@ -66,6 +60,7 @@
                                 <label>Preencha o campo com o nome do alimento.</label>
                             </div>
                         </div>
+                        <label th:text="${erroNome}"/>
                         <br/>
                         <div class="form-group">
                             <label >Selecione uma categoria</label>
@@ -78,9 +73,8 @@
                             <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroCategoria">
                                 <label>Selecione uma categoria.</label>
                             </div>
+                            <label th:text="${erroCategoria}"/>
                         </div>
-
-
                             <ul class="list-group">
                                 <center>
                                     <li class="list-group-item">
@@ -89,6 +83,7 @@
                                         </h3>
                                     </li>
                                 </center>
+<<<<<<< HEAD
                                     <li class="list-group-item">
                                         <div class="alinha-esquerda">
                                             Porção Base para Calculo:
@@ -109,8 +104,9 @@
                                                 <label>Preencha o campo com números e marque a unidade da porção. </label>
                                             </div>
                                         </div>
+                                        <label th:text="${erroPorcaoBaseCalculo}"/>
+                                        <label th:text="${erroUnidadeBaseCalculo}"/>
                                     </li>
-
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">
                                         Porção de Exibição:
@@ -125,13 +121,14 @@
                                             <input th:field="*{unidadeExibicao}" type="radio" name="g" id="gExibicao" value="g" />
                                             g
                                         </label>
-
                                     </div>
                                     <div id="espacoErroPorcaoExibicao" class="div-erro">
                                         <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroPorcaoExibicao">
                                             <label>Preencha o campo com números e marque a unidade da porção. </label>
                                         </div>
                                     </div>
+                                    <label th:text="${erroPorcaoExibicao}"/>
+                                    <label th:text="${erroUnidadeExibicao}"/>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Calorias:</div>
@@ -148,6 +145,7 @@
                                             <label>Preencha o campo com números ou marque a opção "NA" para calorias. </label>
                                         </div>
                                     </div>
+                                    <label th:text="${erroCalorias}"/>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Açucar:</div>
@@ -164,6 +162,7 @@
                                             <label>Preencha o campo com números ou marque a opção "NA" para açucar. </label>
                                         </div>
                                     </div>
+                                    <label th:text="${erroAcucar}"/>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Sódio:</div>
@@ -180,6 +179,7 @@
                                             <label>Preencha o campo com números ou marque a opção "NA" para sodio. </label>
                                         </div>
                                     </div>
+                                    <label th:text="${erroSodio}"/>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Gordura:</div>
@@ -196,6 +196,7 @@
                                             <label>Preencha o campo com números ou marque a opção "NA" para gordura. </label>
                                         </div>
                                     </div>
+                                    <label th:text="${erroGordura}"/>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Observações:</div>
@@ -214,14 +215,13 @@
                                     </h6>
                                 </li>
                             </ul>
-                                <input class="btn btn-danger botao-cancelar" type="submit"  id="cancelar" value="Cancelar"/>
-                                <input class="btn btn-success botao-enviar" type="submit"  id="enviar" value="Enviar Dados"/>
-                    <br/><br/><br/>
-                </div>
+                        <input class="btn btn-danger botao-cancelar" type="submit"  id="cancelar" value="Cancelar"/>
+                        <input class="btn btn-success botao-enviar" type="submit"  id="enviar" value="Enviar Dados"/>
+                        <br/><br/><br/>
+                    </div>
                 </form>
             </div>
         </div>
         <nav th:replace="fragmentos/rodape :: rodape"></nav>
-
     </body>
 </html>
