@@ -30,6 +30,11 @@ public class ApresentacaoController {
         return "sobre";
     }
 
+    @RequestMapping("/sobre2")
+    public String sobre2(){
+        return "sobre2";
+    }
+
     public String tutorial(){
         return "tutorial";
     }
