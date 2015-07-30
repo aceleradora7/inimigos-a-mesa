@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
     <title>Detalhe do Produto</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link th:fragment="principal-css" href="/css/detalhe.css" rel="stylesheet"/>
-    <link th:replace="fragmentos/header :: bootstrap-css" />
-    <link th:replace="fragmentos/header :: principal-css" />
-    <link th:replace="fragmentos/header :: jqueryui-css" />
 
-    <script th:replace="fragmentos/header :: jquery"> </script>
-    <script th:replace="fragmentos/header :: jqueryui"> </script>
-    <script th:replace="fragmentos/header :: query-string-js"> </script>
-    <script th:replace="fragmentos/header :: busca"> </script>
-    <script th:replace="fragmentos/header :: detalhe"> </script>
-    <script th:replace="fragmentos/header :: formulario-alimento-js"> </script>
-    <script th:replace="fragmentos/header :: bootstrap-js"> </script>
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link th:replace="fragmentos/header :: flaticon-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
     <link th:replace="fragmentos/header :: favicon-ico" />
+
+    <link type="text/css" href="/css/detalhe.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="/js/detalhe.js"></script>
 </head>
 <body>
     <nav th:replace="fragmentos/header :: cabecalho"></nav>

@@ -5,21 +5,24 @@
     <title>Contato</title>
 
     <meta charset="utf-8" />
+
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
-    <link rel="stylesheet" type="text/css" href="css/principal.css"/>
+    <link th:replace="fragmentos/header :: flaticon-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
+    <link th:replace="fragmentos/header :: favicon-ico" />
+
     <link rel="stylesheet" type="text/css" href="css/validacaoContato.css" />
 
-    <script th:replace="fragmentos/header :: jquery"> </script>
-    <script th:replace="fragmentos/header :: jqueryui"> </script>
-
-    <script th:replace="fragmentos/header :: query-string-js"> </script>
-    <script th:replace="fragmentos/header :: busca"> </script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-
     <script type="text/javascript" src="js/validacaoContato.js"></script>
-    <link th:replace="fragmentos/header :: favicon-ico" />
-</head>title="T
+
+</head>
 <body>
 <nav th:replace="fragmentos/header :: cabecalho"></nav>
 <center>
