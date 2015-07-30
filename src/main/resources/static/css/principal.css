@@ -44,9 +44,7 @@ a{
 
 .logo{
 	display: block;
-	height: 250px;
 	color: #2A841D;
-	width: 990px;
 	text-align: center;
 
 }
@@ -59,8 +57,7 @@ hr {
 
 .logotexto{
 	margin: 20px 0 10px 0;
-	padding: 20px 0 0 0;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 .logoh3:before {
@@ -86,6 +83,7 @@ hr {
 }
 
 .cbp-ig-grid .alterando-cor-span {
+	margin-top: 20px;
 	color: #04A222 !important;
 	font-weight: bold;
 }
@@ -94,13 +92,39 @@ hr {
 	margin-top: -20px;
 }
 
+.info-home{
+
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.colher-info{
+
+	display: inline-block;
+	height: 100px;
+}
+.info-texto{
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.centraliza-vertical{
+	vertical-align: center;
+}
+.texto-info-colher{
+	text-size: 20px;
+	text-align: left;
+	font-weight: bold;
+	vertical-align: center;
+}
+.bloco-info{
+	padding-top: 20px;
+}
 .buscar{
 	width: 400px !important;
-	padding-top: 30px;
 }
 
 .escritaheader{
-	margin-top: 15px;
+	font-size: 30px;
 }
 
 .test {
