@@ -1,17 +1,19 @@
  <html xmlns:th="http://thymeleaf.org">
 
     <link th:fragment="bootstrap-css" type="text/css" href="/webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link th:fragment="jqueryui-css" type="text/css"  href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
     <link th:fragment="principal-css" type="text/css" href="/css/principal.css" rel="stylesheet"/>
+    <link th:fragment="flaticon-css" href="/fonts/MyIcons/flaticon.css" rel="stylesheet" type="text/css" />
 
     <script th:fragment="bootstrap-js" type="text/javascript" src="/webjars/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-    <link th:fragment="jqueryui-css" type="text/css"  href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
     <script th:fragment="jquery" type="text/javascript" src="/webjars/jquery/2.1.3/jquery.min.js"/>
     <script th:fragment="jqueryui" type="text/javascript" src="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>
     <script th:fragment="busca" type="text/javascript" src="/js/busca.js"/>
+    <script th:fragment="query-string-js" type="text/javascript" src="/js/queryString.js"/>
+
+
     <script th:fragment="detalhe" type="text/javascript" src="/js/detalhe.js"/>
     <script th:fragment="formulario-alimento-js" type="text/javascript" src="/js/formularioAlimento.js"/>
-    <script th:fragment="query-string-js" type="text/javascript" src="/js/queryString.js"/>
 
     <link th:fragment="favicon-ico" rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"/>
 
@@ -24,16 +26,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-
-
             </div>
 
             <div class="navbar-collapse collapse" id="navbar-collapsible">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a class="navbar-brand text-danger" href="/">Pagina principal</a></li>
-                    <!--<li><a href="/lista">Lista dos Alimentos</a></li>-->
-                    <li class="espacamento-menu"><a class="navbar-brand text-danger"  href="/grid">Alimentos</a></li>
+                    <a class="navbar-header"  href="/">
+                        <label class="cbp-ig-icon avocado-fruit68 logoheader"></label>
+                        <span class="navbar-brand text-danger">Inimigos à mesa?</span>
+                    </a>
+                    <li class="itens-menu"><a class="navbar-brand text-danger"  href="/grid">Alimentos</a></li>
+                    <li class="itens-menu"><a class="navbar-brand text-danger"  href="/sobre">Sobre</a></li>
+                    <li class="itens-menu"><a class="navbar-brand text-danger"  href="/contato">Contato</a></li>
                 </ul>
                 <div class="navbar-form navbar-right" role="search">
                     <div class="input-group">
@@ -44,13 +47,9 @@
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                         </span>
-
-
-
                     </div>
 
                 </div>
-
                 <ul th:if="${#httpServletRequest.remoteUser != null}" class="nav navbar-nav navbar-right">
                     <li><a href="/logout">Logout</a></li>
                 </ul>
@@ -62,16 +61,6 @@
     <nav th:fragment="cabecalho-home" class="cabecalho navbar navbar-trans" role="navigation">
 
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <label class="cbp-ig-icon avocado-fruit68 logoheader"></label><label class="escritaheader">Inimigos à mesa</label>
-            </div>
-
             <div class="navbar-collapse collapse" id="navbar-collapsible">
 
                 <ul th:if="${#httpServletRequest.remoteUser != null}" class="nav navbar-nav navbar-right">

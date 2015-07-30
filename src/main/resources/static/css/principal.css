@@ -131,12 +131,23 @@ hr {
 	float:left;
 }
 
+
+.itens-menu {
+	padding-left: 15px !important;
+}
+
 .logoheader{
-	font-size: 8px;
-	margin-top: -15px !important;
+	font-size: 28px;
+	margin-top: 4px !important;
 	float: left;
-	margin-right: 15px;
+	margin-right: 7px;
 	text-decoration : none !important;
+	color: #ffffff;
+}
+
+.logoheader::before{
+	font-size: 28px;
+	margin-left:0px;
 }
 
 #footer {
