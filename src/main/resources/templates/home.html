@@ -8,22 +8,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link th:replace="fragmentos/header :: favicon-ico" />
-
-    <link href="fonts/MyIcons/flaticon.css" rel="stylesheet" type="text/css" />
+    <link th:replace="fragmentos/header :: flaticon-css" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
-    <link  href="css/principal.css" rel="stylesheet" type="text/css"/>
-
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
+    <link th:replace="fragmentos/header :: favicon-ico" />
 
-    <script th:replace="fragmentos/header :: jquery"> </script>
-    <script th:replace="fragmentos/header :: jqueryui"> </script>
-
-    <script th:replace="fragmentos/header :: query-string-js"> </script>
-    <script th:replace="fragmentos/header :: busca"> </script>
-
-    <script src="js/modernizr.custom.js"> </script>
+    <script src="/js/modernizr.custom.js"> </script>
 </head>
 
 <body>
