@@ -319,5 +319,9 @@ hr {
 }
 
 .row .escritaheader{
-	padding-bottom: 50px;
+	padding-bottom: 10px;
+}
+
+.icone-home{
+	padding-top: 60px;
 }

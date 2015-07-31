@@ -29,6 +29,8 @@
 
         <div class="container" id="mostraAlimento">
 
+
+
             <div id="titulo-detalhe">
                 <div id="tituloAlimento">
                     <h1 class="block" th:text="${alimento.nome}"></h1>
@@ -41,6 +43,19 @@
                     <center>
                         <img class="tamanho-imagem-div img-responsive" th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
                     </center>
+                </div>
+
+                <div class="col-lg-2 col-md-2 grupo-btn botoes-admin"  th:if="${#httpServletRequest.remoteUser != null}" >
+                    <a th:href="@{'/editarAlimento?codigo=' + ${alimento.codigo}}" class="botao-editar">
+                        <button type="button" class="btn btn-danger">
+                            Editar
+                        </button>
+                    </a>
+                    <a class="botao-deletar" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
+                        <button type="button" class="btn btn-danger">
+                            Deletar
+                        </button>
+                    </a>
                 </div>
                 <div id="tabela-detalhe" class="row col-lg-6 img-responsive center-block">
                     <ul class="list-group-item img-responsive" >
@@ -87,7 +102,7 @@
                                 <b>TR</b> - Traço para medidas entre 0 à 0.5
                             </h6>
                             <span class="fonte">Fonte: As informações foram extraídas pela equipe "Inimigos à Mesa?".</span>
-                            <a class="ancora-link" href="#testee">
+                            <a class="ancora-link" href="#medidas-visuais-ancora">
                                 Ver medidas visuais
                             </a>
                         </ul>
@@ -100,8 +115,8 @@
             </div>
 
         </div>
-            <p id="testee"></p>
-        <div id="medidas-visuais" style="background-color: #F5F5F5 !important;">
+            <p id="medidas-visuais-ancora"></p>
+        <div id="medidas-visuais">
             <div class="container">
                 <div id="titulo-medidas">
                     <div id="tituloMedidas">

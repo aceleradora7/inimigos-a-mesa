@@ -99,6 +99,7 @@ margin:0;
 #tituloAlimento{
     text-align: center;
     margin-top: 30px;
+
 }
 
 .tirando-margin{
@@ -182,3 +183,8 @@ a.ancora-link:hover  {
       background-color: green;
 }
 
+
+.botoes-admin{
+    margin-top: -45px;
+    margin-bottom: 10px;
+}
