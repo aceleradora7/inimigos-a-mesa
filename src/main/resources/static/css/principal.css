@@ -110,6 +110,11 @@ hr {
 .centraliza-vertical{
 	vertical-align: center;
 }
+
+.centraliza-horizontal{
+	horizontal-align: center;
+}
+
 .texto-info-colher{
 	text-size: 20px;
 	text-align: left;
@@ -204,15 +209,32 @@ hr {
 }
 
 .categorias{
-	margin-top:51px;
 	background-color: #449D44;
 	border-color: #398439;
+	width:100%;
+	margin-top:51px !important;
+}
 
+.menuLetras{
+	background-color: #449D44;
+	border-color: #398439;
+	width:100%;
+	margin-top:51px !important;
+}
+
+.centralizar{
+        width: 90%;
+        margin: 0 auto;
 }
 
 .categoria{
 	border-radius: 0px !important;
 	font-size:1.2em;
+}
+
+.buscaLetra{
+	border-radius: 0px !important;
+    font-size:1.2em;
 }
 
 .btn-primary{
