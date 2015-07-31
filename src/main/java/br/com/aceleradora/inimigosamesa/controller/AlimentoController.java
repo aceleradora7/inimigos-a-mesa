@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -43,10 +44,17 @@ public class AlimentoController {
         pagina = pagina <= 0 ? 1 : pagina;
 
         Iterable<Alimento> alimentos;
-        if(busca != null){
-            alimentos = servicoAlimento.buscaPorNome(busca,pagina);
-        }
+        List<Categoria> listCategoria;
+        if(busca != null) {
 
+            listCategoria = servicoCategoria.buscaPorNome(busca);
+
+            if (listCategoria.isEmpty()) {
+                alimentos = servicoAlimento.buscaPorNome(busca, pagina);
+            } else {
+                alimentos = servicoAlimento.buscaPorCategoria(pagina, listCategoria.get(0).getCodigo());
+            }
+        }
         else if(categoria != 0){
             alimentos = servicoAlimento.buscaPorCategoria(pagina,categoria);
         }
