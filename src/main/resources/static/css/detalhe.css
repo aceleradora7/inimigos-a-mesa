@@ -39,6 +39,12 @@
 .medidas-visuais{
 	margin-top: 45px;
 	margin-bottom: 60px;
+	background-color: #F5F5F5;
+}
+
+#medidas-visuais{
+
+	background-color: #F5F5F5;
 }
 
 .medidas-visuais-titulo{
@@ -68,13 +74,18 @@ margin:0;
 }
 .block {
     display: inline-block;
-    margin-right: 10px;
+    margin-top: 50px;
 }
 
 .aparenciaTabela {
     font-size: 14px !important;
     border-radius: 4px !important;
     backgroud-color: #888;
+    float: right;
+}
+
+.ajuste-tamanho-td{
+    width: 200px;
 }
 
 .fonte {
@@ -84,3 +95,90 @@ margin:0;
 #porcaoAlimento{
     margin-bottom: 15px;
 }
+
+#tituloAlimento{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.tirando-margin{
+    margin-top: 0px;
+}
+
+#tituloMedidas{
+    text-align: center;
+}
+
+h1{
+    font-size:3em !important;
+}
+
+h2{
+    font-size:2em !important;
+}
+
+#imagem-detalhe{
+    width: 500px;
+    height: 350px;
+
+}
+
+#tabela-detalhe{
+    float: right;
+    width: 500px;
+    height: 350px;
+    margin-right: -45px !important;
+}
+
+
+#medidas-visuais{
+    width: 100%;
+    height: 100%;
+    padding-top:30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+}
+
+.tamanho-imagem-div{
+    width: 325px !important;
+
+}
+
+.tamanho-ul {
+
+        height: 350px;
+}
+
+.ajustando-tabela {
+    text-align: center;
+}
+
+.ajustando-tabela-2{
+    padding-left: 0px !important;
+    margin-top:-20px !important;
+
+}
+
+.ancora-link{
+    width: 100%;
+    height: 40px;
+    background-color: #4CAE4C;
+    border-radius: 10px;
+    color: WHITE;
+    text-align: center;
+    padding-top: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    float: left;
+    margin-top: 20px;
+
+}
+
+
+
+
+a.ancora-link:hover  {
+     color: white;
+      background-color: green;
+}
+

@@ -27,179 +27,141 @@
         <p id="sal" th:value="${medidas.colheresDeSal}"></p>
 
 
-        <div class="container wrapper-conteudo" id="mostraAlimento">
-            <div class = "row" id="infoAlimento">
-                <div>
+        <div class="container" id="mostraAlimento">
 
-                    <div class="col-lg-2 col-md-2 grupo-btn"  th:if="${#httpServletRequest.remoteUser != null}" >
-                        <a th:href="@{'/editarAlimento?codigo=' + ${alimento.codigo}}" class="botao-editar">
-                                <button type="button" class="btn btn-danger">
-                                    Editar
-                                </button>
-                        </a>
-                        <a class="botao-deletar" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
-                            <button type="button" class="btn btn-danger">
-                                Deletar
-                            </button>
-                        </a>
-
-                    </div>
+            <div id="titulo-detalhe">
+                <div id="tituloAlimento">
+                    <h1 class="block" th:text="${alimento.nome}"></h1>
+                    <h2 class="tirando-margin" th:text="${alimento.categoria.nome}"></h2>
                 </div>
+            </div>
 
-                <div class="row col-lg-12" id="TituloAlimento">
-                    <h2 class="block" th:text="${alimento.nome}"></h2>
-                    <h4 th:text="${alimento.categoria.nome}"></h4>
+            <div class="row col-lg-12" id="imagem-tabela">
+                <div id="imagem-detalhe" class="row col-lg-6 img-responsive  center-block">
+                    <center>
+                        <img class="tamanho-imagem-div img-responsive" th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
+                    </center>
                 </div>
+                <div id="tabela-detalhe" class="row col-lg-6 img-responsive center-block">
+                    <ul class="list-group-item img-responsive" >
+                    <table class="table table-bordered">
+                        <thead>
+                        <li class="list-group-item ajustando-tabela">
+                            <h3>
+                                <b>Tabela Nutricional</b>
+                            </h3>
+                            Para porção de
 
+                            <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"> </text>
+                            <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>
 
-                <div class="row">
-
-                    <div id="imagemTabela">
-
-                        <div class="col-xs-7 col-md-6 col-lg-7 tamanho-div-imagem">
-                            <img th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
-                        </div>
-
-                        <div id="tabela-nutricional" class="col-xs-4 col-md-3 col-lg-4">
-                            <ul class="list-group">
-                                <center>
-                                    <li class="list-group-item">
-                                        <h3>
-                                            <b>Tabela Nutricional</b>
-                                        </h3>
-                                    </li>
-                                </center>
-                                <li class="list-group-item">
-                                    Para porção de
-
-                                    <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"> </text>
-                                    <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>
-
-                                </li>
-                                <li class="list-group-item">
-                                    <label  value="calorias" id="valor-caloria" class="badge aparenciaTabela" th:text="${legenda.calorias}" th:value="${alimento.calorias}"> </label>
+                        </li>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="ajuste-tamanho-td">
                                     Calorias
-                                </li>
-                                <li class="list-group-item">
-                                    <label id="valor-acucar" class="badge aparenciaTabela" th:text="${legenda.acucar}" th:value="${alimento.acucar}" ></label>
-                                    Açúcar
-                                </li>
-                                <li class="list-group-item">
-                                    <span id="valor-gordura" class="badge aparenciaTabela" th:text="${legenda.gordura}" th:value="${alimento.gordura}"></span>
+                                    <label  value="calorias" id="valor-caloria" class="badge aparenciaTabela" th:text="${legenda.calorias}" th:value="${alimento.calorias}"> </label>
+                                </td>
+                                <td class="ajuste-tamanho-td">
                                     Gordura
-                                </li>
-                                <li class="list-group-item">
-                                    <span id="valor-sodio" class="badge aparenciaTabela" th:text="${legenda.sodio}" th:value="${alimento.sodio}"></span>
+                                    <label id="valor-gordura" class="badge aparenciaTabela" th:text="${legenda.gordura}" th:value="${alimento.gordura}"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ajuste-tamanho-td">
+                                    Açúcar
+                                    <label id="valor-acucar" class="badge aparenciaTabela" th:text="${legenda.acucar}" th:value="${alimento.acucar}" ></label>
+                                </td>
+                                <td class="ajuste-tamanho-td">
                                     Sódio
-                                </li>
-                                <li class="list-group-item">
-                                    <h4>
-                                        <b><center>Legenda</center></b>
-                                    </h4>
+                                    <span id="valor-sodio" class="badge aparenciaTabela" th:text="${legenda.sodio}" th:value="${alimento.sodio}"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                        <ul class="ajustando-tabela-2">
+                            <h6 class="list-group-item">
+                                <B>NA</B> - Não avaliado
+                                <br />
+                                <b>TR</b> - Traço para medidas entre 0 à 0.5
+                            </h6>
+                            <span class="fonte">Fonte: As informações foram extraídas pela equipe "Inimigos à Mesa?".</span>
+                            <a class="ancora-link" href="#testee">
+                                Ver medidas visuais
+                            </a>
+                        </ul>
 
-                                    <h6 class="list-group-item">
-                                        <B>NA</B> - Não avaliado
-                                        <br />
-                                        <b>TR</b> - Traço para medidas entre 0 à 0.5
-                                    </h6>
-                                </li>
-                               <span class="fonte">Fonte: As informações foram extraídas pela equipe "Inimigos à Mesa?".</span>
-                            </ul>
-                        </div>
 
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="medidas-visuais">
 
-                            <div id="porcaoAlimento">
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+            <p id="testee"></p>
+        <div id="medidas-visuais" style="background-color: #F5F5F5 !important;">
+            <div class="container">
+                <div id="titulo-medidas">
+                    <div id="tituloMedidas">
+                        <h2 class="block"> Medidas Visuais</h2>
+                        <div id="porcaoAlimento">
                             <text class="tamanhoFonte">Para porção de</text>
                             <text class="tamanhoFonte" value="porcaoAlimento" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
                             <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text >
-                            </div>
-
-                            <div class="espacoAcucar">
-                                <div class="row">
-                                    <div class="col-md-11 alinhamentos">
-                                        <h3 class="medidas-visuais-titulo">Açúcar: </h3>
-                                        <h3 class="texto-numero-colher" th:text="${medidas.colheresDeAcucar}"></h3>
-                                        <h3 class="texto-colheres">colheres </h3>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 1.76g de açúcar.</i></span>
-                                    <div class="col-md-11 alinhamentos" id="imagem-colher-acucar" data-toggle="popover" title="Cada colher de chá contém 1.76g de açúcar."></div>
-                                </div>
-                            </div>
-
-                            <div class="espacoGordura">
-                                <div class="row">
-                                    <div class="col-md-11 alinhamentos">
-                                        <h3 class="medidas-visuais-titulo">Gordura:</h3>
-                                        <h3 class="texto-numero-colher" th:text="${medidas.colheresDeGordura}"></h3>
-                                        <h3 class="texto-colheres">colheres</h3>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.0ml de gordura</i></span>
-                                    <div class="col-md-11 alinhamentos" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
-                                </div>
-                            </div>
-
-                            <div class="espacoSal">
-                                <div class="row">
-                                    <div class="col-md-11 alinhamentos">
-                                        <h3 class="medidas-visuais-titulo">Sal:</h3>
-                                        <h3 class="texto-numero-colher" th:text="${medidas.colheresDeSal}"></h3>
-                                        <h3 class="texto-colheres">colheres</h3>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.06g de sal</i></span>
-                                    <div class="col-md-11 alinhamentos" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-                <div class="modal-dialog ajuste-recuperar" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusao de Alimento</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div>
-                                <form class="form-horizontal" th:action="@{/recuperarSenha}" th:object="${Usuario}" method="POST">
-                                    <div id="infoAlimentoDeletar" class="media">
-                                        <div id="imagemAlimento" class="media-left media-middle" >
-                                            <img th:src="${alimento.urlImagemPequena}" class="img-rounded media-object imagem-grid"/>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading" th:text="${alimento.nome}" id="alimento"></h4>
-                                            <p id="categoria" th:text="${alimento.getCategoria().getNome()}"></p>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                            <a class="botao-deletar" th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}">
-                                <button type="button" class="btn btn-primary">
-                                    Confirmar
-                                </button>
-                            </a>
-
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="container">
+                <div class="espacoAcucar">
+                    <div class="row">
+                        <div class="col-md-11 alinhamentos">
+                            <h3 class="medidas-visuais-titulo">Açúcar: </h3>
+                            <h3 class="texto-numero-colher" th:text="${medidas.colheresDeAcucar}"></h3>
+                            <h3 class="texto-colheres">colheres de chá</h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 1.76g de açúcar.</i></span>
+                        <div class="col-md-12 alinhamentos" id="imagem-colher-acucar" data-toggle="popover" title="Cada colher de chá contém 1.76g de açúcar."></div>
+                    </div>
+                </div>
+
+                <div class="espacoGordura">
+                    <div class="row">
+                        <div class="col-md-11 alinhamentos">
+                            <h3 class="medidas-visuais-titulo">Gordura:</h3>
+                            <h3 class="texto-numero-colher" th:text="${medidas.colheresDeGordura}"></h3>
+                            <h3 class="texto-colheres">colheres de chá</h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.0ml de gordura</i></span>
+                        <div class="col-md-12 alinhamentos" id="imagem-colher-gordura" data-toggle="popover" title="Cada colher de chá contém 2.0ml de gordura"></div>
+                    </div>
+                </div>
+
+                <div class="espacoSal">
+                    <div class="row">
+                        <div class="col-md-11 alinhamentos">
+                            <h3 class="medidas-visuais-titulo">Sal:</h3>
+                            <h3 class="texto-numero-colher" th:text="${medidas.colheresDeSal}"></h3>
+                            <h3 class="texto-colheres">colheres de chá</h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <span class="col-md-11 alinhamentos"><i>Cada colher de chá contém 2.06g de sal</i></span>
+                        <div class="col-md-12 alinhamentos" id="imagem-colher-sal" data-toggle="popover" title="Cada colher de chá contém 2.06g de sal"></div>
+                    </div>
+                </div>
+            </div>
+
+
 
         </div>
 
