@@ -32,14 +32,12 @@
 	<nav th:replace="fragmentos/header :: cabecalho"></nav>
 
 	<div id="menu-categoria" class="btn-group categorias" role="group" aria-label="...">
-		<center>
 			<div class="row">
 				<div class="col-lg-12 col-md-12">
 					<button class="col-lg-2 col-md-3 col-sm-3 col-xs-12 btn btn-primary btn-lg categoria" th:each="categoria : ${categorias}" type="button" th:value="${categoria.codigo}" th:text="${categoria.nome}">
 					</button>
 				</div>
 			</div>
-		</center>
 
 	</div>
 	<div class="col-lg-2 col-md-2 grupo-btn"  th:if="${#httpServletRequest.remoteUser != null}" >
@@ -48,6 +46,36 @@
 				Cadastrar Alimento
 			</button>
 		</a>
+	</div>
+	<div class="btn-group menuLetras">
+		<div class="centralizar">
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=a">A</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=b">B</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=c">C</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=d">D</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=e">E</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=f">F</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=g">G</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=h">H</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=i">I</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=j">J</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=k">K</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=l">L</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=m">M</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=n">N</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=o">O</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=p">P</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=q">Q</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=r">R</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=s">S</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=t">T</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=u">U</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=v">V</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=w">W</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=x">X</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=y">Y</a>
+		<a class="btn btn-primary btn-lg buscaLetra" href="/grid?busca=z">Z</a>
+	</div>
 	</div>
 
 	<div class="container wrapper-conteudo tamanho-minimo-pagina">
