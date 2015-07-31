@@ -7,4 +7,7 @@ public class Consultas {
     public class Alimento{
         public static final String FIND_BY_NOME = "SELECT a FROM alimento a WHERE UPPER(UNACCENT(nome)) LIKE UPPER(UNACCENT(:nome))";
     }
+    public class Categoria{
+        public static final String FIND_BY_NOME = "SELECT a FROM categoria a WHERE UPPER(UNACCENT(nome)) LIKE UPPER(UNACCENT(:nome))";
+    }
 }
