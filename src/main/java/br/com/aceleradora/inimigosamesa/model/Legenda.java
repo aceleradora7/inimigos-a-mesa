@@ -1,5 +1,8 @@
 package br.com.aceleradora.inimigosamesa.model;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
 public class Legenda {
 
     public static final String TRACO = "TR";
@@ -38,8 +41,11 @@ public class Legenda {
             return NAO_AVALIADO;
         }
 
-        double valorNumerico = Double.parseDouble(valor);
+        DecimalFormat formatoDecimalDuasCasas = new DecimalFormat("0.00");
+        String valorNumericoFormato = formatoDecimalDuasCasas.format(Double.parseDouble(valor));
+        valorNumericoFormato = valorNumericoFormato.replace(",",".");
+        double valorNumerico = Double.parseDouble(valorNumericoFormato);
 
-        return valorNumerico > 0 && valorNumerico <= 0.5 ? TRACO : valor + " " + unidade;
+        return valorNumerico > 0 && valorNumerico <= 0.5 ? TRACO : valorNumerico + " " + unidade;
     }
 }
