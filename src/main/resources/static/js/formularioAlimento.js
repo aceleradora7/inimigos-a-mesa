@@ -9,6 +9,7 @@ $(document).ready(function(){
     }
 
 
+
     cloudinary.applyUploadWidget(document.getElementById('upload_widget_opener'),
    //$('#upload_widget_opener').cloudinary_upload_widget(
                 { cloud_name: 'dq5mndrjt',
@@ -41,10 +42,7 @@ $(document).ready(function(){
                     var urlImagemGrande = urlParte1.concat(tamanhoGrande);
                     var urlImagemGrandeFinal = urlImagemGrande.concat(urlParte2);
 
-                    alert(urlImagemPequenaFinal);
-                    alert(urlImagemGrandeFinal);
-
-                    $( ".cloudinary-thumbnails" ).remove();
+//                    $( ".cloudinary-thumbnails" ).remove();
 
                     $( "#imagemAlimento" ).replaceWith( " <img src='"+urlImagemGrandeFinal+"' id='imagemAlimento' alt='Imagem do Alimento'/>" );
 
