@@ -58,7 +58,8 @@
 
 /* the icon with pseudo class for icon font */
 .cbp-ig-icon {
-	padding: 20px 0 0 0;
+	padding: 0
+	 0 0 0;
 	display: block;
 	-webkit-transition: -webkit-transform 0.2s;
 	transition: -moz-transform 0.2s;

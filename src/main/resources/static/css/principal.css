@@ -295,3 +295,7 @@ hr {
 .centralizar-texto {
 	text-align: center;
 }
+
+.row .escritaheader{
+	padding-bottom: 50px;
+}
