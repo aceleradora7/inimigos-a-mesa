@@ -31,3 +31,9 @@ body{
 .msg-erro{
 	font-weight: bold;
 }
+
+.busca-letras {
+	margin-top: 10px;
+    background-color: #449D44;
+    width: 100%;
+}
