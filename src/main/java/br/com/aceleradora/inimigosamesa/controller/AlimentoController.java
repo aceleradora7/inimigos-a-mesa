@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -143,7 +143,7 @@ public class AlimentoController {
 
     public String validacao(Model model, @Valid Alimento alimento, BindingResult bindingResult){
         if(alimento.getNome().isEmpty()){
-            model.addAttribute("erroNome","Preencha o campo com o nome do alimento.");
+            model.addAttribute("erroNome", "Preencha o campo com o nome do alimento.");
             return cadastrarAlimento(model,alimento);
         }
         else if(alimento.getCategoria()==null) {
@@ -158,10 +158,14 @@ public class AlimentoController {
             model.addAttribute("erroPorcaoExibicao","Preencha o campo com números e marque a unidade da porção.");
             return cadastrarAlimento(model,alimento);
         }
+        else if(alimento.getMedidaCaseira().isEmpty() || alimento.getMedidaCaseira()==null){
+            model.addAttribute("erroMedidaCaseira","Preencha o campo.");
+            return cadastrarAlimento(model,alimento);
+        }
 
 
 
-        else if(alimento.temLetraCalorias()) {
+        else if (alimento.temLetraCalorias()) {
             model.addAttribute("erroCalorias","O campo calorias só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
         } else if(alimento.temLetraAcucar()){
