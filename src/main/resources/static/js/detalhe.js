@@ -35,8 +35,18 @@ function renderizarColher(tipo){
     }
 }
 
-$(document).ready(function(){
+    function efeitoDaAncora(){
+        $(function() {
+        $('a').bind('click',function(event){
+        var $anchor = $(this);
+        $('html, body').stop().animate({scrollTop: $($anchor.attr('href')).offset().top}, 750,'swing');
+        });
+        });
+    }
 
+
+$(document).ready(function(){
+    efeitoDaAncora();
     renderizarColher("gordura");
     renderizarColher("sal");
     renderizarColher("acucar");

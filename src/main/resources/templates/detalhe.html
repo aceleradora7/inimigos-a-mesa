@@ -14,6 +14,8 @@
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
     <link th:replace="fragmentos/header :: favicon-ico" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 
     <link type="text/css" href="/css/detalhe.css" rel="stylesheet"/>
 
@@ -117,6 +119,10 @@
         </div>
             <p id="medidas-visuais-ancora"></p>
         <div id="medidas-visuais">
+            <div class="seta-ancora">
+                <div class="alinhar-seta-direita">
+                    <a href="#mostraAlimento">
+                        <img class="imagem-seta-ancora" src="/img/seta-cima.png"/></a></div></div>
             <div class="container">
                 <div id="titulo-medidas">
                     <div id="tituloMedidas">
@@ -189,6 +195,11 @@
     <div id="template-sem-colher" class="sem-colher" style="display:none">
        <span><i>A quantia não é suficiente para uma medida de colher.</i></span>
     </div>
+
+
+
+
+
 
 </body>
 </html>

@@ -188,3 +188,17 @@ a.ancora-link:hover  {
     margin-top: -45px;
     margin-bottom: 10px;
 }
+
+.imagem-seta-ancora{
+    width: 50px;
+    margin-right: 40px;
+}
+
+.alinhar-seta-direita{
+    float: right;
+}
+
+.seta-ancora{
+    width: 100%;
+    position: fixed;
+}
