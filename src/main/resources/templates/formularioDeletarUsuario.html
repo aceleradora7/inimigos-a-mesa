@@ -6,9 +6,10 @@
     <title>Exclusao de usuario</title>
 
     <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <link rel="stylesheet" type="text/css" href="css/formularioDeletarUsuario.css"/>
     <link th:replace="fragmentos/header :: jqueryui-css" />
     <link th:replace="fragmentos/header :: flaticon-css" />
-    <link th:replace="fragmentos/header :: principal-css" />
     <script th:replace="fragmentos/header :: jquery"/>
     <script th:replace="fragmentos/header :: jqueryui"/>
     <script th:replace="fragmentos/header :: bootstrap-js"/>
@@ -18,13 +19,24 @@
 </head>
 <body>
 
-    <div class="form-group">
-        <label >Selecione um usuario: </label>
-        <select class="form-control">
-            <option value="0">Selecione um usuario</option>
-            <option th:each="usuario: ${usuarios}" th:text="${usuario.nome}" th:value="${usuario.codigo}" >Selecione um usuario</option>
-        </select>
+    <nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+
+    <div class="container wrapper-conteudo tamanho-minimo-pagina-usuario">
+        <div class="form-group">
+            <label >Selecione um usuario: </label>
+            <select class="form-control">
+                <option value="0">Selecione um usuario</option>
+                <option th:each="usuario: ${usuarios}" th:text="${usuario.nome}" th:value="${usuario.codigo}" >Selecione um usuario</option>
+            </select>
+        </div>
     </div>
+
+
+
+
+    <nav th:replace="fragmentos/rodape :: rodape"></nav>
+
 
 </body>
 </html>
