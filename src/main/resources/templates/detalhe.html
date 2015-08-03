@@ -68,9 +68,9 @@
                                 <b>Tabela Nutricional</b>
                             </h3>
                             Para porção de
-
                             <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"> </text>
-                            <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>
+                            <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>, igual a
+                            <text  value="medidaCaseira" id="medidaCaseira"  th:text="${alimento.medidaCaseira}"> </text>.
 
                         </li>
                         </thead>
@@ -103,7 +103,9 @@
                                 <br />
                                 <b>TR</b> - Traço para medidas entre 0 à 0.5
                             </h6>
-                            <span class="fonte">Fonte: As informações foram extraídas pela equipe "Inimigos à Mesa?".</span>
+                             <span class="fonte">Fonte:</span>
+                            <text  value="fonte" id="fonte" class="fonte" th:text="${alimento.fonte}"> </text>.
+
                             <a class="ancora-link" href="#medidas-visuais-ancora">
                                 Ver medidas visuais
                             </a>
@@ -181,10 +183,41 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog ajuste-recuperar" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusao de Alimento</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <form class="form-horizontal" th:action="@{/recuperarSenha}" th:object="${Usuario}" method="POST">
+                            <div id="infoAlimentoDeletar" class="media">
+                                <div id="imagemAlimento" class="media-left media-middle" >
+                                    <img th:src="${alimento.urlImagemPequena}" class="img-rounded media-object imagem-grid"/>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading" th:text="${alimento.nome}" id="alimento"></h4>
+                                    <p id="categoria" th:text="${alimento.getCategoria().getNome()}"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <a class="botao-deletar" th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}">
+                        <button type="button" class="btn btn-primary">
+                            Confirmar
+                        </button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <nav th:replace="fragmentos/rodape :: rodape"></nav>
 

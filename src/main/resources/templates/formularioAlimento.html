@@ -132,6 +132,20 @@
                                     <label th:text="${erroPorcaoExibicao}"/>
                                 </li>
                                 <li class="list-group-item">
+                                    <div class="form-group">
+                                        <div class="alinha-esquerda">Medida Caseira:</div>
+                                        <input id="medidaCaseira" type="text" th:field="*{medidaCaseira}" placeholder="Ex.: Duas bolachas" class="input-alimento alinha-direita" name="medidaCaseira" />
+                                    </div>
+                                    <div id="espacoErroMedidaCaseira">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroMedidaCaseira">
+                                            <label>Preencha o campo.</label>
+                                        </div>
+                                    </div>
+                                    <label th:text="${erroMedidaCaseira}"/>
+                                    <br/>
+                                </li>
+
+                                <li class="list-group-item">
                                     <div class="alinha-esquerda">Calorias:</div>
                                     <div class="alinha-direita">
                                         <input id="porcaoCalorias" class="input-alimento" placeholder="Ex.: 100" th:field="*{calorias}" type="text" name="calorias" value=""/>
@@ -200,9 +214,15 @@
                                     <label th:text="${erroGordura}"/>
                                 </li>
                                 <li class="list-group-item">
+                                    <div class="form-group">
+                                        <div class="alinha-esquerda">Fonte:</div>
+                                        <textarea  id="fonte" type="text" th:field="*{fonte}" placeholder="Ex.: Duas bolachas" class="input-alimento alinha-direita tamanho-max" name="fonte" />
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
                                     <div class="alinha-esquerda">Observações:</div>
                                     <div class="alinha-direita">
-                                        <textarea class="input-alimento" placeholder="Ex.: Marca" th:field="*{observacao}" type="textarea" name="observacao" value=""/>
+                                        <textarea class="input-alimento tamanho-max" placeholder="Ex.: Marca" th:field="*{observacao}" type="textarea" name="observacao" value=""/>
                                     </div>
                                 </li>
                                 <li class="list-group-item">

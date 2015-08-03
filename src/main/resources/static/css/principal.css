@@ -325,3 +325,14 @@ hr {
 .icone-home{
 	padding-top: 60px;
 }
+
+.tamanho-max {
+	max-width: 350px;
+	max-height: 80px;
+	min-height: 80px;
+	min-width: 350px;
+}
+
+#espacoErroMedidaCaseira {
+	margin-bottom: 50px;
+}

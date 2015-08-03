@@ -16,7 +16,7 @@
     function validarCadastro(){
 
         if (validarNome() && validarCategoria() && validarPorcaoBase() &&
-        validarPorcaoExibicao()  && validarPorcaoCalorias() && validarPorcaoAcucar() &&
+        validarPorcaoExibicao()  &&  validarMedidaCaseira() && validarPorcaoCalorias() && validarPorcaoAcucar() &&
         validarPorcaoSodio() && validarPorcaoGordura()) {
             return true;
         }
@@ -94,6 +94,19 @@
             }
     }
 
+    function validarMedidaCaseira(){
+            var medidaCaseira = $('#medidaCaseira');
+
+                if(medidaCaseira.val()){
+                    $("#espacoErroMedidaCaseira").hide();
+                    return true;
+                }else{
+                   $("#espacoErroMedidaCaseira").show();
+                   medidaCaseira.focus();
+                   return false;
+                }
+        }
+
     function validarUnidadePorcaoExibicao(){
         var ml = $('#mlExibicao');
         var g = $('#gExibicao');
@@ -162,6 +175,7 @@
   }
 
     function escondeCampos(){
+        $("#espacoErroMedidaCaseira").hide();
         $("#espacoErroNome").hide();
         $("#espacoErroCategoria").hide();
         $("#espacoErroPorcaoBase").hide();
