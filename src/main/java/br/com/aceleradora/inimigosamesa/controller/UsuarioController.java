@@ -44,7 +44,7 @@ public class UsuarioController {
     }
 
 
-    @RequestMapping(value = "/formularioUsuario", method = RequestMethod.GET)
+    @RequestMapping(value = "/cadastrarUsuario", method = RequestMethod.GET)
     public String cadastrarNovoAdministrador(Model model){
         Usuario usuario = new Usuario();
         model.addAttribute("usuario", usuario);
@@ -52,10 +52,10 @@ public class UsuarioController {
         return "formularioUsuario";
     }
 
-    @RequestMapping(value = "/formularioUsuario", method = RequestMethod.POST)
+    @RequestMapping(value = "/gerenciarUsuario", method = RequestMethod.POST)
     public String gererenciarUsuario(Model model, Usuario usuario){
         servicoUsuario.salvar(usuario);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
 
