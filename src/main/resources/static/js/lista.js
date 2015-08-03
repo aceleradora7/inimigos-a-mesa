@@ -26,6 +26,7 @@ function associarEventos(){
     associarEventosOpcaoDeOrdenacao();
 };
 
+
 $(document).ready(function(){
 
     var parametros = getParametros();
