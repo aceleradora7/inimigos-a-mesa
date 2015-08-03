@@ -18,6 +18,8 @@
     <script th:replace="fragmentos/header :: busca"/>
     <link th:replace="fragmentos/header :: favicon-ico" />
 
+    <link rel="stylesheet" type="text/css" href="/css/formularioAlimento.css"/>
+
 </head>
 <body>
 <nav th:replace="fragmentos/header :: cabecalho"></nav>
@@ -25,42 +27,72 @@
 <div class="titulo-login"><h1>Cadastro de Administrador</h1></div>
 <div class="container-fluid">
     <div class="bloco-login">
-
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-        <form class="form-horizontal" th:action="@{/formularioUsuario}" th:object="${usuario}" method="POST">
+        <form class="form-horizontal" th:action="@{/gerenciarUsuario}" th:object="${usuario}" method="POST">
             <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-4">
+
+            <div class="col-sm-offset-3 col-md-6">
+                <div>
                     <label for="inputNome" class="control-label">Nome:</label>
                     <input th:field="*{nome}" type="nome" name="nome" class="form-control" id="inputnome" placeholder="Nome usuário"/>
                 </div>
-                <div class="col-sm-offset-4 col-sm-4">
+                <div id="espacoErroNome" class="div-erro">
+                    <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroGordura">
+                        <label>Preencha o campo com o nome do usuário. </label>
+                    </div>
+                </div>
+                <label th:text="${erroNome}"/>
+            </div>
+
+            <div class="col-sm-offset-3 col-md-6">
+                <div>
                     <label for="inputEmail" class="control-label">E-mail:</label>
                     <input th:field="*{email}" type="email" name="username" class="form-control" id="inputEmail" placeholder="Email"/>
                 </div>
-                <div class="col-sm-offset-4 col-sm-4">
+                <div id="espacoErroEmail" class="div-erro">
+                    <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroGordura">
+                        <label>Preencha o campo com o email do usuário. </label>
+                    </div>
+                </div>
+                <label th:text="${erroEmail}"/>
+            </div>
+            <div class="col-sm-offset-3 col-md-6">
+                    <div>
                     <label for="inputPassword" class="control-label">Senha:</label>
                     <input th:field="*{senha}" type="password" name="password" class="form-control" id="inputPassword" placeholder="Senha"/>
                 </div>
-                <div class="col-sm-offset-4 col-sm-4">
-                    <label for="inputRepetirPassword" class="control-label">Repita a Senha:</label>
-                    <input th:field="*{senha}" type="password" name="password" class="form-control" id="inputRepetirPassword" placeholder="Senha"/>
+                <div id="espacoErroSenha" class="div-erro">
+                    <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroGordura">
+                        <label>Preencha o campo com a senha do usuário. </label>
+                    </div>
                 </div>
-                <div class="col-sm-offset-4 col-sm-4">
-                    <label for="inputRepetirPassword" class="control-label">Nível de Acesso:</label>
-                    <select class="form-control" th:field="*{role}">
+                <label th:text="${erroSenha}"/>
+            </div>
+
+            <div class="col-sm-offset-3 col-md-6">
+                <div>
+                    <label for="inputRepetirPassword" class="control-label">Repita a Senha:</label>
+                    <input type="password" name="password" class="form-control" id="inputRepetirPassword" placeholder="Senha"/>
+                </div>
+                <div id="espacoErroRepetirSenha" class="div-erro">
+                    <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroGordura">
+                        <label> As senhas não coincidem </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-offset-3 col-md-6">
+                <div>
+                    <label for="comboRoles" class="control-label">Nível de Acesso:</label>
+                    <select class="form-control" id="comboRoles" th:field="*{role}">
                         <option th:each="role : ${T(br.com.aceleradora.inimigosamesa.model.Role).values()}" th:value="${role}" th:text="${role.value}"></option>
                     </select>
                 </div>
-                <div class="col-sm-offset-4 col-sm-4">
-                    <button type="submit" class="btn btn-default">Cadastrar</button>
-                    <a href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat"><button class="btn btn-default">Deletar</button></a>
+                <div class="col-sm-offset-3 col-sm-6">
+                    <a class="btn btn-danger botao-cancelar" id="cancelar" th:href="@{/index}">Cancelar</a>
+                    <input class="btn btn-success botao-enviar" type="submit"  id="enviar" value="Enviar Dados"/>
                 </div>
             </div>
+                </div>
         </form>
 
     </div>
