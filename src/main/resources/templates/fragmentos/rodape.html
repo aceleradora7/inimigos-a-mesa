@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" xmlns:class="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://thymeleaf.org" xmlns:class="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.springframework.org/security/tags">
 <head>
 
  </head>
@@ -81,11 +82,13 @@
                     <a th:href="@{/login}">Login</a>
                 </li>
                 <li th:if="${#httpServletRequest.remoteUser != null}">
+
                     <a th:href="@{/logout}">Logout</a>
                 </li>
-                <li th:if="${#httpServletRequest.remoteUser != null}">
+                <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
                     <a href="/formularioUsuario">Cadastro Administrador</a>
                 </li>
+
             </div>
              <!--<div class="compartilhamento alinhar">-->
                  <!--COMPARTILHAMENTO-->
