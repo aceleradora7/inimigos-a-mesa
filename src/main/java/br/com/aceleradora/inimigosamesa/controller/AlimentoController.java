@@ -50,7 +50,12 @@ public class AlimentoController {
             listCategoria = servicoCategoria.buscaPorNome(busca);
 
             if (listCategoria.isEmpty()) {
-                alimentos = servicoAlimento.buscaPorNome(busca, pagina);
+                if(categoria != 0) {
+                    alimentos = servicoAlimento.buscaPorNomeNaCategoria(busca, categoria, pagina);
+                    System.out.println("aspas");
+                } else {
+                    alimentos = servicoAlimento.buscaPorNome(busca, pagina);
+                }
             } else {
                 alimentos = servicoAlimento.buscaPorCategoria(pagina, listCategoria.get(0).getCodigo());
             }
