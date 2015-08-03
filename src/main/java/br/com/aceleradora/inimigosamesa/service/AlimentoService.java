@@ -37,6 +37,11 @@ public class AlimentoService {
         return repositorioAlimento.findByNome(nome, paginacao(pagina));
     }
 
+    public Iterable<Alimento> buscaPorNomeNaCategoria(String nome, int categoria, int pagina) {
+        nome = nome.concat(CORINGA_ALL);
+        return repositorioAlimento.findByNomeNaCategoria(nome, categoria,paginacao(pagina));
+    }
+
     public Iterable<Alimento> buscaPorCategoria(int pagina, int codigoCategoria) {
         return repositorioAlimento.findByCategoria(new Categoria(codigoCategoria), paginacao(pagina));
     }
