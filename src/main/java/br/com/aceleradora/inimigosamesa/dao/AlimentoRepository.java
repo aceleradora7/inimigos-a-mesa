@@ -13,9 +13,14 @@ public interface AlimentoRepository extends JpaRepository<Alimento, Integer> {
     @Query(Consultas.Alimento.FIND_BY_NOME)
     Page<Alimento> findByNome(@Param("nome") String nome, Pageable paginacao);
 
+    @Query(Consultas.Alimento.FIND_BY_NOME_NA_CATEGORIA)
+    Page<Alimento> findByNomeNaCategoria(@Param("nome") String nome, @Param("categoria") int categoria, Pageable paginacao);
+
     @Query(Consultas.Alimento.FIND_BY_NOME)
     Iterable<Alimento> findByNome(@Param("nome") String nome);
 
     Page<Alimento> findByCategoria(Categoria categoria, Pageable paginacao);
+
+
 
 }
