@@ -3,7 +3,6 @@ package br.com.aceleradora.inimigosamesa.controller;
 import br.com.aceleradora.inimigosamesa.model.Email;
 import br.com.aceleradora.inimigosamesa.model.FormularioEmail;
 import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
-import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

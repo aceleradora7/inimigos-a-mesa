@@ -22,15 +22,51 @@
     <nav th:replace="fragmentos/header :: cabecalho"></nav>
 
 
-    <div class="container wrapper-conteudo tamanho-minimo-pagina-usuario">
-        <div class="form-group">
+
+    <div class="titulo-login"><h1>Deletar Usuário</h1></div>
+    <div class="form-group tamanho-minimo-pagina-usuario container wrapper-conteudo">
+        <form>
+        <div class="col-sm-offset-4 col-sm-4">
             <label >Selecione um usuario: </label>
             <select class="form-control">
                 <option value="0">Selecione um usuario</option>
                 <option th:each="usuario: ${usuarios}" th:text="${usuario.nome}" th:value="${usuario.codigo}" >Selecione um usuario</option>
             </select>
         </div>
+            <div class="col-sm-offset-4 col-sm-4 botao-deletar-usuario">
+                <a class="botao-deletar" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
+                    <button type="button" class="btn btn-danger">
+                        Deletar
+                    </button>
+                </a>
+            </div>
+        </form>
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog ajuste-recuperar" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusao de Usuário</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <a class="botao-deletar">
+                        <button type="button" class="btn btn-primary">
+                            Confirmar
+                        </button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
 
 

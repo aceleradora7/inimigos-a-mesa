@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
-
 /**
  * Created by aluno02 on 22/07/15.
  */
@@ -60,9 +58,23 @@ public class UsuarioController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/formularioDeletarUsuario")
-    public void buscarTodosUsuarios(Model model) {
-        List<Usuario> usuarios = servicoUsuario.buscaTodos();
-        model.addAttribute("usuarios", usuarios);
+
+
+    @RequestMapping("/formularioDeletarUsuario")
+    public String deletarUsuario(){
+
+        return "formularioDeletarUsuario";
     }
+
+
+
+
+//    @RequestMapping(value = "/formularioDeletarUsuario", method = RequestMethod.GET)
+//    public String buscarTodosUsuarios(Model model) {
+//        List<Usuario> usuario = servicoUsuario.buscaTodos();
+//        model.addAttribute("usuario", usuario);
+//
+//        return "formularioDeletarUsuario";
+//    }
+
 }

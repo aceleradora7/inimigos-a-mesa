@@ -1,3 +1,8 @@
 .tamanho-minimo-pagina-usuario{
    	min-height: 401px !important;
+   	margin-top: 50px;
+}
+
+.botao-deletar-usuario{
+	margin-top: 10px;
 }
