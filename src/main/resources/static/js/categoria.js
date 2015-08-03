@@ -23,7 +23,20 @@ function marcaBotaoCategoriaAtual(){
     });
 }
 
+function marcaBotaoLetraAtual(){
+    var letras = $("#menu-busca-letra");
+
+    var botoesLetras = letras.find(".buscaLetra").each(function(){
+
+        if($(this).val() === getParametros()["busca"]){
+            $(this).toggleClass("buscaLetra-atual");
+            $(this).on("click", function(){return false;});
+        }
+    });
+}
+
 $(document).ready(function(){
     associarEventosMenuCategoria();
     marcaBotaoCategoriaAtual();
+    marcaBotaoLetraAtual();
 });
