@@ -10,8 +10,8 @@
      <footer id="footer" class="container">
 
         <center>
-             <div class="alimento alinhar">
-                 ALIMENTOS
+             <div class="alinhamento-footer alinhar">
+                 <span class="titulo-rodape">ALIMENTOS</span>
                      <li>
                          <a href="/grid?categoria=1">Bebidas</a>
                      </li>
@@ -49,8 +49,8 @@
                          <a href="/grid?categoria=12">Verduras e Hortaliças</a>
                      </li>
              </div>
-             <div class="sites alinhar">
-                 PÁGINAS
+             <div class="alinhamento-footer alinhar">
+                 <span class="titulo-rodape">PÁGINAS</span>
                      <li>
                          <a th:href="@{/grid}">Alimentos</a>
                      </li>
@@ -76,8 +76,8 @@
                          <a th:href="@{/contato}">Contato</a>
                      </li>
              </div>
-            <div class="compartilhamento alinhar">
-                ADMINISTRADOR
+            <div class="alinhamento-footer alinhar">
+                <span class="titulo-rodape">ADMINISTRADOR</span>
                 <li th:if="${#httpServletRequest.remoteUser == null}">
                     <a th:href="@{/login}">Login</a>
                 </li>
@@ -90,15 +90,15 @@
                 </li>
 
             </div>
-             <!--<div class="compartilhamento alinhar">-->
-                 <!--COMPARTILHAMENTO-->
+             <!--<div class="alinhamento-footer alinhar">-->
+                 <!--<span class="titulo-rodape">COMPARTILHAMENTO</span>-->
                      <!--<li>-->
                          <!--<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>-->
                          <!--<script type="text/javascript">stLight.options({publisher: "57e7b7de-30c7-4cfc-9b9f-a2c45a73d62d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
 
                          <!--<span class='st_facebook_hcount' displayText='Facebook'></span>-->
                          <!--<span class='st_twitter_hcount' displayText='Tweet'></span>-->
-                        <!-- -->
+
                      <!--</li>-->
              <!--</div>-->
 
