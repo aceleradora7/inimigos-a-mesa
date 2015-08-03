@@ -76,50 +76,5 @@ public class ApresentacaoController {
         return "contato";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model) {
-        model.addAttribute("usuario", new Usuario());
-        return "login";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public void loginPost(Usuario usuario) {
-
-    }
-
-    @RequestMapping(value = "/recuperarSenha")
-    public void recuperarSenha() {
-
-    }
-
-    @RequestMapping(value = "/emailRecuperar", method = RequestMethod.POST)
-    public String emailRecuperarSenha() {
-
-        return "login";
-
-    }
-
-    @RequestMapping(value = "/emailRecuperar", method = RequestMethod.GET)
-    public String emailRecuperar() {
-
-        return "login";
-
-    }
-
-
-    @RequestMapping(value = "/formularioUsuario", method = RequestMethod.GET)
-    public String cadastrarNovoAdministrador(Model model){
-        Usuario usuario = new Usuario();
-        model.addAttribute("usuario", usuario);
-
-        return "formularioUsuario";
-    }
-
-    @RequestMapping(value = "/formularioUsuario", method = RequestMethod.POST)
-    public String gererenciarUsuario(Model model, Usuario usuario){
-        servicoUsuario.salvar(usuario);
-        return "redirect:/index";
-    }
-
 
 }
