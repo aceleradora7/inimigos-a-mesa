@@ -1,7 +1,7 @@
 package br.com.aceleradora.inimigosamesa.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity(name = "alimento")
@@ -32,11 +32,13 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     private String urlImagemPequena;
     private String urlImagemGrande;
     private String observacao;
+    private String medidaCaseira;
+    private String fonte;
 
     public Alimento() {
     }
 
-    public Alimento( String nome, String acucar, String sodio, String gordura, String calorias, String porcaoBaseCalculo, String unidadeBaseCalculo, String porcaoExibicao, String unidadeExibicao, String urlImagemPequena, String urlImagemGrande, String observacao, Categoria categoria) {
+    public Alimento( String nome, String acucar, String sodio, String gordura, String calorias, String porcaoBaseCalculo, String unidadeBaseCalculo, String porcaoExibicao, String unidadeExibicao, String urlImagemPequena, String urlImagemGrande, String observacao, Categoria categoria, String medidaCaseira, String fonte) {
         this.nome = nome;
         this.acucar = acucar;
         this.sodio = sodio;
@@ -50,6 +52,8 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         this.urlImagemGrande = urlImagemGrande;
         this.observacao = observacao;
         this.categoria = categoria;
+        this.medidaCaseira = medidaCaseira;
+        this.fonte = fonte;
     }
 
     public int getCodigo() {
@@ -164,6 +168,14 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
+
+    public String getMedidaCaseira() { return medidaCaseira; }
+
+    public void setMedidaCaseira(String medidaCaseira) { this.medidaCaseira = medidaCaseira; }
+
+    public String getFonte() { return fonte; }
+
+    public void setFonte(String fonte) { this.fonte = fonte; }
 
     @Override
     public int compareTo(Alimento o) {
