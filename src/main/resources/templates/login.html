@@ -25,13 +25,6 @@
         <div class="titulo-login"><h1>Tela Login</h1></div>
         <div class="container-fluid">
             <div class="bloco-login">
-
-                <!--<div th:if="${param.error}">-->
-                    <!--Invalid username and password.-->
-                <!--</div>-->
-                <!--<div th:if="${param.logout}">-->
-                    <!--You have been logged out.-->
-                <!--</div>-->
                 <form name="dados" data-toggle="validator" role="form" id="validarLogin" class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-4">
@@ -67,6 +60,12 @@
                                     <input type="checkbox"/> Lembrar
                                 </label>
                             </div>
+                        </div>
+                    </div>
+
+                    <div th:if="${param.error}">
+                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger">
+                            <label>Email ou Senha inválidos!</label>
                         </div>
                     </div>
 

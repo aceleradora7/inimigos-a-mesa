@@ -20,4 +20,10 @@ public class UsuarioService {
     public void salvar(Usuario usuario) {
         repositorioUsuario.save(usuario);
     }
+
+    public Usuario buscaPorEmail(String email){
+        return repositorioUsuario.findOneByEmail(email);
+    }
+
+
 }

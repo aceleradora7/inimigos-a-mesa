@@ -11,18 +11,24 @@ public class Usuario {
     private int codigo;
 
     private String nome;
+    @Column(name = "email", unique = true)
     private String email;
     private String senha;
 
-    public Usuario(String nome, String email, String senha) {
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public Usuario(String nome, String email, String senha, Role role) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.role = role;
     }
 
-    public Usuario(String email, String senha) {
+    public Usuario(String email, String senha, Role role) {
         this.email = email;
         this.senha = senha;
+        this.role = role;
     }
 
     public Usuario() {
@@ -59,6 +65,14 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
 
