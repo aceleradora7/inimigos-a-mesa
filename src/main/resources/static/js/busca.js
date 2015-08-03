@@ -56,18 +56,25 @@ function iniciarBuscarAoDigitar() {
 
 function onClickBotaoBusca(){
     setParametro("busca", $("#input-busca").val());
-    removerParametro("categoria");
+    removerParametro("pagina");
+    acessarPaginaComParametros("grid");
+}
+
+function onClickBotaoBuscaLetra(){
+console.log($(this));
+console.log($(this).val());
+    setParametro("busca", $(this).val());
     removerParametro("pagina");
     acessarPaginaComParametros("grid");
 }
 
 function associarEventoBotaoBusca(){
     $("#btn-busca").on("click", onClickBotaoBusca);
+    $(".buscaLetra").on("click", onClickBotaoBuscaLetra);
 }
 
 function buscaEnter(){
  $("#input-busca").keypress(function(e)
-
 {
 	if (e.which == 13)
 	{
