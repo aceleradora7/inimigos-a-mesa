@@ -78,7 +78,7 @@ hr {
 	color: #04A222;
 }
 
-.ajuste-ul-home{
+.ajuste-ul-home {
 	padding-bottom: 0px !important;
 }
 
@@ -92,43 +92,43 @@ hr {
 	margin-top: -20px;
 }
 
-.info-home{
-
+.info-home {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
-.colher-info{
+.colher-info {
 
 	display: inline-block;
 	height: 100px;
 }
-.info-texto{
+.info-texto {
 	display: inline-block;
 	margin-left: 30px;
 }
 
-.centraliza-vertical{
+.centraliza-vertical {
 	vertical-align: center;
 }
 
-.centraliza-horizontal{
+.centraliza-horizontal {
 	horizontal-align: center;
 }
 
-.texto-info-colher{
+.texto-info-colher {
 	text-size: 20px;
 	text-align: left;
 	font-weight: bold;
 	vertical-align: center;
 }
-.bloco-info{
+.bloco-info {
 	padding-top: 20px;
 }
-.buscar{
+
+.buscar {
 	width: 400px !important;
 }
 
-.escritaheader{
+.escritaheader {
 	font-size: 30px;
 }
 
@@ -141,7 +141,11 @@ hr {
 	padding-left: 15px !important;
 }
 
-.logoheader{
+.itens-menu-font {
+	color: #B8B8B8 !important;
+}
+
+.logoheader {
 	font-size: 28px;
 	margin-top: 4px !important;
 	float: left;
@@ -161,38 +165,39 @@ hr {
     color: #FFF;
     background: #2E2E2E none repeat scroll 0% 0%;
 	width: auto;
+	padding: 15px;
 }
 
+#footer a {
+	color: #bbb;
+	line-height: 2em;
+	font-size: 1em;
+}
 
-/* Footer */
-.alinhar{
+#footer a:hover {
+	color: #449D44;
+}
+
+.alinhar {
 	vertical-align: top;
 	list-style-type:none;
 	display: inline-block;
 	width: 200px;
 	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
-	}
-
-.alimento{
+.alinhamento-footer {
 	text-align: left;
     color: #FFFFFF !important;
-    font-family: Arial,Helvetica,sans-serif;
-    }
+}
 
-.sites {
-	text-align: left;
-    color: #FFFFFF !important;
-    font-family: Arial,Helvetica,sans-serif;
-    }
+.titulo-rodape {
+	font-weight: bold;
+	margin-bottom: 5px !important;
+}
 
-.compartilhamento {
-	text-align: left;
-    color: #FFFFFF !important;
-    font-family: Arial,Helvetica,sans-serif;
-    }
-
-.ui-widget{
+.ui-widget {
 	z-index: 5000 !important;
 }
 
@@ -223,7 +228,7 @@ hr {
 }
 
 .centralizar{
-        width: 87%;
+        width: 90%;
         margin: 0 auto;
 }
 
@@ -232,9 +237,19 @@ hr {
 	font-size:1.2em;
 }
 
+.categoria:focus{
+	border-radius: 0px !important;
+	background-color: #3A7D3A !important;
+}
+
 .buscaLetra{
 	border-radius: 0px !important;
     font-size:1.2em;
+}
+
+.buscaLetra:focus{
+	border-radius: 0px !important;
+	background-color: #3A7D3A !important;
 }
 
 .btn-primary{
@@ -248,6 +263,11 @@ hr {
 }
 
 .categoria-atual{
+    background-color: #3A7D3A;
+    border-color: #3A7D3A;
+}
+
+.buscaLetra-atual{
     background-color: #3A7D3A;
     border-color: #3A7D3A;
 }
