@@ -128,13 +128,6 @@ public class AlimentoController {
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
     public String gerenciarAlimento(Model model, @Valid Alimento alimento, BindingResult bindingResult) throws Exception {
 
-        if(alimento.getUrlImagemPequena().isEmpty()){
-            alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1436535224/lkt8uygy36ldiig3xglo.png");
-        }
-        if(alimento.getUrlImagemGrande().isEmpty()){
-            alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1436535224/lkt8uygy36ldiig3xglo.png");
-        }
-
         String validacao = validacao(model, alimento, bindingResult);
 
         if(validacao.equals("Salvar")){
