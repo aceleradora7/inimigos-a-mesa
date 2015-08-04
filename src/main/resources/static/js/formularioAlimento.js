@@ -1,6 +1,6 @@
 //  <![CDATA[
-
 $(document).ready(function(){
+
 
     var parametros = getParametros();
 
@@ -49,9 +49,22 @@ $(document).ready(function(){
 
                     $("#urlImagemPequena").val(urlImagemPequenaFinal);
                     $("#urlImagemGrande").val(urlImagemGrandeFinal);
+
+                    esconderBotaoDeletarPrimeiraImagem();
                 }
            );
+
+
+
 });
+
+
+    function esconderBotaoDeletarPrimeiraImagem(){
+     var array = $(".cloudinary-thumbnails").find("a.cloudinary-delete");
+     array.show();
+     array.first().hide();
+    }
+
 
 
 //]]>
