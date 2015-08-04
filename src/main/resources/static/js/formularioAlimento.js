@@ -1,14 +1,10 @@
 //  <![CDATA[
 $(document).ready(function(){
-
-
+    $("#remover-imagem").hide();
     var parametros = getParametros();
-
     if(parametros["codigo"] != undefined){
         $("codigo").val(parametros["codigo"]);
     }
-
-
 
     cloudinary.applyUploadWidget(document.getElementById('upload_widget_opener'),
    //$('#upload_widget_opener').cloudinary_upload_widget(
@@ -17,7 +13,7 @@ $(document).ready(function(){
                   multiple: false,
                   sources: ['local'],
                   client_allowed_formats: ['png','jpg','jpeg'],
-                  button_class: 'btn btn-success',
+                  button_class: 'btn btn-success esconde',
                   button_caption: 'Escolha uma Imagem',
                   theme: 'white',
                 },
@@ -42,7 +38,7 @@ $(document).ready(function(){
                     var urlImagemGrande = urlParte1.concat(tamanhoGrande);
                     var urlImagemGrandeFinal = urlImagemGrande.concat(urlParte2);
 
-//                    $( ".cloudinary-thumbnails" ).remove();
+                    $( ".cloudinary-thumbnails" ).hide();
 
                     $( "#imagemAlimento" ).replaceWith( " <img src='"+urlImagemGrandeFinal+"' id='imagemAlimento' alt='Imagem do Alimento'/>" );
 
@@ -50,21 +46,26 @@ $(document).ready(function(){
                     $("#urlImagemPequena").val(urlImagemPequenaFinal);
                     $("#urlImagemGrande").val(urlImagemGrandeFinal);
 
-                    esconderBotaoDeletarPrimeiraImagem();
+                    $(".esconde").hide();
+                    $("#remover-imagem").show();
                 }
+
            );
 
-
+            $("#remover-imagem").on("click",removerImagemAtual);
 
 });
 
 
-    function esconderBotaoDeletarPrimeiraImagem(){
-     var array = $(".cloudinary-thumbnails").find("a.cloudinary-delete");
-     array.show();
-     array.first().hide();
-    }
+    function removerImagemAtual(){
+       $("#imagemAlimento" ).replaceWith( " <img src='http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png' id='imagemAlimento' alt='Imagem do Alimento'/>" );
+       $("#urlImagemPequena").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png');
+       $("#urlImagemGrande").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png');
+       $( ".cloudinary-delete" ).trigger( "click" );
+        $(".esconde").show();
+        $("#remover-imagem").hide();
 
+    }
 
 
 //]]>
