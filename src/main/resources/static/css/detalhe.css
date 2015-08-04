@@ -202,3 +202,17 @@ a.ancora-link:hover  {
     width: 100%;
     position: fixed;
 }
+.slider-estilos{
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.output {
+    color: #888;
+    font-size: 14px;
+    padding-top: 1px;
+    margin-left: 5px;
+    vertical-align: top;
+    float: left !important;
+}
+
