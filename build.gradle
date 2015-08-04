@@ -46,6 +46,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('javax.mail:mail:1.4.7')
 
+    compile('org.webjars:angularjs:1.4.3')
     compile('com.cloudinary:cloudinary:1.0.14')
     testCompile("junit:junit")
 }
