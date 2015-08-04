@@ -1,0 +1,68 @@
+#lista-alimentos{
+    float: left;
+}
+
+.centralizar-texto{
+    text-align: center;
+}
+
+#nome-alimento{
+    float: left;
+    width: 50%;
+}
+
+#porcao-alimento{
+    float: left;
+    width: 50%;
+}
+
+.altura{
+    height: 50px;
+}
+
+#tabela-info{
+    float: right;
+}
+
+#mostraAlimento{
+    margin-top: 100px;
+}
+
+.titulo-medio-calculadora{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.titulo-pequeno-calculadora{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.colher-calculadora{
+    margin-left: 5px;
+    float: left;
+    height: 60px;
+    width: 40px;
+}
+
+.calculadora-medidas-visuais{
+    height: 60px;
+}
+
+.colher-calculadora-texto{
+    padding-top: 10px;
+}
+
+.ajustando-tabela-2-calculadora{
+    padding-left: 0px !important;
+}
+
+.ajuste-tamanho-td-calculadora{
+    width: 33.3%;
+}
+
+.titulo-grande-calculadora{
+    font-size: 30px;
+}

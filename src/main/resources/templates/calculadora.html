@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <title>Detalhe do Produto</title>
+
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link th:replace="fragmentos/header :: flaticon-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
+    <link th:replace="fragmentos/header :: favicon-ico" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="/js/detalhe.js"></script>
+</head>
+<body>
+<nav th:replace="fragmentos/header :: cabecalho"></nav>
+
+<div class="container" id="mostraAlimento">
+
+     <div>
+        <div class="row col-lg-6" id="lista-alimentos">
+                <ul class="list-group-item">
+                    <li class="list-group-item centralizar-texto"><h3>Alimentos Calculados</h3></li>
+                    <li class="list-group-item altura">
+                        <div id="nome-alimento">
+                            <p class="titulo-pequeno-calculadora">Nome</p>
+                        </div>
+                        <div id="porcao-alimento">
+                            <p class="titulo-pequeno-calculadora">Porção</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item altura">
+
+                    </li>
+                </ul>
+        </div>
+        <div id="tabela-info" class="col-lg-6">
+            <ul class="list-group-item img-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <li class="list-group-item ajustando-tabela centralizar-texto">
+                        <h3>Calculadora Nutricional</h3>
+                    </li>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="3">
+                            <p class="titulo-medio-calculadora">Calorias</p>
+                            <p class="centralizar-texto titulo-grande-calculadora">3000 kcal</p>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td class="ajuste-tamanho-td-calculadora">
+                            <p class="titulo-pequeno-calculadora">Gordura</p>
+                            <hr/>
+                            <div class="calculadora-medidas-visuais">
+                                <img class="colher-calculadora" src="/img/colher-gordura.svg"/>
+                                <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
+                            </div>
+                            <p class="centralizar-texto">Total: 120 g</p>
+                        </td>
+                        <td class="ajuste-tamanho-td-calculadora">
+                            <p class="titulo-pequeno-calculadora">Açúcar</p>
+                            <hr/>
+                            <div class="calculadora-medidas-visuais">
+                                <img class="colher-calculadora" src="/img/colher-acucar.svg"/>
+                                <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
+                            </div>
+                            <p class="centralizar-texto">Total: 100 g</p>
+                        </td>
+                        <td class="ajuste-tamanho-td-calculadora">
+                            <p class="titulo-pequeno-calculadora">Sal</p>
+                            <hr/>
+                            <div class="calculadora-medidas-visuais">
+                                <img class="colher-calculadora" src="/img/colher-sal.svg"/>
+                                <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
+                            </div>
+                            <p class="centralizar-texto">Total: 70 g</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul class="ajustando-tabela-2-calculadora">
+                    <h6 class="list-group-item">
+                        <B>NA</B> - Não avaliado
+                        <br />
+                        <b>TR</b> - Traço para medidas entre 0 à 0.5
+                    </h6>
+                </ul>
+            </ul>
+        </div>
+     </div>
+</div>
+
+
+
+</body>
+</html>

@@ -34,6 +34,12 @@ public class ApresentacaoController {
         return "sobre2";
     }
 
+    @RequestMapping("/calculadora")
+    public String calculadora(){
+        return "calculadora";
+    }
+
+
     public String tutorial(){
         return "tutorial";
     }
