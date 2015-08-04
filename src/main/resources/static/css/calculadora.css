@@ -66,3 +66,37 @@
 .titulo-grande-calculadora{
     font-size: 30px;
 }
+
+.div-botao-calculadora{
+    width: 100%;
+
+}
+
+.botao-calculadora{
+    width: 98%;
+    height: 40px;
+    background-color: #4CAE4C;
+    border-radius: 10px;
+    color: WHITE;
+    text-align: center;
+    padding-top: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    float: left;
+    margin-left: 1%;
+    margin-top: 10px;
+}
+
+
+a.botao-calculadora:hover  {
+     color: white;
+     background-color: green;
+}
+
+a.botao-calculadora:active {
+    color: white;
+}
+
+.espaco-rodape{
+    padding-bottom: 100px;
+}
