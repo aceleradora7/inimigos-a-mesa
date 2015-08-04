@@ -14,12 +14,24 @@
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
     <link th:replace="fragmentos/header :: favicon-ico" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
     <link type="text/css" href="/css/detalhe.css" rel="stylesheet"/>
-
     <script type="text/javascript" src="/js/detalhe.js"></script>
+
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../js/simple-slider.js"></script>
+    <link href="../css/simple-slider.css" rel="stylesheet" type="text/css" />
+    <link href="../css/simple-slider-volume.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
 </head>
 <body>
     <nav th:replace="fragmentos/header :: cabecalho"></nav>
@@ -49,7 +61,7 @@
 
                 <div class="col-lg-2 col-md-2 grupo-btn botoes-admin"  th:if="${#httpServletRequest.remoteUser != null}" >
                     <a th:href="@{'/editarAlimento?codigo=' + ${alimento.codigo}}" class="botao-editar">
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-warning">
                             Editar
                         </button>
                     </a>
@@ -133,6 +145,18 @@
                             <text class="tamanhoFonte">Para porção de</text>
                             <text class="tamanhoFonte" value="porcaoAlimento" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
                             <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text >
+
+
+
+
+
+                            <input class="slider-estilos" type="text" data-slider="true" data-slider-highlight="true" data-slider-range="1,30" data-slider-step="1" />
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -230,9 +254,23 @@
     </div>
 
 
+    <script>
+    //  <![CDATA[
 
+        $("[data-slider]")
+    .each(function () {
+      var input = $(this);
+      $("<span>")
+        .addClass("output")
+        .insertAfter($(this));
+    })
+    .bind("slider:ready slider:changed", function (event, data) {
+      $(this)
+        .nextAll(".output:first")
+            .html(data.value.toFixed(0));
+});
 
-
-
+    //]]>
+    </script>
 </body>
 </html>
