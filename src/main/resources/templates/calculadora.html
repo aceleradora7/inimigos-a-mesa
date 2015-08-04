@@ -24,7 +24,7 @@
 <body>
 <nav th:replace="fragmentos/header :: cabecalho"></nav>
 
-<div class="container" id="mostraAlimento">
+<div class="container espaco-rodape" id="mostraAlimento">
 
      <div>
         <div class="row col-lg-6" id="lista-alimentos">
@@ -42,7 +42,13 @@
 
                     </li>
                 </ul>
+            <div class="div-botao-calculadora">
+                <a class="botao-calculadora" href="/grid">
+                    Selecione alimentos para calcular
+                </a>
+            </div>
         </div>
+
         <div id="tabela-info" class="col-lg-6">
             <ul class="list-group-item img-responsive">
                 <table class="table table-bordered">
@@ -102,7 +108,7 @@
      </div>
 </div>
 
-
+    <nav th:replace="fragmentos/rodape :: rodape"></nav>
 
 </body>
 </html>
