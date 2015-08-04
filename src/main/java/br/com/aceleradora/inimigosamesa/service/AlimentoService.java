@@ -39,7 +39,7 @@ public class AlimentoService {
 
     public Iterable<Alimento> buscaPorNomeNaCategoria(String nome, int categoria, int pagina) {
         nome = nome.concat(CORINGA_ALL);
-        return repositorioAlimento.findByNomeNaCategoria(nome, categoria,paginacao(pagina));
+        return repositorioAlimento.findByNomeNaCategoria(nome, categoria, paginacao(pagina));
     }
 
     public Iterable<Alimento> buscaPorCategoria(int pagina, int codigoCategoria) {
@@ -51,14 +51,26 @@ public class AlimentoService {
     }
 
     public void salvar(Alimento alimento) {
+        gerenciarImagem(alimento);
+        repositorioAlimento.save(alimento);
+    }
+
+    public void gerenciarImagem(Alimento alimento){
         if(alimento.getCodigo() != 0) {
             Alimento alimentoBuscado = repositorioAlimento.findOne(alimento.getCodigo());
 
-            if (!alimento.getUrlImagemGrande().isEmpty()) {
+            if(alimento.getUrlImagemPequena().isEmpty() && alimento.getUrlImagemGrande().isEmpty()){
+                alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png");
+            }
+            if(alimento.getUrlImagemGrande().isEmpty()) {
+                alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png");
+            }
+
+            if (!alimentoBuscado.getUrlImagemGrande().isEmpty()) {
                 deletarCloudinaryAImagem(alimentoBuscado);
             }
         }
-        repositorioAlimento.save(alimento);
+
     }
 
     private void deletarCloudinaryAImagem(Alimento alimentoBuscado) {
@@ -67,10 +79,12 @@ public class AlimentoService {
                 "api_secret", "6Vk3ZiE8qBH4K2j51agKhmH_DL8"));
         String idDaImagem = pegaIdDaImagem(alimentoBuscado);
 
-        try {
-            cloudinary.uploader().destroy(idDaImagem, ObjectUtils.emptyMap());
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(!idDaImagem.equals("Frutas_v6wxtn")){
+            try {
+                cloudinary.uploader().destroy(idDaImagem, ObjectUtils.emptyMap());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -78,7 +92,6 @@ public class AlimentoService {
         String[] url = alimento.getUrlImagemGrande().split("/");
         String imagemComExtensao = url[url.length-1];
         String imagemSemExtensao = imagemComExtensao.split("\\.")[0];
-        System.out.println(imagemSemExtensao);
         return imagemSemExtensao;
     }
 
