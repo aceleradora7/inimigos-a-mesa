@@ -24,7 +24,7 @@
 <body>
 <nav th:replace="fragmentos/header :: cabecalho"></nav>
 
-<div class="container espaco-rodape" id="mostraAlimento">
+<div class="container espaco-rodape" id="mostraAlimento" th:object="${alimento}">
 
      <div>
         <div class="row col-lg-6" id="lista-alimentos">
@@ -39,7 +39,12 @@
                         </div>
                     </li>
                     <li class="list-group-item altura">
-
+                        <div>
+                            <p th:text="${alimento.nome}">Nome</p>
+                        </div>
+                        <div>
+                            <p th:text="${alimento.porcaoExibicao}">Porção</p>
+                        </div>
                     </li>
                 </ul>
             <div class="div-botao-calculadora">
