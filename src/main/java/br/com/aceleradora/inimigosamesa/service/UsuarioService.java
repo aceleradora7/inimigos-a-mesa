@@ -25,5 +25,9 @@ public class UsuarioService {
         return repositorioUsuario.findOneByEmail(email);
     }
 
+    public Usuario buscaPorCodigo(int codigo){
+        return repositorioUsuario.findOneByCodigo(codigo);
+    }
 
+    public void deletar(Usuario usuario) { repositorioUsuario.delete(usuario);}
 }

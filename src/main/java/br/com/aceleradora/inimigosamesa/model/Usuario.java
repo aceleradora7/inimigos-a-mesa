@@ -18,11 +18,12 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public Usuario(String nome, String email, String senha, Role role) {
+    public Usuario(String nome, String email, String senha, Role role, int codigo) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.role = role;
+        this.codigo = codigo;
     }
 
     public Usuario(String email, String senha, Role role) {
@@ -35,9 +36,7 @@ public class Usuario {
 
     }
 
-    public int getCodigo() {
-        return codigo;
-    }
+    public int getCodigo() { return codigo; }
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
