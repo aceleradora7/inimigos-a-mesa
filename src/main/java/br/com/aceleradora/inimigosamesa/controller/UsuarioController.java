@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * Created by aluno02 on 22/07/15.
@@ -26,55 +29,36 @@ public class UsuarioController {
 
     @RequestMapping(value = "/recuperarSenha")
     public void recuperarSenha() {
-
     }
 
     @RequestMapping(value = "/emailRecuperar", method = RequestMethod.POST)
     public String emailRecuperarSenha() {
 
         return "login";
-
     }
 
     @RequestMapping(value = "/emailRecuperar", method = RequestMethod.GET)
     public String emailRecuperar() {
 
         return "login";
-
     }
 
 
-    @RequestMapping(value = "/cadastrarUsuario", method = RequestMethod.GET)
-    public String cadastrarNovoAdministrador(Model model){
-        Usuario usuario = new Usuario();
-        model.addAttribute("usuario", usuario);
-
-        return "formularioUsuario";
-    }
-
-    @RequestMapping(value = "/gerenciarUsuario", method = RequestMethod.POST)
-    public String gererenciarUsuario(Model model, Usuario usuario){
-        servicoUsuario.salvar(usuario);
-        return "redirect:/";
-    }
-
-
-
-    @RequestMapping("/formularioDeletarUsuario")
-    public String deletarUsuario(){
+    @RequestMapping(value = "/formularioDeletarUsuario", method = RequestMethod.GET)
+    public String buscarTodosUsuarios(Model model) {
+        List<Usuario> usuarios = servicoUsuario.buscaTodos();
+        model.addAttribute("usuarios", usuarios);
+        model.addAttribute("usuario",new Usuario());
 
         return "formularioDeletarUsuario";
     }
 
+    @RequestMapping(value = "/deletarUsuario", method = RequestMethod.GET)
+    public String deletarUsuario(Model model, @RequestParam(value = "codigo", required = false) String codigo){
+        Usuario usuario = servicoUsuario.buscaPorCodigo(Integer.parseInt(codigo));
+        servicoUsuario.deletar(usuario);
 
-
-
-//    @RequestMapping(value = "/formularioDeletarUsuario", method = RequestMethod.GET)
-//    public String buscarTodosUsuarios(Model model) {
-//        List<Usuario> usuario = servicoUsuario.buscaTodos();
-//        model.addAttribute("usuario", usuario);
-//
-//        return "formularioDeletarUsuario";
-//    }
+        return "redirect:/formularioDeletarUsuario";
+    }
 
 }
