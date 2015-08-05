@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -136,27 +137,34 @@ public class AlimentoController {
     }
 
     @RequestMapping("/calculadora")
-    public String calculadora(Model model,Calculadora calculadora){
+    public String calculadora(Model model, HttpServletRequest request){
         model.addAttribute("alimento", new Alimento());
-        model.addAttribute("alimentos", calculadora.getListaDeAlimentos());
+        Calculadora calculadora = (Calculadora)  request.getSession().getAttribute("calculadora");
+        if(calculadora!=null) {
+            model.addAttribute("alimentos", calculadora.getListaDeAlimentos());
+        }
         return "calculadora";
     }
 
     @RequestMapping(value = "/adicionaAlimento", method = RequestMethod.GET)
-    public String calculadora(Model model, @RequestParam(value = "codigo", required = false) int codigo, Calculadora calculadora){
+    public String calculadora(Model model, @RequestParam(value = "codigo", required = false) int codigo, HttpServletRequest request){
+
+        if(request.getSession().getAttribute("calculadora") == null){
+            request.getSession().setAttribute("calculadora", new Calculadora());
+        }
+
+        Calculadora calculadora = (Calculadora) request.getSession().getAttribute("calculadora");
 
         Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
-//        if(alimento==null){
-//            alimento = new Alimento();
-//        }
+
         calculadora.adicionaAlimento(alimento);
-        //Sort sort = new Sort(Sort.Direction.ASC, "nome");
-        //model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
+        request.getSession().setAttribute("calculadora", calculadora);
+
         model.addAttribute("alimento", alimento);
 
         System.out.println(calculadora.getListaDeAlimentos().size());
         System.out.println(calculadora.getListaDeAlimentos().get(0).getNome());
-        return calculadora(model,calculadora);
+        return calculadora(model,request);
     }
 
     public String validacao(Model model, @Valid Alimento alimento, BindingResult bindingResult){
