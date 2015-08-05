@@ -38,12 +38,12 @@
                             <p class="titulo-pequeno-calculadora">Porção</p>
                         </div>
                     </li>
-                    <li class="list-group-item altura">
-                        <div>
-                            <p th:text="${alimento.nome}">Nome</p>
+                    <li class="list-group-item altura" th:each="alimento: ${alimentos}">
+                        <div class="nome-alimento">
+                            <p th:text="${alimento.nome}"></p>
                         </div>
-                        <div>
-                            <p th:text="${alimento.porcaoExibicao}">Porção</p>
+                        <div class="porcao-alimento">
+                            <p th:text="${alimento.porcaoExibicao}"></p>
                         </div>
                     </li>
                 </ul>
