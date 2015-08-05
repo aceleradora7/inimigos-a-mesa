@@ -1,9 +1,6 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
-import br.com.aceleradora.inimigosamesa.model.Alimento;
-import br.com.aceleradora.inimigosamesa.model.Categoria;
-import br.com.aceleradora.inimigosamesa.model.Legenda;
-import br.com.aceleradora.inimigosamesa.model.MedidasVisuais;
+import br.com.aceleradora.inimigosamesa.model.*;
 import br.com.aceleradora.inimigosamesa.service.AlimentoService;
 import br.com.aceleradora.inimigosamesa.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -28,7 +26,6 @@ public class AlimentoController {
 
     @Autowired
     private CategoriaService servicoCategoria;
-
 
     @RequestMapping(value = {"/grid"}, method = RequestMethod.GET)
     public void listar(
@@ -116,7 +113,6 @@ public class AlimentoController {
         return "formularioAlimento";
     }
 
-
     @RequestMapping(value = "/deletarAlimento", method = RequestMethod.GET)
     public String deletarAlimento(Model model, @RequestParam(value = "codigo", required = false) String codigo){
         Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
@@ -137,6 +133,28 @@ public class AlimentoController {
             return validacao;
         }
 
+    }
+
+    @RequestMapping("/calculadora")
+    public String calculadora(Model model){
+        model.addAttribute("alimento", new Alimento());
+        return "calculadora";
+    }
+
+    @RequestMapping(value = "/adicionaAlimento", method = RequestMethod.GET)
+    public String calculadora(Model model, @RequestParam(value = "codigo", required = false) int codigo){
+
+        Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
+        if(alimento==null){
+            alimento = new Alimento();
+        }
+
+        System.out.println(codigo);
+        Sort sort = new Sort(Sort.Direction.ASC, "nome");
+        model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
+        model.addAttribute("alimento", alimento);
+
+        return "calculadora";
     }
 
     public String validacao(Model model, @Valid Alimento alimento, BindingResult bindingResult){
