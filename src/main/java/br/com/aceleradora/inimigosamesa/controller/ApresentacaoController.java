@@ -22,7 +22,12 @@ public class ApresentacaoController {
     @RequestMapping("/")
     public String home(){
         return "home";
-    } //alterado de index para home
+    }
+
+    @RequestMapping("/home")
+    public String home2(){
+        return "home";
+    }
 
     @RequestMapping("/sobre")
     public String sobre(){
