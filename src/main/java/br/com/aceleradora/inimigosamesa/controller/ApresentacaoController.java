@@ -1,5 +1,6 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
+import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Email;
 import br.com.aceleradora.inimigosamesa.model.FormularioEmail;
 import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
@@ -38,12 +39,6 @@ public class ApresentacaoController {
     public String sobre2(){
         return "sobre2";
     }
-
-    @RequestMapping("/calculadora")
-    public String calculadora(){
-        return "calculadora";
-    }
-
 
     public String tutorial(){
         return "tutorial";
