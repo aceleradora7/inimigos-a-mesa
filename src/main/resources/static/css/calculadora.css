@@ -16,6 +16,16 @@
     width: 50%;
 }
 
+.nome-alimento{
+    float: left;
+    width: 50%;
+}
+
+.porcao-alimento{
+    float: left;
+    width: 50%;
+}
+
 .altura{
     height: 50px;
 }
