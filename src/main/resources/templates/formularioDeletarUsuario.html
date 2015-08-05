@@ -16,6 +16,8 @@
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
     <link th:replace="fragmentos/header :: favicon-ico" />
+    <script src="js/deletarUsuario.js"> </script>
+
 </head>
 <body>
 
@@ -67,45 +69,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-    //  <![CDATA[
-
-        $(document).ready(function(){
-
-            $("#botaoDeletar").click(function(e){
-
-                if(deletarUsuario())
-                {
-                    return true;
-                }
-                else{
-
-                }
-                return false;
-            });
-        });
-
-           function deletarUsuario(){
-                var valor = $('#valorUsuario option:selected').val();
-
-                if(valor){
-                   setParametro("codigo", valor);
-                   acessarPaginaComParametros("deletarUsuario");
-                    return true;
-                }
-
-            return false;
-        }
-        //]]>
-    </script>
-
-
-
-
-
-
-
 
     <nav th:replace="fragmentos/rodape :: rodape"></nav>
 
