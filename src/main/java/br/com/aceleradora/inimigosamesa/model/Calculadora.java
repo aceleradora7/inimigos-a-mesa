@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Calculadora {
 
-    public static List<Alimento> listaDeAlimentos = new ArrayList<>();
+    public List<Alimento> listaDeAlimentos = new ArrayList<>();
 
     public List<Alimento> getListaDeAlimentos() {
         return listaDeAlimentos;
@@ -17,6 +17,16 @@ public class Calculadora {
 
     public void adicionaAlimento(Alimento alimento){
 
-        listaDeAlimentos.add(alimento);
+        boolean contem = false;
+        for (Alimento ali : listaDeAlimentos){
+
+            if (ali.getCodigo() == alimento.getCodigo()){
+                contem = true;
+            }
+        }
+        if (contem == false){
+            listaDeAlimentos.add(alimento);
+        }
+
     }
 }
