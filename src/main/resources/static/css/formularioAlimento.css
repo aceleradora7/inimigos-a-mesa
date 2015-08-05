@@ -24,12 +24,12 @@ margin:0 auto !important;
     width:70%
 }
 .botao-enviar {
-          	width: 64%;
-          	margin-top: 10px;
+    width: 65%;
+    margin-top: 10px;
 }
 .botao-cancelar {
-          	width: 34%;
-          	margin-top: 10px;
+    width: 34%;
+    margin-top: 10px;
 }
 
 /* layout.css Style */
@@ -61,14 +61,6 @@ margin:0 auto !important;
   float: left;
 }
 
-.bloco-login{
-  width: 800px;
-  height: 500px;
-  margin: auto;
-  padding-top: 30px;
-}
-
-
 .imagem-detalhe-produto{
     height: 80%;
     width: 85%;
@@ -92,8 +84,10 @@ float:left;
 
 .div-erro{
     margin-top: 10px;
-    margin-bottom: 70px;
 }
 
+#espacoErroNome{
+    display: none;
+}
 .cloudinary-delete {
 font-size: 30px !important;  }
