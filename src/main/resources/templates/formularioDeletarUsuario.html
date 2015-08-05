@@ -28,11 +28,15 @@
         <form>
         <div class="col-sm-offset-4 col-sm-4">
             <label >Selecione um usuario: </label>
-            <select class="form-control">
+            <select id="valorUsuario" class="form-control">
                 <option value="0">Selecione um usuario</option>
-                <option th:each="usuario: ${usuarios}" th:text="${usuario.nome}" th:value="${usuario.codigo}" >Selecione um usuario</option>
+                <option th:each="usuario: ${usuarios}" th:text="${usuario.nome}" th:value="${usuario.codigo}"> </option>
             </select>
+
         </div>
+
+
+
             <div class="col-sm-offset-4 col-sm-4 botao-deletar-usuario">
                 <a class="botao-deletar" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
                     <button type="button" class="btn btn-danger">
@@ -50,10 +54,11 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusao de Usuário</h4>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <a class="botao-deletar">
-                        <button type="button" class="btn btn-primary">
+                    <a class="botao-deletar" id="botaoDeletar" href="#">
+                        <button type="button" id="botao-confirmacao" class="btn btn-primary">
                             Confirmar
                         </button>
                     </a>
@@ -63,6 +68,37 @@
         </div>
     </div>
 
+    <script>
+    //  <![CDATA[
+
+        $(document).ready(function(){
+
+            $("#botaoDeletar").click(function(e){
+
+                if(deletarUsuario())
+                {
+                    return true;
+                }
+                else{
+
+                }
+                return false;
+            });
+        });
+
+           function deletarUsuario(){
+                var valor = $('#valorUsuario option:selected').val();
+
+                if(valor){
+                   setParametro("codigo", valor);
+                   acessarPaginaComParametros("deletarUsuario");
+                    return true;
+                }
+
+            return false;
+        }
+        //]]>
+    </script>
 
 
 
