@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Calculadora {
 
-    public List<Alimento> listaDeAlimentos = new ArrayList<>();
+    public static List<Alimento> listaDeAlimentos = new ArrayList<>();
 
     public List<Alimento> getListaDeAlimentos() {
         return listaDeAlimentos;
@@ -13,5 +13,10 @@ public class Calculadora {
 
     public void setListaDeAlimentos(List<Alimento> listaDeAlimentos) {
         this.listaDeAlimentos = listaDeAlimentos;
+    }
+
+    public void adicionaAlimento(Alimento alimento){
+
+        listaDeAlimentos.add(alimento);
     }
 }
