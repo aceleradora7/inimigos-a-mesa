@@ -287,15 +287,15 @@ hr {
 
 .titulo-login{
 	padding-top: 80px;
-	width: 800px;
-	height: 150px;
 	text-align: center;
 	margin: 0 auto;
+	background: red;
 }
 
 .block{
   display: inline-block;
 }
+
 .ajuste-recuperar{
 	padding-top: 10%;
 }
