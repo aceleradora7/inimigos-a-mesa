@@ -15,18 +15,19 @@ public class Calculadora {
         this.listaDeAlimentos = listaDeAlimentos;
     }
 
-    public void adicionaAlimento(Alimento alimento){
+    public boolean adicionaAlimento(Alimento alimento){
 
         boolean contem = false;
         for (Alimento ali : listaDeAlimentos){
 
             if (ali.getCodigo() == alimento.getCodigo()){
                 contem = true;
+                return false;
             }
         }
         if (contem == false){
             listaDeAlimentos.add(alimento);
         }
-
+        return true;
     }
 }
