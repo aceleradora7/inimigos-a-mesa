@@ -136,25 +136,27 @@ public class AlimentoController {
     }
 
     @RequestMapping("/calculadora")
-    public String calculadora(Model model){
+    public String calculadora(Model model,Calculadora calculadora){
         model.addAttribute("alimento", new Alimento());
+        model.addAttribute("alimentos", calculadora.getListaDeAlimentos());
         return "calculadora";
     }
 
     @RequestMapping(value = "/adicionaAlimento", method = RequestMethod.GET)
-    public String calculadora(Model model, @RequestParam(value = "codigo", required = false) int codigo){
+    public String calculadora(Model model, @RequestParam(value = "codigo", required = false) int codigo, Calculadora calculadora){
 
         Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
-        if(alimento==null){
-            alimento = new Alimento();
-        }
-
-        System.out.println(codigo);
-        Sort sort = new Sort(Sort.Direction.ASC, "nome");
-        model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
+//        if(alimento==null){
+//            alimento = new Alimento();
+//        }
+        calculadora.adicionaAlimento(alimento);
+        //Sort sort = new Sort(Sort.Direction.ASC, "nome");
+        //model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
         model.addAttribute("alimento", alimento);
 
-        return "calculadora";
+        System.out.println(calculadora.getListaDeAlimentos().size());
+        System.out.println(calculadora.getListaDeAlimentos().get(0).getNome());
+        return calculadora(model,calculadora);
     }
 
     public String validacao(Model model, @Valid Alimento alimento, BindingResult bindingResult){
