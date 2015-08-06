@@ -1,11 +1,22 @@
 package br.com.aceleradora.inimigosamesa.model;
 
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Calculadora {
 
-    public List<Alimento> listaDeAlimentos = new ArrayList<>();
+    private double caloriasTotal = 0.0;
+    private double gorduraTotal = 0.0;
+    private double acucarTotal = 0.0;
+    private double sodioTotal = 0.0;
+    private double salTotal = 0.0;
+    public List<Alimento> listaDeAlimentos;
+
+    public Calculadora() {
+        listaDeAlimentos = new ArrayList<>();
+    }
 
     public List<Alimento> getListaDeAlimentos() {
         return listaDeAlimentos;
@@ -27,7 +38,63 @@ public class Calculadora {
         }
         if (contem == false){
             listaDeAlimentos.add(alimento);
+            somaAlimentoCalculadora(alimento);
         }
         return true;
+    }
+
+    public double getCaloriasTotal() {
+
+        return formataDouble(caloriasTotal);
+    }
+
+
+    public double getGorduraTotal() {
+        return formataDouble(gorduraTotal);
+    }
+
+    public double getAcucarTotal() {
+        return formataDouble(acucarTotal);
+    }
+
+    public double getSodioTotal() {
+        return sodioTotal;
+    }
+
+    public double getSalTotal() {
+        return formataDouble(salTotal);
+    }
+
+    public void setSalTotal(double salTotal) {
+        this.salTotal = salTotal;
+    }
+
+    public void somaAlimentoCalculadora(Alimento alimento){
+
+        if (alimento.getCalorias() != null && !alimento.getCalorias().isEmpty()) {
+            caloriasTotal += Double.parseDouble(alimento.getCalorias());
+        }
+        if (alimento.getGordura() != null && !alimento.getGordura().isEmpty()) {
+            gorduraTotal += Double.parseDouble(alimento.getGordura());
+        }
+        if (alimento.getSodio() != null && !alimento.getSodio().isEmpty()) {
+            sodioTotal += Double.parseDouble(alimento.getSodio());
+        }
+        if (alimento.getAcucar() != null && !alimento.getAcucar().isEmpty()) {
+            acucarTotal += Double.parseDouble(alimento.getAcucar());
+        }
+        if (alimento.getSodio() != null && !alimento.getSodio().isEmpty()) {
+            salTotal += MedidasVisuais.converteSodioEmSal(Double.parseDouble(alimento.getSodio()));
+        }
+    }
+
+    public double formataDouble(double x){
+        String b = ""+x;
+        if(b.length()>=b.indexOf('.')+3){
+            return Double.parseDouble(b.substring(0,b.indexOf('.')+3));
+        }
+        else{
+            return Double.parseDouble(b);
+        }
     }
 }

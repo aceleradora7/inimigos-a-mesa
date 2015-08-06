@@ -24,7 +24,7 @@
 <body>
 <nav th:replace="fragmentos/header :: cabecalho"></nav>
 
-<div class="container espaco-rodape" id="mostraAlimento" th:object="${alimento}">
+<div class="container espaco-rodape" id="mostraAlimento">
 
      <div>
         <div class="row col-lg-6" id="lista-alimentos">
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-        <div id="tabela-info" class="col-lg-6">
+        <div id="tabela-info" class="col-lg-6" th:object="${calculadora}">
             <ul class="list-group-item img-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -66,7 +66,10 @@
                     <tr>
                         <td colspan="3">
                             <p class="titulo-medio-calculadora">Calorias</p>
-                            <p class="centralizar-texto titulo-grande-calculadora">3000 kcal</p>
+                            <div class="center">
+                                <div class="centralizar-texto titulo-grande-calculadora block" th:text="${calculadora.caloriasTotal}"></div>
+                                <div class="block">kcal</div>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -78,7 +81,11 @@
                                 <img class="colher-calculadora" src="/img/colher-gordura.svg"/>
                                 <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
                             </div>
-                            <p class="centralizar-texto">Total: 120 g</p>
+                            <div class="center">
+                                <div class="block">Total: </div>
+                                <div class="centralizar-texto block" th:text="${calculadora.gorduraTotal}"></div>
+                                <div class="block">g</div>
+                            </div>
                         </td>
                         <td class="ajuste-tamanho-td-calculadora">
                             <p class="titulo-pequeno-calculadora">Açúcar</p>
@@ -87,7 +94,11 @@
                                 <img class="colher-calculadora" src="/img/colher-acucar.svg"/>
                                 <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
                             </div>
-                            <p class="centralizar-texto">Total: 100 g</p>
+                            <div class="center">
+                                <div class="block">Total: </div>
+                                <div class="centralizar-texto block" th:text="${calculadora.acucarTotal}"></div>
+                                <div class="block">g</div>
+                            </div>
                         </td>
                         <td class="ajuste-tamanho-td-calculadora">
                             <p class="titulo-pequeno-calculadora">Sal</p>
@@ -96,7 +107,11 @@
                                 <img class="colher-calculadora" src="/img/colher-sal.svg"/>
                                 <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
                             </div>
-                            <p class="centralizar-texto">Total: 70 g</p>
+                            <div class="center">
+                                <div class="block">Total: </div>
+                                <p class="centralizar-texto block" th:text="${calculadora.salTotal}"></p>
+                                <div class="block">g</div>
+                            </div>
                         </td>
                     </tr>
                     </tbody>

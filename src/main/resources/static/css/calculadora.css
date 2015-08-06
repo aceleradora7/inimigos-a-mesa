@@ -110,3 +110,13 @@ a.botao-calculadora:active {
 .espaco-rodape{
     padding-bottom: 100px;
 }
+
+.block {
+    display: inline-block;
+}
+
+.center{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto !important;
+}
