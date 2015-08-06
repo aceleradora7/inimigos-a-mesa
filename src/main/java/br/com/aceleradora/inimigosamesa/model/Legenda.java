@@ -41,11 +41,7 @@ public class Legenda {
             return NAO_AVALIADO;
         }
 
-        DecimalFormat formatoDecimalDuasCasas = new DecimalFormat("0.00");
-        String valorNumericoFormato = formatoDecimalDuasCasas.format(Double.parseDouble(valor));
-        valorNumericoFormato = valorNumericoFormato.replace(",",".");
-        double valorNumerico = Double.parseDouble(valorNumericoFormato);
-
+        double valorNumerico = Double.parseDouble(valor);
         return valorNumerico > 0 && valorNumerico <= 0.5 ? TRACO : valorNumerico + " " + unidade;
     }
 }
