@@ -17,19 +17,10 @@
     <link type="text/css" href="/css/detalhe.css" rel="stylesheet"/>
     <script type="text/javascript" src="/js/detalhe.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-slider.css" media="all" />
+    <script type="text/javascript" src="/js/bootstrap-slider.js"></script>
 
-
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="../js/simple-slider.js"></script>
-    <link href="../css/simple-slider.css" rel="stylesheet" type="text/css" />
-    <link href="../css/simple-slider-volume.css" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
+    <link rel="stylesheet" type="text/css" href="/css/slider.css"/>
 
 
 </head>
@@ -89,29 +80,29 @@
                             Para porção de
                             <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"> </text>
                             <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>, igual a
-                            <text  value="medidaCaseira" id="medidaCaseira"  th:text="${alimento.medidaCaseira}"> </text>.
-
+                            <text  value="valorMedidaCaseira" id="valorMedidaCaseira"  th:text="${alimento.valorMedidaCaseira}"> </text>.
+                            <text  value="unidadeMedidaCaseira" id="unidadeMedidaCaseira"  th:text="${alimento.unidadeMedidaCaseira}"> </text>.
                         </li>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="ajuste-tamanho-td">
                                     Calorias
-                                    <label  value="calorias" id="valor-caloria" class="badge aparenciaTabela" th:text="${legenda.calorias}" th:value="${alimento.calorias}"> </label>
+                                    <label  value="calorias" id="valor-caloria" class="badge aparenciaTabela" th:text="${legenda.calorias}" th:value="${alimento.exibicaoCalorias}"> </label>
                                 </td>
                                 <td class="ajuste-tamanho-td">
                                     Gordura
-                                    <label id="valor-gordura" class="badge aparenciaTabela" th:text="${legenda.gordura}" th:value="${alimento.gordura}"></label>
+                                    <label id="valor-gordura" class="badge aparenciaTabela" th:text="${legenda.gordura}" th:value="${alimento.exibicaoGordura}"></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="ajuste-tamanho-td">
                                     Açúcar
-                                    <label id="valor-acucar" class="badge aparenciaTabela" th:text="${legenda.acucar}" th:value="${alimento.acucar}" ></label>
+                                    <label id="valor-acucar" class="badge aparenciaTabela" th:text="${legenda.acucar}" th:value="${alimento.exibicaoAcucar}" ></label>
                                 </td>
                                 <td class="ajuste-tamanho-td">
                                     Sódio
-                                    <span id="valor-sodio" class="badge aparenciaTabela" th:text="${legenda.sodio}" th:value="${alimento.sodio}"></span>
+                                    <span id="valor-sodio" class="badge aparenciaTabela" th:text="${legenda.sodio}" th:value="${alimento.exibicaoSodio}"></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -150,19 +141,12 @@
                         <h2 class="block"> Medidas Visuais</h2>
                         <div id="porcaoAlimento">
                             <text class="tamanhoFonte">Para porção de</text>
-                            <text class="tamanhoFonte" value="porcaoAlimento" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
+                            <text class="tamanhoFonte" th:value="alimento.porcaoExibicao" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
                             <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text >
 
-
-
-
-
-                            <input class="slider-estilos" type="text" data-slider="true" data-slider-highlight="true" data-slider-range="1,30" data-slider-step="1" />
-
-
-
-
-
+                            <div>
+                                <input id="slider" data-slider-id='detalhe-slider'  data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="1"/>
+                            </div>
 
                         </div>
                     </div>
@@ -261,23 +245,6 @@
     </div>
 
 
-    <script>
-    //  <![CDATA[
-
-        $("[data-slider]")
-    .each(function () {
-      var input = $(this);
-      $("<span>")
-        .addClass("output")
-        .insertAfter($(this));
-    })
-    .bind("slider:ready slider:changed", function (event, data) {
-      $(this)
-        .nextAll(".output:first")
-            .html(data.value.toFixed(0));
-});
-
-    //]]>
-    </script>
+    <script type="text/javascript" src="/js/slider.js"></script>
 </body>
 </html>
