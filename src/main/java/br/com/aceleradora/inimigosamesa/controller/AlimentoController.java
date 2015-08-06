@@ -89,6 +89,9 @@ public class AlimentoController {
         return "detalhe";
     }
 
+
+
+
     @RequestMapping(value = "/cadastroAlimento", method = RequestMethod.GET)
     public String cadastrarAlimento(Model model, Alimento alimento){
         if(alimento == null){
@@ -137,8 +140,15 @@ public class AlimentoController {
 
     @RequestMapping("/calculadora")
     public String calculadora(Model model, HttpServletRequest request){
-        model.addAttribute("alimento", new Alimento());
+
+        if(request.getSession().getAttribute("calculadora") == null){
+            request.getSession().setAttribute("calculadora", new Calculadora());
+        }
+
         Calculadora calculadora = (Calculadora)  request.getSession().getAttribute("calculadora");
+
+        model.addAttribute("calculadora", calculadora);
+
         if(calculadora!=null) {
             model.addAttribute("alimentos", calculadora.getListaDeAlimentos());
         }
@@ -157,9 +167,11 @@ public class AlimentoController {
         Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
 
         calculadora.adicionaAlimento(alimento);
+
         request.getSession().setAttribute("calculadora", calculadora);
 
-        model.addAttribute("alimento", alimento);
+
+        model.addAttribute("calculadora", calculadora);
 
         System.out.println(calculadora.getListaDeAlimentos().size());
         System.out.println(calculadora.getListaDeAlimentos().get(0).getNome());
