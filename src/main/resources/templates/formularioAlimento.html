@@ -134,15 +134,41 @@
                                 </li>
                                 <li class="list-group-item">
                                     <div class="form-group">
-                                        <div class="alinha-esquerda">Medida Caseira:</div>
-                                        <input id="medidaCaseira" type="text" th:field="*{medidaCaseira}" placeholder="Ex.: Duas bolachas" class="input-alimento alinha-direita" name="medidaCaseira" />
+                                        <div class="alinha-esquerda">Valor Medida Caseira:</div>
+                                        <input id="valorMedidaCaseira" type="text" th:field="*{valorMedidaCaseira}" placeholder="Ex.: 2" class="input-alimento alinha-direita" name="valorMedidaCaseira" />
                                     </div>
-                                    <div id="espacoErroMedidaCaseira">
-                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroMedidaCaseira">
+                                    <div id="espacoErroValorMedidaCaseira">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroValorMedidaCaseira">
                                             <label>Preencha o campo.</label>
                                         </div>
                                     </div>
-                                    <label th:text="${erroMedidaCaseira}"/>
+                                    <label th:text="${erroValorMedidaCaseira}"/>
+                                    <br/>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-group">
+                                        <div class="alinha-esquerda">Unidade Medida Caseira:</div>
+                                        <input id="unidadeMedidaCaseira" type="text" th:field="*{unidadeMedidaCaseira}" placeholder="Ex.: bolachas" class="input-alimento alinha-direita" name="unidadeMedidaCaseira" />
+                                    </div>
+                                    <div id="espacoErroUnidadeMedidaCaseira">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroUnidadeMedidaCaseira">
+                                            <label>Preencha o campo.</label>
+                                        </div>
+                                    </div>
+                                    <label th:text="${erroUnidadeMedidaCaseira}"/>
+                                    <br/>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-group">
+                                        <div class="alinha-esquerda">Valor Máximo de Medida Caseira:</div>
+                                        <input id="valorMaximoMedida" type="text" th:field="*{valorMaximoMedida}" placeholder="Ex.: 10" class="input-alimento alinha-direita" name="valorMaximoMedida" />
+                                    </div>
+                                    <div id="espacoErroValorMaximoMedida">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroValorMaximoMedidaa">
+                                            <label>Preencha o campo.</label>
+                                        </div>
+                                    </div>
+                                    <label th:text="${erroValorMaximoMedida}"/>
                                     <br/>
                                 </li>
 
