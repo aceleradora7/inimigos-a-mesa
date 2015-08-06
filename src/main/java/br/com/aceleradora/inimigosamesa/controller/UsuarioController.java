@@ -1,8 +1,10 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
+import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-/**
- * Created by aluno02 on 22/07/15.
- */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Controller
 public class UsuarioController {
 
@@ -41,6 +43,33 @@ public class UsuarioController {
     public String emailRecuperar() {
 
         return "login";
+
+    }
+
+
+    @RequestMapping(value = "/cadastrarUsuario", method = RequestMethod.GET)
+    public String cadastrarNovoAdministrador(Model model, Usuario usuario){
+        if(usuario==null){
+         usuario = new Usuario();
+        }
+
+        model.addAttribute("usuario", usuario);
+
+        return "formularioUsuario";
+    }
+
+    @RequestMapping(value = "/gerenciarUsuario", method = RequestMethod.POST)
+    public String gererenciarUsuario(Model model, Usuario usuario){
+    String validacao = validacao(model, usuario);
+
+        if(validacao.equals("Salvar")){
+            usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+            servicoUsuario.salvar(usuario);
+            return "redirect:/";
+        }else{
+            return validacao;
+        }
+
     }
 
 
@@ -59,6 +88,64 @@ public class UsuarioController {
         servicoUsuario.deletar(usuario);
 
         return "redirect:/formularioDeletarUsuario";
+    }
+
+
+    public String validacao(Model model, Usuario usuario){
+        model.addAttribute("erroNomeUsuario", null);
+        if(usuario.getNome().isEmpty() || !nomeUsuario(usuario.getNome())){
+            model.addAttribute("erroNome", "true");
+            return cadastrarNovoAdministrador(model, usuario);
+        }
+        else {
+            model.addAttribute("erroNome", null);
+            if (!emailPadrao(usuario.getEmail())) {
+                model.addAttribute("erroEmailPadrao", "true");
+                return cadastrarNovoAdministrador(model, usuario);
+            } else {
+                model.addAttribute("erroEmailPadrao", null);
+                Usuario usuarioPesquisado = new Usuario();
+                usuarioPesquisado = servicoUsuario.buscaPorEmail(usuario.getEmail());
+                if(usuarioPesquisado!=null){
+                    model.addAttribute("erroEmailExiste", "true");
+                    return cadastrarNovoAdministrador(model, usuario);
+                }else {
+                    model.addAttribute("erroEmailExiste", null);
+                    if (usuario.getSenha().length() < 4) {
+                        model.addAttribute("erroSenhaTamanho", "true");
+                        return cadastrarNovoAdministrador(model, usuario);
+                    } else {
+                        model.addAttribute("erroSenhaTamanho", null);
+                        if (!usuario.getSenha().equals(usuario.getRepetirSenha())) {
+                            model.addAttribute("erroSenhaDiferente", "true");
+                            return cadastrarNovoAdministrador(model, usuario);
+                        } else {
+                            model.addAttribute("erroSenhaDiferente", null);
+                        }
+                    }
+                }
+            }
+        }
+
+        return "Salvar";
+    }
+
+    public boolean emailPadrao(String email) {
+        Pattern p = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,3}$");
+        Matcher m = p.matcher(email.trim());
+        if (!m.find()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean nomeUsuario(String nome) {
+        Pattern p = Pattern.compile("^[\\p{L} \\.'\\-]+$");
+        Matcher m = p.matcher(nome.trim());
+        if (!m.find()) {
+            return false;
+        }
+        return true;
     }
 
 }

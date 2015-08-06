@@ -188,7 +188,7 @@ public class AlimentoController {
             return cadastrarAlimento(model,alimento);
         }
 
-        
+
         else if (alimento.validaValor(alimento.getCalorias())) {
             model.addAttribute("erroCalorias","O campo calorias só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);

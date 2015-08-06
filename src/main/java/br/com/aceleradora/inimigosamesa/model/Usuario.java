@@ -14,9 +14,20 @@ public class Usuario {
     @Column(name = "email", unique = true)
     private String email;
     private String senha;
+    @Transient
+    private String repetirSenha;
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    public Usuario(String nome, String email, String senha, String repetirSenha, Role role) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.repetirSenha = repetirSenha;
+        this.role = role;
+
+    }
 
     public Usuario(String nome, String email, String senha, Role role, int codigo) {
         this.nome = nome;
@@ -72,6 +83,14 @@ public class Usuario {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getRepetirSenha() {
+        return repetirSenha;
+    }
+
+    public void setRepetirSenha(String repetirSenha) {
+        this.repetirSenha = repetirSenha;
     }
 }
 
