@@ -26,7 +26,7 @@ public class CalculadoraTeste {
     @Test
     public  void adicionaAlimentoTeste(){
         Calculadora calculadora = new Calculadora();
-        Alimento alimento = new Alimento("abacate", "0", "0", "10", "0", "100", "0", "100", "0", "0", "0", "0", new Categoria(1),"","");
+        Alimento alimento = new Alimento();
 
         calculadora.adicionaAlimento(alimento);
 
@@ -35,7 +35,7 @@ public class CalculadoraTeste {
 
         assertEquals("Retorna false se ja existir o alimento: ",valorEsperado,valoRetornado);
 
-        Alimento alimento2 = new Alimento("Abacaxi", "0", "0", "10", "0", "100", "0", "100", "0", "0", "0", "0", new Categoria(1),"","");
+        Alimento alimento2 = new Alimento();
         alimento.setCodigo(3);
         valorEsperado = true;
         valoRetornado = calculadora.adicionaAlimento(alimento2);
