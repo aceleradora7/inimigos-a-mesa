@@ -148,7 +148,6 @@ public class AlimentoController {
         Calculadora calculadora = (Calculadora)  request.getSession().getAttribute("calculadora");
 
         model.addAttribute("calculadora", calculadora);
-
         if(calculadora!=null) {
             model.addAttribute("alimentos", calculadora.getListaDeAlimentos());
         }
