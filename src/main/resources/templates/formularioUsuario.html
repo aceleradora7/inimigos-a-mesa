@@ -15,8 +15,8 @@
     <script th:replace="fragmentos/header :: jqueryui"/>
     <script th:replace="fragmentos/header :: bootstrap-js"/>
     <script th:replace="fragmentos/header :: query-string-js"/>
-    <script th:replace="fragmentos/header :: busca"/>
-    <script src="/js/validacaoCadastroUsuario.js"> </script>
+    <script th:replace="fragmentos/header :: busca"/><!--
+    <script src="/js/validacaoCadastroUsuario.js"> </script>-->
     <link th:replace="fragmentos/header :: favicon-ico" />
 
     <link rel="stylesheet" type="text/css" href="/css/formularioAlimento.css"/>
@@ -42,7 +42,7 @@
                 <div id="blocoNomeUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
                         <label for="nomeDoUsuario" class="control-label">Nome:</label>
-                        <input th:field="*{nome}" type="nome" name="nome" class="form-control" id="nomeDoUsuario" placeholder="Nome usuário"/>
+                        <input th:field="*{nome}" type="text" name="nome" class="form-control" id="nomeDoUsuario" placeholder="Nome usuário"/>
                     </div>
 
                     <div id="espacoErroNome"  class="div-erro">
@@ -50,20 +50,33 @@
                             <label>Preencha o campo com o nome do usuário. </label>
                         </div>
                     </div>
-                    <label th:text="${erroNome}"/>
+                    <div th:if="${erroNome}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>Preencha o campo com o nome do usuário. </label>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="blocoEmailUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
                         <label for="emailDoUsuario" class="control-label">E-mail:</label>
-                        <input th:field="*{email}" type="email" name="username" class="form-control" id="emailDoUsuario" placeholder="Email"/>
+                        <input th:field="*{email}" type="text"  class="form-control" id="emailDoUsuario" placeholder="Email"/>
                     </div>
                     <div id="espacoErroEmail" class="div-erro">
                         <div class="col-sm-12 alert alert-danger centralizar-texto" id="erroCampoEmailUsuario">
                             <label>Preencha o campo com o email do usuário. </label>
                         </div>
                     </div>
-                    <label th:text="${erroEmail}"/>
+                    <div th:if="${erroEmailPadrao}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>Preencha o campo com o email do usuário. </label>
+                        </div>
+                    </div>
+                    <div th:if="${erroEmailExiste}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>Email do usuário já está cadastrado. </label>
+                        </div>
+                    </div>
                 </div>
                 <div id="blocoSenhaUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
@@ -75,20 +88,28 @@
                             <label>Preencha o campo com a senha do usuário contendo 4 ou mais caracteres. </label>
                         </div>
                     </div>
-                    <label th:text="${erroSenha}"/>
+                    <div th:if="${erroSenhaTamanho}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>Preencha o campo com a senha do usuário contendo 4 ou mais caracteres. </label>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="blocoRepetirSenha" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
                         <label for="senhaUsuarioRepetir" class="control-label">Repita a Senha:</label>
-                        <input type="password" name="password" class="form-control" id="senhaUsuarioRepetir" placeholder="Senha"/>
+                        <input th:field="*{repetirSenha}" type="password" name="password" class="form-control" id="senhaUsuarioRepetir" placeholder="Senha"/>
                     </div>
                     <div id="espacoErroRepetirSenha" class="div-erro">
                         <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroCampoRepetirSenha">
                             <label> As senhas não coincidem </label>
                         </div>
                     </div>
-
+                    <div th:if="${erroSenhaDiferente}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>As senhas não coincidem. </label>
+                        </div>
+                    </div>
                 </div>
 
 
