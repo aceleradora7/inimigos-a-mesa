@@ -12,10 +12,6 @@ public class MedidasVisuais {
         this.alimento = alimento;
     }
 
-    public double converteSodioEmSal(double sodio) {
-        return ((sodio * 100) / 39) * 0.001;
-    }
-
     public int calculaColherSal() {
         int colher = 0;
 
@@ -28,6 +24,12 @@ public class MedidasVisuais {
         }
         return colher;
     }
+
+
+    public static double converteSodioEmSal(double sodio) {
+        return ((sodio * 100) / 39) * 0.001;
+    }
+
 
     public int calculaColherAcucar() {
         int colher = 0;
