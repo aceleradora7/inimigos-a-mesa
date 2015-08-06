@@ -170,21 +170,16 @@ public class AlimentoController {
         if(alimento.getNome().isEmpty()){
             model.addAttribute("erroNome", "Preencha o campo com o nome do alimento.");
             return cadastrarAlimento(model,alimento);
-        }
-        else if(alimento.getCategoria()==null) {
+        }else if(alimento.getCategoria()==null) {
             model.addAttribute("erroCategoria","Selecione uma categoria.");
             return cadastrarAlimento(model,alimento);
-        }
-        else if( alimento.validaValor(alimento.getPorcaoBaseCalculo()) || alimento.getUnidadeBaseCalculo()==null){
+        }else if( alimento.validaValor(alimento.getPorcaoBaseCalculo()) || alimento.getUnidadeBaseCalculo()==null){
             model.addAttribute("erroPorcaoBaseCalculo","Preencha o campo com números e marque a unidade da porção. ");
             return cadastrarAlimento(model,alimento);
-        }
-        else if(alimento.validaValor(alimento.getPorcaoExibicao()) || alimento.getUnidadeExibicao()==null){
+        }else if(alimento.validaValor(alimento.getPorcaoExibicao()) || alimento.getUnidadeExibicao()==null){
             model.addAttribute("erroPorcaoExibicao","Preencha o campo com números e marque a unidade da porção.");
             return cadastrarAlimento(model,alimento);
-        }
-
-        else if(alimento.getValorMedidaCaseira().isEmpty() || alimento.getValorMedidaCaseira()==null){
+        }else if(alimento.getValorMedidaCaseira().isEmpty() || alimento.getValorMedidaCaseira()==null){
             model.addAttribute("erroValorMedidaCaseira","Preencha o campo.");
             return cadastrarAlimento(model,alimento);
         }else if(alimento.getUnidadeMedidaCaseira().isEmpty() || alimento.getUnidadeMedidaCaseira()==null){
@@ -193,23 +188,16 @@ public class AlimentoController {
         }else if(alimento.getValorMaximoMedida().isEmpty() || alimento.getValorMaximoMedida()==null){
             model.addAttribute("erroValorMaximoMedida","Preencha o campo.");
             return cadastrarAlimento(model,alimento);
-        }
-
-        else if (alimento.validaValor(alimento.getCalorias())) {
+        }else if (alimento.validaValor(alimento.getCalorias())) {
             model.addAttribute("erroCalorias","O campo calorias só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
-        } else if(alimento.validaValor(alimento.getAcucar())){
-            
-        else if (alimento.temLetraCalorias()) {
-            model.addAttribute("erroCalorias","O campo calorias só pode conter caracteres numéricos!");
-            return cadastrarAlimento(model,alimento);
-        } else if(alimento.temLetraAcucar()) {
+        }else if(alimento.validaValor(alimento.getAcucar())) {
             model.addAttribute("erroAcucar","O campo açucar só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
-        } else if(alimento.validaValor(alimento.getSodio())) {
+        }else if(alimento.validaValor(alimento.getSodio())) {
             model.addAttribute("erroSodio","O campo sodio só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
-        } else if(alimento.validaValor(alimento.getGordura())) {
+        }else if(alimento.validaValor(alimento.getGordura())) {
             model.addAttribute("erroGordura","O campo gordura só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
         }
