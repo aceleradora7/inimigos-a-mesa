@@ -17,6 +17,9 @@ public class Usuario {
     @Transient
     private String repetirSenha;
 
+    @Transient
+    private String repetirSenha;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -36,6 +39,15 @@ public class Usuario {
         this.role = role;
         this.codigo = codigo;
     }
+
+//    public Usuario(String nome, String email, String senha, String repetirSenha, Role role) {
+//        this.nome = nome;
+//        this.email = email;
+//        this.senha = senha;
+//        this.repetirSenha = repetirSenha;
+//        this.role = role;
+//
+//    }
 
     public Usuario(String email, String senha, Role role) {
         this.email = email;
