@@ -1,7 +1,5 @@
-package model;
+package br.com.aceleradora.inimigosamesa.model;
 
-import br.com.aceleradora.inimigosamesa.model.Alimento;
-import br.com.aceleradora.inimigosamesa.model.Categoria;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

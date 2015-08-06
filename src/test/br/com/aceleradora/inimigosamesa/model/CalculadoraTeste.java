@@ -1,12 +1,10 @@
-package model;
+package br.com.aceleradora.inimigosamesa.model;
 
-import br.com.aceleradora.inimigosamesa.model.Alimento;
-import br.com.aceleradora.inimigosamesa.model.Calculadora;
-import br.com.aceleradora.inimigosamesa.model.Categoria;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 /**
