@@ -1,5 +1,4 @@
 function criaBusca(){
-
     function buscaDados(request, response){
         $.ajax({
             dataType: "json",
@@ -10,19 +9,14 @@ function criaBusca(){
             },
             success: function(dados){
                 console.log(dados);
-
                 var sugestoes = [];
-
                 for(var i = 0; i< dados.length; i++){
-
                     var sugestao = {
                         label : dados[i].nome,
                         value : dados[i].codigo
                     };
-
                     sugestoes.push(sugestao);
                 }
-
                 response(sugestoes);
             }
         })
@@ -42,7 +36,7 @@ function criaBusca(){
         focus: function(event, ui) {
                 event.preventDefault();
                 $(this).val(ui.item.label);
-            }
+        }
     });
 };
 
@@ -61,8 +55,6 @@ function onClickBotaoBusca(){
 }
 
 function onClickBotaoBuscaLetra(){
-console.log($(this));
-console.log($(this).val());
     setParametro("busca", $(this).val());
     removerParametro("pagina");
     acessarPaginaComParametros("grid");
@@ -74,13 +66,12 @@ function associarEventoBotaoBusca(){
 }
 
 function buscaEnter(){
- $("#input-busca").keypress(function(e)
-{
-	if (e.which == 13)
-	{
-		onClickBotaoBusca();
-	}
-})};
+    $("#input-busca").keypress(function(e){
+        if (e.which == 13){
+            onClickBotaoBusca();
+        }
+    }
+)};
 
 $(document).ready(function() {
     iniciarBuscarAoDigitar();
