@@ -41,8 +41,47 @@ public class CalculadoraTeste {
         valoRetornado = calculadora.adicionaAlimento(alimento2);
 
         assertEquals("Retorna true se o alimento poder ser adicionado: ",valorEsperado,valoRetornado);
-//
-//        calculadora = new Calculadora();
-//        calculadora.adicionaAlimento(alimento);
+    }
+
+    @Test
+    public void somaTotalDeAlimentosDaCalculadoraTest(){
+        Calculadora calculadora = new Calculadora();
+        Alimento alimento2 = new Alimento("Abacaxi", "2000", "5", "2000", "2000", "100", "0", "100", "0", "0", "0", "0", new Categoria(1),"","");
+        alimento2.setCodigo(1);
+
+        double valorEsperado = 0.0;
+
+        double valorRetornado = calculadora.getCaloriasTotal();
+        assertEquals("Deve retornar zero calorias.", valorEsperado, valorRetornado, 0);
+        valorRetornado = calculadora.getGorduraTotal();
+        assertEquals("Deve retornar zero gordura.",valorEsperado,valorRetornado,0);
+        valorRetornado = calculadora.getSodioTotal();
+        assertEquals("Deve retornar zero sal.",valorEsperado,valorRetornado,0);
+        valorRetornado = calculadora.getAcucarTotal();
+        assertEquals("Deve retornar zero açucar.",valorEsperado,valorRetornado,0);
+
+        calculadora.adicionaAlimento(alimento2);
+
+        valorEsperado = 2000.0;
+        valorRetornado = calculadora.getCaloriasTotal();
+        assertEquals("Deve retornar 2000 calorias.",valorEsperado,valorRetornado,0);
+
+        valorEsperado = 2000.0;
+        valorRetornado = calculadora.getGorduraTotal();
+        assertEquals("Deve retornar 2000 gordura.",valorEsperado,valorRetornado,0);
+
+        valorEsperado = 5.0;
+        valorRetornado = calculadora.getSodioTotal();
+        assertEquals("Deve retornar 2000 sodio.",valorEsperado,valorRetornado,0);
+
+        valorEsperado = 2000.0;
+        valorRetornado = calculadora.getAcucarTotal();
+        assertEquals("Deve retornar 2000 acucar.",valorEsperado,valorRetornado,0);
+
+
+        valorEsperado = 0.012820512820512822;
+        valorRetornado = calculadora.getSalTotal();
+        assertEquals("Deve retornar 0.0128205128 sal.",valorEsperado,valorRetornado,0);
+
     }
 }
