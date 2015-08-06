@@ -21,13 +21,16 @@ public class ApresentacaoController {
     private UsuarioService servicoUsuario;
 
     @RequestMapping("/")
-    public String home(){
-        return "home";
-    }
+    public String home(){ return "home"; }
 
     @RequestMapping("/home")
     public String home2(){
         return "home";
+    }
+
+    @RequestMapping("/home3")
+    public String home3(){
+        return "home3";
     }
 
     @RequestMapping("/sobre")
