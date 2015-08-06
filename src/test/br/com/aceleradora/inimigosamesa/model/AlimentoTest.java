@@ -1,7 +1,6 @@
 package br.com.aceleradora.inimigosamesa.model;
 
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -11,52 +10,53 @@ import static org.junit.Assert.assertTrue;
 public class AlimentoTest {
 
     @Test
-    public void quandoValorForIgualANullEntaoRetornaOMesmoValor() throws Exception {
-        Alimento alimento = new Alimento("abacate", "0", "0", null, "0", "0", "0", "0", "0", "0", "0", "0", new Categoria(1), "", "");
-
+    public void quandoAQuantidadeDeGorduraForIgualANullEntaoRetornaOMesmoValor() throws Exception {
+        Alimento alimento = new Alimento();
+        alimento.setGordura(null);
         String valorEsperado = null;
         String valorRetornado = alimento.calculaExibicao(alimento.getGordura());
-
         assertEquals(valorEsperado, valorRetornado);
     }
 
     @Test
-    public void quandoValorForIgualAVazioEntaoRetornaOMesmoValor() throws Exception {
-        Alimento alimento = new Alimento("abacate", "0", "0", "", "0", "0", "0", "0", "0", "0", "0", "0", new Categoria(1), "", "");
-
+    public void quandoAQuantidadeDeGorduraForIgualAVazioEntaoRetornaOMesmoValor() throws Exception {
+        Alimento alimento = new Alimento();
+        alimento.setGordura("");
         String valorEsperado = "";
         String valorRetornado = alimento.calculaExibicao(alimento.getGordura());
-
         assertEquals(valorEsperado, valorRetornado);
     }
 
     @Test
     public void quandoPorcaoExibicaoForIgualAPorcaoBaseCalculoEntaoRetornaOMesmoValor() throws Exception {
-        Alimento alimento = new Alimento("abacate", "0", "0", "10", "0", "100", "0", "100", "0", "0", "0", "0", new Categoria(1), "", "");
-
+        Alimento alimento = new Alimento();
+        alimento.setGordura("10");
+        alimento.setPorcaoExibicao("5");
+        alimento.setPorcaoBaseCalculo("5");
         String valorEsperado = "10";
         String valorRetornado = alimento.calculaExibicao(alimento.getGordura());
-
         assertEquals(valorEsperado, valorRetornado);
     }
 
     @Test
     public void quandoPorcaoExibicaoForMenorQueAPorcaoBaseCalculoEntaoCalculaOValorASerExibido() throws Exception {
-        Alimento alimento = new Alimento("abacate", "0", "0", "10", "0", "100", "0", "70", "0", "0", "0", "0", new Categoria(1), "", "");
-
-        String valorEsperado = "7.0";
+        Alimento alimento = new Alimento();
+        alimento.setGordura("4");
+        alimento.setPorcaoExibicao("2");
+        alimento.setPorcaoBaseCalculo("5");
+        String valorEsperado = "1.60";
         String valorRetornado = alimento.calculaExibicao(alimento.getGordura());
-
         assertEquals(valorEsperado, valorRetornado);
     }
 
     @Test
     public void quandoPorcaoExibicaoForMaiorQueAPorcaoBaseCalculoEntaoCalculaOValorASerExibido() throws Exception {
-        Alimento alimento = new Alimento("abacate", "0", "0", "10", "0", "100", "0", "200", "0", "0", "0", "0", new Categoria(1), "", "");
-
-        String valorEsperado = "20.0";
+        Alimento alimento = new Alimento();
+        alimento.setGordura("4");
+        alimento.setPorcaoExibicao("5");
+        alimento.setPorcaoBaseCalculo("2");
+        String valorEsperado = "10.00";
         String valorRetornado = alimento.calculaExibicao(alimento.getGordura());
-
         assertEquals(valorEsperado, valorRetornado);
     }
 
@@ -77,5 +77,4 @@ public class AlimentoTest {
         Alimento alimentoValida = new Alimento();
         assertTrue(alimentoValida.validaValor("nd"));
     }
-
 }
