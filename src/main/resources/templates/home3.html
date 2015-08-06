@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+    <title>Inimigos a mesa?</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link th:replace="fragmentos/header :: flaticon-css" />
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
+    <link th:replace="fragmentos/header :: favicon-ico" />
+
+    <link href="css/home3.css" rel="stylesheet" />
+
+    <script src="/js/modernizr.custom.js"> </script>
+</head>
+
+<body id="page-top" class="index">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Inimigos à mesa?</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services">Alimentos</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#portfolio">Busca</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">Sobre</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#team">Contato</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+
+    <div>
+        <div class="intro-text">
+            <div class="intro-heading">Descubra o que você realmente come</div>
+            <div class="intro-lead-in">Alguma frase interessante e encorajadora que explique as colheres.</div>
+            <div class="buscar-home">
+                <input type="text" class="form-control caixa-busca" placeholder="Digite o nome de um alimento" id="input-busca" maxlength="256"/>
+                <button type="submit" id="btn-busca" class="botao-buscar btn">
+                    <span>BUSCAR</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Services Section -->
+<section id="services" class="colheres">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Por quê colheres?</h2>
+                <h3 class="section-subheading text-muted">Alguma frase interessante e encorajadora que explique as colheres.
+                </h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                        <span>
+                            <img class="colher-info-home" src="/img/colher-acucar.svg"/>
+                        </span>
+                <h4 class="service-heading">Açúcar</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                        <span>
+                            <img class="colher-info-home" src="/img/colher-gordura.svg"/>
+                        </span>
+                <h4 class="service-heading">Gordura</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                        <span>
+                            <img class="colher-info-home" src="/img/colher-sal.svg"/>
+                        </span>
+                <h4 class="service-heading">Sal</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="topFoods">
+    <div class="container">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Alimentos mais visitados</h2>
+               <div class="agrupadordeCards col-lg-12">
+                    <div class="col-lg-3">
+                        <div class="cards">
+                            <img src="/img/1.jpg"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="cards">
+                            <img src="/img/2.jpg"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="cards">
+                            <img src="/img/3.jpg"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="cards">
+                            <img src="/img/4.jpg"/>
+                        </div>
+                    </div>
+               </div>
+        </div>
+    </div>
+</section>
+
+
+
+<nav th:replace="fragmentos/rodape :: rodape"></nav>
+<script src="/js/home3.js"></script>
+<script src="/js/cbpAnimatedHeader.js"></script>
+
+</body>
+</html>
