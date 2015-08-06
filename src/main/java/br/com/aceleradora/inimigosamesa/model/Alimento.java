@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 @Entity(name = "alimento")
 public class Alimento implements Comparable<Alimento>, Serializable {
@@ -16,15 +17,11 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     @ManyToOne
     @JsonIgnore
     private Categoria categoria;
-
     private String nome;
-
     private String acucar;
     private String sodio;
     private String gordura;
     private String calorias;
-
-
     private String porcaoBaseCalculo;
     private String unidadeBaseCalculo;
     private String porcaoExibicao;
@@ -32,13 +29,15 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     private String urlImagemPequena;
     private String urlImagemGrande;
     private String observacao;
-    private String medidaCaseira;
+    private String valorMedidaCaseira;
+    private String unidadeMedidaCaseira;
     private String fonte;
+    private String valorMaximoMedida;
 
     public Alimento() {
     }
 
-    public Alimento(String nome, String acucar, String sodio, String gordura, String calorias, String porcaoBaseCalculo, String unidadeBaseCalculo, String porcaoExibicao, String unidadeExibicao, String urlImagemPequena, String urlImagemGrande, String observacao, Categoria categoria, String medidaCaseira, String fonte) {
+    public Alimento( String nome, String acucar, String sodio, String gordura, String calorias, String porcaoBaseCalculo, String unidadeBaseCalculo, String porcaoExibicao, String unidadeExibicao, String urlImagemPequena, String urlImagemGrande, String observacao, Categoria categoria, String valorMedidaCaseira, String unidadeMedidaCaseira, String fonte, String valorMaximoMedida) {
         this.nome = nome;
         this.acucar = acucar;
         this.sodio = sodio;
@@ -52,8 +51,10 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         this.urlImagemGrande = urlImagemGrande;
         this.observacao = observacao;
         this.categoria = categoria;
-        this.medidaCaseira = medidaCaseira;
+        this.valorMedidaCaseira = valorMedidaCaseira;
+        this.unidadeMedidaCaseira = unidadeMedidaCaseira;
         this.fonte = fonte;
+        this.valorMaximoMedida = valorMaximoMedida;
     }
 
     public int getCodigo() {
@@ -169,20 +170,36 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         this.observacao = observacao;
     }
 
-    public String getMedidaCaseira() {
-        return medidaCaseira;
-    }
-
-    public void setMedidaCaseira(String medidaCaseira) {
-        this.medidaCaseira = medidaCaseira;
-    }
-
     public String getFonte() {
         return fonte;
     }
 
     public void setFonte(String fonte) {
         this.fonte = fonte;
+    }
+
+    public String getValorMedidaCaseira() {
+        return valorMedidaCaseira;
+    }
+
+    public void setValorMedidaCaseira(String valorMedidaCaseira) {
+        this.valorMedidaCaseira = valorMedidaCaseira;
+    }
+
+    public String getUnidadeMedidaCaseira() {
+        return unidadeMedidaCaseira;
+    }
+
+    public void setUnidadeMedidaCaseira(String unidadeMedidaCaseira) {
+        this.unidadeMedidaCaseira = unidadeMedidaCaseira;
+    }
+
+    public String getValorMaximoMedida() {
+        return valorMaximoMedida;
+    }
+
+    public void setValorMaximoMedida(String valorMaximoMedida) {
+        this.valorMaximoMedida = valorMaximoMedida;
     }
 
     @Override
@@ -202,7 +219,12 @@ public class Alimento implements Comparable<Alimento>, Serializable {
                 double numerador = Double.parseDouble(porcaoExibicao) / Double.parseDouble(porcaoBaseCalculo);
                 calculoExibicaoSodio = Double.parseDouble(valor) * numerador;
             }
-            return String.valueOf(calculoExibicaoSodio);
+
+            DecimalFormat formatoDecimalDuasCasas = new DecimalFormat("0.00");
+            String valorNumericoFormato = formatoDecimalDuasCasas.format(calculoExibicaoSodio);
+            valorNumericoFormato = valorNumericoFormato.replace(",",".");
+
+            return valorNumericoFormato;
         }
     }
 
