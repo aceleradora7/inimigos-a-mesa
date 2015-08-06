@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -176,31 +175,31 @@ public class AlimentoController {
             model.addAttribute("erroCategoria","Selecione uma categoria.");
             return cadastrarAlimento(model,alimento);
         }
-        else if(alimento.getPorcaoBaseCalculo().isEmpty() || alimento.temLetraPorcaoBaseCalculo() || alimento.getUnidadeBaseCalculo()==null){
+        else if( alimento.validaValor(alimento.getPorcaoBaseCalculo()) || alimento.getUnidadeBaseCalculo()==null){
             model.addAttribute("erroPorcaoBaseCalculo","Preencha o campo com números e marque a unidade da porção. ");
             return cadastrarAlimento(model,alimento);
         }
-        else if(alimento.getPorcaoExibicao().isEmpty() || alimento.temLetraPorcaoExibicao() || alimento.getUnidadeExibicao()==null){
+        else if(alimento.validaValor(alimento.getPorcaoExibicao()) || alimento.getUnidadeExibicao()==null){
             model.addAttribute("erroPorcaoExibicao","Preencha o campo com números e marque a unidade da porção.");
             return cadastrarAlimento(model,alimento);
         }
-        else if(alimento.getMedidaCaseira().isEmpty() || alimento.getMedidaCaseira()==null){
+        else if(alimento.validaValor(alimento.getMedidaCaseira())){
             model.addAttribute("erroMedidaCaseira","Preencha o campo.");
             return cadastrarAlimento(model,alimento);
         }
 
 
 
-        else if (alimento.temLetraCalorias()) {
+        else if (alimento.validaValor(alimento.getCalorias())) {
             model.addAttribute("erroCalorias","O campo calorias só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
-        } else if(alimento.temLetraAcucar()){
+        } else if(alimento.validaValor(alimento.getAcucar())){
             model.addAttribute("erroAcucar","O campo açucar só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
-        } else if(alimento.temLetraSodio()) {
+        } else if(alimento.validaValor(alimento.getSodio())) {
             model.addAttribute("erroSodio","O campo sodio só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
-        } else if(alimento.temLetraGordura()) {
+        } else if(alimento.validaValor(alimento.getGordura())) {
             model.addAttribute("erroGordura","O campo gordura só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
         }
