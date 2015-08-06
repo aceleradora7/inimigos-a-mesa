@@ -10,7 +10,6 @@ function onClickBotaoCategoria(){
     acessarPaginaComParametros("lista");
 };
 
-
 function associarEventosMenuCategoria(){
     var menuCategorias = $("#menu-categoria");
     menuCategorias.on("click", ".btn", onClickBotaoCategoria);
@@ -26,14 +25,10 @@ function associarEventos(){
     associarEventosOpcaoDeOrdenacao();
 };
 
-
 $(document).ready(function(){
-
     var parametros = getParametros();
-
     if(parametros["opcao-ordenar"] != undefined){
         $("#select-ordenacao").val(parametros["opcao-ordenar"]);
     }
-
     associarEventos();
 });

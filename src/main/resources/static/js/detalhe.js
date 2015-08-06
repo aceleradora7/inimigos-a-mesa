@@ -1,14 +1,14 @@
 //  <![CDATA[
 
-
 function renderizarColher(tipo){
-
     function getQuantidade(){
         return $("#" + tipo).attr("value");
     }
+
     function getContainer(){
         return $("#imagem-colher-" + tipo);
     }
+
     function getImagem(){
         return "/img/colher-" + tipo + ".svg";
     }
@@ -24,7 +24,6 @@ function renderizarColher(tipo){
     var colher = montaColher(getImagem());
     var container = getContainer();
     var quantidade = getQuantidade();
-
     container.empty();
     if(quantidade >= 1){
         for(i = 0; i < quantidade; i++){
@@ -35,23 +34,20 @@ function renderizarColher(tipo){
     }
 }
 
-    function efeitoDaAncora(){
-        $(function() {
+function efeitoDaAncora(){
+    $(function() {
         $('a').bind('click',function(event){
-        var $anchor = $(this);
-        $('html, body').stop().animate({scrollTop: $($anchor.attr('href')).offset().top}, 750,'swing');
+            var $anchor = $(this);
+            $('html, body').stop().animate({scrollTop: $($anchor.attr('href')).offset().top}, 750,'swing');
         });
-        });
-    }
-
+    });
+}
 
 $(document).ready(function(){
     efeitoDaAncora();
     renderizarColher("gordura");
     renderizarColher("sal");
     renderizarColher("acucar");
-
 })
-
 
 //]]>
