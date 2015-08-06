@@ -122,9 +122,9 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
-    public String gerenciarAlimento(Model model, @Valid Alimento alimento, BindingResult bindingResult) throws Exception {
+    public String gerenciarAlimento(Model model, Alimento alimento, BindingResult bindingResult) throws Exception {
 
-        String validacao = validacao(model, alimento, bindingResult);
+        String validacao = validacao(model, alimento);
 
         if(validacao.equals("Salvar")){
             servicoAlimento.salvar(alimento);
@@ -166,7 +166,7 @@ public class AlimentoController {
         return calculadora(model,request);
     }
 
-    public String validacao(Model model, @Valid Alimento alimento, BindingResult bindingResult){
+    public String validacao(Model model, Alimento alimento){
         if(alimento.getNome().isEmpty()){
             model.addAttribute("erroNome", "Preencha o campo com o nome do alimento.");
             return cadastrarAlimento(model,alimento);
@@ -188,8 +188,7 @@ public class AlimentoController {
             return cadastrarAlimento(model,alimento);
         }
 
-
-
+        
         else if (alimento.validaValor(alimento.getCalorias())) {
             model.addAttribute("erroCalorias","O campo calorias só pode conter caracteres numéricos!");
             return cadastrarAlimento(model,alimento);
