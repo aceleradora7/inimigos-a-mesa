@@ -58,6 +58,7 @@
 }
 
 .calculadora-medidas-visuais{
+    width: 80%;
     height: 60px;
 }
 
@@ -117,6 +118,17 @@ a.botao-calculadora:active {
 
 .center{
     text-align: center;
-    width: 50%;
     margin: 0 auto !important;
+}
+
+.tamanho-div-total{
+    width: 100%;
+}
+
+.tamanho-texto{
+    font-size: 15px;
+}
+
+.ajuste-medidas-visuais-calculadora{
+    padding-right: 10px;
 }
