@@ -33,19 +33,18 @@
 
 
         <div class="container" id="mostraAlimento">
-
-
+        <input type="hidden" id="codigo" th:value="${alimento.codigo}"/>
 
             <div id="titulo-detalhe">
                 <div id="tituloAlimento">
                     <h1 class="block" th:text="${alimento.nome}"></h1>
                     <h2 class="tirando-margin" th:text="${alimento.categoria.nome}"></h2>
 
-                    <a th:href="@{'/adicionaAlimento?codigo=' + ${alimento.codigo}}" >
-                        <button type="button" class="btn btn-warning">
+
+                        <button id="adicionaAlimento" type="button" class="btn btn-warning">
                             Adicione o alimento
                         </button>
-                    </a>
+
 
                 </div>
             </div>
