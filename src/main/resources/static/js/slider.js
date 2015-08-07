@@ -23,13 +23,17 @@ $('#slider').slider().on('slide', function(ev) {
 });
 
 function calculaColheres(valor){
-console.log(colherAcucar);
-    $("#gordura").attr('value', valor*colherGordura);
     $("#acucar").attr('value', valor*colherAcucar);
+    $("#valor-colher-acucar").attr('value', colherAcucar*valor);
+    $("#valor-colher-acucar").text($("#valor-colher-acucar").attr('value'));
 
-    console.log(valor*colherAcucar);
+    $("#gordura").attr('value', valor*colherGordura);
+    $("#valor-colher-gordura").attr('value', colherGordura*valor);
+    $("#valor-colher-gordura").text($("#valor-colher-gordura").attr('value'));
 
     $("#sal").attr('value', valor*colherSal);
+    $("#valor-colher-sal").attr('value', colherSal*valor);
+    $("#valor-colher-sal").text($("#valor-colher-sal").attr('value'));
 }
 
 function valorTabela(){
@@ -57,32 +61,57 @@ function calculaPorcao(valor){
 }
 
 function calculaCaloria(porcao){
-    if(valorCaloria!=null)
-        var caloria = ((porcao*valorCaloria)/porcaoAlimento).toFixed(2)
+    if(valorCaloria!=null){
+        var caloria = ((porcao*valorCaloria)/porcaoAlimento).toFixed(2);
+    }
+    if(caloria<=0.5){
+        $("#valor-caloria").text("TR");
+        $("#valor-caloria").attr('value', caloria);
+    }else{
         $("#valor-caloria").text(caloria+" kcal");
         $("#valor-caloria").attr('value', caloria);
+    }
 }
 
 function calculaAcucar(porcao){
-    if(valorAcucar!=null)
-        var acucar = ((porcao*valorAcucar)/porcaoAlimento).toFixed(2)
+    if(valorAcucar!=null){
+        var acucar = ((porcao*valorAcucar)/porcaoAlimento).toFixed(2);
+    }
+    if(acucar<=0.5){
+        $("#valor-acucar").text("TR");
+        $("#valor-acucar").attr('value', acucar);
+    }else{
         $("#valor-acucar").text(acucar+" g");
         $("#valor-acucar").attr('value', acucar);
+    }
 }
 
 function calculaGordura(porcao){
-    if(valorGordura!=null)
-        var gordura = ((porcao*valorGordura)/porcaoAlimento).toFixed(2)
+    if(valorGordura!=null){
+        var gordura = ((porcao*valorGordura)/porcaoAlimento).toFixed(2);
+    }
+    if(gordura<=0.5){
+        $("#valor-gordura").text("TR");
+        $("#valor-gordura").attr('value', gordura);
+
+    }else{
         $("#valor-gordura").text(gordura+" g");
         $("#valor-gordura").attr('value', gordura);
+    }
 }
 
 function calculaSodio(porcao){
-    if(valorSodio!=null)
-        var sodio = ((porcao*valorSodio)/porcaoAlimento).toFixed(2)
-        $("#valor-sodio").text(sodio+" mg");
+    if(valorSodio!=null){
+        var sodio = ((porcao*valorSodio)/porcaoAlimento).toFixed(2);
+    }
+    if(sodio<=0.5){
+        $("#valor-sodio").text("TR");
         $("#valor-sodio").attr('value', sodio);
 
+    }else{
+        $("#valor-sodio").text(sodio+" mg");
+        $("#valor-sodio").attr('value', sodio);
+    }
 }
 
 $(document).ready(function() {
