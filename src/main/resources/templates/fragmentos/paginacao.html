@@ -2,6 +2,7 @@
 <html xmlns:th="http://thymeleaf.org">
 
     <nav th:fragment="paginacao">
+
         <script type="text/javascript" th:inline="javascript">
             /*<![CDATA[*/
             var ultimaPagina = [[${paginas.totalPages}]];
@@ -21,8 +22,6 @@
                 </a>
             </li>
 
-
-
             <li th:if="${paginas.totalPages lt 7}" th:each="i :  ${#numbers.sequence(1,  paginas.totalPages)}">
                 <a th:text="${i}" class="pagina"></a>
             </li>
@@ -34,8 +33,6 @@
             <li th:if="${paginas.number + 1 gt paginas.totalPages - 7 and paginas.totalPages gt 7}" th:each="i : ${#numbers.sequence(paginas.totalPages - 7, paginas.totalPages)}">
                 <a th:text="${i}" class="pagina"></a>
             </li>
-
-
 
             <li th:if="${ not paginas.last }" th:unless="${paginas.number gt paginas.totalPages}">
                 <a id="proxima-pagina">
@@ -49,6 +46,6 @@
                 </a>
             </li>
         </ul>
-    </nav>
 
+    </nav>
 </html>

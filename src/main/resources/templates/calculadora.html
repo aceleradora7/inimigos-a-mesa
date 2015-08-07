@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
     <title>Detalhe do Produto</title>
@@ -16,33 +17,34 @@
     <link th:replace="fragmentos/header :: favicon-ico" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-
     <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
-
     <script type="text/javascript" src="/js/detalhe.js"></script>
 </head>
+
 <body>
-<nav th:replace="fragmentos/header :: cabecalho"></nav>
 
-<div class="container espaco-rodape" id="mostraAlimento">
-
-     <div>
-        <div class="row col-lg-6" id="lista-alimentos">
+    <nav th:replace="fragmentos/header :: cabecalho"></nav>
+    <div class="container espaco-rodape" id="mostraAlimento">
+        <div>
+            <div class="row col-lg-6" id="lista-alimentos">
                 <ul class="list-group-item">
                     <li class="list-group-item centralizar-texto"><h3>Alimentos Calculados</h3></li>
                     <li class="list-group-item altura">
                         <div id="nome-alimento">
                             <p class="titulo-pequeno-calculadora">Nome</p>
                         </div>
+
                         <div id="porcao-alimento">
                             <p class="titulo-pequeno-calculadora">Porção</p>
                         </div>
                     </li>
+
                     <li class="list-group-item altura" th:each="alimento: ${alimentos}">
-                        <div class="nome-alimento center">
+                        <div class="nome-alimento">
                             <p th:text="${alimento.nome}"></p>
                         </div>
-                        <div class="porcao-alimento center">
+
+                        <div class="porcao-alimento">
                             <p th:text="${alimento.porcaoExibicao}"></p>
                         </div>
                     </li>
@@ -54,84 +56,91 @@
             </div>
         </div>
 
-        <div id="tabela-info" class="col-lg-6" th:object="${calculadora}">
-            <ul class="list-group-item img-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                    <li class="list-group-item ajustando-tabela centralizar-texto">
-                        <h3>Calculadora Nutricional</h3>
-                    </li>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td colspan="3">
-                            <p class="titulo-medio-calculadora">Calorias</p>
-                            <div class="center">
-                                <div class="centralizar-texto titulo-grande-calculadora block" th:text="${calculadora.caloriasTotal}"></div>
-                                <div class="block">kcal</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
+            <div id="tabela-info" class="col-lg-6" th:object="${calculadora}">
+                <ul class="list-group-item img-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <li class="list-group-item ajustando-tabela centralizar-texto">
+                                <h3>Calculadora Nutricional</h3>
+                            </li>
+                        </thead>
 
-                        <td class="ajuste-tamanho-td-calculadora">
-                            <p class="titulo-pequeno-calculadora">Gordura</p>
-                            <hr/>
-                            <div class="center calculadora-medidas-visuais">
-                                <img class="colher-calculadora block" src="/img/colher-gordura.svg"/>
-                                <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
-                                <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherGordura}"></div>
-                            </div>
-                            <div class="center tamanho-div-total">
-                                <div class="block">Total: </div>
-                                <div class="centralizar-texto block tamanho-texto" th:text="${calculadora.gorduraTotal}"></div>
-                                <div class="block">g</div>
-                            </div>
-                        </td>
-                        <td class="ajuste-tamanho-td-calculadora">
-                            <p class="titulo-pequeno-calculadora">Açúcar</p>
-                            <hr/>
-                            <div class="center calculadora-medidas-visuais">
-                                <img class="colher-calculadora" src="/img/colher-acucar.svg"/>
-                                <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
-                                <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherAcucar}"></div>
-                            </div>
-                            <div class="center tamanho-div-total">
-                                <div class="block">Total: </div>
-                                <div class="centralizar-texto block tamanho-texto" th:text="${calculadora.acucarTotal}"></div>
-                                <div class="block">g</div>
-                            </div>
-                        </td>
-                        <td class="ajuste-tamanho-td-calculadora">
-                            <p class="titulo-pequeno-calculadora">Sal</p>
-                            <hr/>
-                            <div class="center calculadora-medidas-visuais">
-                                <img class="colher-calculadora" src="/img/colher-sal.svg"/>
-                                <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
-                                <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherSal}"></div>
-                            </div>
-                            <div class="center tamanho-div-total">
-                                <div class="block">Total: </div>
-                                <p class="centralizar-texto block tamanho-texto" th:text="${calculadora.salTotal}"></p>
-                                <div class="block">g</div>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <ul class="ajustando-tabela-2-calculadora">
-                    <h6 class="list-group-item">
-                        <B>NA</B> - Não avaliado
-                        <br />
-                        <b>TR</b> - Traço para medidas entre 0 à 0.5
-                    </h6>
+                        <tbody>
+                            <tr>
+                                <td colspan="3">
+                                    <p class="titulo-medio-calculadora">Calorias</p>
+                                    <div class="center">
+                                        <div class="centralizar-texto titulo-grande-calculadora block" th:text="${calculadora.caloriasTotal}"></div>
+                                        <div class="block">kcal</div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="ajuste-tamanho-td-calculadora">
+                                    <p class="titulo-pequeno-calculadora">Gordura</p>
+                                    <hr/>
+
+                                    <div class="calculadora-medidas-visuais">
+                                        <img class="colher-calculadora" src="/img/colher-gordura.svg"/>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherGordura}"></div>
+                                    </div>
+
+                                    <div class="center tamanho-div-total">
+                                        <div class="block">Total: </div>
+                                        <div class="centralizar-texto block tamanho-texto" th:text="${calculadora.gorduraTotal}"></div>
+                                        <div class="block">g</div>
+                                    </div>
+                                </td>
+                                <td class="ajuste-tamanho-td-calculadora">
+                                    <p class="titulo-pequeno-calculadora">Açúcar</p>
+                                    <hr/>
+                                    <div class="center calculadora-medidas-visuais">
+                                        <img class="colher-calculadora" src="/img/colher-acucar.svg"/>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherAcucar}"></div>
+                                    </div>
+                                    <div class="center tamanho-div-total">
+                                        <div class="block">Total: </div>
+                                        <div class="centralizar-texto block tamanho-texto" th:text="${calculadora.acucarTotal}"></div>
+                                        <div class="block">g</div>
+                                    </div>
+                                </td>
+                                <td class="ajuste-tamanho-td-calculadora">
+                                    <p class="titulo-pequeno-calculadora">Sal</p>
+                                    <hr/>
+                                    <div class="center calculadora-medidas-visuais">
+                                        <img class="colher-calculadora" src="/img/colher-sal.svg"/>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherSal}"></div>
+                                    </div>
+                                    <div class="center tamanho-div-total">
+                                        <div class="block">Total: </div>
+                                        <p class="centralizar-texto block tamanho-texto" th:text="${calculadora.salTotal}"></p>
+                                        <div class="block">g</div>
+                                        <div class="div-botao-calculadora">
+                                            <a class="botao-calculadora" href="/grid">
+                                                Selecione alimentos para calcular
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <ul class="ajustando-tabela-2-calculadora">
+                        <h6 class="list-group-item">
+                            <B>NA</B> - Não avaliado
+                            <br />
+                            <b>TR</b> - Traço para medidas entre 0 à 0.5
+                        </h6>
+                    </ul>
                 </ul>
-            </ul>
+            </div>
         </div>
-     </div>
-</div>
-
-    <nav th:replace="fragmentos/rodape :: rodape"></nav>
-
-</body>
+    </div>
+        <nav th:replace="fragmentos/rodape :: rodape"></nav>
+    </body>
 </html>

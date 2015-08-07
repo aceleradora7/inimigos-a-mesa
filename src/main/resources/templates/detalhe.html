@@ -1,55 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-    <title>Detalhe do Produto</title>
+    <head>
 
-    <link th:replace="fragmentos/header :: bootstrap-css" />
-    <link th:replace="fragmentos/header :: jqueryui-css" />
-    <link th:replace="fragmentos/header :: flaticon-css" />
-    <link th:replace="fragmentos/header :: principal-css" />
-    <script th:replace="fragmentos/header :: jquery"/>
-    <script th:replace="fragmentos/header :: jqueryui"/>
-    <script th:replace="fragmentos/header :: bootstrap-js"/>
-    <script th:replace="fragmentos/header :: query-string-js"/>
-    <script th:replace="fragmentos/header :: busca"/>
-    <link th:replace="fragmentos/header :: favicon-ico" />
-    <link type="text/css" href="/css/detalhe.css" rel="stylesheet"/>
-    <script type="text/javascript" src="/js/detalhe.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+        <title>Detalhe do Produto</title>
+        <link th:replace="fragmentos/header :: bootstrap-css" />
+        <link th:replace="fragmentos/header :: jqueryui-css" />
+        <link th:replace="fragmentos/header :: flaticon-css" />
+        <link th:replace="fragmentos/header :: principal-css" />
+        <script th:replace="fragmentos/header :: jquery"/>
+        <script th:replace="fragmentos/header :: jqueryui"/>
+        <script th:replace="fragmentos/header :: bootstrap-js"/>
+        <script th:replace="fragmentos/header :: query-string-js"/>
+        <script th:replace="fragmentos/header :: busca"/>
+        <link th:replace="fragmentos/header :: favicon-ico" />
+        <link type="text/css" href="/css/detalhe.css" rel="stylesheet"/>
+        <script type="text/javascript" src="/js/detalhe.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap-slider.css" media="all" />
+        <script type="text/javascript" src="/js/bootstrap-slider.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/slider.css"/>
+    </head>
 
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-slider.css" media="all" />
-    <script type="text/javascript" src="/js/bootstrap-slider.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="/css/slider.css"/>
-
-
-</head>
-<body>
-    <nav th:replace="fragmentos/header :: cabecalho"></nav>
-
+    <body>
+        <nav th:replace="fragmentos/header :: cabecalho"></nav>
         <p id="gordura" th:value="${medidas.colheresDeGordura}"></p>
         <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
         <p id="sal" th:value="${medidas.colheresDeSal}"></p>
 
-
         <div class="container" id="mostraAlimento">
         <input type="hidden" id="codigo" th:value="${alimento.codigo}"/>
-
             <div id="titulo-detalhe">
                 <div id="tituloAlimento">
                     <h1 class="block" th:text="${alimento.nome}"></h1>
                     <h2 class="tirando-margin" th:text="${alimento.categoria.nome}"></h2>
-
-
-                        <button id="adicionaAlimento" type="button" class="btn btn-warning">
-                            Adicione o alimento
-                        </button>
-
-
+                    <button id="adicionaAlimento" type="button" class="btn btn-warning">
+                        Adicione o alimento
+                    </button>
                 </div>
             </div>
 
             <div class="row col-lg-12" id="imagem-tabela">
+
                 <div id="imagem-detalhe" class="row col-lg-6 img-responsive  center-block">
                     <center>
                         <img class="tamanho-imagem-div img-responsive" th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
@@ -62,78 +53,84 @@
                             Editar
                         </button>
                     </a>
+
                     <a class="botao-deletar" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
                         <button type="button" class="btn btn-danger">
                             Deletar
                         </button>
                     </a>
                 </div>
+
                 <div id="tabela-detalhe" class="row col-lg-6 img-responsive center-block">
-                    <ul class="list-group-item img-responsive" >
-                    <table class="table table-bordered">
-                        <thead>
-                        <li class="list-group-item ajustando-tabela">
-                            <h3>
-                                <b>Tabela Nutricional</b>
-                            </h3>
-                            Para porção de
-                            <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"> </text>
-                            <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>, igual a
-                            <text  value="valorMedidaCaseira" id="valorMedidaCaseira"  th:text="${alimento.valorMedidaCaseira}"> </text>.
-                            <text  value="unidadeMedidaCaseira" id="unidadeMedidaCaseira"  th:text="${alimento.unidadeMedidaCaseira}"> </text>.
-                        </li>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="ajuste-tamanho-td">
-                                    Calorias
-                                    <label  value="calorias" id="valor-caloria" class="badge aparenciaTabela" th:text="${legenda.calorias}" th:value="${alimento.exibicaoCalorias}"> </label>
-                                </td>
-                                <td class="ajuste-tamanho-td">
-                                    Gordura
-                                    <label id="valor-gordura" class="badge aparenciaTabela" th:text="${legenda.gordura}" th:value="${alimento.exibicaoGordura}"></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="ajuste-tamanho-td">
-                                    Açúcar
-                                    <label id="valor-acucar" class="badge aparenciaTabela" th:text="${legenda.acucar}" th:value="${alimento.exibicaoAcucar}" ></label>
-                                </td>
-                                <td class="ajuste-tamanho-td">
-                                    Sódio
-                                    <span id="valor-sodio" class="badge aparenciaTabela" th:text="${legenda.sodio}" th:value="${alimento.exibicaoSodio}"></span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <ul class="list-group-item img-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <li class="list-group-item ajustando-tabela">
+                                    <h3>
+                                        <b>Tabela Nutricional</b>
+                                    </h3>
+                                    Para porção de
+                                    <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"> </text>
+                                    <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>, igual a
+                                    <text  value="valorMedidaCaseira" id="valorMedidaCaseira"  th:text="${alimento.valorMedidaCaseira}"> </text>.
+                                    <text  value="unidadeMedidaCaseira" id="unidadeMedidaCaseira"  th:text="${alimento.unidadeMedidaCaseira}"> </text>.
+                                </li>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td class="ajuste-tamanho-td">
+                                        Calorias
+                                        <label  value="calorias" id="valor-caloria" class="badge aparenciaTabela" th:text="${legenda.calorias}" th:value="${alimento.exibicaoCalorias}"> </label>
+                                    </td>
+
+                                    <td class="ajuste-tamanho-td">
+                                        Gordura
+                                        <label id="valor-gordura" class="badge aparenciaTabela" th:text="${legenda.gordura}" th:value="${alimento.exibicaoGordura}"></label>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="ajuste-tamanho-td">
+                                        Açúcar
+                                        <label id="valor-acucar" class="badge aparenciaTabela" th:text="${legenda.acucar}" th:value="${alimento.exibicaoAcucar}" ></label>
+                                    </td>
+
+                                    <td class="ajuste-tamanho-td">
+                                        Sódio
+                                        <span id="valor-sodio" class="badge aparenciaTabela" th:text="${legenda.sodio}" th:value="${alimento.exibicaoSodio}"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <ul class="ajustando-tabela-2">
                             <h6 class="list-group-item">
                                 <B>NA</B> - Não avaliado
                                 <br />
                                 <b>TR</b> - Traço para medidas entre 0 à 0.5
                             </h6>
-                             <span class="fonte">Fonte:</span>
-                            <text  value="fonte" id="fonte" class="fonte" th:text="${alimento.fonte}"> </text>.
-
+                            <span class="fonte">Fonte:</span>
+                            <text  value="fonte" id="fonte" class="fonte" th:text="${alimento.fonte}"></text>.
                             <a class="ancora-link" href="#medidas-visuais-ancora">
                                 Ver medidas visuais
                             </a>
                         </ul>
-
-
-
-
                     </ul>
                 </div>
             </div>
-
         </div>
-            <p id="medidas-visuais-ancora"></p>
+
+        <p id="medidas-visuais-ancora"></p>
         <div id="medidas-visuais">
             <div class="seta-ancora">
                 <div class="alinhar-seta-direita">
                     <a href="#mostraAlimento">
-                        <img class="imagem-seta-ancora" src="/img/seta-cima.png"/></a></div></div>
+                        <img class="imagem-seta-ancora" src="/img/seta-cima.png"/>
+                    </a>
+                </div>
+            </div>
+
             <div class="container">
                 <div id="titulo-medidas">
                     <div id="tituloMedidas">
@@ -141,16 +138,16 @@
                         <div id="porcaoAlimento">
                             <text class="tamanhoFonte">Para porção de</text>
                             <text class="tamanhoFonte" th:value="alimento.porcaoExibicao" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
-                            <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text >
+                            <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text>
 
                             <div>
                                 <input id="slider" data-slider-id='detalhe-slider'  data-slider-min="1" th:data-slider-max="${alimento.valorMaximoMedida}" data-slider-step="1" data-slider-value="1"/>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="container">
                 <div class="espacoAcucar">
                     <div class="row">
@@ -198,52 +195,51 @@
                 </div>
             </div>
         </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-        <div class="modal-dialog ajuste-recuperar" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusao de Alimento</h4>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <form class="form-horizontal" th:action="@{/recuperarSenha}" th:object="${Usuario}" method="POST">
-                            <div id="infoAlimentoDeletar" class="media">
-                                <div id="imagemAlimento" class="media-left media-middle" >
-                                    <img th:src="${alimento.urlImagemPequena}" class="img-rounded media-object imagem-grid"/>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading" th:text="${alimento.nome}" id="alimento"></h4>
-                                    <p id="categoria" th:text="${alimento.getCategoria().getNome()}"></p>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <a class="botao-deletar" th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}">
-                        <button type="button" class="btn btn-primary">
-                            Confirmar
-                        </button>
-                    </a>
 
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog ajuste-recuperar" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusao de Alimento</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div>
+                            <form class="form-horizontal" th:action="@{/recuperarSenha}" th:object="${Usuario}" method="POST">
+                                <div id="infoAlimentoDeletar" class="media">
+                                    <div id="imagemAlimento" class="media-left media-middle" >
+                                        <img th:src="${alimento.urlImagemPequena}" class="img-rounded media-object imagem-grid"/>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading" th:text="${alimento.nome}" id="alimento"></h4>
+                                        <p id="categoria" th:text="${alimento.getCategoria().getNome()}"></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <a class="botao-deletar" th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}">
+                            <button type="button" class="btn btn-primary">
+                                Confirmar
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <nav th:replace="fragmentos/rodape :: rodape"></nav>
+        <nav th:replace="fragmentos/rodape :: rodape"></nav>
+        <div id="template-colher" class="colher" style="display:none">
+            <img id="image" class="colher"/>
+        </div>
 
-    <div id="template-colher" class="colher" style="display:none">
-        <img id="image" class="colher"/>
-    </div>
-
-    <div id="template-sem-colher" class="sem-colher" style="display:none">
-       <span><i>A quantia não é suficiente para uma medida de colher.</i></span>
-    </div>
-
-
-    <script type="text/javascript" src="/js/slider.js"></script>
-</body>
+        <div id="template-sem-colher" class="sem-colher" style="display:none">
+           <span><i>A quantia não é suficiente para uma medida de colher.</i></span>
+        </div>
+        <script type="text/javascript" src="/js/slider.js"></script>
+    </body>
 </html>

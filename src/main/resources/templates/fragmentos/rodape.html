@@ -1,112 +1,127 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org" xmlns:class="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://www.springframework.org/security/tags">
-<head>
+    <body>
+        <nav th:fragment="rodape">
+            <footer id="footer" class="container">
+                <center>
+                    <div class="alinhamento-footer alinhar">
+                        <span class="titulo-rodape">ALIMENTOS</span>
+                        <li>
+                            <a href="/grid?categoria=1">Bebidas</a>
+                        </li>
 
- </head>
- <body>
+                        <li>
+                            <a href="/grid?categoria=2">Carnes e Similares</a>
+                        </li>
 
- <nav th:fragment="rodape">
-     <footer id="footer" class="container">
+                        <li>
+                            <a href="/grid?categoria=3">Enlatados e Conservas</a>
+                        </li>
 
-        <center>
-             <div class="alinhamento-footer alinhar">
-                 <span class="titulo-rodape">ALIMENTOS</span>
-                     <li>
-                         <a href="/grid?categoria=1">Bebidas</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=2">Carnes e Similares</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=3">Enlatados e Conservas</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=4">Frutas</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=5">Laticínios</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=6">Legumes</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=7">Molhos, Caldos e Temperos</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=8">Panifícios, Massas e Cereais</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=9">Pratos Prontos</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=10">Produtos Diet e Light</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=11">Sopas</a>
-                     </li>
-                     <li>
-                         <a href="/grid?categoria=12">Verduras e Hortaliças</a>
-                     </li>
-             </div>
-             <div class="alinhamento-footer alinhar">
-                 <span class="titulo-rodape">PÁGINAS</span>
-                     <li>
-                         <a th:href="@{/grid}">Alimentos</a>
-                     </li>
-                     <li>
-                         <a th:href="@{/calculadora}">Calculadora</a>
-                     </li>
-                     <li>
-                         <a>Dicas de hábitos saudáveis</a>
-                     </li>
-                     <li>
-                         <a>Doenças</a>
-                     </li>
-                     <li>
-                         <a>Receitas</a>
-                     </li>
-                     <li>
-                         <a>Tutorial</a>
-                     </li>
-                     <li>
-                         <a>Informações legais</a>
-                     </li>
-                     <li>
-                         <a th:href="@{/sobre}">Sobre</a>
-                     </li>
-                     <li>
-                         <a th:href="@{/contato}">Contato</a>
-                     </li>
-             </div>
-            <div class="alinhamento-footer alinhar">
-                <span class="titulo-rodape">ADMINISTRADOR</span>
-                <li th:if="${#httpServletRequest.remoteUser == null}">
-                    <a th:href="@{/login}">Login</a>
-                </li>
-                <li th:if="${#httpServletRequest.remoteUser != null}">
+                        <li>
+                            <a href="/grid?categoria=4">Frutas</a>
+                        </li>
 
-                    <a th:href="@{/logout}">Logout</a>
-                </li>
-                <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
-                    <a href="/cadastrarUsuario">Cadastro Administrador</a>
-                </li>
+                        <li>
+                            <a href="/grid?categoria=5">Laticínios</a>
+                        </li>
 
-            </div>
-             <!--<div class="alinhamento-footer alinhar">-->
-                 <!--<span class="titulo-rodape">COMPARTILHAMENTO</span>-->
-                     <!--<li>-->
-                         <!--<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>-->
-                         <!--<script type="text/javascript">stLight.options({publisher: "57e7b7de-30c7-4cfc-9b9f-a2c45a73d62d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
+                        <li>
+                            <a href="/grid?categoria=6">Legumes</a>
+                        </li>
 
-                         <!--<span class='st_facebook_hcount' displayText='Facebook'></span>-->
-                         <!--<span class='st_twitter_hcount' displayText='Tweet'></span>-->
+                        <li>
+                            <a href="/grid?categoria=7">Molhos, Caldos e Temperos</a>
+                        </li>
 
-                     <!--</li>-->
-             <!--</div>-->
+                        <li>
+                            <a href="/grid?categoria=8">Panifícios, Massas e Cereais</a>
+                        </li>
 
-        </center>
-     </footer>
- </nav>
- </body>
+                        <li>
+                            <a href="/grid?categoria=9">Pratos Prontos</a>
+                        </li>
+
+                        <li>
+                            <a href="/grid?categoria=10">Produtos Diet e Light</a>
+                        </li>
+
+                        <li>
+                            <a href="/grid?categoria=11">Sopas</a>
+                        </li>
+
+                        <li>
+                            <a href="/grid?categoria=12">Verduras e Hortaliças</a>
+                        </li>
+                    </div>
+
+                    <div class="alinhamento-footer alinhar">
+                        <span class="titulo-rodape">PÁGINAS</span>
+                        <li>
+                            <a th:href="@{/grid}">Alimentos</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/calculadora}">Calculadora</a>
+                        </li>
+
+                        <li>
+                            <a>Dicas de hábitos saudáveis</a>
+                        </li>
+
+                        <li>
+                            <a>Doenças</a>
+                        </li>
+
+                        <li>
+                            <a>Receitas</a>
+                        </li>
+
+                        <li>
+                            <a>Tutorial</a>
+                        </li>
+
+                        <li>
+                            <a>Informações legais</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/sobre}">Sobre</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/contato}">Contato</a>
+                        </li>
+                    </div>
+
+                    <div class="alinhamento-footer alinhar">
+                        <span class="titulo-rodape">ADMINISTRADOR</span>
+                        <li th:if="${#httpServletRequest.remoteUser == null}">
+                            <a th:href="@{/login}">Login</a>
+                        </li>
+
+                        <li th:if="${#httpServletRequest.remoteUser != null}">
+                            <a th:href="@{/logout}">Logout</a>
+                        </li>
+
+                        <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
+                            <a href="/cadastrarUsuario">Cadastro Administrador</a>
+                        </li>
+
+                    </div>
+
+                    <div class="alinhamento-footer alinhar">
+                        <span class="titulo-rodape">COMPARTILHAMENTO</span>
+                        <li>
+                            <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+                            <script type="text/javascript">stLight.options({publisher: "57e7b7de-30c7-4cfc-9b9f-a2c45a73d62d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+                            <span class='st_facebook_hcount' displayText='Facebook'></span>
+                            <span class='st_twitter_hcount' displayText='Tweet'></span>
+                        </li>
+                    </div>
+                </center>
+            </footer>
+        </nav>
+    </body>
  </html>

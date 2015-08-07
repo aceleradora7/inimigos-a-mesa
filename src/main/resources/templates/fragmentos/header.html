@@ -10,8 +10,6 @@
     <script th:fragment="jqueryui" type="text/javascript" src="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>
     <script th:fragment="busca" type="text/javascript" src="/js/busca.js"/>
     <script th:fragment="query-string-js" type="text/javascript" src="/js/queryString.js"/>
-
-
     <script th:fragment="detalhe" type="text/javascript" src="/js/detalhe.js"/>
     <script th:fragment="formulario-alimento-js" type="text/javascript" src="/js/formularioAlimento.js"/>
 
@@ -66,7 +64,6 @@
 
         <div class="container-fluid">
             <div class="navbar-collapse collapse" id="navbar-collapsible">
-
                 <ul th:if="${#httpServletRequest.remoteUser != null}" class="nav navbar-nav navbar-right">
                     <li><a href="/logout">Logout</a></li>
                 </ul>
