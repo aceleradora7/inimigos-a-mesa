@@ -13,6 +13,9 @@ public class Calculadora {
     private double sodioTotal = 0.0;
     private double salTotal = 0.0;
     public List<Alimento> listaDeAlimentos;
+    private int colherSal = 0;
+    private int colherGordura = 0;
+    private int colherAcucar = 0;
 
     public Calculadora() {
         listaDeAlimentos = new ArrayList<>();
@@ -26,28 +29,10 @@ public class Calculadora {
         this.listaDeAlimentos = listaDeAlimentos;
     }
 
-    public boolean adicionaAlimento(Alimento alimento){
-
-        boolean contem = false;
-        for (Alimento ali : listaDeAlimentos){
-
-            if (ali.getCodigo() == alimento.getCodigo()){
-                contem = true;
-                return false;
-            }
-        }
-        if (contem == false){
-            listaDeAlimentos.add(alimento);
-            somaAlimentoCalculadora(alimento);
-        }
-        return true;
-    }
-
     public double getCaloriasTotal() {
 
         return formataDouble(caloriasTotal);
     }
-
 
     public double getGorduraTotal() {
         return formataDouble(gorduraTotal);
@@ -65,8 +50,34 @@ public class Calculadora {
         return formataDouble(salTotal);
     }
 
+    public int getColherSal() { return colherSal; }
+
+    public int getColherGordura() { return colherGordura; }
+
+    public int getColherAcucar() {
+        return colherAcucar;
+    }
+
     public void setSalTotal(double salTotal) {
         this.salTotal = salTotal;
+    }
+
+    public boolean adicionaAlimento(Alimento alimento){
+
+        boolean contem = false;
+        for (Alimento ali : listaDeAlimentos){
+
+            if (ali.getCodigo() == alimento.getCodigo()){
+                contem = true;
+                return false;
+            }
+        }
+        if (contem == false){
+            listaDeAlimentos.add(alimento);
+            somaAlimentoCalculadora(alimento);
+            somaColherCalculadora();
+        }
+        return true;
     }
 
     public void somaAlimentoCalculadora(Alimento alimento){
@@ -88,6 +99,15 @@ public class Calculadora {
         }
     }
 
+    public void somaColherCalculadora() {
+
+        MedidasVisuais medidasVisuais = new MedidasVisuais();
+
+        colherSal = medidasVisuais.calculaColherSal(sodioTotal);
+        colherAcucar = medidasVisuais.calculaColherAcucar(acucarTotal);
+        colherGordura = medidasVisuais.calculaColherGordura(gorduraTotal);
+    }
+
     public double formataDouble(double x){
         String b = ""+x;
         if(b.length()>=b.indexOf('.')+3){
@@ -97,4 +117,5 @@ public class Calculadora {
             return Double.parseDouble(b);
         }
     }
+
 }
