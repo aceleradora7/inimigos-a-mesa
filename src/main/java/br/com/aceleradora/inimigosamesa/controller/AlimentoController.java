@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -89,9 +88,6 @@ public class AlimentoController {
         return "detalhe";
     }
 
-
-
-
     @RequestMapping(value = "/cadastroAlimento", method = RequestMethod.GET)
     public String cadastrarAlimento(Model model, Alimento alimento){
         if(alimento == null){
@@ -155,15 +151,18 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/adicionaAlimento", method = RequestMethod.GET)
-    public String calculadora(Model model, @RequestParam(value = "codigo", required = false) int codigo, HttpServletRequest request){
+    public String calculadora(Model model, @RequestParam(value = "codigo", required = false) int codigo,@RequestParam(value = "porcao", required = false) String porcao, HttpServletRequest request){
 
         if(request.getSession().getAttribute("calculadora") == null){
             request.getSession().setAttribute("calculadora", new Calculadora());
         }
 
+
         Calculadora calculadora = (Calculadora) request.getSession().getAttribute("calculadora");
 
         Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
+
+        alimento.recalculaNutrientesDaCalculadora(Double.parseDouble(porcao));
 
         calculadora.adicionaAlimento(alimento);
 
