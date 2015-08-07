@@ -43,11 +43,21 @@ function efeitoDaAncora(){
     });
 }
 
+
+
+function adicionarAlimento(){
+    setParametro("codigo", $("#codigo").val());
+    setParametro("porcao", $("#porcaoAlimento").text());
+    acessarPaginaComParametros("adicionaAlimento");
+}
+
 $(document).ready(function(){
     efeitoDaAncora();
     renderizarColher("gordura");
     renderizarColher("sal");
     renderizarColher("acucar");
+    $("#adicionaAlimento").on("click", adicionarAlimento);
+
 })
 
 //]]>
