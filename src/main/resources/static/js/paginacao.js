@@ -57,7 +57,6 @@ function associarEventosPaginacao(){
     paginas.on("click", ".pagina", onClickPaginas);
     paginas.on("click", "#proxima-pagina", onClickProximaPagina);
     paginas.on("click", "#pagina-anterior", onClickPaginaAnterior);
-
     paginas.on("click", "#primeira-pagina", onClickPrimeiraPagina);
     paginas.on("click", "#ultima-pagina", onClickUltimaPagina);
 };

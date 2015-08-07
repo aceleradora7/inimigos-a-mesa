@@ -18,7 +18,7 @@ $(document).ready(function(){
         theme: 'white',
     },
 
-    function(error, result) {
+    function(error, result){
         console.log(error, result);
         var meuResult = JSON.stringify(result, null, 2);
         var json = JSON.stringify(result);
@@ -39,7 +39,6 @@ $(document).ready(function(){
         var urlImagemGrandeFinal = urlImagemGrande.concat(urlParte2);
 
         $( ".cloudinary-thumbnails" ).hide();
-
         $( "#imagemAlimento" ).replaceWith("<img src='"+urlImagemGrandeFinal+
         "' id='imagemAlimento' alt='Imagem do Alimento'/>" );
 

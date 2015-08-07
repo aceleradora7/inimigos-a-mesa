@@ -6,7 +6,6 @@ function getParametros(){
     function getParametro(parametro){
         var nome  = parametro.split("=")[0];
         var valor = parametro.split("=")[1];
-
         params[nome] = valor;
     }
 
@@ -29,7 +28,6 @@ function getParametros(){
 
     return params;
 }
-
 
 function setParametro(nome, valor){
     params[nome] = valor;

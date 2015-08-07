@@ -1,3 +1,5 @@
+//<![CDATA[
+
 function associarEventosMenuCategoria(){
     var menuCategorias = $("#menu-categoria");
     menuCategorias.on("click", ".categoria", onClickBotaoCategoria);
@@ -36,3 +38,5 @@ $(document).ready(function(){
     marcaBotaoCategoriaAtual();
     marcaBotaoLetraAtual();
 });
+
+//]]>

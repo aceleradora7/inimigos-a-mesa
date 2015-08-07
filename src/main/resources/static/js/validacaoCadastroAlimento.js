@@ -1,12 +1,13 @@
 //<![CDATA[
-function desabilitarInputNutrientes() {
-    $(".NA").click(function() {
+
+function desabilitarInputNutrientes(){
+    $(".NA").click(function(){
         var inputNutriente = $(this).val();
         $('#'+inputNutriente).val("");
-        if( $('#'+inputNutriente).prop( "disabled")==false){
-            $('#'+inputNutriente).prop( "disabled", true );
+        if( $('#'+inputNutriente).prop("disabled")==false){
+            $('#'+inputNutriente).prop("disabled", true );
         }else{
-            $('#'+inputNutriente).prop( "disabled", false );
+            $('#'+inputNutriente).prop("disabled", false );
         }
     });
 }
@@ -14,7 +15,7 @@ function desabilitarInputNutrientes() {
 function validarCadastro(){
     if (validarNome() && validarCategoria() && validarPorcaoBase() &&
     validarPorcaoExibicao() && validarMedidaCaseira() && validarPorcaoCalorias() &&
-    validarPorcaoAcucar() && validarPorcaoSodio() && validarPorcaoGordura()) {
+    validarPorcaoAcucar() && validarPorcaoSodio() && validarPorcaoGordura()){
         return true;
     }
     return false;
@@ -46,14 +47,14 @@ function validarCategoria(){
 
 function validarPorcaoBase(){
     var porcaoBase = $('#porcaoBase');
-        if(!isNaN(porcaoBase.val()) && validarUnidadePorcaoBase()){
-            $("#espacoErroPorcaoBase").hide();
-            return true;
-        }else{
-             $("#espacoErroPorcaoBase").show();
-             porcaoBase.focus();
-            return false;
-        }
+    if(!isNaN(porcaoBase.val()) && validarUnidadePorcaoBase()){
+        $("#espacoErroPorcaoBase").hide();
+        return true;
+    }else{
+         $("#espacoErroPorcaoBase").show();
+         porcaoBase.focus();
+        return false;
+    }
 }
 
 function validarUnidadePorcaoBase(){
@@ -68,14 +69,14 @@ function validarUnidadePorcaoBase(){
 
 function validarPorcaoExibicao(){
     var porcaoExibicao = $('#porcaoExibicao');
-        if(!isNaN(porcaoExibicao.val()) && validarUnidadePorcaoExibicao()){
-            $("#espacoErroPorcaoExibicao").hide();
-            return true;
-        }else{
-           $("#espacoErroPorcaoExibicao").show();
-           porcaoExibicao.focus();
-           return false;
-        }
+    if(!isNaN(porcaoExibicao.val()) && validarUnidadePorcaoExibicao()){
+        $("#espacoErroPorcaoExibicao").hide();
+        return true;
+    }else{
+       $("#espacoErroPorcaoExibicao").show();
+       porcaoExibicao.focus();
+       return false;
+    }
 }
 
 function validarMedidaCaseira(){
