@@ -38,7 +38,25 @@ function criaBusca(){
                 $(this).val(ui.item.label);
         }
     });
-};
+
+    $("#busca-header").autocomplete({
+            minLength: 3,
+            source:function (request, response){
+                 buscaDados(request, response);
+            },
+            select:function(event, ui){
+                event.preventDefault();
+                var id = ui.item.value
+                var link = "/detalhe/" + id;
+               window.location.replace(link);
+            },
+            focus: function(event, ui) {
+                    event.preventDefault();
+                    $(this).val(ui.item.label);
+                }
+        });
+}
+
 
 function iniciarBuscarAoDigitar() {
     $("#input-busca").keyup(function() {
@@ -46,12 +64,28 @@ function iniciarBuscarAoDigitar() {
             criaBusca();
         }
     });
-}
 
+    $("#busca-header").keyup(function() {
+            if ($(this).val().length >= 1) {
+                criaBusca();
+            }
+    });
+}
 function onClickBotaoBusca(){
-    setParametro("busca", $("#input-busca").val());
-    removerParametro("pagina");
-    acessarPaginaComParametros("grid");
+     setParametro("busca", $("#input-busca").val());
+     removerParametro("pagina");
+     acessarPaginaComParametros("grid");
+ }
+
+ function onClickBotaoBuscaHeaderFinal(){
+     setParametro("busca", $("#busca-header").val());
+     removerParametro("pagina");
+     acessarPaginaComParametros("grid");
+ }
+
+function onClickBotaoBuscaHeaderInicial(){
+$("#btn-busca-header-inicial").attr('id',"btn-busca-header-final");
+ $("#btn-busca-header-final").on("click", onClickBotaoBuscaHeaderFinal);
 }
 
 function onClickBotaoBuscaLetra(){
@@ -62,16 +96,28 @@ function onClickBotaoBuscaLetra(){
 
 function associarEventoBotaoBusca(){
     $("#btn-busca").on("click", onClickBotaoBusca);
+    $("#btn-busca-header-inicial").on("click", onClickBotaoBuscaHeaderInicial);
     $(".buscaLetra").on("click", onClickBotaoBuscaLetra);
 }
 
 function buscaEnter(){
-    $("#input-busca").keypress(function(e){
-        if (e.which == 13){
-            onClickBotaoBusca();
-        }
-    }
-)};
+
+ $("#input-busca").keypress(function(e)
+{
+	if (e.which == 13)
+	{
+		onClickBotaoBusca();
+	}
+});
+
+$("#busca-header").keypress(function(e)
+{
+	if (e.which == 13)
+	{
+		onClickBotaoBuscaHeaderFinal();
+	}
+});
+}
 
 $(document).ready(function() {
     iniciarBuscarAoDigitar();
