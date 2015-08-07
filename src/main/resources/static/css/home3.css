@@ -36,18 +36,12 @@ a:focus,
 a:active,
 a.active {
     color: #53b778;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
 }
 
 .img-centered {
     margin: 0 auto;
-}
-
-.btn-primary {
-    border-color: #53b778;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #fff;
-    background-color: #53b778;
 }
 
 .btn-primary:hover,
@@ -203,7 +197,7 @@ fieldset[disabled] .btn-xl.active {
 
 @media(min-width:768px) {
     .navbar-default {
-        padding: 25px 0;
+        padding: 15px 0px;
         border: 0;
         background-color: transparent;
         -webkit-transition: padding .3s;
@@ -391,9 +385,6 @@ section h3.section-subheading {
     }
 }
 
-
-
-
 .buscar-home {
     margin: 0 auto;
     display: inline-block;
@@ -413,6 +404,15 @@ section h3.section-subheading {
 .botao-buscar:hover {
     color: #fff;
     background: #53b778;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+
+}
+
+.btn-search-border:hover{
+    stroke:#53b778;
+    transition: all 0.4s ease-in-out;  !important;
+    -webkit-transition: all 0.4s ease-in-out;  !important;
 }
 
 .caixa-busca {
@@ -437,4 +437,12 @@ section h3.section-subheading {
 }
 .agrupadordeCards{
     margin-top: 20px;
+}
+
+.icon-search{
+    padding-bottom: 0 !important;
+}
+
+.tede{
+    height: 20px !important;
 }
