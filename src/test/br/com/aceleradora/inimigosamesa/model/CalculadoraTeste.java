@@ -46,7 +46,7 @@ public class CalculadoraTeste {
     @Test
     public void somaTotalDeAlimentosDaCalculadoraTest(){
         Calculadora calculadora = new Calculadora();
-        Alimento alimento2 = new Alimento("Abacaxi", "2000", "5", "2000", "2000", "100", "0", "100", "0", "0", "0", "0", new Categoria(1),"","");
+        Alimento alimento2 = new Alimento("Abacaxi", "2000", "5", "2000", "2000", "100", "0", "100", "0", "0", "0", "0", new Categoria(1),"","","","");
         alimento2.setCodigo(1);
 
         double valorEsperado = 0.0;
@@ -79,7 +79,7 @@ public class CalculadoraTeste {
         assertEquals("Deve retornar 2000 acucar.",valorEsperado,valorRetornado,0);
 
 
-        valorEsperado = 0.012820512820512822;
+        valorEsperado = 0.01;
         valorRetornado = calculadora.getSalTotal();
         assertEquals("Deve retornar 0.0128205128 sal.",valorEsperado,valorRetornado,0);
 
