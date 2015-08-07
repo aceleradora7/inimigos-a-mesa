@@ -1,0 +1,112 @@
+.busca-header {
+  width: 50px;
+  height: 50px;
+  margin: auto 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.busca-header:before {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 80%;
+  position: relative;
+  background-color: #53b778;
+  transition: all 0.5s ease;
+}
+
+.busca-header.open {
+  width: 210px;
+}
+
+.busca-header.open:before {
+  height: 30px;
+  margin: 10px 0 10px 15px;
+  position: absolute;
+}
+
+.busca-header-box {
+  width: 120px;
+  height: 30px;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  color: #fff;
+  padding: 10px 15px 10px 22.5px;
+  font-size: 20px;
+}
+
+.busca-header-box:focus {
+  outline: none;
+}
+
+.botao-busca-header {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.busca-header-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  border: 2px solid #53b778;
+  display: block;
+  position: relative;
+  margin-left: 2.5px;
+  transition: all 0.5s ease;
+}
+
+.busca-header-icon:before {
+  content: '';
+  width: 1.5px;
+  height: 7.5px;
+  position: absolute;
+  right: -1px;
+  top: 15px;
+  display: block;
+  background-color: #53b778;
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+}
+
+.busca-header-icon:after {
+  content: '';
+  width: 1.5px;
+  height: 7.5px;
+  position: absolute;
+  right: -6px;
+  top: 20px;
+  display: block;
+  background-color: #53b778;
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+}
+
+.open .busca-header-icon {
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+}
+
+.open .busca-header-icon:before {
+  transform: rotate(52deg);
+  right: 11px;
+  top: 11.5px;
+  height: 9px;
+}
+
+.open .busca-header-icon:after {
+  transform: rotate(-230deg);
+  right: 11px;
+  top: 6.5px;
+  height: 9px;
+}
