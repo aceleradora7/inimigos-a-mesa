@@ -231,7 +231,6 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         }
     }
 
-
     public String getExibicaoCalorias() {
         return calculaExibicao(calorias);
     }
@@ -258,5 +257,21 @@ public class Alimento implements Comparable<Alimento>, Serializable {
             }
         }
         return false;
+    }
+
+    public void recalculaNutrientesDaCalculadora(double porcaoNova){
+        if(calorias!=null && !calorias.isEmpty()){
+            calorias = ""+(Double.parseDouble(calorias)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
+        }
+        if(acucar!=null && !acucar.isEmpty()){
+            acucar = ""+(Double.parseDouble(acucar)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
+        }
+        if(gordura!=null && !gordura.isEmpty()){
+            gordura = ""+(Double.parseDouble(gordura)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
+        }
+        if(sodio!=null && !sodio.isEmpty()){
+            sodio = ""+(Double.parseDouble(sodio)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
+        }
+        porcaoExibicao = ""+porcaoNova;
     }
 }
