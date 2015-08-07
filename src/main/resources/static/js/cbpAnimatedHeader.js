@@ -1,3 +1,15 @@
+/*<![CDATA[*/
+
+$('.btn-search').on('click touchstart', function() {
+  $this = $(this);
+    setTimeout(function() {
+      $this.fadeIn(500);
+    }, 1000);
+    $this.addClass('active');
+    $('.search-box').focus();
+
+});
+
 var cbpAnimatedHeader = (function() {
 
 	var docElem = document.documentElement,
@@ -32,3 +44,5 @@ var cbpAnimatedHeader = (function() {
 	init();
 
 })();
+
+/*]]>*/
