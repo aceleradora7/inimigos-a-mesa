@@ -5,9 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by aluno04 on 06/08/15.
- */
+
 public class MedidasVisuaisTest {
 
     @Test

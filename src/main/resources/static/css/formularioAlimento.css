@@ -23,6 +23,33 @@ margin:0 auto !important;
 .input-alimento{
     width:70%
 }
+
+.tamanho-campo-medida{
+    width:30%;
+
+
+}
+
+.espacoErroMedidas{
+    width: 100%;
+     height: 60px;
+}
+
+.tamanho-campo-erro-medida {
+    width:29%;
+    margin-left: 26%;
+    float: left;
+    margin-top: 5px;
+}
+
+.tamanho-campo-erro-medida2{
+    width: 29%;
+    margin-left: 10px;
+    float: left;
+    margin-top: 5px;
+
+}
+
 .botao-enviar {
     width: 65%;
     margin-top: 10px;
@@ -82,8 +109,14 @@ float:left;
     margin-bottom: 100px;
 }
 
+.div-erro-unidade {
+    display:none;
+}
+
 .div-erro{
     margin-top: 10px;
+    margin-bottom: 50px;
+
 }
 
 #espacoErroNome{

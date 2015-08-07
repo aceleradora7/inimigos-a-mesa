@@ -74,7 +74,7 @@
                                 <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}" >Selecione uma categoria</option>
                             </select>
                         </div>
-                        <div id="espacoErroCategoria">
+                        <div id="espacoErroCategoria" class="div-erro">
                             <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroCategoria">
                                 <label>Selecione uma categoria.</label>
                             </div>
@@ -134,28 +134,29 @@
                                 </li>
                                 <li class="list-group-item">
                                     <div class="form-group">
-                                        <div class="alinha-esquerda">Valor Medida Caseira:</div>
-                                        <input id="valorMedidaCaseira" type="text" th:field="*{valorMedidaCaseira}" placeholder="Ex.: 2" class="input-alimento alinha-direita" name="valorMedidaCaseira" />
-                                    </div>
-                                    <div id="espacoErroValorMedidaCaseira">
-                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroValorMedidaCaseira">
-                                            <label>Preencha o campo.</label>
+                                        <div class="alinha-esquerda">Medida Caseira:</div>
+                                        <input id="valorMedidaCaseira" type="text" th:field="*{valorMedidaCaseira}" placeholder="Ex.: 2" class="tamanho-campo-medida" name="valorMedidaCaseira" />
+                                        <input id="unidadeMedidaCaseira" type="text" th:field="*{unidadeMedidaCaseira}" placeholder="Ex.: bolachas" class="tamanho-campo-medida " name="unidadeMedidaCaseira" />
+                                        <div id="espacoErroValorMedidas" class="espacoErroMedidas div-erro-unidade">
+                                            <div id="espacoErroValorMedidaCaseira" class="div-erro-unidade tamanho-campo-erro-medida">
+                                                <div class="alert alert-danger centralizar-texto">
+                                                    <label>Preencha o campo.</label>
+                                                </div>
+                                            </div>
+                                            <div id="espacoErroValorMedidaCaseiraEmBranco" class="div-erro-unidade tamanho-campo-erro-medida">
+                                                <div class="centralizar-texto">
+                                                    <label></label>
+                                                </div>
+                                            </div>
+                                            <div id="espacoErroUnidadeMedidaCaseira" class="div-erro-unidade tamanho-campo-erro-medida2">
+                                                <div class="alert alert-danger centralizar-texto">
+                                                    <label>Preencha o campo.</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
                                     <label th:text="${erroValorMedidaCaseira}"/>
-                                    <br/>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="form-group">
-                                        <div class="alinha-esquerda">Unidade Medida Caseira:</div>
-                                        <input id="unidadeMedidaCaseira" type="text" th:field="*{unidadeMedidaCaseira}" placeholder="Ex.: bolachas" class="input-alimento alinha-direita" name="unidadeMedidaCaseira" />
-                                    </div>
-                                    <div id="espacoErroUnidadeMedidaCaseira">
-                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroUnidadeMedidaCaseira">
-                                            <label>Preencha o campo.</label>
-                                        </div>
-                                    </div>
-                                    <label th:text="${erroUnidadeMedidaCaseira}"/>
                                     <br/>
                                 </li>
                                 <li class="list-group-item">
@@ -163,7 +164,7 @@
                                         <div class="alinha-esquerda">Valor Máximo de Medida Caseira:</div>
                                         <input id="valorMaximoMedida" type="text" th:field="*{valorMaximoMedida}" placeholder="Ex.: 10" class="input-alimento alinha-direita" name="valorMaximoMedida" />
                                     </div>
-                                    <div id="espacoErroValorMaximoMedida">
+                                    <div id="espacoErroMaximoUnidadeCaseira" class="div-erro">
                                         <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroValorMaximoMedidaa">
                                             <label>Preencha o campo.</label>
                                         </div>
@@ -243,7 +244,7 @@
                                 <li class="list-group-item">
                                     <div class="form-group">
                                         <div class="alinha-esquerda">Fonte:</div>
-                                        <textarea  id="fonte" type="text" th:field="*{fonte}" placeholder="Ex.: Duas bolachas" class="input-alimento alinha-direita tamanho-max" name="fonte" />
+                                        <textarea  id="fonte" type="text" th:field="*{fonte}" placeholder="Ex.: Tabela Nutricional" class="input-alimento alinha-direita tamanho-max" name="fonte" />
                                     </div>
                                 </li>
                                 <li class="list-group-item">
