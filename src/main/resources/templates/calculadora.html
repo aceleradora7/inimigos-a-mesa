@@ -39,10 +39,10 @@
                         </div>
                     </li>
                     <li class="list-group-item altura" th:each="alimento: ${alimentos}">
-                        <div class="nome-alimento">
+                        <div class="nome-alimento center">
                             <p th:text="${alimento.nome}"></p>
                         </div>
-                        <div class="porcao-alimento">
+                        <div class="porcao-alimento center">
                             <p th:text="${alimento.porcaoExibicao}"></p>
                         </div>
                     </li>
@@ -77,39 +77,42 @@
                         <td class="ajuste-tamanho-td-calculadora">
                             <p class="titulo-pequeno-calculadora">Gordura</p>
                             <hr/>
-                            <div class="calculadora-medidas-visuais">
-                                <img class="colher-calculadora" src="/img/colher-gordura.svg"/>
-                                <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
+                            <div class="center calculadora-medidas-visuais">
+                                <img class="colher-calculadora block" src="/img/colher-gordura.svg"/>
+                                <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherGordura}"></div>
                             </div>
-                            <div class="center">
+                            <div class="center tamanho-div-total">
                                 <div class="block">Total: </div>
-                                <div class="centralizar-texto block" th:text="${calculadora.gorduraTotal}"></div>
+                                <div class="centralizar-texto block tamanho-texto" th:text="${calculadora.gorduraTotal}"></div>
                                 <div class="block">g</div>
                             </div>
                         </td>
                         <td class="ajuste-tamanho-td-calculadora">
                             <p class="titulo-pequeno-calculadora">Açúcar</p>
                             <hr/>
-                            <div class="calculadora-medidas-visuais">
+                            <div class="center calculadora-medidas-visuais">
                                 <img class="colher-calculadora" src="/img/colher-acucar.svg"/>
-                                <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
+                                <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherAcucar}"></div>
                             </div>
-                            <div class="center">
+                            <div class="center tamanho-div-total">
                                 <div class="block">Total: </div>
-                                <div class="centralizar-texto block" th:text="${calculadora.acucarTotal}"></div>
+                                <div class="centralizar-texto block tamanho-texto" th:text="${calculadora.acucarTotal}"></div>
                                 <div class="block">g</div>
                             </div>
                         </td>
                         <td class="ajuste-tamanho-td-calculadora">
                             <p class="titulo-pequeno-calculadora">Sal</p>
                             <hr/>
-                            <div class="calculadora-medidas-visuais">
+                            <div class="center calculadora-medidas-visuais">
                                 <img class="colher-calculadora" src="/img/colher-sal.svg"/>
-                                <p class="titulo-medio-calculadora colher-calculadora-texto">x 30</p>
+                                <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherSal}"></div>
                             </div>
-                            <div class="center">
+                            <div class="center tamanho-div-total">
                                 <div class="block">Total: </div>
-                                <p class="centralizar-texto block" th:text="${calculadora.salTotal}"></p>
+                                <p class="centralizar-texto block tamanho-texto" th:text="${calculadora.salTotal}"></p>
                                 <div class="block">g</div>
                             </div>
                         </td>
