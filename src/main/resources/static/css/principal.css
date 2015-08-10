@@ -1,14 +1,13 @@
-@font-face{
+@font-face {
 	font-family: 'SourceSansPro';
 	src: url(/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf);
 }
 
-*{
+* {
 	font-family: SourceSansPro;
 }
 
-body{
-
+body {
 	width: 100%;
     height: 100%;
     margin: 0px;
@@ -16,46 +15,54 @@ body{
     overflow-x: hidden;
 }
 
+h1 {
+	font-size:3.3em; font-weight:bold;
+}
 
+h2 {
+	font-size:2.6em; font-weight:bold;
+}
 
-h1{ font-size:3.3em; font-weight:bold; }
-h2{ font-size:2.6em; font-weight:bold;}
-h3{ font-size: 1.7em; font-weight:bold;}
-h4 {font-size:1.2em;font-weight:bold;}
+h3 {
+	font-size: 1.7em; font-weight:bold;
+}
 
-button, p, a {font-size:1.1em;}
+h4 {
+	font-size:1.2em;font-weight:bold;
+}
 
+button, p, a {
+	font-size:1.1em;
+}
 
-.wrapper-conteudo{
+.wrapper-conteudo {
 	margin-top:70px !important;
 }
 
-.homeprincipal{
+.homeprincipal {
 	margin-top:-70px !important;
 }
 
-.tamanho-minimo-pagina{
+.tamanho-minimo-pagina {
 	min-height: 242px !important;
 }
 
-a{
+a {
 	text-decoration : none !important;
 }
 
-.logo{
+.logo {
 	display: block;
 	color: #2A841D;
 	text-align: center;
-
 }
 
 hr {
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
-
 }
 
-.logotexto{
+.logotexto {
 	margin: 20px 0 10px 0;
 	font-size: 25px;
 }
@@ -96,11 +103,13 @@ hr {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
 .colher-info {
 
 	display: inline-block;
 	height: 100px;
 }
+
 .info-texto {
 	display: inline-block;
 	margin-left: 30px;
@@ -120,6 +129,7 @@ hr {
 	font-weight: bold;
 	vertical-align: center;
 }
+
 .bloco-info {
 	padding-top: 20px;
 }
@@ -135,7 +145,6 @@ hr {
 .test {
 	float:left;
 }
-
 
 .itens-menu {
 	padding-left: 15px !important;
@@ -287,6 +296,8 @@ hr {
 
 .titulo-login{
 	padding-top: 80px;
+	width: 800px;
+	height: 150px;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -294,7 +305,6 @@ hr {
 .block{
   display: inline-block;
 }
-
 .ajuste-recuperar{
 	padding-top: 10%;
 }
@@ -306,12 +316,10 @@ hr {
 }
 
 .botao-editar{
-
     margin-top: 22px;
 }
 
 .botao-deletar{
-
     margin-top: 22px;
 }
 
@@ -354,4 +362,11 @@ hr {
 
 #espacoErroMedidaCaseira {
 	margin-bottom: 50px;
+}
+
+::selection {
+	background: #a9d4ad;
+}
+::-moz-selection {
+	background: #A9D4AD;
 }
