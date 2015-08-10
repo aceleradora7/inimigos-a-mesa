@@ -41,6 +41,8 @@ function valorTabela(){
     valorAcucar = $("#valor-acucar").attr('value');
     valorGordura = $("#valor-gordura").attr('value');
     valorSodio = $("#valor-sodio").attr('value');
+    valorUnidade = document.getElementById("valorMedidaCaseira").innerHTML;
+    valorUnidadeSlider = document.getElementById("valorMedidaCaseiraSlider").innerHTML;
 }
 
 function calculaMedidas(valor){
@@ -49,14 +51,25 @@ function calculaMedidas(valor){
     calculaAcucar(valor);
     calculaGordura(valor);
     calculaSodio(valor);
+    calculaValorUnidade(valor);
 }
 
+function calculaValorUnidade(valor){
+    valorUnidadeCalculado = (valorUnidade * valor)/100;
+    $("#valorMedidaCaseira").text(valorUnidadeCalculado);
+    $("#valorMedidaCaseira").attr('value', valorUnidadeCalculado);
+    valorUnidadeCalculadoSlider = (valorUnidadeSlider * valor)/100;
+    $("#valorMedidaCaseiraSlider").text(valorUnidadeCalculado);
+    $("#valorMedidaCaseiraSlider").attr('value', valorUnidadeCalculado);
+
+}
 function calculaPorcao(valor){
     valor = valor*porcaoAlimento;
     $("#porcaoAlimento").text(valor);
     $("#porcaoAlimento").attr('value', valor);
     $("#porcaoAlimentoCima").text(valor);
     $("#porcaoAlimentoCima").attr('value', valor);
+    console.log(valor);
     return valor;
 }
 

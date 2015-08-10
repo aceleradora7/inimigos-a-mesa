@@ -143,6 +143,11 @@
                             <div>
                                 <input id="slider" data-slider-id='detalhe-slider'  data-slider-min="1" th:data-slider-max="${alimento.valorMaximoMedida}" data-slider-step="1" data-slider-value="1"/>
                             </div>
+                            <div>
+                                <text class="tamanhoFonte">igual a</text>
+                                <text  class="tamanhoFonte" value="valorMedidaCaseira" id="valorMedidaCaseiraSlider"  th:text="${alimento.valorMedidaCaseira}"> </text>.
+                                <text  class="tamanhoFonte" value="unidadeMedidaCaseira" id="unidadeMedidaCaseiraSlider"  th:text="${alimento.unidadeMedidaCaseira}"> </text>.
+                            </div>
                         </div>
                     </div>
                 </div>
