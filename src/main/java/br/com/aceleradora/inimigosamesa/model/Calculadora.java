@@ -1,7 +1,6 @@
 package br.com.aceleradora.inimigosamesa.model;
 
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,6 @@ public class Calculadora {
     }
 
     public double getCaloriasTotal() {
-
         return formataDouble(caloriasTotal);
     }
 
@@ -75,13 +73,24 @@ public class Calculadora {
         if (contem == false){
             listaDeAlimentos.add(alimento);
             somaAlimentoCalculadora(alimento);
-            somaColherCalculadora();
+            calculaColherCalculadora();
         }
         return true;
     }
 
-    public void somaAlimentoCalculadora(Alimento alimento){
+    public boolean excluiAlimento(Alimento alimento) {
+        for (int i =0; i<listaDeAlimentos.size();i++){
+            if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()) {
+                subtraiAlimentoCalculadora(listaDeAlimentos.get(i));
+                calculaColherCalculadora();
+                listaDeAlimentos.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public void somaAlimentoCalculadora(Alimento alimento){
         if (alimento.getCalorias() != null && !alimento.getCalorias().isEmpty()) {
             caloriasTotal += Double.parseDouble(alimento.getCalorias());
         }
@@ -99,8 +108,25 @@ public class Calculadora {
         }
     }
 
-    public void somaColherCalculadora() {
+    public void subtraiAlimentoCalculadora(Alimento alimento){
+        if (alimento.getCalorias() != null && !alimento.getCalorias().isEmpty()) {
+            caloriasTotal -= Double.parseDouble(alimento.getCalorias());
+        }
+        if (alimento.getGordura() != null && !alimento.getGordura().isEmpty()) {
+            gorduraTotal -= Double.parseDouble(alimento.getGordura());
+        }
+        if (alimento.getSodio() != null && !alimento.getSodio().isEmpty()) {
+            sodioTotal -= Double.parseDouble(alimento.getSodio());
+        }
+        if (alimento.getAcucar() != null && !alimento.getAcucar().isEmpty()) {
+            acucarTotal -= Double.parseDouble(alimento.getAcucar());
+        }
+        if (alimento.getSodio() != null && !alimento.getSodio().isEmpty()) {
+            salTotal -= MedidasVisuais.converteSodioEmSal(Double.parseDouble(alimento.getSodio()));
+        }
+    }
 
+    public void calculaColherCalculadora() {
         MedidasVisuais medidasVisuais = new MedidasVisuais();
 
         colherSal = medidasVisuais.calculaColherSal(sodioTotal);

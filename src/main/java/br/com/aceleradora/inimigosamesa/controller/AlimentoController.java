@@ -176,6 +176,24 @@ public class AlimentoController {
         return calculadora(model, request);
     }
 
+    @RequestMapping(value = "/excluiAlimento", method = RequestMethod.GET)
+    public String calc(Model model, @RequestParam(value = "codigo", required = false) int codigo, HttpServletRequest request){
+
+        if(request.getSession().getAttribute("calculadora") == null){
+            request.getSession().setAttribute("calculadora", new Calculadora());
+        }
+
+        Calculadora calculadora = (Calculadora) request.getSession().getAttribute("calculadora");
+        Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
+        //alimento.recalculaNutrientesDaCalculadora(Double.parseDouble(porcao));
+        calculadora.excluiAlimento(alimento);
+
+        request.getSession().setAttribute("calculadora", calculadora);
+        model.addAttribute("calculadora", calculadora);
+
+        return calculadora(model,request);
+    }
+
     public boolean validaAcucar(Alimento alimento) {
         if(!alimento.getAcucar().isEmpty() || alimento.getAcucar() !=null){
             if (Double.parseDouble(alimento.getAcucar()) > Double.parseDouble(alimento.getPorcaoBaseCalculo())) {
@@ -264,7 +282,7 @@ public class AlimentoController {
                                                     return cadastrarAlimento(model, alimento);
                                                 } else {
                                                     model.addAttribute("erroSodio", null);
-                                                    if (validaSodio(alimento)){
+                                                    if (validaSodio(alimento)) {
                                                         model.addAttribute("erroSodioPorcao", "true");
                                                         return cadastrarAlimento(model, alimento);
                                                     } else {
@@ -274,7 +292,7 @@ public class AlimentoController {
                                                             return cadastrarAlimento(model, alimento);
                                                         } else {
                                                             model.addAttribute("erroGordura", null);
-                                                            if (validaGordura(alimento)){
+                                                            if (validaGordura(alimento)) {
                                                                 model.addAttribute("erroGorduraPorcao", "true");
                                                                 return cadastrarAlimento(model, alimento);
                                                             }
