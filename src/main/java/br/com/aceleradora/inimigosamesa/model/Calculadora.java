@@ -62,19 +62,18 @@ public class Calculadora {
 
     public boolean adicionaAlimento(Alimento alimento){
 
-        boolean contem = false;
-        for (Alimento ali : listaDeAlimentos){
-
-            if (ali.getCodigo() == alimento.getCodigo()){
-                contem = true;
-                return false;
+        for (int i = 0; i < listaDeAlimentos.size(); i++) {
+            if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()){
+                listaDeAlimentos.set(i,alimento);
+                somaAlimentoCalculadora(alimento);
+                calculaColherCalculadora();
+                return true;
             }
         }
-        if (contem == false){
             listaDeAlimentos.add(alimento);
             somaAlimentoCalculadora(alimento);
             calculaColherCalculadora();
-        }
+
         return true;
     }
 
