@@ -92,7 +92,6 @@ public class UsuarioController {
 
 
     public String validacao(Model model, Usuario usuario){
-        model.addAttribute("erroNomeUsuario", null);
         if(usuario.getNome().isEmpty() || !nomeUsuario(usuario.getNome())){
             model.addAttribute("erroNome", "true");
             return cadastrarNovoAdministrador(model, usuario);
