@@ -195,7 +195,7 @@ public class AlimentoController {
     }
 
     public boolean validaAcucar(Alimento alimento) {
-        if(!alimento.getAcucar().isEmpty() || alimento.getAcucar() !=null){
+        if(!alimento.getAcucar().isEmpty() && alimento.getAcucar() !=null){
             if (Double.parseDouble(alimento.getAcucar()) > Double.parseDouble(alimento.getPorcaoBaseCalculo())) {
                 return true;
             }
@@ -204,7 +204,7 @@ public class AlimentoController {
     }
 
     public boolean validaSodio(Alimento alimento) {
-        if(!alimento.getAcucar().isEmpty() || alimento.getAcucar() !=null){
+        if(!alimento.getSodio().isEmpty() && alimento.getSodio() !=null){
             if ((Double.parseDouble(alimento.getSodio())/1000) > Double.parseDouble(alimento.getPorcaoBaseCalculo())) {
                 return true;
             }
@@ -213,7 +213,7 @@ public class AlimentoController {
     }
 
     public boolean validaGordura(Alimento alimento) {
-        if(!alimento.getAcucar().isEmpty() || alimento.getAcucar() !=null){
+        if(!alimento.getGordura().isEmpty() && alimento.getGordura() !=null){
             if (Double.parseDouble(alimento.getGordura()) > Double.parseDouble(alimento.getPorcaoBaseCalculo())) {
                 return true;
             }
