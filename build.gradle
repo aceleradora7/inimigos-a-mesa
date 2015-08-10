@@ -83,5 +83,3 @@ pmd {
     sourceSets = [sourceSets.main]
     ignoreFailures = true
 }
-
-build.dependsOn.remove("check")
