@@ -25,19 +25,23 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
 }
 
 a {
     color: #53b778;
 }
 
-a:hover,
-a:focus,
-a:active,
+
 a.active {
     color: #53b778;
-    transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
 }
 
 .img-centered {
@@ -149,7 +153,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
 .navbar-default .navbar-brand.active {
-    color: #53b778;
+    color: white;
 }
 
 .navbar-default .navbar-collapse {
@@ -361,6 +365,13 @@ section h3.section-subheading {
     }
 }
 
+.st0 {
+fill:none;
+stroke:#FFFFFF;
+stroke-width:2;
+stroke-miterlimit:10;
+}
+
 @media(min-width:1200px) {
     .timeline>li {
         min-height: 170px;
@@ -399,20 +410,28 @@ section h3.section-subheading {
     margin-left: 15px;
     float: left;
     background-color: Transparent;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
 }
 
 .botao-buscar:hover {
     color: #fff;
     background: #53b778;
-    transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
 
 }
 
 .btn-search-border:hover{
     stroke:#53b778;
-    transition: all 0.4s ease-in-out;  !important;
-    -webkit-transition: all 0.4s ease-in-out;  !important;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
 }
 
 .caixa-busca {
@@ -426,7 +445,7 @@ section h3.section-subheading {
 }
 
 .colheres {
-	background-color: #F4F4F4;
+    background-color: #F4F4F4;
 }
 #topFoods{
     min-height: 500px;
@@ -443,6 +462,79 @@ section h3.section-subheading {
     padding-bottom: 0 !important;
 }
 
-.tede{
-    height: 20px !important;
+
+textarea:focus,
+input[type="text"]:focus,
+.uneditable-input:focus {
+    border-color: rgba(92, 236, 144, 0.8);
+    outline: 0;
+    outline: thin dotted \9;
+    /* IE6-9 */
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(98, 196, 98, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(98, 196, 98, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(98, 196, 98, 0.6);
+}
+
+.scrollto {
+    position: absolute;
+    top: 500px;
+    left: calc(50% - 20px);
+    width: 40px;
+    z-index: 100;
+    -webkit-animation: breath 2s ease-out infinite alternate;
+    -moz-animation: breath 2s ease-out infinite alternate;
+    animation: breath 2s ease-out infinite alternate;
+}
+
+@-webkit-keyframes breath {
+    from {
+        opacity: 1;
+        -webkit-transform: translateY(0)
+    }
+
+    to {
+        opacity: .5;
+        -webkit-transform: translateY(10px)
+    }
+}
+
+@-moz-keyframes breath {
+    from {
+        opacity: 1;
+        -moz-transform: translateY(0)
+    }
+
+    to {
+        opacity: .5;
+        -moz-transform: translateY(10px)
+    }
+}
+
+@keyframes breath {
+    from {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    to {
+        opacity: .5;
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -ms-transform: translateY(10px);
+        -o-transform: translateY(10px);
+        transform: translateY(10px)
+    }
+}
+
+.li {
+    height: 0px !important;
+}
+
+.page-scroll{
+    padding-bottom: 0px !important;
 }
