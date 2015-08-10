@@ -60,21 +60,19 @@ public class Calculadora {
         this.salTotal = salTotal;
     }
 
-    public boolean adicionaAlimento(Alimento alimento){
+    public void adicionaAlimento(Alimento alimento){
 
         for (int i = 0; i < listaDeAlimentos.size(); i++) {
             if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()){
                 listaDeAlimentos.set(i,alimento);
                 somaAlimentoCalculadora(alimento);
                 calculaColherCalculadora();
-                return true;
             }
         }
             listaDeAlimentos.add(alimento);
             somaAlimentoCalculadora(alimento);
             calculaColherCalculadora();
 
-        return true;
     }
 
     public boolean excluiAlimento(Alimento alimento) {
