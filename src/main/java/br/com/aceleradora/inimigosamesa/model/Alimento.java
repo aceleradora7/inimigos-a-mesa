@@ -199,9 +199,6 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     }
 
     public void setValorMaximoMedida(String valorMaximoMedida) {
-        if(valorMaximoMedida==null || valorMaximoMedida.isEmpty()){
-            this.valorMaximoMedida = "10";
-        }
         this.valorMaximoMedida = valorMaximoMedida;
     }
 
