@@ -28,24 +28,35 @@
         <div>
             <div class="row col-lg-6" id="lista-alimentos">
                 <ul class="list-group-item">
-                    <li class="list-group-item centralizar-texto"><h3>Alimentos Calculados</h3></li>
+                    <li class="list-group-item centralizar-texto">
+                        <h3>Alimentos Calculados</h3>
+                    </li>
+
                     <li class="list-group-item altura">
-                        <div id="nome-alimento">
+                        <div class="informacoes-tabela">
                             <p class="titulo-pequeno-calculadora">Nome</p>
                         </div>
 
-                        <div id="porcao-alimento">
+                        <div class="informacoes-tabela">
                             <p class="titulo-pequeno-calculadora">Porção</p>
+                        </div>
+
+                        <div class="informacoes-tabela">
+                            <p class="titulo-pequeno-calculadora">Calorias</p>
                         </div>
                     </li>
 
                     <li class="list-group-item altura" th:each="alimento: ${alimentos}">
-                        <div class="nome-alimento">
+                        <div class="informacoes-tabela">
                             <p th:text="${alimento.nome}"></p>
                         </div>
 
-                        <div class="porcao-alimento">
+                        <div class="informacoes-tabela">
                             <p th:text="${alimento.porcaoExibicao}"></p>
+                        </div>
+
+                        <div class="informacoes-tabela">
+                            <p th:text="${alimento.calorias}"></p>
                         </div>
                     </li>
                 </ul>
@@ -119,11 +130,6 @@
                                         <div class="block">Total: </div>
                                         <p class="centralizar-texto block tamanho-texto" th:text="${calculadora.salTotal}"></p>
                                         <div class="block">g</div>
-                                        <div class="div-botao-calculadora">
-                                            <a class="botao-calculadora" href="/grid">
-                                                Selecione alimentos para calcular
-                                            </a>
-                                        </div>
                                     </div>
                                 </td>
                             </tr>

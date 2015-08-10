@@ -6,24 +6,10 @@
     text-align: center;
 }
 
-#nome-alimento{
+.informacoes-tabela{
     float: left;
-    width: 50%;
-}
-
-#porcao-alimento{
-    float: left;
-    width: 50%;
-}
-
-.nome-alimento{
-    float: left;
-    width: 50%;
-}
-
-.porcao-alimento{
-    float: left;
-    width: 50%;
+    width: 33%;
+    text-align: center;
 }
 
 .altura{
