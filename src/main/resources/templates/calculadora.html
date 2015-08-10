@@ -35,46 +35,51 @@
                         </li>
 
                         <li class="list-group-item altura">
-                            <div class="informacoes-tabela">
+                            <div class="informacoes-tabela-nome">
                                 <p class="titulo-pequeno-calculadora">Nome</p>
                             </div>
 
-                            <div class="informacoes-tabela">
+                            <div class="informacoes-tabela-porcaoecaloria">
                                 <p class="titulo-pequeno-calculadora">Porção</p>
                             </div>
 
-                            <div class="informacoes-tabela">
+                            <div class="informacoes-tabela-porcaoecaloria">
                                 <p class="titulo-pequeno-calculadora">Calorias</p>
                             </div>
+                            <div class="informacoes-tabela-excluir">
+                                <p class="titulo-pequeno-calculadora">Excluir</p>
+                            </div>
+
                         </li>
 
                         <li class="list-group-item altura" th:each="alimento: ${alimentos}">
-                            <div class="informacoes-tabela">
+                            <div class="informacoes-tabela-nome">
                                 <p th:text="${alimento.nome}"></p>
                             </div>
 
-                            <div class="informacoes-tabela">
+                            <div class="informacoes-tabela-porcaoecaloria">
                                 <p th:text="${alimento.porcaoExibicao}"></p>
                             </div>
 
-                            <div class="informacoes-tabela">
+                            <div class="informacoes-tabela-porcaoecaloria">
                                 <p th:text="${alimento.calorias}"></p>
+                            </div>
+                            <div class="informacoes-tabela-excluir">
+                                <a th:href="@{'/excluiAlimento?codigo=' + ${alimento.codigo}}" class="botao-editar">
+                                    <img src="/img/excluir.png" id="imgExcluir"/>
+                                </a>
                             </div>
                         </li>
                     </ul>
 
                     <ul class="ajustando-tabela-2-calculadora">
                         <li class="list-group-item altura">
-                            <div class="informacoes-tabela">
+                            <div class="informacoes-tabela-total">
                                 <p class="titulo-pequeno-calculadora">Total</p>
                             </div>
 
-                            <div class="informacoes-tabela">
-                                <p></p>
-                            </div>
-
-                            <div class="informacoes-tabela">
-                                <p th:text="${calculadora.caloriasTotal}"></p>
+                            <div class="informacoes-tabela-total">
+                                <p class="titulo-pequeno-calculadora" th:text="${calculadora.caloriasTotal}"></p>
                             </div>
                         </li>
                     </ul>

@@ -6,12 +6,32 @@
     text-align: center;
 }
 
-.informacoes-tabela{
+.informacoes-tabela-nome{
     float: left;
-    width: 33%;
+    width: 35%;
     text-align: center;
 }
+.informacoes-tabela-porcaoecaloria{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.informacoes-tabela-total{
+      float: left;
+      width: 50%;
+      text-align: center;
+      margin: auto 0;
+}
 
+#imgExcluir{
+    width: 20px;
+}
+
+.informacoes-tabela-excluir{
+    float: left;
+    width: 10%;
+    text-align: center;
+}
 .altura{
     height: 60px;
 }
@@ -19,10 +39,10 @@
 .table {
     margin: 0;
 }
+
 .espacamento{
     margin-bottom:10px;
 }
-
 
 #tabela-info{
     float: right;
@@ -40,7 +60,7 @@
 
 .titulo-pequeno-calculadora{
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
