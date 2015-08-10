@@ -4,6 +4,11 @@ import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,10 +63,20 @@ public class UsuarioController {
         return "formularioUsuario";
     }
 
+    @RequestMapping(value = "/editarUsuario", method = RequestMethod.GET)
+    public String editarAlimento(Model model) {
+
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usuario = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("usuario", usuario);
+
+        return "formularioUsuario";
+    }
+
+
     @RequestMapping(value = "/gerenciarUsuario", method = RequestMethod.POST)
     public String gererenciarUsuario(Model model, Usuario usuario){
     String validacao = validacao(model, usuario);
-
         if(validacao.equals("Salvar")){
             usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
             servicoUsuario.salvar(usuario);
@@ -103,8 +118,10 @@ public class UsuarioController {
                 return cadastrarNovoAdministrador(model, usuario);
             } else {
                 model.addAttribute("erroEmailPadrao", null);
-                Usuario usuarioPesquisado = new Usuario();
+                Usuario usuarioPesquisado = null;
+                if(usuario.getCodigo()==0){
                 usuarioPesquisado = servicoUsuario.buscaPorEmail(usuario.getEmail());
+                }
                 if(usuarioPesquisado!=null){
                     model.addAttribute("erroEmailExiste", "true");
                     return cadastrarNovoAdministrador(model, usuario);
