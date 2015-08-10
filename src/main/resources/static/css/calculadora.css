@@ -13,8 +13,16 @@
 }
 
 .altura{
-    height: 50px;
+    height: 60px;
 }
+
+.table {
+    margin: 0;
+}
+.espacamento{
+    margin-bottom:10px;
+}
+
 
 #tabela-info{
     float: right;
