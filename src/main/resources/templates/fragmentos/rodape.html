@@ -105,8 +105,16 @@
                             <a th:href="@{/logout}">Logout</a>
                         </li>
 
+                        <li th:if="${#httpServletRequest.remoteUser != null}">
+                            <a href="/cadastroAlimento">Cadastro Alimentos</a>
+                        </li>
+
                         <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
                             <a href="/cadastrarUsuario">Cadastro Administrador</a>
+                        </li>
+
+                        <li th:if="${#httpServletRequest.remoteUser != null}">
+                            <a href="/editarUsuario">Editar Perfil</a>
                         </li>
 
                     </div>
