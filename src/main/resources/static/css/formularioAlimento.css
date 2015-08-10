@@ -115,8 +115,11 @@ float:left;
 
 .div-erro{
     margin-top: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+}
 
+.esconde{
+display:none;
 }
 
 #espacoErroNome{
