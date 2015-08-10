@@ -13,7 +13,7 @@ $(document).ready(function(){
         multiple: false,
         sources: ['local'],
         client_allowed_formats: ['png','jpg','jpeg'],
-        button_class: 'btn btn-success esconde',
+        button_class: 'btn btn-success',
         button_caption: 'Escolha uma Imagem',
         theme: 'white',
     },
