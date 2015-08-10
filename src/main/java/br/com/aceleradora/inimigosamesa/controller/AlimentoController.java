@@ -171,8 +171,6 @@ public class AlimentoController {
 
         model.addAttribute("calculadora", calculadora);
 
-        System.out.println(calculadora.getListaDeAlimentos().size());
-        System.out.println(calculadora.getListaDeAlimentos().get(0).getNome());
         return calculadora(model, request);
     }
 
