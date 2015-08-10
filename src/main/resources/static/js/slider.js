@@ -45,16 +45,17 @@ function valorTabela(){
 }
 
 function calculaMedidas(valor){
+    calculaValorUnidade(valor);
     valor = calculaPorcao(valor);
     calculaCaloria(valor);
     calculaAcucar(valor);
     calculaGordura(valor);
     calculaSodio(valor);
-    calculaValorUnidade(valor);
 }
 
 function calculaValorUnidade(valor){
-    valorUnidadeCalculado = (valorUnidade * valor)/100;
+console.log(valorUnidade);
+    valorUnidadeCalculado = valorUnidade * valor;
     $("#valorMedidaCaseira").text(valorUnidadeCalculado);
     $("#valorMedidaCaseira").attr('value', valorUnidadeCalculado);
     $("#valorMedidaCaseiraSlider").text(valorUnidadeCalculado);
