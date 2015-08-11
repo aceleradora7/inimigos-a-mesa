@@ -24,8 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/cadastroAlimento", "/editarAlimento/**",
-                        "/cadastrarUsuario","/editarUsuario").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/formularioUsuario","/formularioDeletarUsuario",
+                        "/cadastrarUsuario", "/editarUsuario").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/formularioUsuario", "/formularioDeletarUsuario",
                         "/deletarUsuario").hasAnyAuthority("ADMIN")
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
@@ -37,8 +37,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .deleteCookies("remember-me")
                 .logoutSuccessUrl("/login")
-                .permitAll();
+                .permitAll()
+                .and()
+                .rememberMe();
     }
 
     @Override
