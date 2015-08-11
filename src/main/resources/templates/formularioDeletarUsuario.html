@@ -35,11 +35,18 @@
                 <option th:each="usuario: ${usuarios}" th:text="${usuario.nome}" th:value="${usuario.codigo}"> </option>
             </select>
 
+            <div th:if="${espacoSucessoUsuarioDeletado}" id="deletado-com-sucesso">
+                <div class="alert alert-success" id="espacoSucesso">
+                    <label>Usuário excluído com sucesso</label>
+                </div>
+            </div>
         </div>
 
 
 
             <div class="col-sm-offset-4 col-sm-4 botao-deletar-usuario">
+
+
                 <a class="botao-deletar" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
                     <button type="button" class="btn btn-danger">
                         Deletar
@@ -54,10 +61,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusao de Usuário</h4>
+                    <h4 class="modal-title" id="exampleModalLabel">Confirmar exclusão de usuário</h4>
                 </div>
 
                 <div class="modal-footer">
+                    <span class="mensagem">Tem certeza que deseja excluir o usuário&nbsp;</span>
+                    <span id="nome-usuario" class="mensagem"></span><span class="mensagem">?</span>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                     <a class="botao-deletar" id="botaoDeletar" href="#">
                         <button type="button" id="botao-confirmacao" class="btn btn-primary">
