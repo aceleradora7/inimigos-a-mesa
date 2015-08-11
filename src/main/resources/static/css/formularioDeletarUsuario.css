@@ -6,3 +6,15 @@
 .botao-deletar-usuario{
 	margin-top: 10px;
 }
+
+.mensagem{
+	float:left;
+	font-size: 1.1em;
+}
+
+#espacoSucesso{
+	margin-top: 20px;
+}
+
+
+
