@@ -4,6 +4,7 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.Random;
 
 public class Email {
 
@@ -55,6 +56,25 @@ public class Email {
 
         } catch (MessagingException e){
             throw new RuntimeException(e);
+        }
+    }
+
+    public void enviar(Usuario usuario){
+        try{
+            Message mensagemMime = new MimeMessage(sessao);
+            mensagemMime.setFrom(new InternetAddress(usuario.getEmail()));
+            mensagemMime.setSubject("[RECUPERAÇÃO DE SENHA]");
+            Address[] destinatario = InternetAddress.parse(usuario.getEmail());
+            mensagemMime.setRecipients(Message.RecipientType.TO, destinatario);
+            mensagemMime.setText("Olá "+usuario.getNome()+", segue abaixo seus dados: "+
+                    "\nUsuário: "+ usuario.getEmail()+
+                    "\nSenha: "+usuario.getSenha());
+
+            Transport.send(mensagemMime);
+
+
+        } catch (MessagingException e){
+            throw  new RuntimeException(e);
         }
     }
 
