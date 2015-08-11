@@ -91,6 +91,15 @@ public class UsuarioController {
     @RequestMapping(value = "/formularioDeletarUsuario", method = RequestMethod.GET)
     public String buscarTodosUsuarios(Model model) {
         List<Usuario> usuarios = servicoUsuario.buscaTodos();
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        for (int i = 0; i < usuarios.size(); i++) {
+            if(usuarios.get(i).getEmail().equals(user.getUsername())){
+                usuarios.remove(usuarios.get(i));
+            }
+        }
+
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("usuario",new Usuario());
 
