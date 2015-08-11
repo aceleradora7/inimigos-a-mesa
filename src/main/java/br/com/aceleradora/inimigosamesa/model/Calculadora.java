@@ -64,9 +64,11 @@ public class Calculadora {
 
         for (int i = 0; i < listaDeAlimentos.size(); i++) {
             if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()){
+                subtraiAlimentoCalculadora(listaDeAlimentos.get(i));
                 listaDeAlimentos.set(i,alimento);
                 somaAlimentoCalculadora(alimento);
                 calculaColherCalculadora();
+                return;
             }
         }
             listaDeAlimentos.add(alimento);
@@ -104,6 +106,8 @@ public class Calculadora {
             salTotal += MedidasVisuais.converteSodioEmSal(Double.parseDouble(alimento.getSodio()));
         }
     }
+
+
 
     public void subtraiAlimentoCalculadora(Alimento alimento){
         if (alimento.getCalorias() != null && !alimento.getCalorias().isEmpty()) {
