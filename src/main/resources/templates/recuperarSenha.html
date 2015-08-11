@@ -14,28 +14,51 @@
 
     <link href="css/formularioAlimento.css" rel="stylesheet"/>
     <script th:replace="fragmentos/header :: cadastro-alimento-js"> </script>
+    <script type="text/javascript" src="/js/validacaoRecuperarSenha.js"></script>
+
+
 </head>
 <body>
     <nav th:replace="fragmentos/header :: cabecalho"></nav>
-        <div class="titulo-login"><h1>Redefinir senha</h1></div>
-        <div class="container-fluid">
-            <div class="bloco-login">
-                <form class="form-horizontal" th:action="@{/Login}" th:object="${Usuario}" method="POST">
-                    <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-4">
-                            <label for="inputEmail3" class="control-label">Nova senha:</label>
-                            <input type="password" class="form-control" id="inputEmail3" placeholder="Nova senha" required="true"/>
+        <div class="margem-down">
+            <div class="titulo-login"><h1>Redefinir senha</h1></div>
+            <div class="container-fluid ">
+                    <div class="bloco-login">
+                        <form onSubmit="return recuperarSenha();" class="form-horizontal" th:action="@{/Login}" th:object="${Usuario}" method="POST">
+                            <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-4">
+                                <label class="control-label">Nova senha:</label>
+                                <input type="password" class="form-control" id="novaSenha" placeholder="Nova senha" />
+                                <div id="erroNovaSenha" class="erroRedefinirSenha">
+                                    <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto">
+                                        <label>Preencha o campo com uma nova senha.</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-offset-4 col-sm-4">
+                                <label class="control-label">Repita a senha:</label>
+                                <input type="password" class="form-control" id="novaSenhaRepetida" placeholder="Repita a senha"/>
+                                <div id="erroNovaSenhaRepetida" class="erroRedefinirSenha">
+                                    <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto">
+                                        <label>Repita a senha digitada acima</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-4">
-                            <button type="submit" class="btn btn-default" value="recuperar">Redefinir</button>
+                            <div id="erroNovaSenhaIgual" class="erroRedefinirSenha">
+                                <div class="col-sm-offset-4 col-sm-4 alert alert-danger centralizar-texto">
+                                    <label>As senhas devem ser iguais.</label>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-4">
+                                <button type="submit" class="btn btn-default" value="recuperar">Redefinir</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-
 
         <nav th:replace="fragmentos/rodape :: rodape"></nav>
 
