@@ -113,6 +113,10 @@
                             <a href="/cadastrarUsuario">Cadastro Administrador</a>
                         </li>
 
+                        <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
+                            <a href="/formularioDeletarUsuario">Deletar Usuários</a>
+                        </li>
+
                         <li th:if="${#httpServletRequest.remoteUser != null}">
                             <a href="/editarUsuario">Editar Perfil</a>
                         </li>
