@@ -90,7 +90,7 @@ function validarLogin(){
 $(document).ready(function(){
     var link = window.location.href;
     if(link.indexOf("/emailRecuperar") > 0){
-        $('#ModalSucesso').modal('show');
+        $('#exampleModal').modal('show');
     }
     escondeErroEmailRecuperacao();
     escondeSucessoLogin();
