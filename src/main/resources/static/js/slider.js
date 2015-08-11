@@ -23,17 +23,31 @@ $('#slider').slider().on('slide', function(ev) {
 });
 
 function calculaColheres(valor){
-    $("#acucar").attr('value', valor*colherAcucar);
-    $("#valor-colher-acucar").attr('value', colherAcucar*valor);
-    $("#valor-colher-acucar").text($("#valor-colher-acucar").attr('value'));
 
-    $("#gordura").attr('value', valor*colherGordura);
-    $("#valor-colher-gordura").attr('value', colherGordura*valor);
-    $("#valor-colher-gordura").text($("#valor-colher-gordura").attr('value'));
+        $.ajax({
+            dataType: "json",
+            url: '/calculaColheres',
+            type: "GET",
+            data : {
+                "acucar" : $("#valor-acucar").attr('value'),
+                "sodio" : $("#valor-sodio").attr('value'),
+                "gordura" : $("#valor-gordura").attr('value'),
+                "porcaoExibicao" : porcaoAlimento
+            },
+            success: function(dados){
+                $("#acucar").attr('value', dados.acucar);
+                $("#valor-colher-acucar").attr('value', dados.acucar);
+                $("#valor-colher-acucar").text($("#valor-colher-acucar").attr('value'));
 
-    $("#sal").attr('value', valor*colherSal);
-    $("#valor-colher-sal").attr('value', colherSal*valor);
-    $("#valor-colher-sal").text($("#valor-colher-sal").attr('value'));
+                $("#gordura").attr('value', dados.gordura);
+                $("#valor-colher-gordura").attr('value', dados.gordura);
+                $("#valor-colher-gordura").text($("#valor-colher-gordura").attr('value'));
+
+                $("#sal").attr('value', dados.sal);
+                $("#valor-colher-sal").attr('value', dados.sal);
+                $("#valor-colher-sal").text($("#valor-colher-sal").attr('value'));
+            }
+        });
 }
 
 function valorTabela(){
@@ -54,7 +68,6 @@ function calculaMedidas(valor){
 }
 
 function calculaValorUnidade(valor){
-console.log(valorUnidade);
     valorUnidadeCalculado = valorUnidade * valor;
     $("#valorMedidaCaseira").text(valorUnidadeCalculado);
     $("#valorMedidaCaseira").attr('value', valorUnidadeCalculado);
