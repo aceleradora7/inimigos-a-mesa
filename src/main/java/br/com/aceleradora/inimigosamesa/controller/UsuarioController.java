@@ -111,7 +111,9 @@ public class UsuarioController {
         Usuario usuario = servicoUsuario.buscaPorCodigo(Integer.parseInt(codigo));
         servicoUsuario.deletar(usuario);
 
-        return "redirect:/formularioDeletarUsuario";
+        model.addAttribute("espacoSucessoUsuarioDeletado","true");
+
+        return buscarTodosUsuarios(model);
     }
 
 
