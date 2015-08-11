@@ -300,6 +300,7 @@ hr {
 	height: 150px;
 	text-align: center;
 	margin: 0 auto;
+	margin-bottom: 30px;
 }
 
 .block{
@@ -370,3 +371,14 @@ hr {
 ::-moz-selection {
 	background: #A9D4AD;
 }
+
+.margem-down{
+	padding-bottom: 10%;
+}
+
+.erroRedefinirSenha{
+	margin-top: 10px;
+	display:none;
+
+}
+
