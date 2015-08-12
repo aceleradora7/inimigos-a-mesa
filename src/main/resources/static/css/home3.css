@@ -233,7 +233,7 @@ fieldset[disabled] .btn-xl.active {
 header {
     text-align: center;
     color: #fff;
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("../img/header-bg.jpg");
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
     background-size: cover;
 }
 
