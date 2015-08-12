@@ -24,7 +24,11 @@
     <script type="text/javascript" src="/js/classie.js"/>
     <script type="text/javascript" src="/js/modernizr.custom.js"/>
     <script type="text/javascript" src="/js/home3.js"/>
-
+    <script type="text/javascript" src="../js/jssor.js"/>
+    <script type="text/javascript" src="../js/jssor.slider.js"/>
+    <script type="text/javascript" src="../js/sliderImagem.js"/>
+    <script type="text/javascript" src="../js/sliderHeader.js"/>
+    <link href="css/sliderImage.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body id="ancora-topo" class="index">
@@ -72,9 +76,20 @@
         </div>
     </div>
 </nav>
-<header>
-    <div>
-        <div class="intro-text">
+<header class="header">
+            <div id="background_cycler">
+                <img class="active" src="../img/sliderImage/002.jpg" />
+                <img src="../img/sliderImage/003.jpg" />
+                <img  src="../img/sliderImage/004.jpg" />
+                <img  src="../img/sliderImage/005.jpg" />
+                <img  src="../img/sliderImage/006.jpg" />
+                <img  src="../img/sliderImage/007.jpg" />
+                <img  src="../img/sliderImage/008.jpg" />
+                <img src="../img/sliderImage/009.jpg" />
+                <img  src="../img/sliderImage/010.jpg" />
+                <img  src="../img/sliderImage/011.jpg" />
+            </div>
+            <div class="intro-text">
             <div class="intro-heading">Descubra o que você realmente come</div>
             <div class="intro-lead-in">Alguma frase interessante e encorajadora que explique as colheres.</div>
             <div class="buscar-home">
@@ -90,11 +105,8 @@
                     </div>
                 </a>
             </div>
-
         </div>
-    </div>
 </header>
-
 <section id="services" class="colheres">
     <div class="container">
         <div class="row">
@@ -160,7 +172,6 @@
 </section>
 <nav th:replace="fragmentos/rodape :: rodape"></nav>
 <script src="/js/cbpAnimatedHeader.js"></script>
-
 
 </body>
 </html>
