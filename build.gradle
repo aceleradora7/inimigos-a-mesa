@@ -12,8 +12,6 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'eclipse'
-apply plugin: 'findbugs'
-apply plugin: 'pmd'
 
 repositories {
     mavenCentral()
@@ -66,20 +64,4 @@ stage.mustRunAfter(clean)
 
 clean << {
     project.file('inimigos-a-mesa.jar').delete()
-}
-
-findbugs {
-    toolVersion = "3.0.0"
-    sourceSets = [sourceSets.main]
-    ignoreFailures = true
-    reportsDir = file("$project.buildDir/findbugsReports")
-    effort = "max"
-    reportLevel = "high"
-    visitors = ["FindSqlInjection", "SwitchFallthrough"]
-    omitVisitors = ["FindNonShortCircuit"]
-}
-
-pmd {
-    sourceSets = [sourceSets.main]
-    ignoreFailures = true
 }
