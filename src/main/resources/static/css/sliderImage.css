@@ -13,7 +13,8 @@
     left:0;
     top:0;
     width:100%;
-    z-index:1
+    z-index:1;
+    background: cover;
     }
 
 #background_cycler img.active{
