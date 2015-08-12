@@ -452,8 +452,35 @@ stroke-miterlimit:10;
 }
 .cards{
     height: 300px;
+    border: solid 1px #eee;
 
 }
+.foto-card{
+    overflow:hidden;
+    height: 170px;
+    display: block;
+
+}
+
+.foto-card img{
+    width: 100%;
+    height: auto;
+    position: relative;
+    float: left;
+    bottom: 50%;
+    vertical-align: middle;
+
+}
+
+.info-card{
+    height:  90px;
+       background: #e9e9e9;
+}
+.add-cal-card{
+    height: 40px;
+    background: #547286;
+}
+
 .agrupadordeCards{
     margin-top: 20px;
 }
