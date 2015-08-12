@@ -233,7 +233,7 @@ fieldset[disabled] .btn-xl.active {
 header {
     text-align: center;
     color: #fff;
-    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+    background: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65));
     background-size: cover;
 }
 
@@ -564,4 +564,8 @@ input[type="text"]:focus,
 
 .page-scroll{
     padding-bottom: 0px !important;
+}
+
+.grad{
+    background: linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 47%, rgba(0,0,0,0) 100%;
 }
