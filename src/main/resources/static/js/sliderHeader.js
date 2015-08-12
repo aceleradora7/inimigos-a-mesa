@@ -9,6 +9,14 @@ function cycleImages(){
     }
 
 $(window).load(function(){
+    $("#2").hide();
+    $("#3").hide();
+    $("#4").hide();
+    $("#5").hide();
+    $("#5").show();
+    $("#4").show();
+    $("#3").show();
+    $("#2").show();
     $('#background_cycler').fadeIn(1500);
-    setInterval('cycleImages()', 10000);
+    setInterval('cycleImages()', 5000);
 })
