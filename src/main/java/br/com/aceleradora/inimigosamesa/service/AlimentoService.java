@@ -60,7 +60,7 @@ public class AlimentoService {
             Alimento alimentoBuscado = repositorioAlimento.findOne(alimento.getCodigo());
 
             if(alimento.getUrlImagemPequena().isEmpty() && alimento.getUrlImagemGrande().isEmpty()){
-                alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png");
+                alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1438692708/Frutas_v6wxtn.png");
             }
             if(alimento.getUrlImagemGrande().isEmpty()) {
                 alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png");
