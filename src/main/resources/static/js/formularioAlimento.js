@@ -13,7 +13,7 @@ $(document).ready(function(){
         multiple: false,
         sources: ['local'],
         client_allowed_formats: ['png','jpg','jpeg'],
-        button_class: 'btn btn-success',
+        button_class: 'btn btn-success botao-envia-imagem',
         button_caption: 'Escolha uma Imagem',
         theme: 'white',
     },
@@ -45,7 +45,7 @@ $(document).ready(function(){
         $("#urlImagemPequena").val(urlImagemPequenaFinal);
         $("#urlImagemGrande").val(urlImagemGrandeFinal);
 
-        $(".esconde").hide();
+        $(".botao-envia-imagem").hide();
         $("#remover-imagem").show();
     });
         $("#remover-imagem").on("click",removerImagemAtual);
@@ -56,7 +56,7 @@ function removerImagemAtual(){
     $("#urlImagemPequena").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png');
     $("#urlImagemGrande").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png');
     $( ".cloudinary-delete" ).trigger( "click" );
-    $(".esconde").show();
+    $(".botao-envia-imagem").show();
     $("#remover-imagem").hide();
 }
 
