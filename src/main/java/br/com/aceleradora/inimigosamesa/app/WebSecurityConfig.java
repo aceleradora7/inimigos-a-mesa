@@ -23,10 +23,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/cadastroAlimento", "/editarAlimento/**","/editarUsuario")
+                .antMatchers("/cadastroAlimento", "/editarAlimento/**")
                 .hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/formularioDeletarUsuario",
-                        "/deletarUsuario").hasAnyAuthority("ADMIN")
+                .antMatchers("/formularioDeletarUsuario","/editarUsuario",
+                        "/cadastrarUsuario","/deletarUsuario").hasAnyAuthority("ADMIN")
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
