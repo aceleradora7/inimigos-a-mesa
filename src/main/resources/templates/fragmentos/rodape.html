@@ -3,62 +3,69 @@
       xmlns:sec="http://www.springframework.org/security/tags">
 <link href="css/../principal.css" rel="stylesheet" type="text/css"/>
     <body>
-        <nav class="margem-rodape" th:fragment="rodape">
+        <nav class="margem-rodape footer-bg" th:fragment="rodape">
             <footer id="footer" class="container">
-                <center>
-                    <div class="alinhamento-footer alinhar">
-                        <span class="titulo-rodape">ALIMENTOS</span>
-                        <li>
-                            <a href="/grid?categoria=1">Bebidas</a>
-                        </li>
+                <div class="col-lg-12 col-mg-12">
+                    <div class="col-lg-6 col-mg-6 alinhamento-footer">
 
-                        <li>
-                            <a href="/grid?categoria=2">Carnes e Similares</a>
-                        </li>
+                        <div class="col-lg-12 col-mg-12">
+                            <span class="titulo-rodape">ALIMENTOS</span>
+                        </div>
 
-                        <li>
-                            <a href="/grid?categoria=3">Enlatados e Conservas</a>
-                        </li>
+                        <div class="col-lg-6 col-mg-6">
+                            <li>
+                                <a href="/grid?categoria=1">Bebidas</a>
+                            </li>
+                            <li>
+                                <a href="/grid?categoria=2">Carnes e Similares</a>
+                            </li>
+                            <li>
+                                <a href="/grid?categoria=3">Cereais e Derivados</a>
+                            </li>
+                            <li>
+                                <a href="/grid?categoria=4">Frutas e Derivados</a>
+                            </li>
+                            <li>
+                                <a href="/grid?categoria=5">Gorduras e Óleos</a>
+                            </li>
+                            <li>
+                                <a href="/grid?categoria=6">Alimentos Industrializados</a>
+                            </li>
+                            <li>
+                                <a href="/grid?categoria=7">Leguminosas e Derivados</a>
+                            </li>
+                        </div>
+                        <div class="col-lg-6 col-mg-6">
+                            <li>
+                                <a href="/grid?categoria=8">Leites e Derivados</a>
+                            </li>
 
-                        <li>
-                            <a href="/grid?categoria=4">Frutas</a>
-                        </li>
+                            <li>
+                                <a href="/grid?categoria=9">Nozes e Sementes</a>
+                            </li>
 
-                        <li>
-                            <a href="/grid?categoria=5">Laticínios</a>
-                        </li>
+                            <li>
+                                <a href="/grid?categoria=10">Ovos e Derivados</a>
+                            </li>
 
-                        <li>
-                            <a href="/grid?categoria=6">Legumes</a>
-                        </li>
+                            <li>
+                                <a href="/grid?categoria=11">Pescados e Frutos do Mar</a>
+                            </li>
 
-                        <li>
-                            <a href="/grid?categoria=7">Molhos, Caldos e Temperos</a>
-                        </li>
+                            <li>
+                                <a href="/grid?categoria=12">Produtos Açucarados</a>
+                            </li>
 
-                        <li>
-                            <a href="/grid?categoria=8">Panifícios, Massas e Cereais</a>
-                        </li>
+                            <li>
+                                <a href="/grid?categoria=13">Verduras, Hortaliças e Derivados</a>
+                            </li>
 
-                        <li>
-                            <a href="/grid?categoria=9">Pratos Prontos</a>
-                        </li>
-
-                        <li>
-                            <a href="/grid?categoria=10">Produtos Diet e Light</a>
-                        </li>
-
-                        <li>
-                            <a href="/grid?categoria=11">Sopas</a>
-                        </li>
-
-                        <li>
-                            <a href="/grid?categoria=12">Verduras e Hortaliças</a>
-                        </li>
+                        </div>
                     </div>
 
-                    <div class="alinhamento-footer alinhar">
+                    <div class="col-lg-3 col-mg-3 alinhamento-footer">
                         <span class="titulo-rodape">PÁGINAS</span>
+
                         <li>
                             <a th:href="@{/grid}">Alimentos</a>
                         </li>
@@ -76,8 +83,20 @@
                         </li>
                     </div>
 
-                    <div class="alinhamento-footer alinhar">
-                        <span class="titulo-rodape">ADMINISTRADOR</span>
+                    <div class="col-lg-3 col-mg-3 alinhamento-footer">
+                        <span class="titulo-rodape">COMPARTILHAMENTO</span>
+
+                        <li class="espacoRedes">
+                            <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+                            <script type="text/javascript">stLight.options({publisher: "57e7b7de-30c7-4cfc-9b9f-a2c45a73d62d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+                            <span class='st_facebook_hcount' displayText='Facebook'></span>
+                            <span class='st_twitter_hcount' displayText='Tweet'></span>
+                        </li>
+
+                        <div class="espacoAdm">
+                            <span class="titulo-rodape">ADMINISTRADOR</span>
+                        </div>
+
                         <li th:if="${#httpServletRequest.remoteUser == null}">
                             <a th:href="@{/login}">Login</a>
                         </li>
@@ -101,18 +120,11 @@
                         <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
                             <a href="/editarUsuario">Editar Perfil</a>
                         </li>
-                    </div>
 
-                    <div class="alinhamento-footer alinhar">
-                        <span class="titulo-rodape">COMPARTILHAMENTO</span>
-                        <li>
-                            <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-                            <script type="text/javascript">stLight.options({publisher: "57e7b7de-30c7-4cfc-9b9f-a2c45a73d62d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-                            <span class='st_facebook_hcount' displayText='Facebook'></span>
-                            <span class='st_twitter_hcount' displayText='Tweet'></span>
-                        </li>
+
+
                     </div>
-                </center>
+                </div>
             </footer>
         </nav>
     </body>

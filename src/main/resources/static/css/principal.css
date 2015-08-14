@@ -168,12 +168,29 @@ hr {
 	margin-left:0px;
 }
 
+.footer-bg{
+	background: #2E2E2E;
+}
+#colunaA{
+	background: blue;
+}
+#colunaB{
+	background: gray;
+}
+#colunaC{
+	background: yellow;
+}
+#coluna1{
+	background: yellow;
+}
+#coluna2{
+	background: gray;
+}
+
 #footer {
     padding-top: 30px;
     padding-bottom: 30px;
     color: #FFF;
-    background: #2E2E2E none repeat scroll 0% 0%;
-	width: auto;
 	padding: 15px;
 }
 
@@ -187,23 +204,29 @@ hr {
 	color: #449D44;
 }
 
-.alinhar {
+.alinhamento-footer {
+
+	text-align: left;
+    color: #FFFFFF !important;
 	vertical-align: top;
 	list-style-type:none;
 	display: inline-block;
-	width: 200px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+
+}
+.espacoAdm{
+	margin-top: 15px;
+}
+.espacoRedes{
+	margin-top: 5px;
 }
 
-.alinhamento-footer {
-	text-align: left;
-    color: #FFFFFF !important;
-}
 
 .titulo-rodape {
 	font-weight: bold;
 	margin-bottom: 5px !important;
+
 }
 
 .ui-widget {
