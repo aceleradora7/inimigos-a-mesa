@@ -64,8 +64,6 @@ public class Calculadora {
 
         for (int i = 0; i < listaDeAlimentos.size(); i++) {
             if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()){
-                subtraiAlimentoCalculadora(listaDeAlimentos.get(i));
-                listaDeAlimentos.set(i,alimento);
                 somaAlimentoCalculadora(alimento);
                 calculaColherCalculadora();
                 return;
