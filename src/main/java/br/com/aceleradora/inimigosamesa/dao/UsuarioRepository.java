@@ -8,11 +8,7 @@ import java.util.List;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     List<Usuario> findAll();
-
     Usuario findOneByEmail(String email);
-
     Usuario findOneByCodigo(int codigo);
-
-
 
 }

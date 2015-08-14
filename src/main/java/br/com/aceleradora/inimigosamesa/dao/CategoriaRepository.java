@@ -1,8 +1,6 @@
 package br.com.aceleradora.inimigosamesa.dao;
 
 import br.com.aceleradora.inimigosamesa.model.Categoria;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

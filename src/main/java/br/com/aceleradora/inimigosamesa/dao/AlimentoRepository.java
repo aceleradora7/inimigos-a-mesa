@@ -21,6 +21,4 @@ public interface AlimentoRepository extends JpaRepository<Alimento, Integer> {
 
     Page<Alimento> findByCategoria(Categoria categoria, Pageable paginacao);
 
-
-
 }
