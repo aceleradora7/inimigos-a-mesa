@@ -16,6 +16,11 @@
 
 }
 
+.form-control:focus{
+    border-color: #DA6732 !important;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 255, 255, 0.6) !important;
+}
+
 .centralizar{
 margin:0 auto !important;
 }
@@ -26,8 +31,6 @@ margin:0 auto !important;
 
 .tamanho-campo-medida{
     width:30%;
-
-
 }
 
 .espacoErroMedidas{
@@ -47,13 +50,13 @@ margin:0 auto !important;
     margin-left: 10px;
     float: left;
     margin-top: 5px;
-
 }
 
 .botao-enviar {
     width: 65%;
     margin-top: 10px;
 }
+
 .botao-cancelar {
     width: 34%;
     margin-top: 10px;
