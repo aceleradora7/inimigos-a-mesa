@@ -13,18 +13,13 @@ var tipoGordura;
 var valorSodio;
 var tipoSodio;
 
-$('#slider').slider().on('slide', function(ev) {
 
+$('#slider').slider().on('slide', function(ev) {
     calculaMedidas(ev.value);
     calculaColheres(ev.value);
-    renderizarColher("gordura");
-    renderizarColher("sal");
-    renderizarColher("acucar");
-
 });
 
 function calculaColheres(valor){
-
     $.ajax({
         dataType: "json",
         url: '/calculaColheres',
@@ -47,6 +42,11 @@ function calculaColheres(valor){
             $("#sal").attr('value', dados.sal);
             $("#valor-colher-sal").attr('value', dados.sal);
             $("#valor-colher-sal").text($("#valor-colher-sal").attr('value'));
+
+            renderizarColher("gordura");
+            renderizarColher("sal");
+            renderizarColher("acucar");
+
         }
     });
 }
@@ -107,6 +107,7 @@ function calculaValoresTabela(porcao, valor, unidade, id){
 }
 
 $(document).ready(function() {
+    $('.tooltip').hide();
     valorTabela();
 });
 
