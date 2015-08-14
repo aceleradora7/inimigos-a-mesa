@@ -1,6 +1,5 @@
 package br.com.aceleradora.inimigosamesa.controller;
 
-import br.com.aceleradora.inimigosamesa.model.Alimento;
 import br.com.aceleradora.inimigosamesa.model.Email;
 import br.com.aceleradora.inimigosamesa.model.FormularioEmail;
 import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
@@ -23,16 +22,6 @@ public class ApresentacaoController {
     @RequestMapping("/")
     public String home(){ return "home"; }
 
-    @RequestMapping("/home")
-    public String home2(){
-        return "home";
-    }
-
-    @RequestMapping("/home3")
-    public String home3(){
-        return "home3";
-    }
-
     @RequestMapping("/sobre")
     public String sobre(){
         return "sobre";
@@ -41,10 +30,6 @@ public class ApresentacaoController {
     @RequestMapping("/sobre2")
     public String sobre2(){
         return "sobre2";
-    }
-
-    public String tutorial(){
-        return "tutorial";
     }
 
     @RequestMapping(value = "/contato", method = RequestMethod.GET)
