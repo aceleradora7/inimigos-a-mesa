@@ -183,7 +183,6 @@ public class AlimentoController {
 
         Calculadora calculadora = (Calculadora) request.getSession().getAttribute("calculadora");
         Alimento alimento = servicoAlimento.buscaPorCodigo(codigo);
-        //alimento.recalculaNutrientesDaCalculadora(Double.parseDouble(porcao));
         calculadora.excluiAlimento(alimento);
 
         request.getSession().setAttribute("calculadora", calculadora);
@@ -306,7 +305,6 @@ public class AlimentoController {
             model.addAttribute("erroGorduraPorcao", "true");
             return cadastrarAlimento(model, alimento);
         }
-
-            return "Salvar";
-        }
+        return "Salvar";
     }
+}

@@ -27,6 +27,7 @@ public class UsuarioController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
+
         model.addAttribute("usuario", new Usuario());
 
         return "login";
@@ -40,6 +41,7 @@ public class UsuarioController {
     public String emailRecuperarSenha(Model model, Usuario usuario) {
 
         Usuario usuarioBusca = servicoUsuario.buscaPorEmail(usuario.getEmail());
+
         if(usuarioBusca!=null) {
             Random random = new Random();
             String novaSenha = "";
@@ -62,7 +64,6 @@ public class UsuarioController {
 
     @RequestMapping(value = "/emailRecuperar", method = RequestMethod.GET)
     public String emailRecuperar() { return "login"; }
-
 
     @RequestMapping(value = "/cadastrarUsuario", method = RequestMethod.GET)
     public String cadastrarNovoAdministrador(Model model, Usuario usuario){

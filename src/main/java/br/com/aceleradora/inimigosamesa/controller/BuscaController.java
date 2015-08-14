@@ -8,16 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 public class BuscaController{
 
 @Autowired
 private AlimentoService servicoAlimento;
 
-        @RequestMapping(value = "/autoCompletar", method = RequestMethod.GET)
-        public Iterable<Alimento> autocompletar(@RequestParam(value="textoDigitado") String textoDigitado) {
-            return servicoAlimento.buscaPorNome(textoDigitado);
-        }
+    @RequestMapping(value = "/autoCompletar", method = RequestMethod.GET)
+    public Iterable<Alimento> autocompletar(@RequestParam(value="textoDigitado") String textoDigitado) {
+        return servicoAlimento.buscaPorNome(textoDigitado);
+    }
 }

@@ -53,21 +53,16 @@ public class ApresentacaoController {
         builder.append(response);
         RestTemplate restTemplate = new RestTemplate();
         RecaptchaResult resultado = restTemplate.getForObject(builder.toString(), RecaptchaResult.class);
+
         if(resultado.success) {
             Email email = new Email();
             email.enviar(formularioEmail);
             model.addAttribute("sucesso", "E-mail enviado com sucesso!");
 
             return "contato";
-
-        }
-        else
-        {
+        }else{
             model.addAttribute("erroCaptcha", "Por favor verifique se você não é um robô.");
         }
-
         return "contato";
     }
-
-
 }

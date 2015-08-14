@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-import java.io.*;
 import java.util.List;
 
 @Controller
@@ -31,32 +30,22 @@ public class CategoriaController {
 
         if (categoriaRepository.save(categoria) == null) {
             model.addAttribute("mensagemDeRetorno", "Não foi possivel cadastrar categoria");
-        } else {
+        }else{
             model.addAttribute("mensagemDeRetorno", "Cadastro realizado com sucesso");
         }
-
         listaCategoria =  (List<Categoria>) categoriaRepository.findAll();
-
         model.addAttribute("categorias",listaCategoria);
-
-
 
         return "categoria";
     }
 
-
-
     @RequestMapping(value="/cadastrarCategoria", method = RequestMethod.GET)
     public String categoria(@RequestParam(value = "codigo", required = false) String codigo, Model model){
+
         model.addAttribute("categoria", new Categoria());
         listaCategoria =  (List<Categoria>) categoriaRepository.findAll();
         model.addAttribute("categorias",listaCategoria);
 
-
         return "categoria";
     }
-
-
 }
-
-
