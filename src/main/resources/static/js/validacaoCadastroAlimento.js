@@ -210,8 +210,15 @@ function escondeCampos(){
     $("#espacoErroGordura").hide();
 }
 
+function gambiEscondeNuBugado(){
+    $("#porcaoCalorias").attr('value',"");
+    $("#porcaoCalorias").text("");
+
+}
+
 $(document).ready(function() {
     escondeCampos();
+    gambiEscondeNuBugado();
     desabilitarInputNutrientes();
 });
 
