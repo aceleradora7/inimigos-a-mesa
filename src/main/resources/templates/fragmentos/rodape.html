@@ -68,26 +68,6 @@
                         </li>
 
                         <li>
-                            <a>Dicas de hábitos saudáveis</a>
-                        </li>
-
-                        <li>
-                            <a>Doenças</a>
-                        </li>
-
-                        <li>
-                            <a>Receitas</a>
-                        </li>
-
-                        <li>
-                            <a>Tutorial</a>
-                        </li>
-
-                        <li>
-                            <a>Informações legais</a>
-                        </li>
-
-                        <li>
                             <a th:href="@{/sobre}">Sobre</a>
                         </li>
 
@@ -107,21 +87,20 @@
                         </li>
 
                         <li th:if="${#httpServletRequest.remoteUser != null}">
-                            <a href="/cadastroAlimento">Cadastro Alimentos</a>
+                            <a href="/cadastroAlimento">Cadastrar Alimentos</a>
                         </li>
 
                         <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
-                            <a href="/cadastrarUsuario">Cadastro Administrador</a>
+                            <a href="/cadastrarUsuario">Cadastrar Usuários</a>
                         </li>
 
                         <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
                             <a href="/formularioDeletarUsuario">Deletar Usuários</a>
                         </li>
 
-                        <li th:if="${#httpServletRequest.remoteUser != null}">
+                        <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
                             <a href="/editarUsuario">Editar Perfil</a>
                         </li>
-
                     </div>
 
                     <div class="alinhamento-footer alinhar">
