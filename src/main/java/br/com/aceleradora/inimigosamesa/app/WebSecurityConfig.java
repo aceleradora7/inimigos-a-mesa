@@ -24,7 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/cadastroAlimento", "/editarAlimento/**")
                 .hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/formularioDeletarUsuario","/editarUsuario","/deletarUsuario").hasAnyAuthority("ADMIN")
+                .antMatchers("/formularioDeletarUsuario","/editarUsuario",
+                        "/cadastrarUsuario","/deletarUsuario").hasAnyAuthority("ADMIN")
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
