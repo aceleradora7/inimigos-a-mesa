@@ -1,8 +1,5 @@
 package br.com.aceleradora.inimigosamesa.service;
 
-/**
- * Created by aluno06 on 07/07/15.
- */
 import com.cloudinary.*;
 import com.cloudinary.utils.ObjectUtils;
 import org.springframework.stereotype.Service;
@@ -11,8 +8,7 @@ import java.io.IOException;
 @Service
 public class ImagensService {
 
-    public ImagensService() {
-    }
+    public ImagensService() {}
 
     public void uploadImagem(){
 

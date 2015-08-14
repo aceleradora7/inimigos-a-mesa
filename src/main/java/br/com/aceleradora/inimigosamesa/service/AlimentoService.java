@@ -28,21 +28,25 @@ public class AlimentoService {
     }
 
     public Iterable<Alimento> buscaPorNome(String nome) {
+
         nome = nome.concat(CORINGA_ALL);
         return repositorioAlimento.findByNome(nome);
     }
 
     public Iterable<Alimento> buscaPorNome(String nome, int pagina) {
+
         nome = nome.concat(CORINGA_ALL);
         return repositorioAlimento.findByNome(nome, paginacao(pagina));
     }
 
     public Iterable<Alimento> buscaPorNomeNaCategoria(String nome, int categoria, int pagina) {
+
         nome = nome.concat(CORINGA_ALL);
         return repositorioAlimento.findByNomeNaCategoria(nome, categoria, paginacao(pagina));
     }
 
     public Iterable<Alimento> buscaPorCategoria(int pagina, int codigoCategoria) {
+
         return repositorioAlimento.findByCategoria(new Categoria(codigoCategoria), paginacao(pagina));
     }
 
@@ -51,17 +55,20 @@ public class AlimentoService {
     }
 
     public void salvar(Alimento alimento) {
+
         gerenciarImagem(alimento);
         repositorioAlimento.save(alimento);
     }
 
     public void gerenciarImagem(Alimento alimento){
+
         if(alimento.getCodigo() != 0) {
             Alimento alimentoBuscado = repositorioAlimento.findOne(alimento.getCodigo());
 
             if(alimento.getUrlImagemPequena().isEmpty() && alimento.getUrlImagemGrande().isEmpty()){
                 alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1438692708/Frutas_v6wxtn.png");
             }
+
             if(alimento.getUrlImagemGrande().isEmpty()) {
                 alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png");
             }
@@ -70,10 +77,10 @@ public class AlimentoService {
                 deletarCloudinaryAImagem(alimentoBuscado);
             }
         }
-
     }
 
     private void deletarCloudinaryAImagem(Alimento alimentoBuscado) {
+
         Cloudinary cloudinary = new Cloudinary(Cloudinary.asMap("cloud_name", "dq5mndrjt",
                 "api_key", "157778992886617",
                 "api_secret", "6Vk3ZiE8qBH4K2j51agKhmH_DL8"));
@@ -82,16 +89,18 @@ public class AlimentoService {
         if(!idDaImagem.equals("Frutas_v6wxtn")){
             try {
                 cloudinary.uploader().destroy(idDaImagem, ObjectUtils.emptyMap());
-            } catch (IOException e) {
+            }catch (IOException e){
                 e.printStackTrace();
             }
         }
     }
 
     private String pegaIdDaImagem (Alimento alimento) {
+
         String[] url = alimento.getUrlImagemGrande().split("/");
         String imagemComExtensao = url[url.length-1];
         String imagemSemExtensao = imagemComExtensao.split("\\.")[0];
+
         return imagemSemExtensao;
     }
 
@@ -110,5 +119,4 @@ public class AlimentoService {
     public Legenda getLegendas(Alimento alimento) {
         return new Legenda(alimento);
     }
-
 }
