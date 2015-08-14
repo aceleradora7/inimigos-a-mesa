@@ -1,6 +1,7 @@
 package br.com.aceleradora.inimigosamesa.model;
 
 public class FormularioEmail {
+
     private String nome;
     private String emailRemetente;
     private String assunto;
@@ -8,15 +9,14 @@ public class FormularioEmail {
 
 
     public FormularioEmail(String nome, String emailRemetente, String assunto, String mensagem) {
+
         this.nome = nome;
         this.emailRemetente = emailRemetente;
         this.assunto = assunto;
         this.mensagem = mensagem;
     }
 
-    public FormularioEmail(){
-
-    }
+    public FormularioEmail(){}
 
     public String getNome() {
         return nome;

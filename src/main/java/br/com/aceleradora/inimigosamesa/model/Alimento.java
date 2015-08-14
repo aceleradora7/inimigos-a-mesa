@@ -34,8 +34,7 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     private String fonte;
     private String valorMaximoMedida;
 
-    public Alimento() {
-    }
+    public Alimento() {}
 
     public Alimento( String nome, String acucar, String sodio, String gordura, String calorias, String porcaoBaseCalculo, String unidadeBaseCalculo, String porcaoExibicao, String unidadeExibicao, String urlImagemPequena, String urlImagemGrande, String observacao, Categoria categoria, String valorMedidaCaseira, String unidadeMedidaCaseira, String fonte, String valorMaximoMedida) {
         this.nome = nome;
@@ -107,11 +106,11 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     }
 
     public String getCalorias() {
+
         String caloria = ""+calorias;
         if(caloria.length()>=caloria.indexOf('.')+3){
             return caloria.substring(0,caloria.indexOf('.')+3);
-        }
-        else{
+        }else{
             return caloria;
         }
     }
@@ -214,14 +213,15 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     }
 
     public String calculaExibicao(String valor) {
+
         if (valor == null || valor.equals("") || Double.parseDouble(porcaoExibicao) == Double.parseDouble(porcaoBaseCalculo)) {
             return valor;
-        } else {
+        }else{
             double calculoExibicaoSodio = 0.0;
             if (Double.parseDouble(porcaoExibicao) < Double.parseDouble(porcaoBaseCalculo)) {
                 double numerador = Double.parseDouble(porcaoBaseCalculo) / Double.parseDouble(porcaoExibicao);
                 calculoExibicaoSodio = Double.parseDouble(valor) / numerador;
-            } else {
+            }else{
                 double numerador = Double.parseDouble(porcaoExibicao) / Double.parseDouble(porcaoBaseCalculo);
                 calculoExibicaoSodio = Double.parseDouble(valor) * numerador;
             }
@@ -252,10 +252,11 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
 
     public boolean validaValor(String valor) {
+
         if (valor != null && !valor.isEmpty()) {
-            try {
+            try{
                 Double.parseDouble(valor);
-            } catch (Exception e) {
+            }catch (Exception e){
                 return true;
             }
         }
@@ -263,6 +264,7 @@ public class Alimento implements Comparable<Alimento>, Serializable {
     }
 
     public void recalculaNutrientesDaCalculadora(double porcaoNova){
+
         if(calorias!=null && !calorias.isEmpty()){
             calorias = ""+(Double.parseDouble(calorias)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
         }

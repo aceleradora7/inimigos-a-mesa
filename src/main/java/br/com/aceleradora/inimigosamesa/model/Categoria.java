@@ -9,22 +9,21 @@ public class Categoria {
     @Id
     @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "categoria_codigo_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geradorId")
-    private int codigo;
 
+    private int codigo;
     private String nome;
 
     @OneToMany(mappedBy = "categoria")
     private List<Alimento> alimentos;
 
-    public Categoria(){
-
-    }
+    public Categoria(){}
 
     public Categoria(int codigo){
         this.codigo = codigo;
     }
 
     public Categoria(int codigo, String nome) {
+
         this.codigo = codigo;
         this.nome = nome;
     }
@@ -52,5 +51,4 @@ public class Categoria {
     public void setAlimentos(List<Alimento> alimentos) {
         this.alimentos = alimentos;
     }
-
 }

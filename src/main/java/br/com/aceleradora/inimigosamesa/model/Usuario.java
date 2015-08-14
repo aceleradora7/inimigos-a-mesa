@@ -22,15 +22,16 @@ public class Usuario {
     private Role role;
 
     public Usuario(String nome, String email, String senha, String repetirSenha, Role role) {
+
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.repetirSenha = repetirSenha;
         this.role = role;
-
     }
 
     public Usuario(String nome, String email, String senha, Role role, int codigo) {
+
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -40,14 +41,13 @@ public class Usuario {
 
 
     public Usuario(String email, String senha, Role role) {
+
         this.email = email;
         this.senha = senha;
         this.role = role;
     }
 
-    public Usuario() {
-
-    }
+    public Usuario() {}
 
     public int getCodigo() { return codigo; }
 

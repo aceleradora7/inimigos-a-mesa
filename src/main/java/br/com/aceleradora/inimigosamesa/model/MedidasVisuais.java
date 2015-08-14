@@ -12,13 +12,11 @@ public class MedidasVisuais {
         this.alimento = alimento;
     }
 
-    public MedidasVisuais() {
-
-    }
+    public MedidasVisuais(){}
 
     public int calculaColherSal() {
-        int colher = 0;
 
+        int colher = 0;
         if (!verificaColherVazia(alimento.getExibicaoSodio())) {
             double sodio = Double.parseDouble(alimento.getExibicaoSodio());
             double sal = converteSodioEmSal(sodio);
@@ -31,8 +29,8 @@ public class MedidasVisuais {
 
 
     public int calculaColherSal(double sodioTotal) {
-        int colher = 0;
 
+        int colher = 0;
         if (!verificaColherVazia(""+sodioTotal)) {
             double sodio = Double.parseDouble(""+sodioTotal);
             double sal = converteSodioEmSal(sodio);
@@ -47,36 +45,33 @@ public class MedidasVisuais {
         return ((sodio * 100) / 39) * 0.001;
     }
 
-
     public int calculaColherAcucar() {
-        int colher = 0;
 
+        int colher = 0;
         if (!verificaColherVazia(alimento.getExibicaoAcucar())) {
             double acucar = Double.parseDouble(alimento.getExibicaoAcucar());
             if (acucar != 0) {
                 colher = (int) (acucar / GRAMAS_ACUCAR_COLHER);
             }
         }
-
         return colher;
     }
 
     public int calculaColherAcucar(double acucarTotal) {
-        int colher = 0;
 
+        int colher = 0;
         if (!verificaColherVazia(""+acucarTotal)) {
             double acucar = Double.parseDouble(""+acucarTotal);
             if (acucar != 0) {
                 colher = (int) (acucar / GRAMAS_ACUCAR_COLHER);
             }
         }
-
         return colher;
     }
 
     public int calculaColherGordura() {
-        int colher = 0;
 
+        int colher = 0;
         if (!verificaColherVazia(alimento.getExibicaoGordura())) {
             double gordura = Double.parseDouble(alimento.getExibicaoGordura());
             if (gordura != 0) {
@@ -87,8 +82,8 @@ public class MedidasVisuais {
     }
 
     public int calculaColherGordura(double gorduraTotal) {
-        int colher = 0;
 
+        int colher = 0;
         if (!verificaColherVazia(""+gorduraTotal)) {
             double gordura = Double.parseDouble(""+gorduraTotal);
             if (gordura != 0) {
@@ -99,6 +94,7 @@ public class MedidasVisuais {
     }
 
     public boolean verificaColherVazia(String valor) {
+
         if (valor == null || valor.equals("")) {
             return true;
         }

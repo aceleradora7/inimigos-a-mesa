@@ -74,10 +74,10 @@ public class Calculadora {
             listaDeAlimentos.add(alimento);
             somaAlimentoCalculadora(alimento);
             calculaColherCalculadora();
-
     }
 
     public boolean excluiAlimento(Alimento alimento) {
+
         for (int i =0; i<listaDeAlimentos.size();i++){
             if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()) {
                 subtraiAlimentoCalculadora(listaDeAlimentos.get(i));
@@ -90,6 +90,7 @@ public class Calculadora {
     }
 
     public void somaAlimentoCalculadora(Alimento alimento){
+
         if (alimento.getCalorias() != null && !alimento.getCalorias().isEmpty()) {
             caloriasTotal += Double.parseDouble(alimento.getCalorias());
         }
@@ -110,6 +111,7 @@ public class Calculadora {
 
 
     public void subtraiAlimentoCalculadora(Alimento alimento){
+
         if (alimento.getCalorias() != null && !alimento.getCalorias().isEmpty()) {
             caloriasTotal -= Double.parseDouble(alimento.getCalorias());
         }
@@ -128,21 +130,20 @@ public class Calculadora {
     }
 
     public void calculaColherCalculadora() {
-        MedidasVisuais medidasVisuais = new MedidasVisuais();
 
+        MedidasVisuais medidasVisuais = new MedidasVisuais();
         colherSal = medidasVisuais.calculaColherSal(sodioTotal);
         colherAcucar = medidasVisuais.calculaColherAcucar(acucarTotal);
         colherGordura = medidasVisuais.calculaColherGordura(gorduraTotal);
     }
 
     public double formataDouble(double x){
+
         String b = ""+x;
         if(b.length()>=b.indexOf('.')+3){
             return Double.parseDouble(b.substring(0,b.indexOf('.')+3));
-        }
-        else{
+        }else{
             return Double.parseDouble(b);
         }
     }
-
 }

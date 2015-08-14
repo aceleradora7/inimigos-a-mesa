@@ -4,7 +4,6 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
-import java.util.Random;
 
 public class Email {
 
@@ -25,20 +24,17 @@ public class Email {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", PORTA_HOST);
 
-
-
         this.sessao = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication(){
                 return new PasswordAuthentication(EMAIL_DESTINATARIO, SENHA);
             }
 
         });
-
         this.sessao.setDebug(true);
-
     }
 
     public void enviar(FormularioEmail formularioEmail){
+
         try {
             Message mensagemMime = new MimeMessage(sessao);
             mensagemMime.setFrom(new InternetAddress(EMAIL_DESTINATARIO));
@@ -60,6 +56,7 @@ public class Email {
     }
 
     public void enviar(Usuario usuario){
+
         try{
             Message mensagemMime = new MimeMessage(sessao);
             mensagemMime.setFrom(new InternetAddress(usuario.getEmail()));
@@ -71,13 +68,9 @@ public class Email {
                     "\nSenha: "+usuario.getSenha());
 
             Transport.send(mensagemMime);
-
-
-        } catch (MessagingException e){
+        }catch (MessagingException e){
             throw  new RuntimeException(e);
         }
     }
-
-
 }
 
