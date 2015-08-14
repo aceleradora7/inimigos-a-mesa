@@ -112,13 +112,27 @@
 
                             <tr>
                                 <td class="ajuste-tamanho-td-calculadora">
+                                    <p class="titulo-pequeno-calculadora">Açúcar</p>
+                                    <hr/>
+                                    <div class="center calculadora-medidas-visuais">
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherAcucar}"></div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <img class="colher-calculadora" src="/img/colher-acucar.svg"/>
+                                    </div>
+                                    <div class="center tamanho-div-total">
+                                        <div class="block">Total: </div>
+                                        <div class="centralizar-texto block tamanho-texto" th:text="${calculadora.acucarTotal}"></div>
+                                        <div class="block">g</div>
+                                    </div>
+                                </td>
+                                <td class="ajuste-tamanho-td-calculadora">
                                     <p class="titulo-pequeno-calculadora">Gordura</p>
                                     <hr/>
 
-                                    <div class="calculadora-medidas-visuais">
-                                        <img class="colher-calculadora" src="/img/colher-gordura.svg"/>
-                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                    <div class="center calculadora-medidas-visuais">
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherGordura}"></div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <img class="colher-calculadora" src="/img/colher-gordura.svg"/>
                                     </div>
 
                                     <div class="center tamanho-div-total">
@@ -128,26 +142,12 @@
                                     </div>
                                 </td>
                                 <td class="ajuste-tamanho-td-calculadora">
-                                    <p class="titulo-pequeno-calculadora">Açúcar</p>
-                                    <hr/>
-                                    <div class="center calculadora-medidas-visuais">
-                                        <img class="colher-calculadora" src="/img/colher-acucar.svg"/>
-                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
-                                        <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherAcucar}"></div>
-                                    </div>
-                                    <div class="center tamanho-div-total">
-                                        <div class="block">Total: </div>
-                                        <div class="centralizar-texto block tamanho-texto" th:text="${calculadora.acucarTotal}"></div>
-                                        <div class="block">g</div>
-                                    </div>
-                                </td>
-                                <td class="ajuste-tamanho-td-calculadora">
                                     <p class="titulo-pequeno-calculadora">Sal</p>
                                     <hr/>
                                     <div class="center calculadora-medidas-visuais">
-                                        <img class="colher-calculadora" src="/img/colher-sal.svg"/>
-                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block" th:text="${calculadora.colherSal}"></div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <img class="colher-calculadora" src="/img/colher-sal.svg"/>
                                     </div>
                                     <div class="center tamanho-div-total">
                                         <div class="block">Total: </div>
@@ -161,9 +161,11 @@
 
                     <ul class="ajustando-tabela-2-calculadora">
                         <h6 class="list-group-item">
-                            <B>NA</B> - Não avaliado
+                            <B>Açúcar</B> - Cada colher de chá contém 1,76g de açúcar.
                             <br />
-                            <b>TR</b> - Traço para medidas entre 0 à 0.5
+                            <b>Gordura</b> - Cada colher de chá contém 2.0ml de gordura.
+                            <br/>
+                            <b>Sal</b> - Cada colher de chá contém 2,06g de sal.
                         </h6>
                     </ul>
                 </ul>
