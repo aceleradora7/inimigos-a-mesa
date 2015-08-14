@@ -3,6 +3,7 @@
 var padraoEmail = new RegExp(/[a-zA-Z0-9\.\_\-]+[@]+(.)+(\.)+[a-zA-Z0-9]+/);
 
 function validarRecuperacao(){
+
     var emailRecuperacao = $('#emailRecuperacao');
     if(padraoEmail.test(emailRecuperacao.val())){
         escondeErroEmailRecuperacao();
@@ -15,46 +16,55 @@ function validarRecuperacao(){
 }
 
 function mostraErroEmailRecuperacao(){
+
     var div = $("#espacoErroEmailRecuperacao");
     div.show();
 }
 
 function escondeErroEmailRecuperacao(){
+
     var div = $("#espacoErroEmailRecuperacao");
     div.hide();
 }
 
 function mostraSucessoLogin(){
+
     var div = $("#sucesso-login");
     div.show();
 }
 
 function escondeSucessoLogin(){
+
     var div = $("#sucesso-login");
     div.hide();
 }
 
 function mostraErroEmail(){
+
     var div = $("#espacoErroEmail");
     div.show();
 }
 
 function mostraErroSenha(){
+
     var div = $("#espacoErroSenha");
     div.show();
 }
 
 function escondeErroEmail(){
+
     var div = $("#espacoErroEmail");
     div.hide();
 }
 
 function escondeErroSenha(){
+
     var div = $("#espacoErroSenha");
     div.hide();
 }
 
 function validarSenha(){
+
      var senhaLogin = $('#senhaLogin');
      if(senhaLogin.val()){
         escondeErroSenha();
@@ -67,6 +77,7 @@ function validarSenha(){
 }
 
 function validarEmail(){
+
     var emailLogin = $('#emailLogin');
     if(padraoEmail.test(emailLogin.val())){
         escondeErroEmail();
@@ -81,6 +92,7 @@ function validarEmail(){
 }
 
 function validarLogin(){
+
     if (validarEmail() && validarSenha()){
         return true;
     }
@@ -88,6 +100,7 @@ function validarLogin(){
 }
 
 $(document).ready(function(){
+
     var link = window.location.href;
     if(link.indexOf("/emailRecuperar") > 0){
         $('#ModalSucesso').modal('show');

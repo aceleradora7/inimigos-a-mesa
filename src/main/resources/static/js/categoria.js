@@ -1,11 +1,13 @@
 //<![CDATA[
 
 function associarEventosMenuCategoria(){
+
     var menuCategorias = $("#menu-categoria");
     menuCategorias.on("click", ".categoria", onClickBotaoCategoria);
 };
 
 function onClickBotaoCategoria(){
+
     var categoria = $(this).val();
     setParametro("categoria", categoria);
     removerParametro("busca");
@@ -14,6 +16,7 @@ function onClickBotaoCategoria(){
 };
 
 function marcaBotaoCategoriaAtual(){
+
     var categorias = $("#menu-categoria");
     var botoesCategorias = categorias.find(".categoria").each(function(){
         if($(this).val() === getParametros()["categoria"]){
@@ -24,6 +27,7 @@ function marcaBotaoCategoriaAtual(){
 }
 
 function marcaBotaoLetraAtual(){
+
     var letras = $("#menu-busca-letra");
     var botoesLetras = letras.find(".buscaLetra").each(function(){
         if($(this).val() === getParametros()["busca"]){

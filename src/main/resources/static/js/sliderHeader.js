@@ -1,4 +1,5 @@
 function cycleImages(){
+
       var $active = $('#background_cycler .active');
       var $next = ($('#background_cycler .active').next().length > 0) ? $('#background_cycler .active').next() : $('#background_cycler img:first');
       $next.css('z-index',2);
@@ -9,6 +10,7 @@ function cycleImages(){
     }
 
 $(window).load(function(){
+
     $("#2").hide();
     $("#3").hide();
     $("#4").hide();

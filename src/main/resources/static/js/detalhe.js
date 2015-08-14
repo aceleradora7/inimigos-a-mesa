@@ -1,6 +1,7 @@
 //  <![CDATA[
 
 function renderizarColher(tipo){
+
     function getQuantidade(){
         return $("#" + tipo).attr("value");
     }
@@ -35,6 +36,7 @@ function renderizarColher(tipo){
 }
 
 function efeitoDaAncora(){
+
     $(function() {
         $('a').bind('click',function(event){
             var $anchor = $(this);
@@ -46,18 +48,19 @@ function efeitoDaAncora(){
 
 
 function adicionarAlimento(){
+
     setParametro("codigo", $("#codigo").val());
     setParametro("porcao", $("#porcaoAlimento").text());
     acessarPaginaComParametros("adicionaAlimento");
 }
 
 $(document).ready(function(){
+
     efeitoDaAncora();
     renderizarColher("gordura");
     renderizarColher("sal");
     renderizarColher("acucar");
     $("#adicionaAlimento").on("click", adicionarAlimento);
-
 })
 
 //]]>

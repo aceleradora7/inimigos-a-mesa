@@ -19,7 +19,7 @@ $(document).ready(function(){
     },
 
     function(error, result){
-        console.log(error, result);
+
         var meuResult = JSON.stringify(result, null, 2);
         var json = JSON.stringify(result);
         var jsonObject = JSON.parse(json);
@@ -48,10 +48,11 @@ $(document).ready(function(){
         $(".botao-envia-imagem").hide();
         $("#remover-imagem").show();
     });
-        $("#remover-imagem").on("click",removerImagemAtual);
+    $("#remover-imagem").on("click",removerImagemAtual);
 });
 
 function removerImagemAtual(){
+
     $("#imagemAlimento" ).replaceWith( " <img src='http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png' id='imagemAlimento' alt='Imagem do Alimento'/>" );
     $("#urlImagemPequena").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png');
     $("#urlImagemGrande").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png');

@@ -20,6 +20,7 @@
 !function( $ ) {
 
 	var Slider = function(element, options) {
+
 		this.element = $(element);
 		this.picker = $('<div class="slider">'+
 							'<div class="slider-track">'+

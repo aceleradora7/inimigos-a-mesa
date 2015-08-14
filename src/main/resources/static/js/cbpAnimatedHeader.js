@@ -1,13 +1,13 @@
 /*<![CDATA[*/
 
 $('.btn-search').on('click touchstart', function() {
-  $this = $(this);
+
+	$this = $(this);
     setTimeout(function() {
-      $this.fadeIn(500);
+    	$this.fadeIn(500);
     }, 1000);
     $this.addClass('active');
     $('.search-box').focus();
-
 });
 
 var cbpAnimatedHeader = (function() {
@@ -30,8 +30,7 @@ var cbpAnimatedHeader = (function() {
 		var sy = scrollY();
 		if ( sy >= changeHeaderOn ) {
 			classie.add( header, 'navbar-shrink' );
-		}
-		else {
+		}else{
 			classie.remove( header, 'navbar-shrink' );
 		}
 		didScroll = false;
@@ -40,9 +39,7 @@ var cbpAnimatedHeader = (function() {
 	function scrollY() {
 		return window.pageYOffset || docElem.scrollTop;
 	}
-
 	init();
-
 })();
 
 /*]]>*/

@@ -14,6 +14,7 @@ var valorSodio;
 var tipoSodio;
 
 $('#slider').slider().on('slide', function(ev) {
+
     calculaMedidas(ev.value);
     calculaColheres(ev.value);
     renderizarColher("gordura");
@@ -24,33 +25,34 @@ $('#slider').slider().on('slide', function(ev) {
 
 function calculaColheres(valor){
 
-        $.ajax({
-            dataType: "json",
-            url: '/calculaColheres',
-            type: "GET",
-            data : {
-                "acucar" : $("#valor-acucar").attr('value'),
-                "sodio" : $("#valor-sodio").attr('value'),
-                "gordura" : $("#valor-gordura").attr('value'),
-                "porcaoExibicao" : porcaoAlimento
-            },
-            success: function(dados){
-                $("#acucar").attr('value', dados.acucar);
-                $("#valor-colher-acucar").attr('value', dados.acucar);
-                $("#valor-colher-acucar").text($("#valor-colher-acucar").attr('value'));
+    $.ajax({
+        dataType: "json",
+        url: '/calculaColheres',
+        type: "GET",
+        data : {
+            "acucar" : $("#valor-acucar").attr('value'),
+            "sodio" : $("#valor-sodio").attr('value'),
+            "gordura" : $("#valor-gordura").attr('value'),
+            "porcaoExibicao" : porcaoAlimento
+        },
+        success: function(dados){
+            $("#acucar").attr('value', dados.acucar);
+            $("#valor-colher-acucar").attr('value', dados.acucar);
+            $("#valor-colher-acucar").text($("#valor-colher-acucar").attr('value'));
 
-                $("#gordura").attr('value', dados.gordura);
-                $("#valor-colher-gordura").attr('value', dados.gordura);
-                $("#valor-colher-gordura").text($("#valor-colher-gordura").attr('value'));
+            $("#gordura").attr('value', dados.gordura);
+            $("#valor-colher-gordura").attr('value', dados.gordura);
+            $("#valor-colher-gordura").text($("#valor-colher-gordura").attr('value'));
 
-                $("#sal").attr('value', dados.sal);
-                $("#valor-colher-sal").attr('value', dados.sal);
-                $("#valor-colher-sal").text($("#valor-colher-sal").attr('value'));
-            }
-        });
+            $("#sal").attr('value', dados.sal);
+            $("#valor-colher-sal").attr('value', dados.sal);
+            $("#valor-colher-sal").text($("#valor-colher-sal").attr('value'));
+        }
+    });
 }
 
 function valorTabela(){
+
     valorCaloria = $("#valor-caloria").attr('value');
     valorAcucar = $("#valor-acucar").attr('value');
     valorGordura = $("#valor-gordura").attr('value');
@@ -59,6 +61,7 @@ function valorTabela(){
 }
 
 function calculaMedidas(valor){
+
     calculaValorUnidade(valor);
     valor = calculaPorcao(valor);
     calculaValoresTabela(valor, valorCaloria, "kcal", "valor-caloria");
@@ -68,6 +71,7 @@ function calculaMedidas(valor){
 }
 
 function calculaValorUnidade(valor){
+
     valorUnidadeCalculado = valorUnidade * valor;
     $("#valorMedidaCaseira").text(valorUnidadeCalculado);
     $("#valorMedidaCaseira").attr('value', valorUnidadeCalculado);
@@ -76,15 +80,18 @@ function calculaValorUnidade(valor){
 
 }
 function calculaPorcao(valor){
+
     valor = valor*porcaoAlimento;
     $("#porcaoAlimento").text(valor);
     $("#porcaoAlimento").attr('value', valor);
     $("#porcaoAlimentoCima").text(valor);
     $("#porcaoAlimentoCima").attr('value', valor);
+
     return valor;
 }
 
 function calculaValoresTabela(porcao, valor, unidade, id){
+
     if(valor!=null){
         var resultado = ((porcao*valor)/porcaoAlimento).toFixed(2);
     }

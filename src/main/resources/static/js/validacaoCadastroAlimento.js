@@ -1,6 +1,7 @@
 //<![CDATA[
 
 function desabilitarInputNutrientes(){
+
     $(".NA").click(function(){
         var inputNutriente = $(this).val();
         $('#'+inputNutriente).val("");
@@ -13,6 +14,7 @@ function desabilitarInputNutrientes(){
 }
 
 function validarCadastro(){
+
     if (validarNome() && validarCategoria() && validarPorcaoBase() &&
     validarPorcaoExibicao() && validarValorMedidaCaseira() && validarUnidadeMedidaCaseira() &&
      validarMaximoDeMedidaCaseira() && validarPorcaoCalorias() && validarPorcaoAcucar() && validarPorcaoSodio() && validarPorcaoGordura()){
@@ -23,6 +25,7 @@ function validarCadastro(){
 }
 
 function validarNome(){
+
     var nomeAlimento = $('#nomeAlimento');
     if(nomeAlimento.val()){
         $("#espacoErroNome").hide();
@@ -36,6 +39,7 @@ function validarNome(){
 }
 
 function validarCategoria(){
+
     var categoriaSelecionada = $('#categoriaSelecionada');
     if(categoriaSelecionada.val() != 0){
         $("#espacoErroCategoria").hide();
@@ -49,6 +53,7 @@ function validarCategoria(){
 }
 
 function validarPorcaoBase(){
+
     var porcaoBase = $('#porcaoBase');
     if(!isNaN(porcaoBase.val()) && validarUnidadePorcaoBase()){
         $("#espacoErroPorcaoBase").hide();
@@ -62,6 +67,7 @@ function validarPorcaoBase(){
 }
 
 function validarUnidadePorcaoBase(){
+
     var ml = $('#mlCalculo');
     var g = $('#gCalculo');
     if((ml.is(":checked")) || (g.is(":checked"))){
@@ -72,6 +78,7 @@ function validarUnidadePorcaoBase(){
 }
 
 function validarPorcaoExibicao(){
+
     var porcaoExibicao = $('#porcaoExibicao');
     if(!isNaN(porcaoExibicao.val()) && validarUnidadePorcaoExibicao()){
         $("#espacoErroPorcaoExibicao").hide();
@@ -85,6 +92,7 @@ function validarPorcaoExibicao(){
 }
 
 function validarUnidadePorcaoExibicao(){
+
     var ml = $('#mlExibicao');
     var g = $('#gExibicao');
     if((ml.is(":checked")) || (g.is(":checked"))){
@@ -95,10 +103,12 @@ function validarUnidadePorcaoExibicao(){
 }
 
 function validarValorMedidaCaseira(){
+
     var valorMedidaCaseira = $('#valorMedidaCaseira');
     if(!isNaN(valorMedidaCaseira.val()) && valorMedidaCaseira.val() != ""){
        $("#espacoErroValorMedidas").hide();
        $("#espacoErroValorMedidaCaseira").hide();
+
        return true;
     }else{
         escondeCampos();
@@ -107,6 +117,7 @@ function validarValorMedidaCaseira(){
         $("#espacoErroValorMedidas").show();
         $("#espacoErroValorMedidaCaseira").show();
         valorMedidaCaseira.focus();
+
         return false;
     }
 }
@@ -117,6 +128,7 @@ function validarUnidadeMedidaCaseira(){
     if(isNaN(unidadeMedidaCaseira.val()) && unidadeMedidaCaseira.val() != ""){
         $("#espacoErroValorMedidas").hide();
         $("#espacoErroUnidadeMedidaCaseira").hide();
+
         return true;
     }else{
         escondeCampos();
@@ -124,6 +136,7 @@ function validarUnidadeMedidaCaseira(){
         $("#espacoErroValorMedidas").show();
         $("#espacoErroUnidadeMedidaCaseira").show();
         unidadeMedidaCaseira.focus();
+
         return false;
     }
 }
@@ -133,47 +146,58 @@ function validarMaximoDeMedidaCaseira(){
     var maximoMedidaCaseira = $('#valorMaximoMedida');
     if(!isNaN(maximoMedidaCaseira.val())){
         $("#espacoErroMaximoUnidadeCaseira").hide();
+
         return true;
     }else{
         escondeCampos();
         $("#espacoErroMaximoUnidadeCaseira").show();
         maximoMedidaCaseira.focus();
+
         return false;
     }
 }
 
 function validarPorcaoCalorias(){
+
     var porcaoCalorias = $('#porcaoCalorias');
     if(!isNaN(porcaoCalorias.val())){
        $("#espacoErroCalorias").hide();
+
        return true;
     }else{
         escondeCampos();
         $("#espacoErroCalorias").show();
         porcaoCalorias.focus();
+
         return false;
     }
 }
 
 function validarPorcaoAcucar(){
+
     var porcaoAcucar = $('#porcaoAcucar');
     if(!isNaN(porcaoAcucar.val())){
         $("#espacoErroAcucar").hide();
+
         return true;
     }else{
         escondeCampos();
         $("#espacoErroAcucar").show();
         porcaoAcucar.focus();
+
         return false;
     }
 }
 
 function validarPorcaoSodio(){
+
     var porcaoSodio = $('#porcaoSodio');
     if(!isNaN(porcaoSodio.val())){
         $("#espacoErroSodio").hide();
+
         return true;
     }else{
+
         escondeCampos();
         $("#espacoErroSodio").show();
         porcaoSodio.focus();
@@ -182,11 +206,14 @@ function validarPorcaoSodio(){
 }
 
 function validarPorcaoGordura(){
+
     var porcaoGordura = $('#porcaoGordura');
     if(!isNaN(porcaoGordura.val())){
         $("#espacoErroGordura").hide();
+
         return true
     }else{
+
         escondeCampos();
         $("#espacoErroGordura").show();
         porcaoGordura.focus();
@@ -197,6 +224,7 @@ function validarPorcaoGordura(){
 
 
 function escondeCampos(){
+
     $("#espacoErroMaximoUnidadeCaseira").hide();
     $("#espacoErroValorMedidas").hide();
     $("#espacoErroValorMedidaCaseira").hide();

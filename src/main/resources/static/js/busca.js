@@ -1,5 +1,7 @@
 function criaBusca(){
+
     function buscaDados(request, response){
+
         $.ajax({
             dataType: "json",
             url: "/autoCompletar",
@@ -31,11 +33,11 @@ function criaBusca(){
             event.preventDefault();
             var id = ui.item.value
             var link = "/detalhe/" + id;
-           window.location.replace(link);
+            window.location.replace(link);
         },
         focus: function(event, ui) {
-                event.preventDefault();
-                $(this).val(ui.item.label);
+            event.preventDefault();
+            $(this).val(ui.item.label);
         }
     });
 
@@ -48,7 +50,7 @@ function criaBusca(){
                 event.preventDefault();
                 var id = ui.item.value
                 var link = "/detalhe/" + id;
-               window.location.replace(link);
+                window.location.replace(link);
             },
             focus: function(event, ui) {
                     event.preventDefault();
@@ -59,6 +61,7 @@ function criaBusca(){
 
 
 function iniciarBuscarAoDigitar() {
+
     $("#input-busca").keyup(function() {
         if ($(this).val().length >= 1) {
             criaBusca();
@@ -66,35 +69,41 @@ function iniciarBuscarAoDigitar() {
     });
 
     $("#busca-header").keyup(function() {
-            if ($(this).val().length >= 1) {
-                criaBusca();
-            }
+        if ($(this).val().length >= 1) {
+            criaBusca();
+        }
     });
 }
-function onClickBotaoBusca(){
-     setParametro("busca", $("#input-busca").val());
-     removerParametro("pagina");
-     acessarPaginaComParametros("grid");
- }
 
- function onClickBotaoBuscaHeaderFinal(){
-     setParametro("busca", $("#busca-header").val());
-     removerParametro("pagina");
-     acessarPaginaComParametros("grid");
- }
+function onClickBotaoBusca(){
+
+    setParametro("busca", $("#input-busca").val());
+    removerParametro("pagina");
+    acessarPaginaComParametros("grid");
+}
+
+function onClickBotaoBuscaHeaderFinal(){
+
+    setParametro("busca", $("#busca-header").val());
+    removerParametro("pagina");
+    acessarPaginaComParametros("grid");
+}
 
 function onClickBotaoBuscaHeaderInicial(){
-$("#btn-busca-header-inicial").attr('id',"btn-busca-header-final");
- $("#btn-busca-header-final").on("click", onClickBotaoBuscaHeaderFinal);
+
+    $("#btn-busca-header-inicial").attr('id',"btn-busca-header-final");
+    $("#btn-busca-header-final").on("click", onClickBotaoBuscaHeaderFinal);
 }
 
 function onClickBotaoBuscaLetra(){
+
     setParametro("busca", $(this).val());
     removerParametro("pagina");
     acessarPaginaComParametros("grid");
 }
 
 function associarEventoBotaoBusca(){
+
     $("#btn-busca").on("click", onClickBotaoBusca);
     $("#btn-busca-header-inicial").on("click", onClickBotaoBuscaHeaderInicial);
     $(".buscaLetra").on("click", onClickBotaoBuscaLetra);
@@ -102,21 +111,17 @@ function associarEventoBotaoBusca(){
 
 function buscaEnter(){
 
- $("#input-busca").keypress(function(e)
-{
-	if (e.which == 13)
-	{
-		onClickBotaoBusca();
-	}
-});
+    $("#input-busca").keypress(function(e){
+	    if (e.which == 13){
+	    onClickBotaoBusca();
+    	}
+    });
 
-$("#busca-header").keypress(function(e)
-{
-	if (e.which == 13)
-	{
-		onClickBotaoBuscaHeaderFinal();
-	}
-});
+    $("#busca-header").keypress(function(e){
+	    if (e.which == 13){
+    		onClickBotaoBuscaHeaderFinal();
+	    }
+    });
 }
 
 $(document).ready(function() {
