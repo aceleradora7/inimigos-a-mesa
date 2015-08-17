@@ -25,6 +25,7 @@
 
 		<script src="js/paginacao.js"> </script>
 		<script src="js/categoria.js"> </script>
+		<script src="js/deletarAlimento.js"> </script>
 	</head>
 	<body>
 
@@ -126,6 +127,23 @@
 			<nav th:if="${erro == null}" th:include="fragmentos/paginacao :: paginacao"></nav>
 		</center>
 
+		<div class="modal fade" id="alimento-deletado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+			<div class="modal-dialog ajuste-recuperar" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Alimento Deletado</h4>
+					</div>
+					<div class="modal-body">
+						<label class="alert alert-success col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 text-center">Alimento deletado com sucesso!</label>
+					</div>
+					<div class="modal-footer">
+						<button name="Submit" type="submit"  value="Enviar dados" class="btn btn-primary formobjects" data-dismiss="modal">Fechar</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!--<div th:each="alimento : ${alimentos}" class="col-xs-12 col-sm-6 col-md-4 col-md-offset-0">-->

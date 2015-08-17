@@ -45,7 +45,6 @@ a.item-grid:hover {
 }
 
 .calculadora-grid{
-
     background-color: #4CAE4C;
 }
 
@@ -70,4 +69,8 @@ a.calculadora-grid:hover  {
 .imagem-card{
 	width: 100%;
 	max-height: 220px;
+}
+
+.modal-footer{
+	border-top: none !important;
 }
