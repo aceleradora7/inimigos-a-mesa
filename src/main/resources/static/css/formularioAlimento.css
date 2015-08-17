@@ -26,6 +26,7 @@ margin:0 auto !important;
 .input-alimento{
     width:70%;
     float: left;
+    margin-right: 10px;
 }
 
 .tamanho-campo-medida{
@@ -128,5 +129,11 @@ display:none;
 #espacoErroNome{
     display: none;
 }
+
+#unidadeMedidaCaseira{
+    margin-left: 15px;
+}
+
 .cloudinary-delete {
-font-size: 30px !important;  }
+    font-size: 30px !important;
+}
