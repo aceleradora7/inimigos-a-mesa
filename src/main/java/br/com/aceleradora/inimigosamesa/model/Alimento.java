@@ -107,12 +107,7 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
     public String getCalorias() {
 
-        String caloria = ""+calorias;
-        if(caloria.length()>=caloria.indexOf('.')+3){
-            return caloria.substring(0,caloria.indexOf('.')+3);
-        }else{
-            return caloria;
-        }
+      return calorias;
     }
 
     public void setCalorias(String calorias) {
