@@ -90,6 +90,7 @@ public class AlimentoController {
         if (alimento == null) {
             alimento = new Alimento();
         }
+
         Sort sort = new Sort(Sort.Direction.ASC, "nome");
         model.addAttribute("alimento", alimento);
         model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
@@ -126,6 +127,7 @@ public class AlimentoController {
             if (alimento.getValorMaximoMedida() == null || alimento.getValorMaximoMedida().isEmpty()) {
                 alimento.setValorMaximoMedida("10");
             }
+            alimento.setUnidadeExibicao(alimento.getUnidadeBaseCalculo());
             servicoAlimento.salvar(alimento);
             return "redirect:/detalhe/" + alimento.getCodigo();
         } else {
@@ -228,19 +230,25 @@ public class AlimentoController {
         }
 
         model.addAttribute("erroCategoria", null);
-        if (alimento.validaValor(alimento.getPorcaoBaseCalculo()) || alimento.getUnidadeBaseCalculo() == null
+        if (alimento.validaValor(alimento.getPorcaoBaseCalculo())
                 || alimento.getPorcaoBaseCalculo().isEmpty()) {
             model.addAttribute("erroPorcaoBase", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroPorcaoBase", null);
-        if (alimento.validaValor(alimento.getPorcaoExibicao()) || alimento.getUnidadeExibicao() == null) {
+        if (alimento.validaValor(alimento.getPorcaoExibicao()) || alimento.getPorcaoBaseCalculo().isEmpty()) {
             model.addAttribute("erroPorcaoExibicao", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroPorcaoExibicao", null);
+        if (alimento.getUnidadeBaseCalculo() == null) {
+            model.addAttribute("erroUnidade", "true");
+            return cadastrarAlimento(model, alimento);
+        }
+
+        model.addAttribute("erroUnidade", null);
         if (alimento.validaValor(alimento.getValorMedidaCaseira()) || alimento.getValorMedidaCaseira() == null ||
         alimento.getValorMedidaCaseira().isEmpty()) {
             model.addAttribute("erroMedidaCaseira", "true");
