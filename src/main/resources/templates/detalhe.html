@@ -143,7 +143,8 @@
                             <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text>
 
                             <div>
-                                <input id="slider" data-slider-id='detalhe-slider'  data-slider-min="1" th:data-slider-max="${alimento.valorMaximoMedida}" data-slider-step="1" data-slider-value="1"/>
+                                <input id="valorMaximo" type="hidden" th:value="${alimento.valorMaximoMedida}"/>
+                                <input id="slider" data-slider-id='detalhe-slider' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="1"/>
                             </div>
                             <div>
                                 <text class="tamanhoFonte">igual a</text>
