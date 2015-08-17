@@ -98,53 +98,62 @@
                                 </center>
                                     <li class="list-group-item">
                                         <div class="alinha-esquerda">
-                                            Porção base para cálculo:
+                                            Valor base para cálculo:
                                         </div>
                                         <div class="alinha-direita" >
                                             <input id="porcaoBase" class="input-alimento form-control:focus" placeholder="Ex.: 100" th:field="*{porcaoBaseCalculo}" type="text" name="porcao" value=""/>
-                                            <label class="radio-inline" required="true">
-                                                <input th:field="*{unidadeBaseCalculo}" type="radio" name="ml" id="mlCalculo" value="ml"/>
-                                                ml
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input th:field="*{unidadeBaseCalculo}" type="radio" name="g" id="gCalculo" value="g" />
-                                                g
-                                            </label>
                                         </div>
                                         <div id="espacoErroPorcaoBase" class="div-erro esconde">
                                             <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroPorcaoBase">
-                                                <label>Preencha o campo com números e marque a unidade de porção. </label>
+                                                <label>Preencha o campo com números</label>
                                             </div>
                                         </div>
                                         <div th:if="${erroPorcaoBase}" class="div-erro">
                                             <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto">
-                                                <label>Preencha o campo com números e marque a unidade de porção. </label>
+                                                <label>Preencha o campo com números</label>
                                             </div>
                                         </div>
                                     </li>
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">
-                                        Porção de Exibição:
+                                        Valor de Exibição:
                                     </div>
                                     <div class="alinha-direita" >
                                         <input id="porcaoExibicao" class="input-alimento" placeholder="Ex.: 100" th:field="*{porcaoExibicao}" type="text" name="porcao" value=""/>
-                                        <label class="radio-inline" required="true">
-                                            <input th:field="*{unidadeExibicao}" type="radio" name="ml" id="mlExibicao" value="ml"/>
-                                            ml
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input th:field="*{unidadeExibicao}" type="radio" name="g" id="gExibicao" value="g" />
-                                            g
-                                        </label>
                                     </div>
                                     <div id="espacoErroPorcaoExibicao" class="div-erro esconde">
                                         <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroPorcaoExibicao">
-                                            <label>Preencha o campo com números e marque a unidade de porção. </label>
+                                            <label>Preencha o campo com números</label>
                                         </div>
                                     </div>
                                     <div th:if="${erroPorcaoExibicao}" class="div-erro">
                                         <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto">
-                                            <label>Preencha o campo com números e marque a unidade de porção. </label>
+                                            <label>Preencha o campo com números</label>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="alinha-esquerda">
+                                        Unidade:
+                                    </div>
+                                    <div class="alinha-direita" >
+                                    <label class="radio-inline" required="true">
+                                        <input th:field="*{unidadeBaseCalculo}" type="radio" name="ml" id="mlCalculo" value="ml"/>
+                                        ml
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input th:field="*{unidadeBaseCalculo}" type="radio" name="g" id="gCalculo" value="g" />
+                                        g
+                                    </label>
+                                        </div>
+                                    <div id="espacoErroUnidade" class="div-erro esconde">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroUnidade">
+                                            <label>Marque uma unidade.</label>
+                                        </div>
+                                    </div>
+                                    <div th:if="${erroUnidade}" class="div-erro">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto">
+                                            <label>Marque uma unidade.</label>
                                         </div>
                                     </div>
                                 </li>
@@ -221,7 +230,7 @@
                                 <li class="list-group-item">
                                     <div class="alinha-esquerda">Calorias:</div>
                                     <div class="alinha-direita">
-                                        <input id="porcaoCalorias" class="input-alimento" placeholder="Ex.: 100" th:field="*{calorias}" type="text" name="calorias" value=""/>
+                                        <input id="porcaoCalorias" class="input-alimento" th:field="*{calorias}" placeholder="Ex.: 100" type="text" name="calorias"/>
                                         kcal
                                         <label class="radio-inline">
                                             <input type="checkbox" class="NA" id="naCalorias" value="porcaoCalorias"/>
