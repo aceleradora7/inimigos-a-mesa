@@ -216,12 +216,12 @@
                                     </div>
                                     <div id="espacoErroMaximoUnidadeCaseira" class="div-erro esconde">
                                         <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroValorMaximoMedidaa">
-                                            <label>Preencha o campo apenas com números.</label>
+                                            <label>Preencha o campo apenas com números interios.</label>
                                         </div>
                                     </div>
                                     <div th:if="${erroValorMaximo}" class="div-erro">
                                         <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto">
-                                            <label>Preencha o campo apenas com números.</label>
+                                            <label>Preencha o campo apenas com números interios.</label>
                                         </div>
                                     </div>
                                     <br/>
@@ -310,7 +310,7 @@
                                             <input type="checkbox" class="NA" id="naGordura" value="porcaoGordura"/>
                                             NA
                                         </label>
-                                    </div>uca
+                                    </div>
                                     <div id="espacoErroGordura" class="div-erro esconde">
                                         <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroGordura">
                                             <label>Preencha o campo com números ou marque a opção "NA" para gordura. </label>
@@ -330,7 +330,17 @@
                                 <li class="list-group-item">
                                     <div class="form-group">
                                         <div class="alinha-esquerda">Fonte:</div>
-                                        <textarea  id="fonte" type="text" th:field="*{fonte}" placeholder="Ex.: onal" class="input-alimento alinha-direita tamanho-max" name="fonte" />
+                                        <textarea id="fonte" type="text" th:field="*{fonte}" placeholder="Ex.: onal" class="input-alimento alinha-direita tamanho-max" name="fonte" />
+                                    </div>
+                                    <div id="espacoErroFonte" class="div-erro esconde">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroFonte">
+                                            <label>Preencha o campo com a fonte do alimento.</label>
+                                        </div>
+                                    </div>
+                                    <div th:if="${erroFonte}">
+                                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto">
+                                            <label>Preencha o campo com a fonte do alimento.</label>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
