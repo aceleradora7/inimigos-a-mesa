@@ -115,7 +115,7 @@ public class AlimentoController {
         Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
         servicoAlimento.deletar(alimento);
 
-        return "redirect:/grid";
+        return "redirect:/grid?alimentoDeletado";
     }
 
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
