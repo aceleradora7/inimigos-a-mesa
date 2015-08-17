@@ -17,8 +17,8 @@ function validarCadastro(){
 
     if (validarNome() && validarCategoria() && validarPorcaoBase() &&
     validarPorcaoExibicao() && validarUnidade() && validarValorMedidaCaseira() && validarUnidadeMedidaCaseira() &&
-     validarMaximoDeMedidaCaseira() && validarPorcaoCalorias() && validarPorcaoAcucar() && validarPorcaoSodio() && validarPorcaoGordura()){
-
+    validarMaximoDeMedidaCaseira() && validarPorcaoCalorias() && validarPorcaoAcucar() && validarPorcaoSodio() &&
+    validarPorcaoGordura() && validarFonte()){
         return true;
     }
     return false;
@@ -54,14 +54,15 @@ function validarCategoria(){
 
 function validarPorcaoBase(){
 
-    var porcaoBase = $('#porcaoBase');
-    if(!isNaN(porcaoBase.val()) && porcaoBase.val()!=''){
+    var porcaoBase =  replaceVirgulaPonto($('#porcaoBase').val());
+    $('#porcaoBase').attr('value',porcaoBase);
+    if(!isNaN(porcaoBase) && porcaoBase!=''){
         $("#espacoErroPorcaoBase").hide();
         return true;
     }else{
          escondeCampos();
          $("#espacoErroPorcaoBase").show();
-         porcaoBase.focus();
+         $('#porcaoBase').focus();
         return false;
     }
 }
@@ -82,15 +83,15 @@ function validarUnidade(){
 }
 
 function validarPorcaoExibicao(){
-
-    var porcaoExibicao = $('#porcaoExibicao');
-    if(!isNaN(porcaoExibicao.val()) && porcaoExibicao.val()!=''){
+    var porcaoExibicao =  replaceVirgulaPonto($('#porcaoExibicao').val());
+    $('#porcaoExibicao').attr('value',porcaoExibicao);
+    if(!isNaN(porcaoExibicao) && porcaoExibicao!=''){
         $("#espacoErroPorcaoExibicao").hide();
         return true;
     }else{
         escondeCampos();
         $("#espacoErroPorcaoExibicao").show();
-        porcaoExibicao.focus();
+        $('#porcaoExibicao').focus();
         return false;
     }
 }
@@ -98,9 +99,9 @@ function validarPorcaoExibicao(){
 
 
 function validarValorMedidaCaseira(){
-
-    var valorMedidaCaseira = $('#valorMedidaCaseira');
-    if(!isNaN(valorMedidaCaseira.val()) && valorMedidaCaseira.val() != ""){
+    var valorMedidaCaseira =  replaceVirgulaPonto($('#valorMedidaCaseira').val());
+    $('#valorMedidaCaseira').attr('value',valorMedidaCaseira);
+    if(!isNaN(valorMedidaCaseira) && valorMedidaCaseira != ""){
        $("#espacoErroValorMedidas").hide();
        $("#espacoErroValorMedidaCaseira").hide();
 
@@ -111,7 +112,7 @@ function validarValorMedidaCaseira(){
         $("#espacoErroUnidadeMedidaCaseira").hide();
         $("#espacoErroValorMedidas").show();
         $("#espacoErroValorMedidaCaseira").show();
-        valorMedidaCaseira.focus();
+        $('#valorMedidaCaseira').focus();
 
         return false;
     }
@@ -137,57 +138,54 @@ function validarUnidadeMedidaCaseira(){
 }
 
 function validarMaximoDeMedidaCaseira(){
-
     var maximoMedidaCaseira = $('#valorMaximoMedida');
-    if(!isNaN(maximoMedidaCaseira.val())){
+    if(!isNaN(maximoMedidaCaseira.val()) && maximoMedidaCaseira.val().indexOf(",") < 0 && maximoMedidaCaseira.val().indexOf(".") < 0){
         $("#espacoErroMaximoUnidadeCaseira").hide();
-
         return true;
     }else{
         escondeCampos();
         $("#espacoErroMaximoUnidadeCaseira").show();
         maximoMedidaCaseira.focus();
-
         return false;
     }
 }
 
 function validarPorcaoCalorias(){
 
-    var porcaoCalorias = $('#porcaoCalorias');
-    if(!isNaN(porcaoCalorias.val())){
+    var porcaoCalorias = replaceVirgulaPonto($('#porcaoCalorias').val());
+    $('#porcaoCalorias').attr('value',porcaoCalorias);
+    if(!isNaN(porcaoCalorias)){
        $("#espacoErroCalorias").hide();
-
        return true;
     }else{
         escondeCampos();
         $("#espacoErroCalorias").show();
-        porcaoCalorias.focus();
+       $('#porcaoCalorias').focus();
 
         return false;
     }
 }
 
 function validarPorcaoAcucar(){
-
-    var porcaoAcucar = $('#porcaoAcucar');
-    if(!isNaN(porcaoAcucar.val())){
+    var porcaoAcucar =  replaceVirgulaPonto($('#porcaoAcucar').val());
+    $('#porcaoAcucar').attr('value',porcaoAcucar);
+    if(!isNaN(porcaoAcucar)){
         $("#espacoErroAcucar").hide();
 
         return true;
     }else{
         escondeCampos();
         $("#espacoErroAcucar").show();
-        porcaoAcucar.focus();
+        $('#porcaoAcucar').focus();
 
         return false;
     }
 }
 
 function validarPorcaoSodio(){
-
-    var porcaoSodio = $('#porcaoSodio');
-    if(!isNaN(porcaoSodio.val())){
+    var porcaoSodio =  replaceVirgulaPonto($('#porcaoSodio').val());
+    $('#porcaoSodio').attr('value',porcaoSodio);
+    if(!isNaN(porcaoSodio)){
         $("#espacoErroSodio").hide();
 
         return true;
@@ -195,15 +193,15 @@ function validarPorcaoSodio(){
 
         escondeCampos();
         $("#espacoErroSodio").show();
-        porcaoSodio.focus();
+        $('#porcaoSodio').focus();
         return false;
     }
 }
 
 function validarPorcaoGordura(){
-
-    var porcaoGordura = $('#porcaoGordura');
-    if(!isNaN(porcaoGordura.val())){
+    var porcaoGordura =  replaceVirgulaPonto($('#porcaoGordura').val());
+    $('#porcaoGordura').attr('value',porcaoGordura);
+    if(!isNaN(porcaoGordura)){
         $("#espacoErroGordura").hide();
 
         return true
@@ -211,7 +209,21 @@ function validarPorcaoGordura(){
 
         escondeCampos();
         $("#espacoErroGordura").show();
-        porcaoGordura.focus();
+         $('#porcaoGordura').focus();
+        return false;
+    }
+}
+
+function validarFonte(){
+
+    var fonte = $('#fonte');
+    if(fonte.val()){
+        $("#espacoErroFonte").hide();
+        return true;
+    }else{
+        escondeCampos();
+        $("#espacoErroFonte").show();
+        fonte.focus();
         return false;
     }
 }
@@ -230,6 +242,11 @@ function escondeCampos(){
     $("#espacoErroAcucar").hide();
     $("#espacoErroSodio").hide();
     $("#espacoErroGordura").hide();
+    $("#espacoErroFonte").hide();
+}
+
+function replaceVirgulaPonto(valor){
+    return valor.replace(',','.');
 }
 
 $(document).ready(function() {
