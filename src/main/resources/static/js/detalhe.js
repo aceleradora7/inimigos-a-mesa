@@ -55,6 +55,10 @@ function adicionarAlimento(){
 }
 
 $(document).ready(function(){
+    $slider = $('#slider');
+    var value = $slider.data('slider').getValue();
+    $slider.data('slider').max = $('#valorMaximo').val();
+    $slider.slider('setValue', value);
 
     efeitoDaAncora();
     renderizarColher("gordura");
