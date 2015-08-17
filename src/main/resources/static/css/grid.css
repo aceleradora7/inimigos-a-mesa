@@ -13,15 +13,21 @@ body{
 
 .item-grid{
 	background-color:#F9F9F9;
-
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	padding-right: 0 !important;
+	padding-left: 0 !important;
 	color:#000 !important;
 	border-radius:0 !important;
 
-	-webkit-box-shadow: 1px 1px 14px -4px rgba(145,146,150,0.96);
-    -moz-box-shadow: 1px 1px 14px -4px rgba(145,146,150,0.96);
-    box-shadow: 1px 1px 14px -4px rgba(145,146,150,0.96);
 
-    transition:0.2s ease-in;
+}
+
+a.item-grid:hover {
+
+        box-shadow: 2px 2px 14px 5px rgba(145,146,150,0.96);
+
+        transition:0.5s ease-in;
 }
 
 .item-grid:hover{
@@ -36,4 +42,32 @@ body{
 	margin-top: 10px;
     background-color: #449D44;
     width: 100%;
+}
+
+.calculadora-grid{
+
+    background-color: #4CAE4C;
+}
+
+
+a.calculadora-grid:hover  {
+     color: white;
+      background-color: green;
+}
+
+.alimento-card{
+	height:300px;
+}
+
+.campo-imagem-card{
+	height: 220px !important;
+}
+
+.texto-card{
+	padding-top: 10px; padding-left: 5px;
+}
+
+.imagem-card{
+	width: 100%;
+	max-height: 220px;
 }
