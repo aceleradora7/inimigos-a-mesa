@@ -121,13 +121,14 @@ public class AlimentoController {
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
     public String gerenciarAlimento(Model model, Alimento alimento, BindingResult bindingResult) throws Exception {
 
+
+        alimento = replaceVirgulaPonto(alimento);
         String validacao = validacao(model, alimento);
 
         if (validacao.equals("Salvar")) {
             if (alimento.getValorMaximoMedida() == null || alimento.getValorMaximoMedida().isEmpty()) {
                 alimento.setValorMaximoMedida("10");
             }
-            alimento.setUnidadeExibicao(alimento.getUnidadeBaseCalculo());
             servicoAlimento.salvar(alimento);
             return "redirect:/detalhe/" + alimento.getCodigo();
         } else {
@@ -268,18 +269,18 @@ public class AlimentoController {
 
         model.addAttribute("erroMedidaCaseira", null);
         model.addAttribute("erroUnidadeMedida", null);
-        if (alimento.validaValor(alimento.getCalorias())) {
-            model.addAttribute("erroCalorias", "true");
-            return cadastrarAlimento(model, alimento);
-        }
-
-        model.addAttribute("erroCalorias", null);
         if (alimento.validaValor(alimento.getValorMaximoMedida())) {
             model.addAttribute("erroValorMaximo", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroValorMaximo", null);
+        if (alimento.validaValor(alimento.getCalorias())) {
+            model.addAttribute("erroCalorias", "true");
+            return cadastrarAlimento(model, alimento);
+        }
+
+        model.addAttribute("erroCalorias", null);
         if (alimento.validaValor(alimento.getAcucar())) {
             model.addAttribute("erroAcucar", "true");
             return cadastrarAlimento(model, alimento);
@@ -313,6 +314,43 @@ public class AlimentoController {
             model.addAttribute("erroGorduraPorcao", "true");
             return cadastrarAlimento(model, alimento);
         }
+
+        model.addAttribute("erroGorduraPorcao", null);
+        if (alimento.getFonte().isEmpty()) {
+            model.addAttribute("erroFonte", "true");
+            return cadastrarAlimento(model, alimento);
+        }
         return "Salvar";
+    }
+
+    public Alimento replaceVirgulaPonto(Alimento alimento) {
+        if(alimento.getPorcaoBaseCalculo()!=null){
+            alimento.setPorcaoBaseCalculo(alimento.getPorcaoBaseCalculo().replace(',', '.'));
+        }
+
+        if(alimento.getPorcaoExibicao()!=null){
+            alimento.setPorcaoExibicao(alimento.getPorcaoExibicao().replace(',', '.'));
+        }
+
+        if(alimento.getValorMedidaCaseira()!=null){
+            alimento.setValorMedidaCaseira(alimento.getValorMedidaCaseira().replace(',', '.'));
+        }
+
+        if(alimento.getCalorias()!=null){
+            alimento.setCalorias(alimento.getCalorias().replace(',', '.'));
+        }
+
+        if(alimento.getAcucar()!=null){
+            alimento.setAcucar(alimento.getAcucar().replace(',', '.'));
+        }
+
+        if(alimento.getSodio()!=null){
+            alimento.setSodio(alimento.getSodio().replace(',', '.'));
+        }
+
+        if(alimento.getGordura()!=null) {
+            alimento.setGordura(alimento.getGordura().replace(',', '.'));
+        }
+        return alimento;
     }
 }
