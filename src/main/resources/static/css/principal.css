@@ -15,6 +15,30 @@ body {
     overflow-x: hidden;
 }
 
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    outline: 0;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+a {
+    color: #53b778;
+}
+
+a.active {
+    color: #53b778;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
 h1 {
 	font-size:3.3em; font-weight:bold;
 }
