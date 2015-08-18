@@ -20,9 +20,15 @@
     <script src="js/validacaoLogin.js"/>
 </head>
 <body>
+
     <nav th:replace="fragmentos/header :: cabecalho"></nav>
+
     <div class="margem-down">
-        <div class="titulo-login"><h1>Login</h1></div>
+
+        <div class="titulos-paginas">
+            <h1>Login</h1>
+        </div>
+
         <div class="container-fluid">
             <div class="bloco-login">
                 <form name="dados" data-toggle="validator" role="form" id="validarLogin" class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">

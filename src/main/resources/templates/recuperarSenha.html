@@ -21,7 +21,7 @@
 <body>
     <nav th:replace="fragmentos/header :: cabecalho"></nav>
         <div class="margem-down">
-            <div class="titulo-login"><h1>Redefinir senha</h1></div>
+            <div class="titulos-paginas"><h1>Redefinir senha</h1></div>
             <div class="container-fluid ">
                     <div class="bloco-login">
                         <form onSubmit="return recuperarSenha();" class="form-horizontal" th:action="@{/Login}" th:object="${Usuario}" method="POST">
