@@ -53,6 +53,14 @@ margin:0 auto !important;
     margin-top: 5px;
 }
 
+.tamanho-campo-fonte{
+    height: 130px !important;
+}
+
+.espacamento-campo-medida-maxima{
+    padding-bottom: 20px;
+}
+
 .botao-enviar {
     width: 65%;
     margin-top: 10px;
