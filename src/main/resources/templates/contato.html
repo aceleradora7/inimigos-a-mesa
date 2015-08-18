@@ -1,94 +1,107 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 
-    <head>
-        <title>Contato</title>
-        <meta charset="utf-8" />
+<head>
+    <title>Contato</title>
+    <meta charset="utf-8" />
 
-        <link th:replace="fragmentos/header :: bootstrap-css" />
-        <link th:replace="fragmentos/header :: jqueryui-css" />
-        <link th:replace="fragmentos/header :: flaticon-css" />
-        <link th:replace="fragmentos/header :: principal-css" />
-        <script th:replace="fragmentos/header :: jquery"/>
-        <script th:replace="fragmentos/header :: jqueryui"/>
-        <script th:replace="fragmentos/header :: bootstrap-js"/>
-        <script th:replace="fragmentos/header :: query-string-js"/>
-        <script th:replace="fragmentos/header :: busca"/>
-        <link th:replace="fragmentos/header :: favicon-ico" />
-        <link rel="stylesheet" type="text/css" href="css/validacaoContato.css" />
-        <script src='https://www.google.com/recaptcha/api.js'></script>
-        <script type="text/javascript" src="js/validacaoContato.js"></script>
-    </head>
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link th:replace="fragmentos/header :: flaticon-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <link rel="stylesheet" type="text/css" href="css/contato.css" />
+    <link rel="stylesheet" type="text/css" href="css/validacaoContato.css" />
+
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
+
+    <link th:replace="fragmentos/header :: favicon-ico" />
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script type="text/javascript" src="js/validacaoContato.js"></script>
+</head>
 
     <body>
+
         <nav th:replace="fragmentos/header :: cabecalho"></nav>
-        <center>
-            <div class="estilo-contato container">
-            <h1>Contato</h1>
-                <form class="form-horizontal" th:action="@{/contato}" th:object="${formularioEmail}" onSubmit="return validarCampos();" name="dados" method="post">
-                    <div class="form-group">
-                        <label for="nome" class="col-sm-4 control-label">Nome</label>
-                            <div class="col-sm-4">
-                                <input class="form-control" id="nome" placeholder="Nome" th:field="*{nome}"/>
-                            </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro" id="erro-nome" >
-                            <label for="nome">Preencha com um nome valido, sem caracteres numéricos.</label>
-                        </div>
-                    </div>
+        <div class="estilo-contato container-fluid">
 
-                    <div class="form-group subir-margem-campos">
-                        <label for="email" class="col-sm-4 control-label">Email</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="email" placeholder="E-mail" th:field="*{emailRemetente}" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro" id="erro-email" >
-                            <label for="email">Preencha com um e-mail valido no formato nome@dominio.com.</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group subir-margem-campos">
-                        <label class="col-sm-4 control-label">Assunto</label>
-                        <div class="col-sm-4">
-                            <select class="form-control" th:field="*{assunto}">
-                                <option value="Sugestoes" id="sugestoes">Sugestões</option>
-                                <option value="Comentarios" id="comentarios">Comentários</option>
-                                <option value="Outros" id="outros">Outros</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Mensagem</label>
-                        <div class="col-sm-4">
-                            <textarea class="form-control texto-contato" rows="3" id="mensagem" placeholder="Mensagem" th:field="*{mensagem}" ></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro"  id="erro-mensagem" >
-                            <label for="mensagem">Preencha com uma mensagem valida.</label>
-                        </div>
-                    </div>
-
-                    <div th:if="${sucesso} != null" th:text="${sucesso}" class="alert alert-success" role="alert"></div>
-                    <div th:if="${erroCaptcha} != null" th:text="${erroCaptcha}" class="alert alert-danger" role="alert">  </div>
-                    <div class="g-recaptcha" data-sitekey="6Lf3XAkTAAAAAKuOQUrYZCqdJ7dCkBq8yFvjoXVo"></div>
-                    <br/>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-4">
-                            <button type="submit" class="btn btn-default">Enviar</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="titulos-paginas">
+                <h1>Contato</h1>
             </div>
-        </center>
+
+            <form class="form-horizontal" th:action="@{/contato}" th:object="${formularioEmail}" onSubmit="return validarCampos();" name="dados" method="post">
+                <div class="form-group">
+                    <label for="nome" class="col-sm-4 control-label">Nome</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="nome" placeholder="Nome" th:field="*{nome}"/>
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro" id="erro-nome" >
+                        <label for="nome">Preencha com um nome valido, sem caracteres numéricos.</label>
+                    </div>
+                </div>
+
+                <div class="form-group subir-margem-campos">
+                    <label for="email" class="col-sm-4 control-label">Email</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="email" placeholder="E-mail" th:field="*{emailRemetente}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro" id="erro-email" >
+                        <label for="email">Preencha com um e-mail valido no formato nome@dominio.com.</label>
+                    </div>
+                </div>
+
+                <div class="form-group subir-margem-campos">
+                    <label class="col-sm-4 control-label">Assunto</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" th:field="*{assunto}">
+                            <option value="Sugestoes" id="sugestoes">Sugestões</option>
+                            <option value="Comentarios" id="comentarios">Comentários</option>
+                            <option value="Outros" id="outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Mensagem</label>
+                    <div class="col-sm-4">
+                        <textarea class="form-control texto-contato" rows="3" id="mensagem" placeholder="Mensagem" th:field="*{mensagem}" ></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro"  id="erro-mensagem" >
+                        <label for="mensagem">Preencha com uma mensagem valida.</label>
+                    </div>
+                </div>
+
+
+                <center>
+                    <div th:if="${sucesso} != null" th:text="${sucesso}" class="col-sm-offset-4 col-sm-4 alert alert-success" role="alert"></div>
+                    <div th:if="${erroCaptcha} != null" th:text="${erroCaptcha}" class="col-sm-offset-4 col-sm-4 alert alert-danger" role="alert">  </div>
+                    <div class="g-recaptcha" data-sitekey="6Lf3XAkTAAAAAKuOQUrYZCqdJ7dCkBq8yFvjoXVo"></div>
+
+                <br/>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4">
+                        <button type="submit" class="btn btn-default">Enviar</button>
+                    </div>
+                </div>
+                </center>
+            </form>
+        </div>
+
         <nav th:replace="fragmentos/rodape :: rodape"></nav>
     </body>
 </html>
