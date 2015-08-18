@@ -5,25 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
     <title>Calculadora</title>
 
+
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
     <link th:replace="fragmentos/header :: flaticon-css" />
     <link th:replace="fragmentos/header :: principal-css" />
+    <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
+    <link th:replace="fragmentos/header :: favicon-ico" />
+
     <script th:replace="fragmentos/header :: jquery"/>
     <script th:replace="fragmentos/header :: jqueryui"/>
     <script th:replace="fragmentos/header :: bootstrap-js"/>
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
-    <link th:replace="fragmentos/header :: favicon-ico" />
-
-    <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
     <script type="text/javascript" src="/js/detalhe.js"></script>
+
+
 </head>
 
 <body>
 
     <nav th:replace="fragmentos/header :: cabecalho"></nav>
-    <div class="container espaco-rodape" id="mostraAlimento">
+
+    <div class="titulos-paginas">
+        <h1>Calculadora</h1>
+    </div>
+
+    <div class="container espaco-rodape">
         <div>
             <div class="row col-lg-6" id="lista-alimentos">
                 <ul class="list-group-item">
