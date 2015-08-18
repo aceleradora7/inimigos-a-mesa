@@ -19,6 +19,8 @@ public class AlimentoService {
     private static final String CORINGA_ALL = "%";
     private static final String CORINGA_REPLACE = "_";
     private static final int ITENS_POR_PAGINA = 12;
+    private static final String IMAGEM_PADRAO =   "Frutas_v6wxtn";
+
 
     @Autowired
     private AlimentoRepository repositorioAlimento;
@@ -82,11 +84,11 @@ public class AlimentoService {
     private void deletarCloudinaryAImagem(Alimento alimentoBuscado) {
 
         Cloudinary cloudinary = new Cloudinary(Cloudinary.asMap("cloud_name", "dq5mndrjt",
-                "api_key", "157778992886617",
-                "api_secret", "6Vk3ZiE8qBH4K2j51agKhmH_DL8"));
+                "api_key", System.getenv("IAM_CLOUDINARY_KEY"),
+                "api_secret", System.getenv("IAM_CLOUDINARY_SECRET")));
         String idDaImagem = pegaIdDaImagem(alimentoBuscado);
 
-        if(!idDaImagem.equals("Frutas_v6wxtn")){
+        if(!idDaImagem.equals(IMAGEM_PADRAO)){
             try {
                 cloudinary.uploader().destroy(idDaImagem, ObjectUtils.emptyMap());
             }catch (IOException e){
