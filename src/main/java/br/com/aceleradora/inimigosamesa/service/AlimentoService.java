@@ -19,7 +19,7 @@ public class AlimentoService {
     private static final String CORINGA_ALL = "%";
     private static final String CORINGA_REPLACE = "_";
     private static final int ITENS_POR_PAGINA = 12;
-    private static final String IMAGEM_PADRAO =   "Frutas_v6wxtn";
+    private static final String IMAGEM_PADRAO =   "no-food_uizqyy";
 
 
     @Autowired
@@ -68,11 +68,11 @@ public class AlimentoService {
             Alimento alimentoBuscado = repositorioAlimento.findOne(alimento.getCodigo());
 
             if(alimento.getUrlImagemPequena().isEmpty() && alimento.getUrlImagemGrande().isEmpty()){
-                alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_108/v1438692708/Frutas_v6wxtn.png");
+                alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_250/v1440010712/no-food_uizqyy.jpg");
             }
 
             if(alimento.getUrlImagemGrande().isEmpty()) {
-                alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png");
+                alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_450/v1440010712/no-food_uizqyy.jpg");
             }
 
             if (!alimentoBuscado.getUrlImagemGrande().isEmpty()) {

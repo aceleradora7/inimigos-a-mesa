@@ -53,9 +53,9 @@ $(document).ready(function(){
 
 function removerImagemAtual(){
 
-    $("#imagemAlimento" ).replaceWith( " <img src='http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png' id='imagemAlimento' alt='Imagem do Alimento'/>" );
-    $("#urlImagemPequena").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png');
-    $("#urlImagemGrande").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_390/v1438692708/Frutas_v6wxtn.png');
+    $("#imagemAlimento" ).replaceWith( " <img src='http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_450/v1440010712/no-food_uizqyy.jpg' id='imagemAlimento' alt='Imagem do Alimento'/>" );
+    $("#urlImagemPequena").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_250/v1440010712/no-food_uizqyy.jpg');
+    $("#urlImagemGrande").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_450/v1440010712/no-food_uizqyy.jpg');
     $( ".cloudinary-delete" ).trigger( "click" );
     $(".botao-envia-imagem").show();
     $("#remover-imagem").hide();
