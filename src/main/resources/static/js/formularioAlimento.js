@@ -17,7 +17,7 @@ $(document).ready(function(){
         button_class: 'btn btn-success botao-envia-imagem',
         button_caption: 'Escolha uma Imagem',
         theme: 'white',
-        cropping_aspect_ratio: 1,
+        cropping_aspect_ratio: 1.33,
     },function(error, result){
 
         var meuResult = JSON.stringify(result, null, 2);
@@ -26,8 +26,8 @@ $(document).ready(function(){
         var url = jsonObject[0].url;
         var publicId = jsonObject[0].public_id;
 
-        var tamanhoPequeno = "/c_fit,w_108/";
-        var tamanhoGrande = "/c_fit,w_390/";
+        var tamanhoPequeno = "/c_fit,w_250/";
+        var tamanhoGrande = "/c_fit,w_450/";
 
         var urlParte1 = url.slice(0,48);
         var urlParte2 = url.slice(49,url.length);
