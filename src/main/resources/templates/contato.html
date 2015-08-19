@@ -86,18 +86,22 @@
                 </div>
 
 
+
                 <center>
+
+
                     <div th:if="${sucesso} != null" th:text="${sucesso}" class="col-sm-offset-4 col-sm-4 alert alert-success" role="alert"></div>
-                    <div th:if="${erroCaptcha} != null" th:text="${erroCaptcha}" class="col-sm-offset-4 col-sm-4 alert alert-danger" role="alert">  </div>
-                    <div class="g-recaptcha" data-sitekey="6Lf3XAkTAAAAAKuOQUrYZCqdJ7dCkBq8yFvjoXVo"></div>
+                    <div th:if="${erroCaptcha} != null" th:text="${erroCaptcha}" class="col-sm-offset-4 col-sm-4 alert alert-danger">  </div>
+                    <div class="col-sm-offset-4 col-sm-4 g-recaptcha" data-sitekey="6Lf3XAkTAAAAAKuOQUrYZCqdJ7dCkBq8yFvjoXVo"></div>
+                    <br/>
 
-                <br/>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4 alert">
+                            <button type="submit" class="btn btn-default">Enviar</button>
+                        </div>
 
-                <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-4">
-                        <button type="submit" class="btn btn-default">Enviar</button>
                     </div>
-                </div>
+
                 </center>
             </form>
         </div>

@@ -2,18 +2,10 @@
 
 function validarCampos(){
 
-    if(validarNome()){
-        if(validarEmail()){
-           if(validarMensagem()){
-             return true;
-           }
-        }else{
-            return false;
-        }
-    }else{
-        return false;
+    if(validarNome() && validarEmail() && validarMensagem()){
+        return true;
     }
-
+    return false;
 }
 
 function validarEmail(){
