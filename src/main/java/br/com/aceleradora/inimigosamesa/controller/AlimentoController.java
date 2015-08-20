@@ -202,9 +202,15 @@ public class AlimentoController {
         return Double.parseDouble(valor) > Double.parseDouble(baseCalculo);
     }
 
+    public boolean maiorQueZero(boolean comIgual, String valor){
+        if(!valor.equals("")) {
+            return comIgual ? Double.parseDouble(valor) >= 0 : Double.parseDouble(valor) > 0;
+        }
+        return true;
+    }
+
     public boolean validaAcucar(Alimento alimento) {
-        return naoEhVazio(alimento.getAcucar()) &&
-                maiorQueBaseCalculo(alimento.getAcucar(), alimento.getPorcaoBaseCalculo());
+        return naoEhVazio(alimento.getAcucar()) && maiorQueBaseCalculo(alimento.getAcucar(), alimento.getPorcaoBaseCalculo());
     }
 
     public boolean validaGordura(Alimento alimento) {
@@ -216,7 +222,6 @@ public class AlimentoController {
         return naoEhVazio(alimento.getSodio()) &&
                 maiorQueBaseCalculo(Double.parseDouble(alimento.getSodio()) / 1000 + "", alimento.getPorcaoBaseCalculo());
     }
-
 
     public String validacao(Model model, Alimento alimento) {
         if (alimento.getNome().isEmpty()) {
@@ -232,13 +237,14 @@ public class AlimentoController {
 
         model.addAttribute("erroCategoria", null);
         if (alimento.validaValor(alimento.getPorcaoBaseCalculo())
-                || alimento.getPorcaoBaseCalculo().isEmpty()) {
+                || alimento.getPorcaoBaseCalculo().isEmpty() || !maiorQueZero(false,alimento.getPorcaoBaseCalculo())) {
             model.addAttribute("erroPorcaoBase", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroPorcaoBase", null);
-        if (alimento.validaValor(alimento.getPorcaoExibicao()) || alimento.getPorcaoBaseCalculo().isEmpty()) {
+        if (alimento.validaValor(alimento.getPorcaoExibicao()) || alimento.getPorcaoExibicao().isEmpty()
+                || !maiorQueZero(false,alimento.getPorcaoExibicao())) {
             model.addAttribute("erroPorcaoExibicao", "true");
             return cadastrarAlimento(model, alimento);
         }
@@ -250,8 +256,8 @@ public class AlimentoController {
         }
 
         model.addAttribute("erroUnidade", null);
-        if (alimento.validaValor(alimento.getValorMedidaCaseira()) || alimento.getValorMedidaCaseira() == null ||
-        alimento.getValorMedidaCaseira().isEmpty()) {
+        if (alimento.validaValor(alimento.getValorMedidaCaseira()) ||
+        alimento.getValorMedidaCaseira().isEmpty() || !maiorQueZero(false,alimento.getValorMedidaCaseira())) {
             model.addAttribute("erroMedidaCaseira", "true");
             model.addAttribute("erroValorMedida", "true");
             return cadastrarAlimento(model, alimento);
@@ -260,8 +266,7 @@ public class AlimentoController {
         model.addAttribute("erroValorMedida", null);
         model.addAttribute("erroMedidaCaseira", null);
 
-        if (alimento.getUnidadeMedidaCaseira().isEmpty() || alimento.getUnidadeMedidaCaseira() == null ||
-        alimento.getUnidadeBaseCalculo().isEmpty()) {
+        if (alimento.getUnidadeMedidaCaseira().isEmpty() || alimento.getUnidadeBaseCalculo().isEmpty()) {
             model.addAttribute("erroMedidaCaseira", "true");
             model.addAttribute("erroUnidadeMedida", "true");
             return cadastrarAlimento(model, alimento);
@@ -269,19 +274,19 @@ public class AlimentoController {
 
         model.addAttribute("erroMedidaCaseira", null);
         model.addAttribute("erroUnidadeMedida", null);
-        if (alimento.validaValor(alimento.getValorMaximoMedida())) {
+        if (alimento.validaValor(alimento.getValorMaximoMedida()) || !maiorQueZero(false,alimento.getValorMaximoMedida())) {
             model.addAttribute("erroValorMaximo", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroValorMaximo", null);
-        if (alimento.validaValor(alimento.getCalorias())) {
+        if (alimento.validaValor(alimento.getCalorias()) || !maiorQueZero(true,alimento.getCalorias())) {
             model.addAttribute("erroCalorias", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroCalorias", null);
-        if (alimento.validaValor(alimento.getAcucar())) {
+        if (alimento.validaValor(alimento.getAcucar()) || !maiorQueZero(true,alimento.getAcucar())) {
             model.addAttribute("erroAcucar", "true");
             return cadastrarAlimento(model, alimento);
         }
@@ -292,7 +297,7 @@ public class AlimentoController {
             return cadastrarAlimento(model, alimento);
         }
 
-        if (alimento.validaValor(alimento.getSodio())) {
+        if (alimento.validaValor(alimento.getSodio()) || !maiorQueZero(true,alimento.getSodio())) {
             model.addAttribute("erroSodio", "true");
             return cadastrarAlimento(model, alimento);
         }
@@ -304,7 +309,7 @@ public class AlimentoController {
         }
 
         model.addAttribute("erroSodioPorcao", null);
-        if (alimento.validaValor(alimento.getGordura())) {
+        if (alimento.validaValor(alimento.getGordura()) || !maiorQueZero(true,alimento.getGordura())) {
             model.addAttribute("erroGordura", "true");
             return cadastrarAlimento(model, alimento);
         }
