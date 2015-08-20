@@ -56,7 +56,7 @@ function validarPorcaoBase(){
 
     var porcaoBase =  replaceVirgulaPonto($('#porcaoBase').val());
     $('#porcaoBase').attr('value',porcaoBase);
-    if(!isNaN(porcaoBase) && porcaoBase!=''){
+    if(!isNaN(porcaoBase) && porcaoBase!='' && porcaoBase>0){
         $("#espacoErroPorcaoBase").hide();
         return true;
     }else{
@@ -85,7 +85,7 @@ function validarUnidade(){
 function validarPorcaoExibicao(){
     var porcaoExibicao =  replaceVirgulaPonto($('#porcaoExibicao').val());
     $('#porcaoExibicao').attr('value',porcaoExibicao);
-    if(!isNaN(porcaoExibicao) && porcaoExibicao!=''){
+    if(!isNaN(porcaoExibicao) && porcaoExibicao!='' && porcaoExibicao > 0){
         $("#espacoErroPorcaoExibicao").hide();
         return true;
     }else{
@@ -101,7 +101,7 @@ function validarPorcaoExibicao(){
 function validarValorMedidaCaseira(){
     var valorMedidaCaseira =  replaceVirgulaPonto($('#valorMedidaCaseira').val());
     $('#valorMedidaCaseira').attr('value',valorMedidaCaseira);
-    if(!isNaN(valorMedidaCaseira) && valorMedidaCaseira != ""){
+    if(!isNaN(valorMedidaCaseira) && valorMedidaCaseira != "" && valorMedidaCaseira>0){
        $("#espacoErroValorMedidas").hide();
        $("#espacoErroValorMedidaCaseira").hide();
 
@@ -139,7 +139,8 @@ function validarUnidadeMedidaCaseira(){
 
 function validarMaximoDeMedidaCaseira(){
     var maximoMedidaCaseira = $('#valorMaximoMedida');
-    if(!isNaN(maximoMedidaCaseira.val()) && maximoMedidaCaseira.val().indexOf(",") < 0 && maximoMedidaCaseira.val().indexOf(".") < 0){
+    if(!isNaN(maximoMedidaCaseira.val()) && maximoMedidaCaseira.val().indexOf(",") < 0 && maximoMedidaCaseira.val().indexOf(".") < 0
+    && maximoMedidaCaseira.val()>0){
         $("#espacoErroMaximoUnidadeCaseira").hide();
         return true;
     }else{
@@ -154,13 +155,13 @@ function validarPorcaoCalorias(){
 
     var porcaoCalorias = replaceVirgulaPonto($('#porcaoCalorias').val());
     $('#porcaoCalorias').attr('value',porcaoCalorias);
-    if(!isNaN(porcaoCalorias)){
-       $("#espacoErroCalorias").hide();
-       return true;
+    if(!isNaN(porcaoCalorias) && porcaoCalorias>=0){
+           $("#espacoErroCalorias").hide();
+           return true;
     }else{
         escondeCampos();
         $("#espacoErroCalorias").show();
-       $('#porcaoCalorias').focus();
+        $('#porcaoCalorias').focus();
 
         return false;
     }
@@ -169,7 +170,7 @@ function validarPorcaoCalorias(){
 function validarPorcaoAcucar(){
     var porcaoAcucar =  replaceVirgulaPonto($('#porcaoAcucar').val());
     $('#porcaoAcucar').attr('value',porcaoAcucar);
-    if(!isNaN(porcaoAcucar)){
+    if(!isNaN(porcaoAcucar) && porcaoAcucar>=0){
         $("#espacoErroAcucar").hide();
 
         return true;
@@ -185,7 +186,7 @@ function validarPorcaoAcucar(){
 function validarPorcaoSodio(){
     var porcaoSodio =  replaceVirgulaPonto($('#porcaoSodio').val());
     $('#porcaoSodio').attr('value',porcaoSodio);
-    if(!isNaN(porcaoSodio)){
+    if(!isNaN(porcaoSodio) && porcaoSodio>=0){
         $("#espacoErroSodio").hide();
 
         return true;
@@ -201,7 +202,7 @@ function validarPorcaoSodio(){
 function validarPorcaoGordura(){
     var porcaoGordura =  replaceVirgulaPonto($('#porcaoGordura').val());
     $('#porcaoGordura').attr('value',porcaoGordura);
-    if(!isNaN(porcaoGordura)){
+    if(!isNaN(porcaoGordura) && porcaoGordura>=0){
         $("#espacoErroGordura").hide();
 
         return true
