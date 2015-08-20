@@ -67,18 +67,16 @@ public class AlimentoService {
         if(alimento.getCodigo() != 0) {
             Alimento alimentoBuscado = repositorioAlimento.findOne(alimento.getCodigo());
 
-            if(alimento.getUrlImagemPequena().isEmpty() && alimento.getUrlImagemGrande().isEmpty()){
-                alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_250/v1440010712/no-food_uizqyy.jpg");
-            }
-
-            if(alimento.getUrlImagemGrande().isEmpty()) {
-                alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_450/v1440010712/no-food_uizqyy.jpg");
-            }
-
             if (!alimentoBuscado.getUrlImagemGrande().isEmpty()) {
                 deletarCloudinaryAImagem(alimentoBuscado);
             }
         }
+
+        if(alimento.getUrlImagemPequena().isEmpty() && alimento.getUrlImagemGrande().isEmpty()){
+            alimento.setUrlImagemPequena("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_250/v1440010712/no-food_uizqyy.jpg");
+            alimento.setUrlImagemGrande("http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_450/v1440010712/no-food_uizqyy.jpg");
+        }
+
     }
 
     private void deletarCloudinaryAImagem(Alimento alimentoBuscado) {
