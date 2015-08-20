@@ -1,9 +1,7 @@
 package br.com.aceleradora.inimigosamesa.model;
 
+import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,57 +11,41 @@ import static org.junit.Assert.assertEquals;
 public class CalculadoraTeste {
 
     Calculadora calculadora = new Calculadora();
+    Alimento alimento1 = new Alimento();
+    Alimento alimento2 = new Alimento();
 
-    @Test
-    public void QuandoPassamosUmAlimentoEntaoRetornaOProprioValor() throws Exception {
+    @Before
+    public void setUp() throws Exception {
+        alimento1.setCalorias("10");
+        alimento1.setGordura("30");
+        alimento1.setSodio("50");
+        alimento1.setAcucar("70");
 
-        Calculadora calculadora = new Calculadora();
-        List<Alimento> valorEsperado = new ArrayList<Alimento>();
-        List<Alimento> valorRetornado = calculadora.getListaDeAlimentos();
-        assertEquals("Não deve retornar null:",valorEsperado,valorRetornado);
+        alimento2.setCalorias("20");
+        alimento2.setGordura("40");
+        alimento2.setSodio("90");
+        alimento2.setAcucar("140");
     }
 
-//    @Test
-//    public void somaTotalDeAlimentosDaCalculadoraTest(){
-//        Calculadora calculadora = new Calculadora();
-//
-//        Alimento alimento2 = new Alimento();
-//
-//        alimento2.setCodigo(1);
-//
-//        double valorEsperado = 0.0;
-//
-//        double valorRetornado = calculadora.getCaloriasTotal();
-//        assertEquals("Deve retornar zero calorias.", valorEsperado, valorRetornado, 0);
-//        valorRetornado = calculadora.getGorduraTotal();
-//        assertEquals("Deve retornar zero gordura.",valorEsperado,valorRetornado,0);
-//        valorRetornado = calculadora.getSodioTotal();
-//        assertEquals("Deve retornar zero sal.",valorEsperado,valorRetornado,0);
-//        valorRetornado = calculadora.getAcucarTotal();
-//        assertEquals("Deve retornar zero açucar.",valorEsperado,valorRetornado,0);
-//
-//        calculadora.adicionaAlimento(alimento2);
-//
-//        valorEsperado = 2000.0;
-//        valorRetornado = calculadora.getCaloriasTotal();
-//        assertEquals("Deve retornar 2000 calorias.",valorEsperado,valorRetornado,0);
-//
-//        valorEsperado = 2000.0;
-//        valorRetornado = calculadora.getGorduraTotal();
-//        assertEquals("Deve retornar 2000 gordura.",valorEsperado,valorRetornado,0);
-//
-//        valorEsperado = 5.0;
-//        valorRetornado = calculadora.getSodioTotal();
-//        assertEquals("Deve retornar 2000 sodio.",valorEsperado,valorRetornado,0);
-//
-//        valorEsperado = 2000.0;
-//        valorRetornado = calculadora.getAcucarTotal();
-//        assertEquals("Deve retornar 2000 acucar.",valorEsperado,valorRetornado,0);
-//
-//
-//        valorEsperado = 0.01;
-//        valorRetornado = calculadora.getSalTotal();
-//        assertEquals("Deve retornar 0.0128205128 sal.",valorEsperado,valorRetornado,0);
-//
-//    }
+    @Test
+    public void QuandoPassamosUmAlimentoNaCalculadoraEntaoRetornaAQuantidadeDeCaloriaEGorduraDesseAlimento() throws Exception {
+        calculadora.adicionaAlimento(alimento1);
+
+        assertEquals("Deve retornar a quantidade de caloria do unico alimento ", 10, calculadora.getCaloriasTotal(), 1);
+        assertEquals("Deve retornar a quantidade de gordura do unico alimento ", 30, calculadora.getGorduraTotal(), 1);
+        assertEquals("Deve retornar a quantidade de sodio convertido em sal do unico alimento ", 0.12, calculadora.getSalTotal(), 1);
+        assertEquals("Deve retornar a quantidade de acucar do unico alimento ", 70, calculadora.getAcucarTotal(), 1);
+    }
+
+    @Test
+    public void QuandoPassamosDoisAlimentosNaCalculadoraEntaoRetornaASomaDaQuantidadeDeCaloriaDosDoisAlimentos() throws Exception {
+        calculadora.adicionaAlimento(alimento1);
+        calculadora.adicionaAlimento(alimento2);
+
+        assertEquals("Deve retornar a soma de caloria total dos dois alimentos ", 30, calculadora.getCaloriasTotal(), 1);
+        assertEquals("Deve retornar a soma de gordura total dos dois alimentos ", 70, calculadora.getGorduraTotal(), 1);
+        assertEquals("Deve retornar a soma de sodio convertido em sal total dos dois alimentos ", 0.35, calculadora.getSalTotal(), 1);
+        assertEquals("Deve retornar a soma de acucar total dos dois alimentos ", 210, calculadora.getAcucarTotal(), 1);
+    }
+
 }
