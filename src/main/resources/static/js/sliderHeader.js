@@ -10,7 +10,6 @@ function cycleImages(){
     }
 
 $(window).load(function(){
-
     $("#2").hide();
     $("#3").hide();
     $("#4").hide();
@@ -19,6 +18,7 @@ $(window).load(function(){
     $("#4").show();
     $("#3").show();
     $("#2").show();
+    $("#1").show();
     $('#background_cycler').fadeIn(1500);
     setInterval('cycleImages()', 5000);
 })
