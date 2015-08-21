@@ -39,6 +39,13 @@ public class Usuario {
         this.codigo = codigo;
     }
 
+    public Usuario(String nome, String email, String senha, int codigo) {
+
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.codigo = codigo;
+    }
 
     public Usuario(String email, String senha, Role role) {
 
