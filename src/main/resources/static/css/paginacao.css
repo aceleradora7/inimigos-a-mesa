@@ -1,7 +1,9 @@
 .pagina, #pagina-anterior, #proxima-pagina, #primeira-pagina, #ultima-pagina{
 	cursor:pointer;
+	color: #333 !important;
 }
 
 .pagina-atual{
-	background-color: #C9C9C9 !important;
+	background-color: #53B778 !important;
+	color: #fff !important;
 }

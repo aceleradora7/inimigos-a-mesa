@@ -1,8 +1,3 @@
-
-.col-md-offset-0{
-	margin-bottom: 1.5em;
-}
-
 body{
 	background-color: #f4f4f4;
 }
@@ -29,8 +24,8 @@ body{
 }
 
 .busca-letras {
-	margin-top: 10px;
-    background-color: #449D44;
+	margin-top: 1px;
+    background-color: white;
     width: 100%;
 }
 
@@ -44,7 +39,6 @@ a.calculadora-grid:hover  {
 	background-color: green;
 }
 
-
 .texto-card{
 	padding-top: 5px;
 	padding-left: 10px;
@@ -56,8 +50,130 @@ a.calculadora-grid:hover  {
 	padding:5px;
 }
 
-
+.buscaLetra{
+	border: none !important;
+}
 
 .modal-footer{
 	border-top: none !important;
+}
+
+.categoria-titulo{
+	height: 30px;
+	text-align: center;
+}
+
+.categoria-item{
+	fill: red;
+}
+
+.topo-grid{
+	padding-bottom: 30px;
+	width: 100%;
+	max-width: 100%;
+	background-image: url('../img/img-cat.jpg');
+}
+
+#menu-categoria{
+	margin-top: 80px;
+	width: 100%;
+}
+
+.categoria-linha-topo{
+	 width: 70%;
+	 margin: 0 auto;
+}
+
+.categoria-linha-dupla{
+	width:300px;
+	float: left;
+	margin-bottom:10px;
+}
+
+.categoria-img-nome{
+	height: 120px;
+	width: 150px;
+	float: left;
+	text-align: center;
+		-moz-transition: all 0.25s ease-in-out !important;
+		-o-transition: all 0.25s ease-in-out !important;
+		-webkit-transition: all 0.25s ease-in-out !important;
+		transition: all 0.25s ease-in-out !important;
+}
+
+.categoria-img{
+	width: 100%;
+
+}
+
+.categoria-icone{
+	width: 100px;
+	height: 55px;
+	margin: 0 auto;
+	margin-top:10px;
+}
+
+.categoria-nome{
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#menu-categoria a {
+    color: #fff !important;
+    text-decoration : none !important;
+		-moz-transition: all 0.4s ease-in-out !important;
+		-o-transition: all 0.4s ease-in-out !important;
+		-webkit-transition: all 0.4s ease-in-out !important;
+		transition: all 0.4s ease-in-out !important;
+}
+
+.buscaLetra{
+	border-radius: 0px;
+    font-size:1.2em;
+		-moz-transition: all 0.25s ease-in-out !important;
+		-o-transition: all 0.25s ease-in-out !important;
+		-webkit-transition: all 0.25s ease-in-out !important;
+		transition: all 0.25s ease-in-out !important;
+}
+
+.buscaLetra:focus{
+	border-radius: 0px;
+	background-color: #53B778;
+		-moz-transition: all 0.25s ease-in-out !important;
+		-o-transition: all 0.25s ease-in-out !important;
+		-webkit-transition: all 0.25s ease-in-out !important;
+		transition: all 0.25s ease-in-out !important;
+}
+
+.buscaLetra-atual{
+    background-color: #53B778;
+    border-color: #53B778;
+    color: #fff;
+		-moz-transition: all 0.25s ease-in-out !important;
+		-o-transition: all 0.25s ease-in-out !important;
+		-webkit-transition: all 0.25s ease-in-out !important;
+		transition: all 0.25s ease-in-out !important;
+}
+
+.btn-primary:hover{
+	border-color: #53B778 !important;
+    background-color: #53B778 !important;
+}
+
+.categoria-img-nome:hover{
+	background-color: rgba(0,0,0,0.2);
+		-moz-transition: all 0.4s ease-in-out !important;
+		-o-transition: all 0.4s ease-in-out !important;
+		-webkit-transition: all 0.4s ease-in-out !important;
+		transition: all 0.4s ease-in-out !important;
+}
+
+.categoria-atual{
+	background-color: rgba(0,0,0,0.2);
+		-moz-transition: all 0.4s ease-in-out !important;
+		-o-transition: all 0.4s ease-in-out !important;
+		-webkit-transition: all 0.4s ease-in-out !important;
+		transition: all 0.4s ease-in-out !important;
 }
