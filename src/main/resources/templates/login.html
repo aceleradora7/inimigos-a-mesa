@@ -4,16 +4,19 @@
     <meta charset="UTF-8"/>
 
     <title>Login</title>
+    <link th:replace="fragmentos/header :: flaticon-css" />
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
-    <link th:replace="fragmentos/header :: flaticon-css" />
     <link th:replace="fragmentos/header :: principal-css" />
-    <script th:replace="fragmentos/header :: jquery"> </script>
-    <script th:replace="fragmentos/header :: jqueryui"> </script>
-    <script th:replace="fragmentos/header :: bootstrap-js"> </script>
+    <link th:replace="fragmentos/header :: favicon-ico"/>
+    <link th:replace="fragmentos/header :: busca-icon" />
+    <link th:replace="fragmentos/header :: busca-css"/>
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
-    <link th:replace="fragmentos/header :: favicon-ico" />
+    <script type="text/javascript" src="/js/home3.js"/>
 
 
     <link href="css/formularioAlimento.css" rel="stylesheet"/>
@@ -134,7 +137,7 @@
             </div>
         </div>
     </div>
-        <nav th:replace="fragmentos/rodape :: rodape"></nav>
-
+    <nav th:replace="fragmentos/rodape :: rodape"></nav>
+    <script src="/js/cbpAnimatedHeader.js"></script>
 </body>
 </html>
