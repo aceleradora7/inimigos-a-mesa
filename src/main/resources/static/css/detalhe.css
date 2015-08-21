@@ -97,9 +97,15 @@ margin:0;
 }
 
 #tituloAlimento{
-    text-align: center;
-    margin-top: 30px;
+    margin-top: 60px;
+}
 
+.titulo-pagina-detalhe {
+	padding-top: 0px;
+	width: 800px;
+	height: 100px;
+	text-align: center;
+	margin: 0 auto;
 }
 
 .tirando-margin{
@@ -110,13 +116,7 @@ margin:0;
     text-align: center;
 }
 
-h1{
-    font-size:3em !important;
-}
 
-h2{
-    font-size:2em !important;
-}
 
 #imagem-detalhe{
     width: 500px;
@@ -124,13 +124,14 @@ h2{
 
 }
 
+/*
 #tabela-detalhe{
     float: right;
     width: 500px;
     height: 350px;
     margin-right: -45px !important;
 }
-
+*/
 
 #medidas-visuais{
     width: 100%;
@@ -140,24 +141,11 @@ h2{
     margin-top: 30px;
 }
 
-.tamanho-imagem-div{
-    width: 325px !important;
 
-}
 
 .tamanho-ul {
 
         height: 350px;
-}
-
-.ajustando-tabela {
-    text-align: center;
-}
-
-.ajustando-tabela-2{
-    padding-left: 0px !important;
-    margin-top:-20px !important;
-
 }
 
 .ancora-link{
@@ -172,11 +160,11 @@ h2{
     font-size: 20px;
     float: left;
     margin-top: 20px;
-
 }
 
-
-
+.ajuste-ancora {
+    margin-top: 40px;
+}
 
 a.ancora-link:hover  {
      color: white;
@@ -214,5 +202,42 @@ a.ancora-link:hover  {
     margin-left: 5px;
     vertical-align: top;
     float: left !important;
+}
+
+/*Tabela detalhe do alimento*/
+
+.titulo-medio-detalhe{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.titulo-caloria {
+    float: left;
+    padding-left: 5px;
+}
+
+.titulo-caloria-valor {
+    float: right;
+}
+
+.ajustando-tabela {
+    text-align: center;
+}
+
+.titulo-caloria-div {
+    width: 37%;
+}
+
+.centraliza-texto-detalhe {
+    width: 90%;
+    float: left;
+}
+
+.ajustando-tabela-2{
+    padding-left: 0px;
+}
+
+.ajustando-container {
+    margin-top: 15px !important;
 }
 

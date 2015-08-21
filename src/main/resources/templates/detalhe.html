@@ -21,6 +21,7 @@
         <link rel="stylesheet" type="text/css" href="/css/bootstrap-slider.css" media="all" />
         <script type="text/javascript" src="/js/bootstrap-slider.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/slider.css"/>
+        <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
     </head>
 
     <body>
@@ -29,24 +30,26 @@
         <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
         <p id="sal" th:value="${medidas.colheresDeSal}"></p>
 
-        <div class="container" id="mostraAlimento">
-        <input type="hidden" id="codigo" th:value="${alimento.codigo}"/>
-            <div id="titulo-detalhe">
-                <div id="tituloAlimento">
-                    <h1 class="block" th:text="${alimento.nome}"></h1>
-                    <h2 class="tirando-margin" th:text="${alimento.categoria.nome}"></h2>
-                    <button id="adicionaAlimento" type="button" class="btn btn-warning">
-                        Adicione o alimento na Calculadora
-                    </button>
-                </div>
+        <div class="titulo-pagina-detalhe" id="titulo-detalhe">
+            <div id="tituloAlimento">
+                <h1 class="block" th:text="${alimento.nome}"></h1>
+                <h3 class="tirando-margin" th:text="${alimento.categoria.nome}"></h3>
             </div>
+        </div>
+
+        <div class="container ajustando-container" id="mostraAlimento">
+        <input type="hidden" id="codigo" th:value="${alimento.codigo}"/>
+
 
             <div class="row col-lg-12" id="imagem-tabela">
 
                 <div id="imagem-detalhe" class="row col-lg-6 img-responsive  center-block">
                     <center>
-                        <img class="tamanho-imagem-div img-responsive" th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
+                        <img class="img-responsive" th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
                     </center>
+                    <a class="ancora-link ajuste-ancora" href="#medidas-visuais-ancora">
+                        Ver medidas visuais
+                    </a>
                 </div>
 
                 <div class="col-lg-2 col-md-2 grupo-btn botoes-admin"  th:if="${#httpServletRequest.remoteUser != null}" >
@@ -65,44 +68,82 @@
 
                 <div id="tabela-detalhe" class="row col-lg-6 img-responsive center-block">
                     <ul class="list-group-item img-responsive">
+
                         <table class="table table-bordered">
                             <thead>
-                                <li class="list-group-item ajustando-tabela">
-                                    <h3>
-                                        <b>Tabela Nutricional</b>
-                                    </h3>
-                                    Para porção de
-                                    <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"> </text>
-                                    <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>, igual a
-                                    <text  value="valorMedidaCaseira" id="valorMedidaCaseira"  th:text="${alimento.valorMedidaCaseira}"> </text>.
-                                    <text  value="unidadeMedidaCaseira" id="unidadeMedidaCaseira"  th:text="${alimento.unidadeMedidaCaseira}"> </text>.
-                                </li>
+                            <li class="list-group-item ajustando-tabela">
+                            <h3>
+                            <b>Tabela Nutricional</b>
+                            </h3>
+                            Para porção de
+                            <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"> </text>
+                            <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"> </text>, igual a
+                            <text  value="valorMedidaCaseira" id="valorMedidaCaseira"  th:text="${alimento.valorMedidaCaseira}"> </text>
+                            <text  value="unidadeMedidaCaseira" id="unidadeMedidaCaseira"  th:text="${alimento.unidadeMedidaCaseira}"> </text>.
+                            </li>
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td class="ajuste-tamanho-td">
-                                        Calorias
-                                        <label  value="calorias" id="valor-caloria" class="badge aparenciaTabela" th:text="${legenda.calorias}" th:value="${alimento.exibicaoCalorias}"> </label>
-                                    </td>
+                            <tr>
+                                <td colspan="3">
+                                    <div class="center titulo-caloria-div">
+                                        <p class="titulo-medio-detalhe titulo-caloria">Calorias:</p>
+                                        <div class="titulo-caloria-valor">
+                                        <div class="titulo-medio-detalhe titulo-caloria" value="calorias" id="valor-caloria" th:text="${legenda.calorias}" th:value="${alimento.exibicaoCalorias}"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
 
-                                    <td class="ajuste-tamanho-td">
-                                        Gordura
-                                        <label id="valor-gordura" class="badge aparenciaTabela" th:text="${legenda.gordura}" th:value="${alimento.exibicaoGordura}"></label>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td class="ajuste-tamanho-td-calculadora">
+                                    <p class="titulo-pequeno-calculadora">Açúcar</p>
+                                    <hr/>
+                                    <div class="center calculadora-medidas-visuais">
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block valor-colher-acucar" th:value="${medidas.colheresDeAcucar}" th:text="${medidas.colheresDeAcucar}"></div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <img class="colher-detalhe" src="/img/colher-acucar.svg"/>
+                                    </div>
+                                    <div class="center tamanho-div-total">
+                                        <div class="centraliza-texto-detalhe center">
+                                            <div class="block">Total: </div>
+                                            <div class="centralizar-texto block tamanho-texto" id="valor-acucar" th:text="${legenda.acucar}" th:value="${alimento.exibicaoAcucar}"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="ajuste-tamanho-td-calculadora">
+                                    <p class="titulo-pequeno-calculadora">Gordura</p>
+                                    <hr/>
 
-                                <tr>
-                                    <td class="ajuste-tamanho-td">
-                                        Açúcar
-                                        <label id="valor-acucar" class="badge aparenciaTabela" th:text="${legenda.acucar}" th:value="${alimento.exibicaoAcucar}" ></label>
-                                    </td>
+                                    <div class="center calculadora-medidas-visuais">
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block valor-colher-gordura" th:value="${medidas.colheresDeGordura}" th:text="${medidas.colheresDeGordura}"></div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <img class="colher-detalhe" src="/img/colher-gordura.svg"/>
+                                    </div>
 
-                                    <td class="ajuste-tamanho-td">
-                                        Sódio
-                                        <span id="valor-sodio" class="badge aparenciaTabela" th:text="${legenda.sodio}" th:value="${alimento.exibicaoSodio}"></span>
-                                    </td>
-                                </tr>
+                                    <div class="center tamanho-div-total">
+                                        <div class="centraliza-texto-detalhe center">
+                                            <div class="block">Total: </div>
+                                            <div class="centralizar-texto block tamanho-texto" id="valor-gordura" th:text="${legenda.gordura}" th:value="${alimento.exibicaoGordura}"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="ajuste-tamanho-td-calculadora">
+                                    <p class="titulo-pequeno-calculadora">Sal</p>
+                                    <hr/>
+                                    <div class="center calculadora-medidas-visuais">
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block valor-colher-sal" th:value="${medidas.colheresDeSal}" th:text="${medidas.colheresDeSal}"></div>
+                                        <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
+                                        <img class="colher-detalhe" src="/img/colher-sal.svg"/>
+                                    </div>
+                                    <div class="center tamanho-div-total">
+                                        <div class="centraliza-texto-detalhe center">
+                                            <div class="block">Total: </div>
+                                            <p class="centralizar-texto block tamanho-texto" id="valor-sodio" th:text="${legenda.sodio}" th:value="${alimento.exibicaoSodio}"></p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
 
@@ -114,9 +155,6 @@
                             </h6>
                             <span class="fonte">Fonte:</span>
                             <text  value="fonte" id="fonte" class="fonte" th:text="${alimento.fonte}"></text>.
-                            <a class="ancora-link" href="#medidas-visuais-ancora">
-                                Ver medidas visuais
-                            </a>
                         </ul>
                     </ul>
                 </div>
@@ -149,7 +187,10 @@
                             <div>
                                 <text class="tamanhoFonte">igual a</text>
                                 <text  class="tamanhoFonte" value="valorMedidaCaseira" id="valorMedidaCaseiraSlider"  th:text="${alimento.valorMedidaCaseira}"> </text>
-                                <text  class="tamanhoFonte" value="unidadeMedidaCaseira" id="unidadeMedidaCaseiraSlider"  th:text="${alimento.unidadeMedidaCaseira}"> </text>.
+                                <text  class="tamanhoFonte" value="unidadeMedidaCaseira" id="unidadeMedidaCaseiraSlider"  th:text="${alimento.unidadeMedidaCaseira}"> </text>
+                                <button id="adicionaAlimento" type="button" class="btn btn-warning">
+                                    Adicione o alimento na Calculadora
+                                </button>
                             </div>
                         </div>
                         <h2 class="block"> Veja abaixo medidas visuais</h2>
@@ -162,7 +203,7 @@
                     <div class="row">
                         <div class="col-md-11 alinhamentos">
                             <h3 class="medidas-visuais-titulo">Açúcar: </h3>
-                            <h3 class="texto-numero-colher" id="valor-colher-acucar" th:value="${medidas.colheresDeAcucar}" th:text="${medidas.colheresDeAcucar}"></h3>
+                            <h3 class="texto-numero-colher valor-colher-acucar" th:value="${medidas.colheresDeAcucar}" th:text="${medidas.colheresDeAcucar}"></h3>
                             <h3 class="texto-colheres">colher(es) de chá</h3>
                         </div>
                     </div>
@@ -177,7 +218,7 @@
                     <div class="row">
                         <div class="col-md-11 alinhamentos">
                             <h3 class="medidas-visuais-titulo">Gordura:</h3>
-                            <h3 class="texto-numero-colher" id="valor-colher-gordura" th:value="${medidas.colheresDeGordura}" th:text="${medidas.colheresDeGordura}"></h3>
+                            <h3 class="texto-numero-colher valor-colher-gordura" th:value="${medidas.colheresDeGordura}" th:text="${medidas.colheresDeGordura}"></h3>
                             <h3 class="texto-colheres">colher(es) de chá</h3>
                         </div>
                     </div>
@@ -192,7 +233,7 @@
                     <div class="row">
                         <div class="col-md-11 alinhamentos">
                             <h3 class="medidas-visuais-titulo">Sal:</h3>
-                            <h3 class="texto-numero-colher" id="valor-colher-sal" th:value="${medidas.colheresDeSal}" th:text="${medidas.colheresDeSal}"></h3>
+                            <h3 class="texto-numero-colher valor-colher-sal" th:value="${medidas.colheresDeSal}" th:text="${medidas.colheresDeSal}"></h3>
                             <h3 class="texto-colheres">colher(es) de chá</h3>
                         </div>
                     </div>

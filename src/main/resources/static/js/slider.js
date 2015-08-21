@@ -32,16 +32,16 @@ function calculaColheres(valor){
         },
         success: function(dados){
             $("#acucar").attr('value', dados.acucar);
-            $("#valor-colher-acucar").attr('value', dados.acucar);
-            $("#valor-colher-acucar").text($("#valor-colher-acucar").attr('value'));
+            $(".valor-colher-acucar").attr('value', dados.acucar);
+            $(".valor-colher-acucar").text($(".valor-colher-acucar").attr('value'));
 
             $("#gordura").attr('value', dados.gordura);
-            $("#valor-colher-gordura").attr('value', dados.gordura);
-            $("#valor-colher-gordura").text($("#valor-colher-gordura").attr('value'));
+            $(".valor-colher-gordura").attr('value', dados.gordura);
+            $(".valor-colher-gordura").text($(".valor-colher-gordura").attr('value'));
 
             $("#sal").attr('value', dados.sal);
-            $("#valor-colher-sal").attr('value', dados.sal);
-            $("#valor-colher-sal").text($("#valor-colher-sal").attr('value'));
+            $(".valor-colher-sal").attr('value', dados.sal);
+            $(".valor-colher-sal").text($(".valor-colher-sal").attr('value'));
 
             renderizarColher("gordura");
             renderizarColher("sal");

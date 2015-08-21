@@ -71,6 +71,14 @@
     width: 40px;
 }
 
+.colher-detalhe{
+    margin-right: 5px;
+    float: right;
+    height: 70px;
+    width: 40px;
+    padding-top: 20px;
+}
+
 .calculadora-medidas-visuais{
     width: 80%;
     height: 60px;
