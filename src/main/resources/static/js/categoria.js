@@ -16,13 +16,12 @@ function onClickBotaoCategoria(){
 };
 
 function marcaBotaoCategoriaAtual(){
-
     var categorias = $("#menu-categoria");
-    var botoesCategorias = categorias.find(".categoria").each(function(){
-        if($(this).val() === getParametros()["categoria"]){
+    var botoesCategorias = categorias.find(".categoria-img-nome").each(function(){
+         if($(this).attr('value') === getParametros()["categoria"]){
             $(this).toggleClass("categoria-atual");
             $(this).on("click", function(){return false;});
-        }
+                }
     });
 }
 
@@ -39,8 +38,9 @@ function marcaBotaoLetraAtual(){
 
 $(document).ready(function(){
     associarEventosMenuCategoria();
-    marcaBotaoCategoriaAtual();
     marcaBotaoLetraAtual();
+
+    marcaBotaoCategoriaAtual();
 });
 
 //]]>
