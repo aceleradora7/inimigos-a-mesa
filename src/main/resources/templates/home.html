@@ -12,20 +12,18 @@
     <link th:replace="fragmentos/header :: jqueryui-css" />
     <link th:replace="fragmentos/header :: principal-css" />
     <link th:replace="fragmentos/header :: favicon-ico"/>
+    <link th:replace="fragmentos/header :: busca-icon" />
+    <link th:replace="fragmentos/header :: busca-css"/>
     <script th:replace="fragmentos/header :: jquery"/>
     <script th:replace="fragmentos/header :: jqueryui"/>
     <script th:replace="fragmentos/header :: bootstrap-js"/>
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link href="css/buscaHeader2.css" rel="stylesheet" type="text/css"/>
     <link href="css/home3.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="/js/classie.js"/>
     <script type="text/javascript" src="/js/modernizr.custom.js"/>
     <script type="text/javascript" src="/js/home3.js"/>
-    <script type="text/javascript" src="../js/jssor.js"/>
-    <script type="text/javascript" src="../js/jssor.slider.js"/>
     <script type="text/javascript" src="../js/sliderImagem.js"/>
     <script type="text/javascript" src="../js/sliderHeader.js"/>
     <link href="css/sliderImage.css" rel="stylesheet" type="text/css"/>
@@ -33,50 +31,8 @@
 
 <body id="ancora-topo" class="index">
 
+<nav th:replace="fragmentos/header :: cabecalho-home"></nav>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-
-    <div class="container">
-        <div class="navbar-header page-scroll">
-            <a class="navbar-brand" href="#ancora-topo">Comer com saber</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-
-                <li>
-                    <a class="page-scroll" href="/grid">Alimentos</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/calculadora">Calculadora</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/sobre">Sobre</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/contato">Contato</a>
-                </li>
-
-                <li>
-                    <a class="page-scroll">
-                        <div class="btn-search">
-                            <span class="icon-search"/>
-                            <i class="material-icons">search</i>
-                            <svg id="btn-busca-header-inicial" height="38" width="38">
-                                <circle  class="btn-search-border" cx="20" cy="20" r="16" stroke="#ffffff" stroke-width="2" stroke-linecap="round"  fill="rgba(255,255,255,0)"/>
-                            </svg>
-                            <form class="search-form">
-                                <input class="search-box" type="busca-home" id="busca-header" maxlength="50"/>
-                                <input class="search-submit" type="submit"/>
-                            </form>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-</nav>
 <header class="header">
             <div id="background_cycler" class="grad">
                 <img id="1" class="active" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160059/15800084796_ca92a05193_h_x04cfa.jpg" />
