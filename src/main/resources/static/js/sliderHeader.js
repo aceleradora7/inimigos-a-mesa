@@ -1,5 +1,4 @@
 function cycleImages(){
-
       var $active = $('#background_cycler .active');
       var $next = ($('#background_cycler .active').next().length > 0) ? $('#background_cycler .active').next() : $('#background_cycler img:first');
       $next.css('z-index',2);
@@ -9,16 +8,21 @@ function cycleImages(){
       });
     }
 
-$(window).load(function(){
-    $("#2").hide();
-    $("#3").hide();
-    $("#4").hide();
-    $("#5").hide();
-    $("#5").show();
-    $("#4").show();
-    $("#3").show();
-    $("#2").show();
-    $("#1").show();
+function teste(){
+$('.grad img').each(function(){
+                    $(this).show();
+                    })
+}
+$(document).ready(function(){
+
+    $('.grad img').each(function(){
+        if(!$(this).hasClass('active')){
+        $(this).hide();
+        }
+    });
+
+    setTimeout('teste()', 4000);
+
     $('#background_cycler').fadeIn(1500);
     setInterval('cycleImages()', 5000);
 })
