@@ -45,7 +45,6 @@ a.calculadora-grid:hover  {
 	height:106px;
 }
 
-
 .imagem-grid{
 	padding:5px;
 }
@@ -76,12 +75,6 @@ a.calculadora-grid:hover  {
 
 #menu-categoria{
 	margin-top: 80px;
-	width: 100%;
-}
-
-.categoria-linha-topo{
-	 width: 70%;
-	 margin: 0 auto;
 }
 
 .categoria-linha-dupla{
@@ -103,7 +96,6 @@ a.calculadora-grid:hover  {
 
 .categoria-img{
 	width: 100%;
-
 }
 
 .categoria-icone{
