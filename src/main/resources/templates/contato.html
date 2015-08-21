@@ -5,21 +5,22 @@
     <title>Contato</title>
     <meta charset="utf-8" />
 
+    <link th:replace="fragmentos/header :: flaticon-css" />
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
-    <link th:replace="fragmentos/header :: flaticon-css" />
     <link th:replace="fragmentos/header :: principal-css" />
-    <link rel="stylesheet" type="text/css" href="css/contato.css" />
-    <link rel="stylesheet" type="text/css" href="css/validacaoContato.css" />
-
+    <link th:replace="fragmentos/header :: favicon-ico"/>
+    <link th:replace="fragmentos/header :: busca-icon" />
+    <link th:replace="fragmentos/header :: busca-css"/>
     <script th:replace="fragmentos/header :: jquery"/>
     <script th:replace="fragmentos/header :: jqueryui"/>
     <script th:replace="fragmentos/header :: bootstrap-js"/>
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
+    <script type="text/javascript" src="/js/home3.js"/>
 
-    <link th:replace="fragmentos/header :: favicon-ico" />
-
+    <link rel="stylesheet" type="text/css" href="css/contato.css" />
+    <link rel="stylesheet" type="text/css" href="css/validacaoContato.css" />
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script type="text/javascript" src="js/validacaoContato.js"></script>
 </head>
@@ -105,8 +106,8 @@
                 </center>
             </form>
         </div>
-
         <nav th:replace="fragmentos/rodape :: rodape"></nav>
+        <script src="/js/cbpAnimatedHeader.js"></script>
     </body>
 </html>
 
