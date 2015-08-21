@@ -114,6 +114,10 @@ hr {
 	background: #2E2E2E;
 }
 
+.page-scroll{
+    padding-bottom: 0px !important;
+}
+
 #footer {
     padding-top: 30px;
     padding-bottom: 30px;
