@@ -6,19 +6,22 @@
     <title>Calculadora</title>
 
 
+    <link th:replace="fragmentos/header :: flaticon-css" />
     <link th:replace="fragmentos/header :: bootstrap-css" />
     <link th:replace="fragmentos/header :: jqueryui-css" />
-    <link th:replace="fragmentos/header :: flaticon-css" />
     <link th:replace="fragmentos/header :: principal-css" />
-    <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
-    <link th:replace="fragmentos/header :: favicon-ico" />
-
+    <link th:replace="fragmentos/header :: favicon-ico"/>
+    <link th:replace="fragmentos/header :: busca-icon" />
+    <link th:replace="fragmentos/header :: busca-css"/>
     <script th:replace="fragmentos/header :: jquery"/>
     <script th:replace="fragmentos/header :: jqueryui"/>
     <script th:replace="fragmentos/header :: bootstrap-js"/>
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
-    <script type="text/javascript" src="/js/detalhe.js"></script>
+    <script type="text/javascript" src="/js/home3.js"/>
+
+    <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
+
 
 
 </head>
@@ -180,6 +183,7 @@
             </div>
         </div>
     </div>
-        <nav th:replace="fragmentos/rodape :: rodape"></nav>
+    <nav th:replace="fragmentos/rodape :: rodape"></nav>
+    <script src="/js/cbpAnimatedHeader.js"></script>
     </body>
 </html>
