@@ -178,26 +178,25 @@
             <div class="container">
                 <div id="titulo-medidas">
                     <div id="tituloMedidas">
-                        <h2 class="block"> Altere a porção do seu alimento</h2>
+                        <h2 class="block"> Altere a porção e veja abaixo as medidas visuais</h2>
                         <div id="porcaoAlimento">
                             <text class="tamanhoFonte">Para porção de</text>
                             <text class="tamanhoFonte" th:value="alimento.porcaoExibicao" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
                             <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text>
 
-                            <div>
+                            <text class="tamanhoFonte">igual a</text>
+                            <text  class="tamanhoFonte" value="valorMedidaCaseira" id="valorMedidaCaseiraSlider"  th:text="${alimento.valorMedidaCaseira}"> </text>
+                            <text  class="tamanhoFonte" value="unidadeMedidaCaseira" id="unidadeMedidaCaseiraSlider"  th:text="${alimento.unidadeMedidaCaseira}"> </text>
+
+                            <div id="slider-botao">
                                 <input id="valorMaximo" type="hidden" th:value="${alimento.valorMaximoMedida}"/>
                                 <input id="slider" data-slider-id='detalhe-slider' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="1"/>
-                            </div>
-                            <div>
-                                <text class="tamanhoFonte">igual a</text>
-                                <text  class="tamanhoFonte" value="valorMedidaCaseira" id="valorMedidaCaseiraSlider"  th:text="${alimento.valorMedidaCaseira}"> </text>
-                                <text  class="tamanhoFonte" value="unidadeMedidaCaseira" id="unidadeMedidaCaseiraSlider"  th:text="${alimento.unidadeMedidaCaseira}"> </text>
-                                <button id="adicionaAlimento" type="button" class="btn btn-warning">
-                                    Adicione o alimento na Calculadora
+
+                                <button id="adicionaAlimento" type="button" class="btn btn-warning botao-add-calculadora">
+                                    Adicione à calculadora
                                 </button>
                             </div>
                         </div>
-                        <h2 class="block"> Veja abaixo medidas visuais</h2>
                     </div>
                 </div>
             </div>
