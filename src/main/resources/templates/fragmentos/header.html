@@ -19,7 +19,7 @@
 
     <link th:fragment="favicon-ico" rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"/>
 
-    <nav th:fragment="cabecalho-home" class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-collapse" role="navigation">
+    <nav th:fragment="cabecalho-home(nomeUsuario)" class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-collapse" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
@@ -50,6 +50,7 @@
                             </div>
                         </a>
                     </li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
@@ -65,17 +66,29 @@
                     <li class="itens-menu">
                         <a class="navbar-brand page-scroll" href="/contato">Contato</a>
                     </li>
-
+                    <li th:if="${#httpServletRequest.remoteUser != null}" class="dropdown itens-menu">
+                        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false" th:text="${nomeUsuario}">Usuário<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/editarUsuario">Editar Perfil</a></li>
+                            <li><a href="/cadastroAlimento">Cadastrar Alimento</a></li>
+                            <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/cadastrarUsuario">Cadastrar Usuário</a></li>
+                                <li><a href="/formularioDeletarUsuario">Deletar Usuário</a></li>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout">Sair</a></li>
+                         </ul>
+                    </li>
                 </ul>
-
             </div>
-
         </div>
 
 
     </nav>
 
-    <nav th:fragment="cabecalho" class="navbar navbar-fixed-top navbar-inverse navbar-collapse" role="navigation">
+    <nav th:fragment="cabecalho(nomeUsuario)" class="navbar navbar-fixed-top navbar-inverse navbar-collapse" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
@@ -122,6 +135,21 @@
                         <a class="navbar-brand page-scroll" href="/contato">Contato</a>
                     </li>
 
+                    <li th:if="${#httpServletRequest.remoteUser != null}" class="dropdown itens-menu">
+                        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false" th:text="${nomeUsuario}">Usuário<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/editarUsuario">Editar Perfil</a></li>
+                            <li><a href="/cadastroAlimento">Cadastrar Alimento</a></li>
+                            <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/cadastrarUsuario">Cadastrar Usuário</a></li>
+                            <li><a href="/formularioDeletarUsuario">Deletar Usuário</a></li>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/logout">Sair</a></li>
+                </ul>
+                </li>
                 </ul>
 
             </div>
