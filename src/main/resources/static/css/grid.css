@@ -43,6 +43,7 @@ a.calculadora-grid:hover  {
 	padding-top: 5px;
 	padding-left: 10px;
 	height:106px;
+
 }
 
 .imagem-grid{
@@ -168,4 +169,18 @@ a.calculadora-grid:hover  {
 		-o-transition: all 0.4s ease-in-out !important;
 		-webkit-transition: all 0.4s ease-in-out !important;
 		transition: all 0.4s ease-in-out !important;
+}
+
+.teste-ellipsis{
+ 	width: 250px;
+    display: inline-block;
+	white-space: pre;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	direction: ltr;
+}
+pre {
+  word-wrap: break-word;      /* IE 5.5-7 */
+  white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+  white-space: pre-wrap;      /* current browsers */
 }
