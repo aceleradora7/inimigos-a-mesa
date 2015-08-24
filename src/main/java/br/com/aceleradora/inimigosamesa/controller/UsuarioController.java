@@ -26,9 +26,18 @@ public class UsuarioController {
     private UsuarioService servicoUsuario;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model) {
+    public String login(Model model, Usuario usuario) {
 
-        model.addAttribute("usuario", new Usuario());
+
+        model.addAttribute("usuario", usuario);
+
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+
+        }
 
         return "login";
     }
@@ -72,6 +81,13 @@ public class UsuarioController {
             usuario = new Usuario();
         }
         model.addAttribute("usuario", usuario);
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+
+        }
 
         return "formularioUsuario";
     }
@@ -81,6 +97,7 @@ public class UsuarioController {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Usuario usuario = servicoUsuario.buscaPorEmail(user.getUsername());
+        model.addAttribute("nomeUsuario", usuario.getNome());
         model.addAttribute("usuario", usuario);
 
         return "formularioUsuario";
@@ -115,6 +132,8 @@ public class UsuarioController {
 
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("usuario",new Usuario());
+        Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+        model.addAttribute("nomeUsuario", usarioAtual.getNome());
 
         return "formularioDeletarUsuario";
     }
@@ -125,6 +144,9 @@ public class UsuarioController {
         Usuario usuario = servicoUsuario.buscaPorCodigo(Integer.parseInt(codigo));
         servicoUsuario.deletar(usuario);
         model.addAttribute("espacoSucessoUsuarioDeletado","true");
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+        model.addAttribute("nomeUsuario", usarioAtual.getNome());
 
         return buscarTodosUsuarios(model);
     }
@@ -193,4 +215,5 @@ public class UsuarioController {
         }
         return true;
     }
+
 }

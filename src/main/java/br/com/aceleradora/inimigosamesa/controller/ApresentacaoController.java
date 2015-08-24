@@ -3,8 +3,11 @@ package br.com.aceleradora.inimigosamesa.controller;
 import br.com.aceleradora.inimigosamesa.model.Email;
 import br.com.aceleradora.inimigosamesa.model.FormularioEmail;
 import br.com.aceleradora.inimigosamesa.model.RecaptchaResult;
+import br.com.aceleradora.inimigosamesa.model.Usuario;
 import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,15 +23,35 @@ public class ApresentacaoController {
     private UsuarioService servicoUsuario;
 
     @RequestMapping("/")
-    public String home(){ return "home"; }
+    public String home(Model model){
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+        }
+        return "home"; }
 
     @RequestMapping("/sobre")
-    public String sobre(){
+    public String sobre(Model model){
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+        }
         return "sobre";
     }
 
     @RequestMapping("/sobre2")
-    public String sobre2(){
+    public String sobre2(Model model){
+
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+        }
         return "sobre2";
     }
 
@@ -37,6 +60,13 @@ public class ApresentacaoController {
 
         FormularioEmail formularioEmail = new FormularioEmail();
         model.addAttribute("formularioEmail", formularioEmail);
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+
+        }
 
         return "contato";
     }
@@ -65,4 +95,5 @@ public class ApresentacaoController {
         }
         return "contato";
     }
+
 }

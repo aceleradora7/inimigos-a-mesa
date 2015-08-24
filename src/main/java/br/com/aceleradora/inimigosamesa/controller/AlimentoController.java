@@ -3,9 +3,12 @@ package br.com.aceleradora.inimigosamesa.controller;
 import br.com.aceleradora.inimigosamesa.model.*;
 import br.com.aceleradora.inimigosamesa.service.AlimentoService;
 import br.com.aceleradora.inimigosamesa.service.CategoriaService;
+import br.com.aceleradora.inimigosamesa.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,12 +29,22 @@ public class AlimentoController {
     @Autowired
     private CategoriaService servicoCategoria;
 
+    @Autowired
+    private UsuarioService servicoUsuario;
+
     @RequestMapping(value = {"/grid"}, method = RequestMethod.GET)
     public void listar(
             @RequestParam(value = "busca", required = false) String busca,
             @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
             @RequestParam(value = "pagina", required = false, defaultValue = "1") int pagina,
             Model model) {
+
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+        }
 
         Sort sort = new Sort(Sort.Direction.ASC, "nome");
         List<Categoria> categorias = (List) servicoCategoria.buscaTodos(sort);
@@ -81,6 +94,12 @@ public class AlimentoController {
         model.addAttribute("alimento", alimento);
         model.addAttribute("medidas", medidas);
         model.addAttribute("legenda", legendas);
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+        }
 
         return "detalhe";
     }
@@ -90,7 +109,13 @@ public class AlimentoController {
         if (alimento == null) {
             alimento = new Alimento();
         }
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
 
+        }
         Sort sort = new Sort(Sort.Direction.ASC, "nome");
         model.addAttribute("alimento", alimento);
         model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
@@ -105,6 +130,13 @@ public class AlimentoController {
         Sort sort = new Sort(Sort.Direction.ASC, "nome");
         model.addAttribute("categorias", servicoCategoria.buscaTodos(sort));
         model.addAttribute("alimento", alimento);
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+
+        }
 
 
         return "formularioAlimento";
@@ -114,6 +146,13 @@ public class AlimentoController {
     public String deletarAlimento(Model model, @RequestParam(value = "codigo", required = false) String codigo) {
         Alimento alimento = servicoAlimento.buscaPorCodigo(Integer.parseInt(codigo));
         servicoAlimento.deletar(alimento);
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+
+        }
 
         return "redirect:/grid?alimentoDeletado";
     }
@@ -150,6 +189,13 @@ public class AlimentoController {
         if (calculadora != null) {
             model.addAttribute("alimentos", calculadora.getListaDeAlimentos());
         }
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+        }
+        
         return "calculadora";
     }
 
@@ -160,6 +206,14 @@ public class AlimentoController {
             request.getSession().setAttribute("calculadora", new Calculadora());
         }
 
+
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+
+        }
 
         Calculadora calculadora = (Calculadora) request.getSession().getAttribute("calculadora");
 
@@ -182,6 +236,14 @@ public class AlimentoController {
 
         if(request.getSession().getAttribute("calculadora") == null){
             request.getSession().setAttribute("calculadora", new Calculadora());
+        }
+
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
+            model.addAttribute("nomeUsuario", usarioAtual.getNome());
+        }catch (Exception e){
+
         }
 
         Calculadora calculadora = (Calculadora) request.getSession().getAttribute("calculadora");
