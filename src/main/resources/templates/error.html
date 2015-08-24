@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <nav th:replace="fragmentos/header :: cabecalho"></nav>
+    <nav th:replace="fragmentos/header :: cabecalho(${nomeUsuario})"></nav>
 
     <div class="container wrapper-conteudo tamanho-minimo-pagina-erro">
 

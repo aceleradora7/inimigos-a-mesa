@@ -21,7 +21,8 @@
 		<script th:replace="fragmentos/header :: query-string-js"/>
 		<script th:replace="fragmentos/header :: busca"/>
 		<script type="text/javascript" src="/js/home3.js"/>
-		
+
+
 		<link rel="stylesheet" type="text/css" href="css/paginacao.css"/>
 		<link rel="stylesheet" type="text/css" href="css/grid.css"/>
 
@@ -34,7 +35,7 @@
 	</head>
 	<body>
 
-	<nav th:replace="fragmentos/header :: cabecalho"></nav>
+	<nav th:replace="fragmentos/header :: cabecalho(${nomeUsuario})"></nav>
 	<div  class="btn-group topo-grid">
 		<div id="menu-categoria" role="group" class="container">
 			<div class="row text-center">

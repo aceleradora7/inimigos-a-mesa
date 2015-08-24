@@ -20,6 +20,7 @@
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
 
+
     <link href="css/home3.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="/js/classie.js"/>
     <script type="text/javascript" src="/js/modernizr.custom.js"/>
@@ -31,7 +32,7 @@
 
 <body id="ancora-topo" class="index">
 
-<nav th:replace="fragmentos/header :: cabecalho-home"></nav>
+<nav th:replace="fragmentos/header :: cabecalho-home(${nomeUsuario})"></nav>
 
 <header class="header">
             <div id="background_cycler" class="grad">

@@ -29,7 +29,7 @@
 </head>
 <body>
 <csrf disabled="true"/>
-<nav th:replace="fragmentos/header :: cabecalho"></nav>
+<nav th:replace="fragmentos/header :: cabecalho(${nomeUsuario})"></nav>
 <div class="jumbotron">
     <center>
         <h2>Cadastrar Alimento</h2>
