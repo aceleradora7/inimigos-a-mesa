@@ -221,15 +221,13 @@
 				<div class="row">
 					<div th:each="alimento : ${alimentos}"  class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
 						<a th:href="@{'/detalhe/' + ${alimento.codigo}}" class="list-group-item item-grid">
-							<div>
-								<div>
-									<div class="imagem-grid">
-										<img th:src="${alimento.urlImagemPequena}"/>
-									</div>
-									<div class="media-body texto-card">
-										<h4 class="media-heading teste-ellipsis" th:text="${alimento.nome}" id="alimento"></h4>
-										<p id="categoria" th:text="${alimento.categoria.nome}"></p>
-									</div>
+							<div id="tamanho-max-card">
+								<div class="imagem-grid">
+									<img th:src="${alimento.urlImagemPequena}"/>
+								</div>
+								<div class="media-body texto-card">
+									<h4 class="media-heading teste-ellipsis" th:text="${alimento.nome}" id="alimento"></h4>
+									<p id="categoria" th:text="${alimento.categoria.nome}"></p>
 								</div>
 
 							</div>

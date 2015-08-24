@@ -170,3 +170,7 @@ a.calculadora-grid:hover  {
 		-webkit-transition: all 0.4s ease-in-out !important;
 		transition: all 0.4s ease-in-out !important;
 }
+#tamanho-max-card{
+	height:305px;
+	overflow: hidden;
+}
