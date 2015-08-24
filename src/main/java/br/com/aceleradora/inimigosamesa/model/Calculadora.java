@@ -1,6 +1,7 @@
 package br.com.aceleradora.inimigosamesa.model;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,9 +65,8 @@ public class Calculadora {
 
         for (int i = 0; i < listaDeAlimentos.size(); i++) {
             if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()){
-                somaAlimentoCalculadora(alimento);
-                calculaColherCalculadora();
-                return;
+                excluiAlimento(listaDeAlimentos.get(i));
+                break;
             }
         }
             listaDeAlimentos.add(alimento);
@@ -89,19 +89,19 @@ public class Calculadora {
 
     public void somaAlimentoCalculadora(Alimento alimento){
 
-        if (alimento.getCalorias() != null && !alimento.getCalorias().isEmpty()) {
+        if (naoEhVazio(alimento.getCalorias())) {
             caloriasTotal += Double.parseDouble(alimento.getCalorias());
         }
-        if (alimento.getGordura() != null && !alimento.getGordura().isEmpty()) {
+        if (naoEhVazio(alimento.getGordura())) {
             gorduraTotal += Double.parseDouble(alimento.getGordura());
         }
-        if (alimento.getSodio() != null && !alimento.getSodio().isEmpty()) {
+        if (naoEhVazio(alimento.getSodio())) {
             sodioTotal += Double.parseDouble(alimento.getSodio());
         }
-        if (alimento.getAcucar() != null && !alimento.getAcucar().isEmpty()) {
+        if (naoEhVazio(alimento.getAcucar())) {
             acucarTotal += Double.parseDouble(alimento.getAcucar());
         }
-        if (alimento.getSodio() != null && !alimento.getSodio().isEmpty()) {
+        if (naoEhVazio(alimento.getSodio())) {
             salTotal += MedidasVisuais.converteSodioEmSal(Double.parseDouble(alimento.getSodio()));
         }
     }
@@ -110,19 +110,19 @@ public class Calculadora {
 
     public void subtraiAlimentoCalculadora(Alimento alimento){
 
-        if (alimento.getCalorias() != null && !alimento.getCalorias().isEmpty()) {
+        if (naoEhVazio(alimento.getCalorias())) {
             caloriasTotal -= Double.parseDouble(alimento.getCalorias());
         }
-        if (alimento.getGordura() != null && !alimento.getGordura().isEmpty()) {
+        if (naoEhVazio(alimento.getGordura())) {
             gorduraTotal -= Double.parseDouble(alimento.getGordura());
         }
-        if (alimento.getSodio() != null && !alimento.getSodio().isEmpty()) {
+        if (naoEhVazio(alimento.getSodio())) {
             sodioTotal -= Double.parseDouble(alimento.getSodio());
         }
-        if (alimento.getAcucar() != null && !alimento.getAcucar().isEmpty()) {
+        if (naoEhVazio(alimento.getAcucar())) {
             acucarTotal -= Double.parseDouble(alimento.getAcucar());
         }
-        if (alimento.getSodio() != null && !alimento.getSodio().isEmpty()) {
+        if (naoEhVazio(alimento.getSodio())) {
             salTotal -= MedidasVisuais.converteSodioEmSal(Double.parseDouble(alimento.getSodio()));
         }
     }
@@ -136,12 +136,13 @@ public class Calculadora {
     }
 
     public double formataDouble(double x){
+        DecimalFormat formatoDecimalDuasCasas = new DecimalFormat("0.00");
+        String valorNumericoFormato = formatoDecimalDuasCasas.format(x);
+        valorNumericoFormato = valorNumericoFormato.replace(",",".");
+        return Double.parseDouble(valorNumericoFormato);
+    }
 
-        String b = ""+x;
-        if(b.length()>=b.indexOf('.')+3){
-            return Double.parseDouble(b.substring(0,b.indexOf('.')+3));
-        }else{
-            return Double.parseDouble(b);
-        }
+    public boolean naoEhVazio(String valor) {
+        return valor != null && !valor.isEmpty();
     }
 }

@@ -16,11 +16,13 @@ public class CalculadoraTeste {
 
     @Before
     public void setUp() throws Exception {
+        alimento1.setCodigo(1);
         alimento1.setCalorias("10");
         alimento1.setGordura("30");
         alimento1.setSodio("50");
         alimento1.setAcucar("70");
 
+        alimento2.setCodigo(2);
         alimento2.setCalorias("20");
         alimento2.setGordura("40");
         alimento2.setSodio("90");
