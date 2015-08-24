@@ -170,17 +170,3 @@ a.calculadora-grid:hover  {
 		-webkit-transition: all 0.4s ease-in-out !important;
 		transition: all 0.4s ease-in-out !important;
 }
-
-.teste-ellipsis{
- 	width: 250px;
-    display: inline-block;
-	white-space: pre;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	direction: ltr;
-}
-pre {
-  word-wrap: break-word;      /* IE 5.5-7 */
-  white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
-  white-space: pre-wrap;      /* current browsers */
-}
