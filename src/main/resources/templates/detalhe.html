@@ -34,7 +34,7 @@
         <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
         <p id="sal" th:value="${medidas.colheresDeSal}"></p>
 
-        <div class="titulo-pagina-detalhe" id="titulo-detalhe">
+        <div class="titulo-pagina-detalhe block" id="titulo-detalhe">
             <div id="tituloAlimento">
                 <h1 class="block" th:text="${alimento.nome}"></h1>
                 <h3 class="tirando-margin" th:text="${alimento.categoria.nome}"></h3>
@@ -184,7 +184,7 @@
                             <text class="tamanhoFonte" th:value="alimento.porcaoExibicao" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
                             <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text>
 
-                            <text class="tamanhoFonte">igual a</text>
+                            <text class="tamanhoFonte">, igual a</text>
                             <text  class="tamanhoFonte" value="valorMedidaCaseira" id="valorMedidaCaseiraSlider"  th:text="${alimento.valorMedidaCaseira}"> </text>
                             <text  class="tamanhoFonte" value="unidadeMedidaCaseira" id="unidadeMedidaCaseiraSlider"  th:text="${alimento.unidadeMedidaCaseira}"> </text>
 
