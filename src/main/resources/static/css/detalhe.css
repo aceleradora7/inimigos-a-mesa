@@ -15,19 +15,19 @@
 }
 
 .colher-img {
-	height: 60px;
-	width: 40px;
+	height: 70px;
+	width: 50px;
 }
 
 .colher {
 	margin-left: 5px;
 	float: left;
 	height: 60px;
-    width: 40px;
+    width: 50px;
 }
 
 .texto-numero-colher{
-    margin-left: 30px;
+    margin-left: 10px;
     float: left;
 }
 
@@ -39,11 +39,6 @@
 .medidas-visuais{
 	margin-top: 45px;
 	margin-bottom: 60px;
-	background-color: #F5F5F5;
-}
-
-#medidas-visuais{
-
 	background-color: #F5F5F5;
 }
 
@@ -124,28 +119,19 @@ margin:0;
 
 }
 
-/*
-#tabela-detalhe{
-    float: right;
-    width: 500px;
-    height: 350px;
-    margin-right: -45px !important;
-}
-*/
-
 #medidas-visuais{
     width: 100%;
     height: 100%;
-    padding-top:30px;
     padding-bottom: 30px;
     margin-top: 30px;
+    margin-bottom: -100px;
+    background-color: #F5F5F5;
 }
 
 
 
 .tamanho-ul {
-
-        height: 350px;
+    height: 350px;
 }
 
 .ancora-link{
@@ -175,6 +161,10 @@ a.ancora-link:hover  {
 .botoes-admin{
     margin-top: -45px;
     margin-bottom: 10px;
+}
+
+.botao-add-calculadora{
+    margin-left: 50px;
 }
 
 .imagem-seta-ancora{
@@ -241,3 +231,6 @@ a.ancora-link:hover  {
     margin-top: 15px !important;
 }
 
+#slider-botao{
+    margin-top: 6px;
+}
