@@ -311,6 +311,6 @@ hr {
 	 background: #222 url("images/ui-bg_flat_75_ffffff_40x100.png") repeat-x scroll 50% 50% !important;
 }
 
-.stButton, .stMainServices, .st_facebook_hcount, stArrow, .st_fb_like_hcount, .stButton_gradient, .stHBubble{
+.stButton, .stMainServices, .st_facebook_hcount, stArrow, .st_fb_like_hcount, .stButton_gradient, .stHBubble {
 	height:23px !important;
 }
