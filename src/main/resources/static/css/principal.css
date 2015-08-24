@@ -293,8 +293,20 @@ hr {
 
 .ui-widget-content {
     border: 1px solid #FFF !important;
-    background: rgba(0, 0, 0, 0.6) url("images/ui-bg_flat_75_ffffff_40x100.png") repeat-x scroll 50% 50% !important;
-    color: #FFF !important;;
+    background: #222 url("images/ui-bg_flat_75_ffffff_40x100.png") repeat-x scroll 50% 50% !important;
+    color: #FFF !important;
 	z-index: 9000 !important;
     margin-top:9px !important;
-    }
+}
+
+.dropdown-menu{
+	 background: #222 url("images/ui-bg_flat_75_ffffff_40x100.png") repeat-x scroll 50% 50% !important;
+}
+
+.dropdown-menu > li > a{
+	 color: #FFF !important;
+}
+
+.dropdown-menu > li > a:hover{
+	 background: #222 url("images/ui-bg_flat_75_ffffff_40x100.png") repeat-x scroll 50% 50% !important;
+}
