@@ -205,11 +205,11 @@ a.ancora-link:hover  {
 
 .titulo-caloria {
     float: left;
-    padding-left: 5px;
 }
 
 .titulo-caloria-valor {
-    float: right;
+    float: left;
+    padding-left: 5px;
 }
 
 .ajustando-tabela {
