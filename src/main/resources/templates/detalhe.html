@@ -79,12 +79,10 @@
                         <table class="table table-bordered">
                             <thead>
                             <li class="list-group-item ajustando-tabela">
-                            <h3>
-                            <b>Tabela Nutricional</b>
-                            </h3>
+                            <h3>Tabela Nutricional</h3>
                             Para porção de
                                 <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"></text>
-                            <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"></text>, igual a
+                            <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"></text> ou
                             <text  value="valorMedidaCaseira" id="valorMedidaCaseira"  th:text="${alimento.valorMedidaCaseira}"></text>
                             <text  value="unidadeMedidaCaseira" id="unidadeMedidaCaseira"  th:text="${alimento.unidadeMedidaCaseira}"></text>
                             </li>
@@ -183,13 +181,13 @@
             <div class="container">
                 <div id="titulo-medidas">
                     <div id="tituloMedidas">
-                        <h2 class="block"> Altere a porção e veja abaixo as medidas visuais</h2>
+                        <h2 class="block"> Altere a porção do alimento</h2>
                         <div id="porcaoAlimento">
                             <text class="tamanhoFonte">Para porção de</text>
                             <text class="tamanhoFonte" th:value="alimento.porcaoExibicao" id="porcaoAlimentoCima"  th:text="${alimento.porcaoExibicao}"></text>
                             <text class="tamanhoFonte" value="unidade" id="unidadeAlimentoCima"  th:text="${alimento.unidadeExibicao}"></text>
 
-                            <text class="tamanhoFonte">, igual a</text>
+                            <text class="tamanhoFonte"> ou </text>
                             <text  class="tamanhoFonte" value="valorMedidaCaseira" id="valorMedidaCaseiraSlider"  th:text="${alimento.valorMedidaCaseira}"> </text>
                             <text  class="tamanhoFonte" value="unidadeMedidaCaseira" id="unidadeMedidaCaseiraSlider"  th:text="${alimento.unidadeMedidaCaseira}"> </text>
 
