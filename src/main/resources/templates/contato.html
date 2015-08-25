@@ -45,7 +45,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro" id="erro-nome" >
-                        <label for="nome">Preencha com um nome valido, sem caracteres numéricos.</label>
+                        <label for="nome">Preencha com seu nome.</label>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro" id="erro-email" >
-                        <label for="email">Preencha com um e-mail valido no formato nome@dominio.com.</label>
+                        <label for="email">Preencha com seu e-mail.</label>
                     </div>
                 </div>
 
@@ -82,14 +82,11 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-4 alert alert-danger erro"  id="erro-mensagem" >
-                        <label for="mensagem">Preencha com uma mensagem valida.</label>
+                        <label for="mensagem">Preencha com uma mensagem.</label>
                     </div>
                 </div>
 
-
-
                 <center>
-
 
                     <div th:if="${sucesso} != null" th:text="${sucesso}" class="col-sm-offset-4 col-sm-4 alert alert-success" role="alert"></div>
                     <div th:if="${erroCaptcha} != null" th:text="${erroCaptcha}" class="col-sm-offset-4 col-sm-4 alert alert-danger">  </div>
@@ -100,7 +97,6 @@
                         <div class="col-sm-offset-4 col-sm-4 alert">
                             <button type="submit" class="btn botao">Enviar</button>
                         </div>
-
                     </div>
 
                 </center>
