@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="informacoes-tabela-porcaoecaloria">
-                                <p th:text="${alimento.calorias}"></p>
+                                <p th:text="${alimento.calorias != ''} ? ${alimento.calorias} : 'NA'"></p>
                             </div>
                             <div class="informacoes-tabela-excluir">
                                 <a th:href="@{'/excluiAlimento?codigo=' + ${alimento.codigo}}" class="botao-editar">
@@ -95,7 +95,7 @@
                     </ul>
                 </ul>
             <div class="div-botao-calculadora">
-                <a class="botao-calculadora botao" href="/grid">
+                <a class="botao-calculadora botao" href="/alimentos">
                     Selecione alimentos para calcular
                 </a>
             </div>
