@@ -319,3 +319,7 @@ hr {
 .stButton, .stMainServices, .st_facebook_hcount, stArrow, .st_fb_like_hcount, .stButton_gradient, .stHBubble {
 	height:23px !important;
 }
+
+.header-ajuste{
+	float:left !important;
+}
