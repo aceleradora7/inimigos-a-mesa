@@ -324,6 +324,10 @@ stroke-miterlimit:10;
     display: block;
 
 }
+#btn-add-home{
+    margin-top: 10px !important;
+}
+
 
 .foto-card img{
     width: 100%;
@@ -429,3 +433,4 @@ input[type="text"]:focus,
 .grad{
     background: linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 47%, rgba(0,0,0,0) 100%;
 }
+

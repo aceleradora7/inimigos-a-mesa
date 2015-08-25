@@ -103,38 +103,26 @@
             </div>
         </div>
     </section>
-    <section id="calculadora">
+    <section id="calculadora-slider">
         <div class="container">
+
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Por quê colheres?</h2>
-                    <h3 class="section-subheading text-muted">Alguma frase interessante e encorajadora que explique as colheres.
-                    </h3>
+                <div class="col-md-4">
+                    <h3 class="section-heading">Descubra o que você ingere diariamente</h3>
+                    <p class="text-muted">Calcule os nutrientes do seu consumo diário através da calculadora para visualizar a quantidade de colheres de açúcar, gordura e sal de todos os alimentos somadas.</p>
+
+                    <button id="btn-add-home" type="button" class="botao-preenchido">
+                        Calcule seu consumo
+                    </button>
+
                 </div>
+                <div class="col-md-8">
+                            <span>
+                                <img src="http://res.cloudinary.com/dq5mndrjt/image/upload/v1440519574/manga_sxzk0a.png"/>
+                            </span>
+                    </div>
             </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                            <span>
-                                <img class="colher-info-home" src="/img/colher-acucar.svg"/>
-                            </span>
-                    <h4 class="service-heading">Açúcar</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                            <span>
-                                <img class="colher-info-home" src="/img/colher-gordura.svg"/>
-                            </span>
-                    <h4 class="service-heading">Gordura</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                            <span>
-                                <img class="colher-info-home" src="/img/colher-sal.svg"/>
-                            </span>
-                    <h4 class="service-heading">Sal</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-            </div>
+
         </div>
     </section>
     <nav th:replace="fragmentos/rodape :: rodape"></nav>
