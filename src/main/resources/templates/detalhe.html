@@ -35,6 +35,7 @@
         <p id="gordura" th:value="${medidas.colheresDeGordura}"></p>
         <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
         <p id="sal" th:value="${medidas.colheresDeSal}"></p>
+
         <div id="mostraAlimento"></div>
         <div class="titulo-pagina-detalhe block" id="titulo-detalhe">
             <div id="tituloAlimento">
@@ -53,20 +54,20 @@
                     <center>
                         <img class="img-responsive" th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
                     </center>
-                    <a class="ancora-link ajuste-ancora" href="#medidas-visuais-ancora">
+                    <a class="ancora-link ajuste-ancora botao" href="#medidas-visuais-ancora">
                         Ver medidas visuais
                     </a>
                 </div>
 
                 <div class="col-lg-2 col-md-2 grupo-btn botoes-admin"  th:if="${#httpServletRequest.remoteUser != null}" >
                     <a th:href="@{'/editarAlimento?codigo=' + ${alimento.codigo}}" class="botao-editar">
-                        <button type="button" class="btn btn-warning">
+                        <button type="button" class="botao">
                             Editar
                         </button>
                     </a>
 
                     <a class="botao-deletar" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="botao-vermelho">
                             Deletar
                         </button>
                     </a>
@@ -196,7 +197,7 @@
                                 <input id="valorMaximo" type="hidden" th:value="${alimento.valorMaximoMedida}"/>
                                 <input id="slider" data-slider-id='detalhe-slider' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="1"/>
 
-                                <button id="adicionaAlimento" type="button" class="btn btn-warning botao-add-calculadora">
+                                <button id="adicionaAlimento" type="button" class="botao-add-calculadora botao-preenchido">
                                     Adicione à calculadora
                                 </button>
                             </div>

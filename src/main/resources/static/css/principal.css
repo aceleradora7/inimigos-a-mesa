@@ -323,3 +323,70 @@ hr {
 .header-ajuste{
 	float:left !important;
 }
+
+.botao {
+    color: #53b778;
+    border: solid 1px #53b778;
+    border-radius: 3px 3px 3px 3px;
+    padding: 5px;
+    background-color: Transparent;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+.botao:hover {
+    color: #fff;
+    background: #53b778;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+
+}
+
+.botao-preenchido {
+    color: #FFF;
+    border: solid 1px #53b778;
+    border-radius: 3px 3px 3px 3px;
+    padding: 5px;
+    background-color: #53b778;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+.botao-preenchido:hover {
+    color: #53b778;
+    background: Transparent;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+
+}
+
+.botao-vermelho {
+    color: #FD0E0E;
+    border: solid 1px #FD0E0E;
+    border-radius: 3px 3px 3px 3px;
+    padding: 5px;
+    background-color: Transparent;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+.botao-vermelho:hover {
+    color: #fff;
+    background: #FF6B6B;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+
+}
+

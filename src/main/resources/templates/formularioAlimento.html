@@ -46,7 +46,7 @@
                         <h4 class="alinhaBotaoUpload">Clique no botão para selecionar uma imagem</h4>
                         <div class="alinhaBotaoUpload">
                             <a href="#" id="upload_widget_opener">Upload</a>
-                            <a href="#" class="btn btn-danger" id="remover-imagem">Apagar Imagem</a>
+                            <a href="#" class="btn botao-vermelho" id="remover-imagem">Apagar Imagem</a>
                             <input type="hidden" name="urlImagemPequena" id="urlImagemPequena" th:field="*{urlImagemPequena}"/>
                             <input type="hidden" name="urlImagemGrande" id="urlImagemGrande" th:field="*{urlImagemGrande}"/>
                         </div>
@@ -363,8 +363,8 @@
                         </h6>
                     </li>
                 </ul>
-                <a class="btn btn-danger botao-cancelar" id="cancelar" th:href="@{/grid}">Cancelar</a>
-                <input class="btn btn-success botao-enviar" type="submit"  id="enviar" value="Enviar Dados"/>
+                <a class="btn botao-vermelho botao-cancelar" id="cancelar" th:href="@{/grid}">Cancelar</a>
+                <input class="btn botao botao-enviar" type="submit"  id="enviar" value="Enviar Dados"/>
                 <br/><br/><br/>
             </div>
         </form>

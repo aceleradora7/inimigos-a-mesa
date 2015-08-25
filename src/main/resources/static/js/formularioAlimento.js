@@ -14,7 +14,7 @@ $(document).ready(function(){
         cropping: 'server',
         sources: ['local'],
         client_allowed_formats: ['png','jpg','jpeg'],
-        button_class: 'btn btn-success botao-envia-imagem',
+        button_class: 'btn botao botao-envia-imagem',
         button_caption: 'Escolha uma Imagem',
         theme: 'white',
         cropping_aspect_ratio: 1.33,

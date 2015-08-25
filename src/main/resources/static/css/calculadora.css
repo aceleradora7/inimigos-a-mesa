@@ -49,9 +49,6 @@
     margin-left: 30px;
 }
 
-#mostraAlimento{
-    margin-top: 100px;
-}
 
 .titulo-medio-calculadora{
     text-align: center;
@@ -110,9 +107,6 @@
 .botao-calculadora{
     width: 98%;
     height: 40px;
-    background-color: #4CAE4C;
-    border-radius: 10px;
-    color: WHITE;
     text-align: center;
     padding-top: 5px;
     text-decoration: none;
@@ -122,11 +116,6 @@
     margin-top: 10px;
 }
 
-
-a.botao-calculadora:hover  {
-     color: white;
-     background-color: green;
-}
 
 a.botao-calculadora:active {
     color: white;
