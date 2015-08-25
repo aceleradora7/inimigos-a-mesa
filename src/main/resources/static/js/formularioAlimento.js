@@ -6,6 +6,12 @@ $(document).ready(function(){
         $("codigo").val(parametros["codigo"]);
     }
 
+    if($("#imagemAlimento").attr('src')==""){
+    $("#imagemAlimento").replaceWith( " <img src='http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_450/v1440010712/no-food_uizqyy.jpg' id='imagemAlimento' alt='Imagem do Alimento'/>" );
+    $("#urlImagemPequena").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_250/v1440010712/no-food_uizqyy.jpg');
+    $("#urlImagemGrande").val('http://res.cloudinary.com/dq5mndrjt/image/upload/c_fit,w_450/v1440010712/no-food_uizqyy.jpg');
+    }
+
     cloudinary.applyUploadWidget(document.getElementById('upload_widget_opener'),
     //$('#upload_widget_opener').cloudinary_upload_widget(
     {   cloud_name: 'dq5mndrjt',
