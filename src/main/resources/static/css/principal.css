@@ -40,8 +40,6 @@ a.active {
     transition: all 0.4s ease-in-out !important;
 }
 
-
-
 .wrapper-conteudo {
 	margin-top:70px !important;
 }
@@ -356,7 +354,7 @@ hr {
 
 }
 
-.botao-preenchido {
+.botao-preenchido  {
     color: #FFF;
     border: solid 1px #53b778;
     border-radius: 3px 3px 3px 3px;
@@ -368,14 +366,30 @@ hr {
     transition: all 0.4s ease-in-out !important;
 }
 
-.botao-preenchido:hover {
+.botao-preenchido a  {
+    color: #FFF;
+    padding: 5px;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+.botao-preenchido:hover{
     color: #53b778;
     background: Transparent;
     -moz-transition: all 0.4s ease-in-out !important;
     -o-transition: all 0.4s ease-in-out !important;
     -webkit-transition: all 0.4s ease-in-out !important;
     transition: all 0.4s ease-in-out !important;
+}
 
+.botao-preenchido a:hover{
+    color: #53b778;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    transition: all 0.4s ease-in-out !important;
 }
 
 .botao-vermelho {
@@ -399,7 +413,6 @@ hr {
     transition: all 0.4s ease-in-out !important;
 
 }
-
 
 .navbar-default {
     border-color: transparent;
@@ -493,7 +506,6 @@ hr {
     }
 }
 
-
 header {
     text-align: center;
     color: #fff;
@@ -542,4 +554,3 @@ header .intro-text .intro-lead-in {
 .obrigatoria{
 	color:red;
 }
-
