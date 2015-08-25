@@ -236,3 +236,12 @@ a.ancora-link:hover  {
 #slider-botao{
     margin-top: 6px;
 }
+
+.st0{
+fill:none;
+stroke: black !important;
+stroke-width:2;
+stroke-miterlimit:10;
+}
+
+

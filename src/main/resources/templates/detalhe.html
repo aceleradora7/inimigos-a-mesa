@@ -26,6 +26,8 @@
         <script type="text/javascript" src="/js/bootstrap-slider.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/slider.css"/>
         <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
+
+
     </head>
 
     <body>
@@ -33,7 +35,7 @@
         <p id="gordura" th:value="${medidas.colheresDeGordura}"></p>
         <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
         <p id="sal" th:value="${medidas.colheresDeSal}"></p>
-
+        <div id="mostraAlimento"></div>
         <div class="titulo-pagina-detalhe block" id="titulo-detalhe">
             <div id="tituloAlimento">
                 <h1 class="block" th:text="${alimento.nome}"></h1>
@@ -41,7 +43,7 @@
             </div>
         </div>
 
-        <div class="container ajustando-container" id="mostraAlimento">
+        <div class="container ajustando-container">
         <input type="hidden" id="codigo" th:value="${alimento.codigo}"/>
 
 
@@ -170,7 +172,9 @@
             <div class="seta-ancora">
                 <div class="alinhar-seta-direita">
                     <a href="#mostraAlimento">
-                        <img class="imagem-seta-ancora" src="/img/seta-cima.png"/>
+                    <svg version="1.1" id="Calque_1"  class="imagem-seta-ancora"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;transform: scale(1,-1);" xml:space="preserve">
+                            <polyline id="XMLID_2_" class="st0" points="39,24.5 25,38.5 11,24.5 "></polyline>
+                        </svg>
                     </a>
                 </div>
             </div>
