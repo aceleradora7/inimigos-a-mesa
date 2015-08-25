@@ -207,6 +207,11 @@ hr {
   display: inline-block;
 }
 
+
+.corpo-home{
+    background-color: white;
+}
+
 .ajuste-recuperar{
 	padding-top: 10%;
 }
