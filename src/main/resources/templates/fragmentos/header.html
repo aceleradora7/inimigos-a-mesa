@@ -53,8 +53,7 @@
                     </li>
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-
+                <ul id="menu-header" class="nav navbar-nav navbar-right">
                     <li class="itens-menu">
                         <a class="navbar-brand page-scroll" href="/grid">Alimentos</a>
                     </li>
@@ -89,7 +88,8 @@
 
     </nav>
 
-    <nav th:fragment="cabecalho(nomeUsuario)" class="navbar navbar-fixed-top navbar-inverse navbar-collapse" role="navigation">
+
+    <nav th:fragment="cabecalho(nomeUsuario)" class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-collapse navbar-shrink" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll header-ajuste">
                 <a class="navbar-brand navbar-header" href="/">Comer com saber</a>
@@ -104,6 +104,7 @@
             </div>
 
             <div class="navbar-collapse collapse" id="navbar-collapsible">
+
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="navbar-right page-scroll">
@@ -120,9 +121,9 @@
                             </div>
                         </a>
                     </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
 
+                </ul>
+                <ul id="menu-header" class="nav navbar-nav navbar-right">
                     <li class="itens-menu">
                         <a class="navbar-brand page-scroll" href="/grid">Alimentos</a>
                     </li>
@@ -135,7 +136,6 @@
                     <li class="itens-menu">
                         <a class="navbar-brand page-scroll" href="/contato">Contato</a>
                     </li>
-
                     <li th:if="${#httpServletRequest.remoteUser != null}" class="dropdown itens-menu">
                         <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false" th:text="${nomeUsuario}">Usuário<span class="caret"></span></a>
@@ -152,13 +152,10 @@
                 </ul>
                 </li>
                 </ul>
-
             </div>
-
         </div>
 
 
     </nav>
-
-
+    
 </html>
