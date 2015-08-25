@@ -91,7 +91,7 @@ public class ApresentacaoController {
 
             return "contato";
         }else{
-            model.addAttribute("erroCaptcha", "Por favor verifique se você não é um robô.");
+            model.addAttribute("erroCaptcha", "Utilize o mecanismo abaixo para confirmar o envio.");
         }
         return "contato";
     }

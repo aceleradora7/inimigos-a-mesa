@@ -2,6 +2,10 @@ body {
     overflow-x: hidden;
 }
 
+.texto-sessao {
+    font-size:16px;
+}
+
 .text-muted {
     color: #777;
 }
@@ -428,7 +432,6 @@ input[type="text"]:focus,
 .li {
     height: 0px !important;
 }
-
 
 .grad{
     background: linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 47%, rgba(0,0,0,0) 100%;
