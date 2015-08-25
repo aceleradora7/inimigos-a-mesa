@@ -80,7 +80,7 @@ public class AlimentoController {
             model.addAttribute("alimentos", alimentos);
 
         } else {
-            model.addAttribute("erro", busca + " não foi encontrado.");
+            model.addAttribute("erro", busca + " não foi encontrado :(");
         }
     }
 
