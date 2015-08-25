@@ -45,7 +45,8 @@
 }
 
 #tabela-info{
-    float: right;
+    float: left;
+    margin-left: 30px;
 }
 
 #mostraAlimento{
