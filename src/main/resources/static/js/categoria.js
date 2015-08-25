@@ -12,7 +12,7 @@ function onClickBotaoCategoria(){
     setParametro("categoria", categoria);
     removerParametro("busca");
     removerParametro("pagina");
-    acessarPaginaComParametros("grid");
+    acessarPaginaComParametros("alimentos");
 };
 
 function marcaBotaoCategoriaAtual(){

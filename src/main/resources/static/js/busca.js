@@ -79,14 +79,14 @@ function onClickBotaoBusca(){
 
     setParametro("busca", $("#input-busca").val());
     removerParametro("pagina");
-    acessarPaginaComParametros("grid");
+    acessarPaginaComParametros("alimentos");
 }
 
 function onClickBotaoBuscaHeaderFinal(){
 
     setParametro("busca", $("#busca-header").val());
     removerParametro("pagina");
-    acessarPaginaComParametros("grid");
+    acessarPaginaComParametros("alimentos");
 }
 
 function onClickBotaoBuscaHeaderInicial(){
@@ -99,7 +99,7 @@ function onClickBotaoBuscaLetra(){
 
     setParametro("busca", $(this).val());
     removerParametro("pagina");
-    acessarPaginaComParametros("grid");
+    acessarPaginaComParametros("alimentos");
 }
 
 function associarEventoBotaoBusca(){

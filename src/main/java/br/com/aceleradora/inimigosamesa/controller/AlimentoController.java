@@ -32,7 +32,7 @@ public class AlimentoController {
     @Autowired
     private UsuarioService servicoUsuario;
 
-    @RequestMapping(value = {"/grid"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/alimentos"}, method = RequestMethod.GET)
     public void listar(
             @RequestParam(value = "busca", required = false) String busca,
             @RequestParam(value = "categoria", required = false, defaultValue = "0") int categoria,
@@ -154,7 +154,7 @@ public class AlimentoController {
 
         }
 
-        return "redirect:/grid?alimentoDeletado";
+        return "redirect:/alimentos?alimentoDeletado";
     }
 
     @RequestMapping(value = "/gerenciarAlimento", method = RequestMethod.POST)
