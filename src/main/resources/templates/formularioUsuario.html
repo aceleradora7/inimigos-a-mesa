@@ -44,6 +44,7 @@
                 <div id="blocoNomeUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
                         <label for="nomeDoUsuario" class="control-label">Nome:</label>
+                        <label class="obrigatoria">*</label>
                         <input th:field="*{nome}" type="text" name="nome" class="form-control" id="nomeDoUsuario" placeholder="Nome usuário"/>
                     </div>
 
@@ -62,6 +63,7 @@
                 <div id="blocoEmailUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
                         <label for="emailDoUsuario" class="control-label">E-mail:</label>
+                        <label class="obrigatoria">*</label>
                         <input th:field="*{email}" type="text"  class="form-control" id="emailDoUsuario" placeholder="Email"/>
                     </div>
                     <div id="espacoErroEmail" class="div-erro">
@@ -83,6 +85,7 @@
                 <div id="blocoSenhaUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
                         <label for="senhaUsuario" class="control-label">Senha:</label>
+                        <label class="obrigatoria">*</label>
                         <input th:field="*{senha}" type="password" name="password" class="form-control" id="senhaUsuario" placeholder="Senha"/>
                     </div>
                     <div id="espacoErroSenha" class="div-erro">
@@ -100,6 +103,7 @@
                 <div id="blocoRepetirSenha" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
                         <label for="senhaUsuarioRepetir" class="control-label">Repita a Senha:</label>
+                        <label class="obrigatoria">*</label>
                         <input th:field="*{repetirSenha}" type="password" name="password" class="form-control" id="senhaUsuarioRepetir" placeholder="Senha"/>
                     </div>
                     <div id="espacoErroRepetirSenha" class="div-erro">
@@ -118,6 +122,7 @@
                 <div id="blocoNiveldeAcesso" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                     <div>
                         <label for="comboRoles" class="control-label">Nível de Acesso:</label>
+                        <label class="obrigatoria">*</label>
                         <select class="form-control" id="comboRoles" th:field="*{role}">
                             <option th:each="role : ${T(br.com.aceleradora.inimigosamesa.model.Role).values()}" th:value="${role}" th:text="${role.value}"></option>
                         </select>

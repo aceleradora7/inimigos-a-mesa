@@ -39,7 +39,7 @@
     <div class="row">
         <form onSubmit="return validarCadastro();" th:action="@{/gerenciarAlimento}" th:object="${alimento}" method="POST" id="js-upload-form">
             <input TYPE="hidden" NAME="codigo" id="codigo" th:field="*{codigo}"/>
-            <div class="col-xs-6 col-md-5 esquerda">
+            <div class="col-xs-6 col-md-6 esquerda">
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Imagem do Alimento</strong></div>
                     <div class="panel-body">
@@ -52,15 +52,17 @@
                         </div>
                         <br/>
                         <div class="col-xs-12 col-md-12">
-                            <img th:src="*{urlImagemGrande}" id='imagemAlimento' alt='Imagem do Alimento'/>
+                            <div class="col-md-8">
+                                <img th:src="*{urlImagemGrande}" id='imagemAlimento' alt='Imagem do Alimento'/>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div class="col-xs-6 col-md-6 direita">
                 <div class="form-group">
                     <label>Nome do alimento</label>
+                    <label class="obrigatoria">*</label>
                     <input id="nomeAlimento" type="text" th:field="*{nome}" placeholder="Ex.: Abacate" class="form-control" name="nomeAlimento" />
                 </div>
                 <div id="espacoErroNome" class="esconde">
@@ -76,6 +78,7 @@
                 <br/>
                 <div class="form-group">
                     <label >Selecione uma categoria</label>
+                    <label class="obrigatoria">*</label>
                     <select id="categoriaSelecionada" class="form-control" th:field="*{categoria}" >
                         <option value="0">Selecione uma categoria</option>
                         <option th:each="categoria: ${categorias}" th:text="${categoria.nome}" th:value="${categoria.codigo}">Selecione uma categoria</option>
@@ -102,6 +105,7 @@
                     <li class="list-group-item">
                         <div class="alinha-esquerda">
                             Valor base para cálculo:
+                            <label class="obrigatoria">*</label>
                         </div>
                         <div class="alinha-direita" >
                             <input id="porcaoBase" class="input-alimento form-control" placeholder="Ex.: 100" th:field="*{porcaoBaseCalculo}" type="text" name="porcao" value=""/>
@@ -120,6 +124,7 @@
                     <li class="list-group-item">
                         <div class="alinha-esquerda">
                             Valor de Exibição:
+                            <label class="obrigatoria">*</label>
                         </div>
                         <div class="alinha-direita" >
                             <input id="porcaoExibicao" class="form-control input-alimento" placeholder="Ex.: 100" th:field="*{porcaoExibicao}" type="text" name="porcao" value=""/>
@@ -138,6 +143,7 @@
                     <li class="list-group-item">
                         <div class="alinha-esquerda">
                             Unidade:
+                            <label class="obrigatoria">*</label>
                         </div>
                         <div class="alinha-direita" >
                             <label class="radio-inline" required="true">
@@ -162,7 +168,9 @@
                     </li>
                     <li class="list-group-item">
                         <div class="form-group">
-                            <div class="alinha-esquerda">Medida Caseira:</div>
+                            <div class="alinha-esquerda">Medida Caseira:
+                                <label class="obrigatoria">*</label>
+                            </div>
                             <input id="valorMedidaCaseira" type="text" th:field="*{valorMedidaCaseira}" placeholder="Ex.: 2" class="tamanho-campo-medida form-control" name="valorMedidaCaseira" />
                             <input id="unidadeMedidaCaseira" type="text" th:field="*{unidadeMedidaCaseira}" placeholder="Ex.: bolachas" class="tamanho-campo-medida form-control" name="unidadeMedidaCaseira" />
                             <div id="espacoErroValorMedidas" class="espacoErroMedidas div-erro-unidade">
@@ -332,7 +340,9 @@
                     </li>
                     <li class="list-group-item tamanho-campo-fonte">
                         <div class="form-group">
-                            <div class="alinha-esquerda">Fonte:</div>
+                            <div class="alinha-esquerda">Fonte:
+                                <label class="obrigatoria">*</label>
+                            </div>
                             <textarea id="fonte" type="text" th:field="*{fonte}" placeholder="Ex.: onal" class="form-control input-alimento alinha-direita tamanho-max" name="fonte" />
                         </div>
                         <div id="espacoErroFonte" class="div-erro esconde">
@@ -360,6 +370,9 @@
                             <B>NA</B> - Não avaliado
                             <br />
                             <b>TR</b> - Traço para medidas entre 0 à 0.5
+                        </h6>
+                        <h6 class="list-group-item">
+                            <label class="obrigatoria">*</label> Preenchimento obrigatório
                         </h6>
                     </li>
                 </ul>
