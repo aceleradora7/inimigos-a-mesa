@@ -1,6 +1,28 @@
 #detalhe-slider .slider-selection {
-    background: #006400 !important;
+        background: linear-gradient(to right, rgba(102,209,102,1) 0%, rgba(37,120,47,1) 50%, rgba(3,66,15,1) 100%);
+    	position: absolute;
+    	border: 0;
+    	top: 0;
+    	height: 100%;
+    	border-radius: 25px;
 }
 .slider-track {
     background-imagem: linear-gradient(to bottom, #F5F5F5 0%, #000 100%) !important;
+}
+
+#detalhe-slider{
+    width:300px !important;
+}
+
+
+.slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 29px;
+	height: 31px;
+	cursor: pointer;
+	background: url('http://res.cloudinary.com/dq5mndrjt/image/upload/v1440435427/11904094_1041643235860620_5452677698582467273_n_kzekte.jpg') no-repeat 50% 50%;
+	outline: none;
+	top: -7px;
+	margin-left: -12px;
 }
