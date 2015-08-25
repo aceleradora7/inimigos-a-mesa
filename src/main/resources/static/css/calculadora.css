@@ -2,10 +2,6 @@
     float: left;
 }
 
-.centralizar-texto{
-    text-align: center;
-}
-
 .informacoes-tabela-nome{
     float: left;
     width: 35%;
@@ -123,10 +119,6 @@ a.botao-calculadora:active {
 
 .espaco-rodape{
     padding-bottom: 100px;
-}
-
-.block {
-    display: inline-block;
 }
 
 .center{

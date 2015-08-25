@@ -165,10 +165,10 @@ a.calculadora-grid:hover  {
 
 .categoria-atual{
 	background-color: rgba(0,0,0,0.2);
-		-moz-transition: all 0.4s ease-in-out !important;
-		-o-transition: all 0.4s ease-in-out !important;
-		-webkit-transition: all 0.4s ease-in-out !important;
-		transition: all 0.4s ease-in-out !important;
+	-moz-transition: all 0.4s ease-in-out !important;
+	-o-transition: all 0.4s ease-in-out !important;
+	-webkit-transition: all 0.4s ease-in-out !important;
+	transition: all 0.4s ease-in-out !important;
 }
 #tamanho-max-card{
 	height:305px;

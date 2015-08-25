@@ -82,30 +82,12 @@ hr {
 	margin-bottom: 0px !important;
 }
 
-.escritaheader {
-	font-size: 30px;
-}
-
 .itens-menu {
 	padding-left: 15px !important;
 }
 
 .itens-menu-font {
 	color: #B8B8B8 !important;
-}
-
-.logoheader {
-	font-size: 28px;
-	margin-top: 4px !important;
-	float: left;
-	margin-right: 7px;
-	text-decoration : none !important;
-	color: #ffffff;
-}
-
-.logoheader::before{
-	font-size: 28px;
-	margin-left:0px;
 }
 
 .footer-bg{
@@ -140,17 +122,20 @@ hr {
 }
 
 #menu-header li > a:hover {
-		color: #449D44 !important;
-    }
+    color: #449D44 !important;
+}
 
 .alinhamento-footer {
 	text-align: left;
-    color: #FFFFFF !important;
-	vertical-align: top;
+   	vertical-align: top;
 	list-style-type:none;
 	display: inline-block;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.ajuste-alinhamento{
+    padding-left: 0;
 }
 
 .espacoAdm{
@@ -165,28 +150,6 @@ hr {
 	margin-bottom: 5px !important;
 }
 
-.categorias{
-	background-color: #449D44;
-	border-color: #398439;
-	width:100%;
-	margin-top:51px !important;
-}
-
-.centralizar{
-	width: 90%;
-	margin: 0 auto;
-}
-
-.categoria{
-	border-radius: 0px !important;
-	font-size:1.2em;
-}
-
-.categoria:focus{
-	border-radius: 0px !important;
-	background-color: #3A7D3A !important;
-}
-
 .btn-primary{
 	background-color: white;
 	color: black;
@@ -195,11 +158,6 @@ hr {
 .btn-primary:hover{
 	border-color:#3A7D3A;
 	background-color: #3A7D3A;
-}
-
-.categoria-atual{
-    background-color: #3A7D3A;
-    border-color: #3A7D3A;
 }
 
 .titulos-paginas {
@@ -260,9 +218,6 @@ hr {
 	text-align: center;
 }
 
-.row .escritaheader{
-	padding-bottom: 10px;
-}
 
 .icone-home{
 	padding-top: 60px;

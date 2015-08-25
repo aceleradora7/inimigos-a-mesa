@@ -437,3 +437,7 @@ input[type="text"]:focus,
     background: linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 47%, rgba(0,0,0,0) 100%;
 }
 
+.ajuste-alinhamento{
+    padding-left: -15px !important;
+}
+
