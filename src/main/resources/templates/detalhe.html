@@ -134,12 +134,12 @@
                                     </div>
                                 </td>
                                 <td class="ajuste-tamanho-td-calculadora">
-                                    <p class="titulo-pequeno-calculadora">Sal</p>
+                                    <p class="titulo-pequeno-calculadora">Sódio *</p>
                                     <hr/>
                                     <div class="center calculadora-medidas-visuais">
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block valor-colher-sal" th:value="${medidas.colheresDeSal}" th:text="${medidas.colheresDeSal}"></div>
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
-                                        <img class="colher-detalhe" src="/img/colher-sal.svg"/>
+                                        <img class="colher-detalhe" src="/img/colher-sal.svg" />
                                     </div>
                                     <div class="center tamanho-div-total">
                                         <div class="centraliza-texto-detalhe center">
@@ -157,6 +157,8 @@
                                 <B>NA</B> - Não avaliado
                                 <br />
                                 <b>TR</b> - Traço para medidas entre 0 à 0.5
+                                <br />
+                                <b>*</b> - As colheres informadas estão convertidas em Sal.
                             </h6>
                             <span class="fonte">Fonte:</span>
                             <text  value="fonte" id="fonte" class="fonte" th:text="${alimento.fonte}"></text>.
