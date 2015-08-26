@@ -24,50 +24,21 @@ public class ApresentacaoController {
 
     @RequestMapping("/")
     public String home(Model model){
-        try {
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
-            model.addAttribute("nomeUsuario", usarioAtual.getNome());
-        }catch (Exception e){
-        }
-        return "home"; }
+        model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());
+        return "home";
+    }
 
     @RequestMapping("/sobre")
     public String sobre(Model model){
-        try {
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
-            model.addAttribute("nomeUsuario", usarioAtual.getNome());
-        }catch (Exception e){
-        }
+        model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());
         return "sobre";
-    }
-
-    @RequestMapping("/sobre2")
-    public String sobre2(Model model){
-
-        try {
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
-            model.addAttribute("nomeUsuario", usarioAtual.getNome());
-        }catch (Exception e){
-        }
-        return "sobre2";
     }
 
     @RequestMapping(value = "/contato", method = RequestMethod.GET)
     public String contato(Model model){
-
         FormularioEmail formularioEmail = new FormularioEmail();
         model.addAttribute("formularioEmail", formularioEmail);
-        try {
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
-            model.addAttribute("nomeUsuario", usarioAtual.getNome());
-        }catch (Exception e){
-
-        }
-
+        model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());
         return "contato";
     }
 

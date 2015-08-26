@@ -14,9 +14,9 @@ public class MedidasVisuaisController {
 
     @RequestMapping(value = "/calculaColheres", method = RequestMethod.GET)
     public String calculaColheres(@RequestParam(value = "acucar", required = false) String acucar,
-                                      @RequestParam(value = "sodio", required = false) String sodio,
-                                      @RequestParam(value = "gordura", required = false) String gordura,
-                                      @RequestParam(value = "porcaoExibicao", required = false) String porcaoExibicao) {
+                                  @RequestParam(value = "sodio", required = false) String sodio,
+                                  @RequestParam(value = "gordura", required = false) String gordura,
+                                  @RequestParam(value = "porcaoExibicao", required = false) String porcaoExibicao) {
 
         Alimento alimento = new Alimento();
         MedidasVisuais medidasVisuais = new MedidasVisuais(alimento);

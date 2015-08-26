@@ -279,9 +279,9 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        <a class="botoes-margin" th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}">
-                            <button type="button" class="btn btn-primary">
+                        <button type="button" class="btn botao-vermelho" data-dismiss="modal">Cancelar</button>
+                        <a class="botao-deletar" th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}">
+                            <button type="button" class="btn botao">
                                 Confirmar
                             </button>
                         </a>

@@ -27,30 +27,14 @@ public class UsuarioController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, Usuario usuario) {
-
-
         model.addAttribute("usuario", usuario);
-
-        try {
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
-            model.addAttribute("nomeUsuario", usarioAtual.getNome());
-        }catch (Exception e){
-
-        }
-
+        model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());
         return "login";
     }
 
-
-    @RequestMapping(value = "/recuperarSenha")
-    public void recuperarSenha() {}
-
     @RequestMapping(value = "/emailRecuperar", method = RequestMethod.POST)
     public String emailRecuperarSenha(Model model, Usuario usuario) {
-
         Usuario usuarioBusca = servicoUsuario.buscaPorEmail(usuario.getEmail());
-
         if(usuarioBusca!=null) {
             Random random = new Random();
             String novaSenha = "";
@@ -67,46 +51,26 @@ public class UsuarioController {
         }else{
             model.addAttribute("erroEmailNaoExiste","true");
         }
-
         return "login";
     }
 
-    @RequestMapping(value = "/emailRecuperar", method = RequestMethod.GET)
-    public String emailRecuperar() { return "login"; }
-
     @RequestMapping(value = "/cadastrarUsuario", method = RequestMethod.GET)
-    public String cadastrarNovoAdministrador(Model model, Usuario usuario){
-
-        if(usuario==null){
-            usuario = new Usuario();
-        }
+    public String cadastrarNovoUsuario(Model model, Usuario usuario){
         model.addAttribute("usuario", usuario);
-        try {
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
-            model.addAttribute("nomeUsuario", usarioAtual.getNome());
-        }catch (Exception e){
-
-        }
-
+        model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());
         return "formularioUsuario";
     }
 
     @RequestMapping(value = "/editarUsuario", method = RequestMethod.GET)
     public String editarAlimento(Model model) {
-
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Usuario usuario = servicoUsuario.buscaPorEmail(user.getUsername());
-        model.addAttribute("nomeUsuario", usuario.getNome());
+        Usuario usuario = servicoUsuario.buscaPorEmail(servicoUsuario.getNomeUsuarioLogado());
         model.addAttribute("usuario", usuario);
-
+        model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());
         return "formularioUsuario";
     }
 
-
     @RequestMapping(value = "/gerenciarUsuario", method = RequestMethod.POST)
     public String gererenciarUsuario(Model model, Usuario usuario){
-
         String validacao = validacao(model, usuario);
         if(validacao.equals("Salvar")){
             usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
@@ -117,84 +81,61 @@ public class UsuarioController {
         }
     }
 
-
     @RequestMapping(value = "/formularioDeletarUsuario", method = RequestMethod.GET)
     public String buscarTodosUsuarios(Model model) {
-
         List<Usuario> usuarios = servicoUsuario.buscaTodos();
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         for (int i = 0; i < usuarios.size(); i++) {
-            if(usuarios.get(i).getEmail().equals(user.getUsername())){
+            if(usuarios.get(i).getEmail().equals(servicoUsuario.getNomeUsuarioLogado())){
                 usuarios.remove(usuarios.get(i));
             }
         }
-
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("usuario",new Usuario());
-        Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
-        model.addAttribute("nomeUsuario", usarioAtual.getNome());
-
+        model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());
         return "formularioDeletarUsuario";
     }
 
     @RequestMapping(value = "/deletarUsuario", method = RequestMethod.GET)
     public String deletarUsuario(Model model, @RequestParam(value = "codigo", required = false) String codigo){
-
         Usuario usuario = servicoUsuario.buscaPorCodigo(Integer.parseInt(codigo));
         servicoUsuario.deletar(usuario);
         model.addAttribute("espacoSucessoUsuarioDeletado","true");
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Usuario usarioAtual = servicoUsuario.buscaPorEmail(user.getUsername());
-        model.addAttribute("nomeUsuario", usarioAtual.getNome());
-
+        model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());;
         return buscarTodosUsuarios(model);
     }
 
 
     public String validacao(Model model, Usuario usuario){
-
         if(usuario.getNome().isEmpty() || !nomeUsuario(usuario.getNome())){
             model.addAttribute("erroNome", "true");
-
-            return cadastrarNovoAdministrador(model, usuario);
-        }else{
-            model.addAttribute("erroNome", null);
-            if (!emailPadrao(usuario.getEmail())) {
-                model.addAttribute("erroEmailPadrao", "true");
-
-                return cadastrarNovoAdministrador(model, usuario);
-            }else{
-                model.addAttribute("erroEmailPadrao", null);
-                Usuario usuarioPesquisado = null;
-
-                if(usuario.getCodigo()==0){
-                    usuarioPesquisado = servicoUsuario.buscaPorEmail(usuario.getEmail());
-                }
-                if(usuarioPesquisado!=null){
-                    model.addAttribute("erroEmailExiste", "true");
-
-                    return cadastrarNovoAdministrador(model, usuario);
-                }else{
-                    model.addAttribute("erroEmailExiste", null);
-                    if (usuario.getSenha().length() < 4) {
-                        model.addAttribute("erroSenhaTamanho", "true");
-
-                        return cadastrarNovoAdministrador(model, usuario);
-                    } else{
-                        model.addAttribute("erroSenhaTamanho", null);
-                        if (!usuario.getSenha().equals(usuario.getRepetirSenha())) {
-                            model.addAttribute("erroSenhaDiferente", "true");
-
-                            return cadastrarNovoAdministrador(model, usuario);
-                        }else{
-                            model.addAttribute("erroSenhaDiferente", null);
-                        }
-                    }
-                }
-            }
+            return cadastrarNovoUsuario(model, usuario);
         }
-
+        model.addAttribute("erroNome", null);
+        if (!emailPadrao(usuario.getEmail())) {
+            model.addAttribute("erroEmailPadrao", "true");
+            return cadastrarNovoUsuario(model, usuario);
+        }
+        model.addAttribute("erroEmailPadrao", null);
+        Usuario usuarioPesquisado = null;
+        if(usuario.getCodigo()==0){
+            usuarioPesquisado = servicoUsuario.buscaPorEmail(usuario.getEmail());
+        }
+        if(usuarioPesquisado!=null){
+            model.addAttribute("erroEmailExiste", "true");
+            return cadastrarNovoUsuario(model, usuario);
+        }
+        model.addAttribute("erroEmailExiste", null);
+        if (usuario.getSenha().length() < 4) {
+            model.addAttribute("erroSenhaTamanho", "true");
+            return cadastrarNovoUsuario(model, usuario);
+        }
+        model.addAttribute("erroSenhaTamanho", null);
+        if (!usuario.getSenha().equals(usuario.getRepetirSenha())) {
+            model.addAttribute("erroSenhaDiferente", "true");
+            return cadastrarNovoUsuario(model, usuario);
+        }else{
+            model.addAttribute("erroSenhaDiferente", null);
+        }
         return "Salvar";
     }
 

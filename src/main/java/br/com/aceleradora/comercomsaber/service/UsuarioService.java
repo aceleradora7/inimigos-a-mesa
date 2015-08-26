@@ -3,6 +3,8 @@ package br.com.aceleradora.comercomsaber.service;
 import br.com.aceleradora.comercomsaber.dao.UsuarioRepository;
 import br.com.aceleradora.comercomsaber.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,4 +32,14 @@ public class UsuarioService {
     }
 
     public void deletar(Usuario usuario) { repositorioUsuario.delete(usuario);}
+
+    public String getNomeUsuarioLogado() {
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Usuario usarioAtual = buscaPorEmail(user.getUsername());
+            return usarioAtual.getNome();
+        } catch (Exception e) {
+            return "";
+        }
+    }
 }
