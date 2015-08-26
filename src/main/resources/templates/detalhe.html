@@ -59,14 +59,14 @@
                     </a>
                 </div>
 
-                <div class="col-lg-2 col-md-2 grupo-btn botoes-admin"  th:if="${#httpServletRequest.remoteUser != null}" >
-                    <a th:href="@{'/editarAlimento?codigo=' + ${alimento.codigo}}" class="botao-editar">
+                <div class="col-lg-2 col-md-2 float-right botoes-admin"  th:if="${#httpServletRequest.remoteUser != null}" >
+                    <a th:href="@{'/editarAlimento?codigo=' + ${alimento.codigo}}" class="botoes-margin">
                         <button type="button" class="botao">
                             Editar
                         </button>
                     </a>
 
-                    <a class="botao-deletar" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
+                    <a class="botoes-margin" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
                         <button type="button" class="botao-vermelho">
                             Deletar
                         </button>
@@ -79,12 +79,12 @@
                         <table class="table table-bordered">
                             <thead>
                             <li class="list-group-item ajustando-tabela">
-                            <h3>Tabela Nutricional</h3>
-                            Para porção de
-                                <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"></text>
-                            <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"></text> ou
-                            <text  value="valorMedidaCaseira" id="valorMedidaCaseira"  th:text="${alimento.valorMedidaCaseira}"></text>
-                            <text  value="unidadeMedidaCaseira" id="unidadeMedidaCaseira"  th:text="${alimento.unidadeMedidaCaseira}"></text>
+                                <h3>Tabela Nutricional</h3>
+                                Para porção de
+                                    <text  value="porcaoAlimento" id="porcaoAlimento"  th:text="${alimento.porcaoExibicao}"></text>
+                                <text  value="unidade" id="unidade"  th:text="${alimento.unidadeExibicao}"></text> ou
+                                <text  value="valorMedidaCaseira" id="valorMedidaCaseira"  th:text="${alimento.valorMedidaCaseira}"></text>
+                                <text  value="unidadeMedidaCaseira" id="unidadeMedidaCaseira"  th:text="${alimento.unidadeMedidaCaseira}"></text>
                             </li>
                             </thead>
 
@@ -107,7 +107,7 @@
                                     <div class="center calculadora-medidas-visuais">
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block valor-colher-acucar" th:value="${medidas.colheresDeAcucar}" th:text="${medidas.colheresDeAcucar}"></div>
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
-                                        <img class="colher-detalhe" src="/img/colher-acucar.svg"/>
+                                        <img class="colher-tabelas" src="/img/colher-acucar.svg"/>
                                     </div>
                                     <div class="center tamanho-div-total">
                                         <div class="centraliza-texto-detalhe center">
@@ -123,7 +123,7 @@
                                     <div class="center calculadora-medidas-visuais">
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block valor-colher-gordura" th:value="${medidas.colheresDeGordura}" th:text="${medidas.colheresDeGordura}"></div>
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
-                                        <img class="colher-detalhe" src="/img/colher-gordura.svg"/>
+                                        <img class="colher-tabelas" src="/img/colher-gordura.svg"/>
                                     </div>
 
                                     <div class="center tamanho-div-total">
@@ -139,7 +139,7 @@
                                     <div class="center calculadora-medidas-visuais">
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block valor-colher-sal" th:value="${medidas.colheresDeSal}" th:text="${medidas.colheresDeSal}"></div>
                                         <div class="titulo-medio-calculadora colher-calculadora-texto block ajuste-medidas-visuais-calculadora">x</div>
-                                        <img class="colher-detalhe" src="/img/colher-sal.svg" />
+                                        <img class="colher-tabelas" src="/img/colher-sal.svg"/>
                                     </div>
                                     <div class="center tamanho-div-total">
                                         <div class="centraliza-texto-detalhe center">
@@ -280,7 +280,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        <a class="botao-deletar" th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}">
+                        <a class="botoes-margin" th:href="@{'/deletarAlimento/?codigo=' + ${alimento.codigo}}">
                             <button type="button" class="btn btn-primary">
                                 Confirmar
                             </button>
