@@ -8,9 +8,9 @@ import java.util.Properties;
 public class Email {
 
     private static final String HOST = "smtp.gmail.com";
-    private static final String EMAIL_DESTINATARIO = "inimigosamesa@gmail.com";
+    private static final String EMAIL_DESTINATARIO = "portalcomercomsaber@gmail.com";
     private static final String PORTA_HOST = "465";
-    private static final String SENHA = "inimigos123";
+    private static final String SENHA = "portalccs123";
 
     private Session sessao;
 
@@ -38,7 +38,7 @@ public class Email {
         try {
             Message mensagemMime = new MimeMessage(sessao);
             mensagemMime.setFrom(new InternetAddress(EMAIL_DESTINATARIO));
-            mensagemMime.setSubject("[Contato Inimigos à mesa] - " + formularioEmail.getAssunto());
+            mensagemMime.setSubject("[Contato Comer com saber] - " + formularioEmail.getAssunto());
 
             Address[] destinatario = InternetAddress.parse(EMAIL_DESTINATARIO);
 
