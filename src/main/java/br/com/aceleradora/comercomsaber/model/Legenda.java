@@ -33,10 +33,10 @@ public class Legenda {
     }
 
     private String traduzirLegenda(String valor, String unidade) {
+
         if (valor == null  || valor.isEmpty()) {
             return NAO_AVALIADO;
         }
-        double valorNumerico = Double.parseDouble(valor);
-        return valorNumerico > 0 && valorNumerico <= 0.5 ? TRACO : valorNumerico + " " + unidade;
+        return Double.parseDouble(valor) > 0 && Double.parseDouble(valor) <= 0.5 ? TRACO : valor + " " + unidade;
     }
 }
