@@ -12,24 +12,23 @@
     <link th:replace="fragmentos/header :: favicon-ico"/>
     <link th:replace="fragmentos/header :: busca-icon" />
     <link th:replace="fragmentos/header :: busca-css"/>
+
     <script th:replace="fragmentos/header :: jquery"/>
     <script th:replace="fragmentos/header :: jqueryui"/>
     <script th:replace="fragmentos/header :: bootstrap-js"/>
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
-    <script type="text/javascript" src="/js/home3.js"/>
-    <link rel="stylesheet" type="text/css" href="css/error.css"/>
+    <script type="text/javascript" src="/js/home.js"/>
 
+    <link rel="stylesheet" type="text/css" href="css/error.css"/>
 </head>
 
 <body>
     <nav th:replace="fragmentos/header :: cabecalho(${nomeUsuario})"></nav>
 
     <div class="container wrapper-conteudo tamanho-minimo-pagina-erro">
-
         <h1>Desculpe, essa página não está disponível  :(</h1>
         <h5>O link que você seguiu pode estar quebrado ou a página pode ter sido removida. Nossa equipe já está trabalhando para resolver esse problema.</h5>
-
     </div>
     <nav th:replace="fragmentos/rodape :: rodape"></nav>
     <script src="/js/cbpAnimatedHeader.js"></script>

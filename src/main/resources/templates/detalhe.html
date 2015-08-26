@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
     <head>
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
 
         <title>Detalhe do Alimento</title>
@@ -18,7 +17,7 @@
         <script th:replace="fragmentos/header :: bootstrap-js"/>
         <script th:replace="fragmentos/header :: query-string-js"/>
         <script th:replace="fragmentos/header :: busca"/>
-        <script type="text/javascript" src="/js/home3.js"/>
+        <script type="text/javascript" src="/js/home.js"/>
 
         <link type="text/css" href="/css/detalhe.css" rel="stylesheet"/>
         <script type="text/javascript" src="/js/detalhe.js"></script>
@@ -26,8 +25,6 @@
         <script type="text/javascript" src="/js/bootstrap-slider.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/slider.css"/>
         <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
-
-
     </head>
 
     <body>
@@ -46,7 +43,6 @@
 
         <div class="container ajustando-container">
         <input type="hidden" id="codigo" th:value="${alimento.codigo}"/>
-
 
             <div class="row col-lg-12" id="imagem-tabela">
 

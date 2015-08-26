@@ -17,7 +17,7 @@
     <script th:replace="fragmentos/header :: bootstrap-js"/>
     <script th:replace="fragmentos/header :: query-string-js"/>
     <script th:replace="fragmentos/header :: busca"/>
-    <script type="text/javascript" src="/js/home3.js"/>
+    <script type="text/javascript" src="/js/home.js"/>
 
     <link type="text/css" href="/css/calculadora.css" rel="stylesheet"/>
     <link type="text/css" href="/css/detalhe.css" rel="stylesheet"/>
@@ -34,7 +34,7 @@
 
     <div class="container espaco-rodape">
         <div>
-            <div class="row col-lg-6" id="lista-alimentos">
+            <div class="row col-lg-6 col-md-6 col-sm-12 col-xs-12" id="lista-alimentos">
                 <ul class="list-group-item">
                     <ul class="ajustando-tabela-2-calculadora espacamento">
 
@@ -92,14 +92,13 @@
                         </li>
                     </ul>
                 </ul>
-            <div class="div-botao-calculadora">
+            <div>
                 <a class="botao-calculadora botao" href="/alimentos">
                     Selecione alimentos para calcular
                 </a>
             </div>
         </div>
-
-            <div id="tabela-info" class="col-lg-6" th:object="${calculadora}">
+            <div id="tabela-info" class="col-lg-6 col-md-6 col-sm-12 col-xs-12" th:object="${calculadora}">
                 <ul class="list-group-item img-responsive">
                     <table class="table table-bordered">
                         <thead>

@@ -41,10 +41,8 @@
 }
 
 #tabela-info{
-    float: left;
-    margin-left: 30px;
+    float: right;
 }
-
 
 .titulo-medio-calculadora{
     text-align: center;
@@ -84,11 +82,6 @@
     font-size: 30px;
 }
 
-.div-botao-calculadora{
-    width: 100%;
-
-}
-
 .botao-calculadora{
     width: 98%;
     height: 40px;
@@ -97,10 +90,8 @@
     text-decoration: none;
     font-size: 20px;
     float: left;
-    margin-left: 1%;
-    margin-top: 10px;
+    margin: 10px 1%;
 }
-
 
 a.botao-calculadora:active {
     color: white;

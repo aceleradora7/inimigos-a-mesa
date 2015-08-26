@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
 	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 	<head>
-
 		<title>Alimentos</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -20,8 +19,7 @@
 		<script th:replace="fragmentos/header :: bootstrap-js"/>
 		<script th:replace="fragmentos/header :: query-string-js"/>
 		<script th:replace="fragmentos/header :: busca"/>
-		<script type="text/javascript" src="/js/home3.js"/>
-
+		<script type="text/javascript" src="/js/home.js"/>
 
 		<link rel="stylesheet" type="text/css" href="css/paginacao.css"/>
 		<link rel="stylesheet" type="text/css" href="css/grid.css"/>
@@ -29,9 +27,6 @@
 		<script src="js/paginacao.js"> </script>
 		<script src="js/categoria.js"> </script>
 		<script src="js/deletarAlimento.js"> </script>
-
-
-
 	</head>
 	<body>
 
@@ -203,22 +198,22 @@
 			<h2 th:text="${erro}" class="msg-erro"></h2>
 		</center>
 		<div class="container">
-				<div class="row">
-					<div th:each="alimento : ${alimentos}"  class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-						<a th:href="@{'/detalhe/' + ${alimento.codigo}}" class="list-group-item item-grid">
-							<div id="tamanho-max-card">
-								<div class="imagem-grid">
-									<img th:src="${alimento.urlImagemPequena}"/>
-								</div>
-								<div class="media-body texto-card">
-									<h4 class="media-heading teste-ellipsis" th:text="${alimento.nome}" id="alimento"></h4>
-									<p id="categoria" th:text="${alimento.categoria.nome}"></p>
-								</div>
-
+			<div class="row">
+				<div th:each="alimento : ${alimentos}"  class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+					<a th:href="@{'/detalhe/' + ${alimento.codigo}}" class="list-group-item item-grid">
+						<div id="tamanho-max-card">
+							<div class="imagem-grid">
+								<img th:src="${alimento.urlImagemPequena}"/>
 							</div>
-						</a>
-					</div>
+							<div class="media-body texto-card">
+								<h4 class="media-heading teste-ellipsis" th:text="${alimento.nome}" id="alimento"></h4>
+								<p id="categoria" th:text="${alimento.categoria.nome}"></p>
+							</div>
+
+						</div>
+					</a>
 				</div>
+			</div>
 		</div>
 		<center>
 			<nav th:if="${erro == null}" th:include="fragmentos/paginacao :: paginacao"></nav>
@@ -242,7 +237,6 @@
 			</div>
 		</div>
 	</div>
-
 
 	<nav th:replace="fragmentos/rodape :: rodape"></nav>
 	<script src="/js/cbpAnimatedHeader.js"></script>

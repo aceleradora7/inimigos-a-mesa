@@ -21,10 +21,10 @@
     <script th:replace="fragmentos/header :: busca"/>
 
 
-    <link href="css/home3.css" rel="stylesheet" type="text/css"/>
+    <link href="css/home.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="/js/classie.js"/>
     <script type="text/javascript" src="/js/modernizr.custom.js"/>
-    <script type="text/javascript" src="/js/home3.js"/>
+    <script type="text/javascript" src="/js/home.js"/>
     <script type="text/javascript" src="../js/sliderImagem.js"/>
     <script type="text/javascript" src="../js/sliderHeader.js"/>
     <link href="css/sliderImage.css" rel="stylesheet" type="text/css"/>
@@ -35,38 +35,35 @@
 <nav th:replace="fragmentos/header :: cabecalho-home(${nomeUsuario})"></nav>
 
 <header class="header">
-            <div id="background_cycler" class="grad">
-                <img id="1" class="active" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160059/15800084796_ca92a05193_h_x04cfa.jpg" />
-                <img id="2" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160150/15823720245_5d61fda886_k_qr5cct.jpg" />
-                <img id="3" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440159957/header-bg_bpmneo.jpg" />
-                <img id="4" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160139/15821855591_8ba36cff8a_k_tp9jln.jpg" />
-            </div>
+    <div id="background_cycler" class="grad">
+        <img id="1" class="active" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160059/15800084796_ca92a05193_h_x04cfa.jpg" />
+        <img id="2" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160150/15823720245_5d61fda886_k_qr5cct.jpg" />
+        <img id="3" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440159957/header-bg_bpmneo.jpg" />
+        <img id="4" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160139/15821855591_8ba36cff8a_k_tp9jln.jpg" />
+    </div>
 
-            <div class="intro-text">
+    <div class="intro-text">
 
-                <div class="intro-heading">
-                    <h1> Você sabe a quantidade de nutrientes dos alimentos?</h1>
-                </div>
-
-                <div class="intro-lead-in">
-                    Veja a quantidade de açúcar, sódio (sal) e gordura dos alimentos de uma forma ilustrativa.
-                </div>
-
-                <div class="buscar-home">
-                    <input type="text" class="form-control caixa-busca" placeholder="Digite o nome de um alimento" id="input-busca" maxlength="256"/>
-                    <button type="submit" class="botao-buscar btn" id="btn-busca">
-                        <span>BUSCAR</span>
-                    </button>
-                    <a class="scrollto" href="#ancora-corpo">
-                        <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-                            <polyline id="XMLID_2_" class="st0" points="39,24.5 25,38.5 11,24.5 "></polyline>
-                        </svg>
-                        <div id="ancora-corpo">
-                        </div>
-                    </a>
-                </div>
-
+        <div class="intro-heading">
+            <h1> Você sabe a quantidade de nutrientes dos alimentos?</h1>
         </div>
+        <div class="intro-lead-in">
+            Veja a quantidade de açúcar, sódio (sal) e gordura dos alimentos de uma forma ilustrativa.
+        </div>
+        <div class="buscar-home">
+            <input type="text" class="form-control caixa-busca" placeholder="Digite o nome de um alimento" id="input-busca" maxlength="256"/>
+            <button type="submit" class="botao-buscar btn" id="btn-busca">
+                <span>BUSCAR</span>
+            </button>
+            <a class="scrollto" href="#ancora-corpo">
+                <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <polyline id="XMLID_2_" class="st0" points="39,24.5 25,38.5 11,24.5 "></polyline>
+                </svg>
+                <div id="ancora-corpo">
+                </div>
+            </a>
+        </div>
+    </div>
 </header>
 <div class="corpo-home">
     <section id="services" class="colheres">
@@ -110,10 +107,7 @@
                 <div class="col-md-4">
                     <h3 class="section-heading">Descubra o que você ingere diariamente</h3>
                     <p class="text-muted">Calcule os nutrientes do seu consumo diário através da calculadora para visualizar a quantidade de colheres de açúcar, gordura e sal de todos os alimentos somadas.</p>
-
                     <a th:href="@{'/calculadora'}" id="btn-add-home" class="botao-preenchido">Calcule seu consumo</a>
-
-
                 </div>
                 <div class="col-md-8">
                     <span>
@@ -121,7 +115,6 @@
                     </span>
                 </div>
             </div>
-
         </div>
     </section>
     <nav th:replace="fragmentos/rodape :: rodape"></nav>
