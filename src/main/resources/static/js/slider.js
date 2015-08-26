@@ -46,13 +46,11 @@ function calculaColheres(valor){
             renderizarColher("gordura");
             renderizarColher("sal");
             renderizarColher("acucar");
-
         }
     });
 }
 
 function valorTabela(){
-
     valorCaloria = $("#valor-caloria").attr('value');
     valorAcucar = $("#valor-acucar").attr('value');
     valorGordura = $("#valor-gordura").attr('value');
@@ -61,7 +59,6 @@ function valorTabela(){
 }
 
 function calculaMedidas(valor){
-
     calculaValorUnidade(valor);
     valor = calculaPorcao(valor);
     calculaValoresTabela(valor, valorCaloria, "kcal", "valor-caloria");
@@ -71,7 +68,6 @@ function calculaMedidas(valor){
 }
 
 function calculaValorUnidade(valor){
-
     valorUnidadeCalculado = valorUnidade * valor;
     $("#valorMedidaCaseira").text(valorUnidadeCalculado);
     $("#valorMedidaCaseira").attr('value', valorUnidadeCalculado);
@@ -80,25 +76,24 @@ function calculaValorUnidade(valor){
 
 }
 function calculaPorcao(valor){
-
     valor = valor*porcaoAlimento;
     $("#porcaoAlimento").text(valor);
     $("#porcaoAlimento").attr('value', valor);
     $("#porcaoAlimentoCima").text(valor);
     $("#porcaoAlimentoCima").attr('value', valor);
-
     return valor;
 }
 
 function calculaValoresTabela(porcao, valor, unidade, id){
-
-    if(valor!=null){
+    if(valor!=""){
         var resultado = ((porcao*valor)/porcaoAlimento).toFixed(2);
+    }else{
+        var resultado = 'NA'
     }
     if(resultado<=0.5 && resultado>0){
         $("#"+id).text("TR");
         $("#"+id).attr('value', resultado);
-    }else if(resultado==0){
+    }else if(resultado=='NA'){
         $("#"+id).text("NA");
     }else{
          $("#"+id).text(resultado+' '+unidade);
