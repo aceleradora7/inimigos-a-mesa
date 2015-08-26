@@ -124,7 +124,7 @@
                         <label for="comboRoles" class="control-label">Nível de Acesso:</label>
                         <label class="obrigatoria">*</label>
                         <select class="form-control" id="comboRoles" th:field="*{role}">
-                            <option th:each="role : ${T(br.com.aceleradora.inimigosamesa.model.Role).values()}" th:value="${role}" th:text="${role.value}"></option>
+                            <option th:each="role : ${T(br.com.aceleradora.comercomsaber.model.Role).values()}" th:value="${role}" th:text="${role.value}"></option>
                         </select>
                     </div>
                 </div>
