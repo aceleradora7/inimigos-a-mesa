@@ -58,21 +58,6 @@
     font-weight: bold;
 }
 
-.colher-calculadora{
-    margin-right: 5px;
-    float: right;
-    height: 60px;
-    width: 40px;
-}
-
-.colher-detalhe{
-    margin-right: 5px;
-    float: right;
-    height: 70px;
-    width: 40px;
-    padding-top: 20px;
-}
-
 .calculadora-medidas-visuais{
     width: 80%;
     height: 60px;
@@ -81,6 +66,10 @@
 .colher-calculadora-texto{
     padding-top: 10px;
     padding-left: 5px;
+
+}
+.valor-colher-acucar, .valor-colher-gordura, .valor-colher-sal{
+       margin-top: 20px;
 }
 
 .ajustando-tabela-2-calculadora{

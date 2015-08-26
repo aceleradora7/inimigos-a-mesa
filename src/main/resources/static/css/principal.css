@@ -173,6 +173,13 @@ hr {
   display: inline-block;
 }
 
+.colher-tabelas{
+    margin-right: 5px;
+    float: right;
+    height: 70px;
+    width: 40px;
+    padding-top: 20px;
+}
 
 .corpo-home{
     background-color: white;
@@ -188,19 +195,11 @@ hr {
 	font-size: 14px;
 }
 
-.botao-editar{
+.botoes-margin{
     margin-top: 22px;
 }
 
-.botao-deletar{
-    margin-top: 22px;
-}
-
-.botao-salvar{
-    margin-top: 22dpx;
-}
-
-.grupo-btn{
+.float-right{
     float: right !important;
 }
 

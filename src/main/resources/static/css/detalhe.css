@@ -143,7 +143,7 @@ margin:0;
 }
 
 .ajuste-ancora {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 
@@ -200,12 +200,12 @@ margin:0;
     padding-left: 5px;
 }
 
-.ajustando-tabela {
-    text-align: center;
-}
-
 .titulo-caloria-div {
     width: 37%;
+}
+
+.ajustando-tabela {
+    text-align: center;
 }
 
 .centraliza-texto-detalhe {
