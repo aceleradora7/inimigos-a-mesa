@@ -28,13 +28,18 @@
     </head>
 
     <body>
+
         <nav th:replace="fragmentos/header :: cabecalho(${nomeUsuario})"></nav>
+
         <p id="gordura" th:value="${medidas.colheresDeGordura}"></p>
         <p id="acucar" th:value="${medidas.colheresDeAcucar}"></p>
         <p id="sal" th:value="${medidas.colheresDeSal}"></p>
 
+
+
         <div id="mostraAlimento"></div>
-        <div class="titulo-pagina-detalhe block" id="titulo-detalhe">
+
+        <div class="titulos-paginas block" id="titulo-detalhe">
             <div id="tituloAlimento">
                 <h1 class="block" th:text="${alimento.nome}"></h1>
                 <h3 class="tirando-margin" th:text="${alimento.categoria.nome}"></h3>
@@ -42,26 +47,26 @@
         </div>
 
         <div class="container ajustando-container">
+
         <input type="hidden" id="codigo" th:value="${alimento.codigo}"/>
 
-            <div class="row col-lg-12" id="imagem-tabela">
 
-                <div id="imagem-detalhe" class="row col-lg-6 img-responsive  center-block">
+            <div id="imagem-tabela">
+
+                <div class="row col-lg-6 col-md-6 col-sm-12 col-xs-12 img-responsive center-block">
                     <center>
-                        <img class="img-responsive" th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
-                    </center>
-                    <a class="ancora-link ajuste-ancora botao" href="#medidas-visuais-ancora">
+                    <img class="img-responsive" th:src="${alimento.urlImagemGrande}" alt="Imagem do Alimento" id="imagemProduto"/>
+                    <a class="ancora-link ajuste-ancora botao col-lg-10 col-md-12 col-sm-6 col-xs-12 margin-btn-ver-medidas" href="#medidas-visuais-ancora">
                         Ver medidas em colheres
                     </a>
+                    </center>
                 </div>
-
                 <div class="col-lg-2 col-md-2 float-right botoes-admin"  th:if="${#httpServletRequest.remoteUser != null}" >
                     <a th:href="@{'/editarAlimento?codigo=' + ${alimento.codigo}}" class="botoes-margin">
                         <button type="button" class="botao">
                             Editar
                         </button>
                     </a>
-
                     <a class="botoes-margin" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
                         <button type="button" class="botao-vermelho">
                             Deletar
@@ -69,9 +74,8 @@
                     </a>
                 </div>
 
-                <div id="tabela-detalhe" class="row col-lg-6 img-responsive center-block">
-                    <ul class="list-group-item img-responsive">
-
+                <div id="tabela-detalhe" class="row col-lg-6 col-md-6 col-sm-12 col-xs-12 img-responsive">
+                    <ul class="list-group-item img-responsive ">
                         <table class="table table-bordered">
                             <thead>
                             <li class="list-group-item ajustando-tabela">
