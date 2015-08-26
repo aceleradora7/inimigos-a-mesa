@@ -60,21 +60,4 @@ public class AlimentoTest {
         assertEquals(valorEsperado, valorRetornado);
     }
 
-    @Test
-    public void quandoOValorRecebidoForNullEntaoRetornaFalse() throws Exception {
-        Alimento alimentoValida = new Alimento();
-        assertTrue(!alimentoValida.validaValor(null));
-    }
-
-    @Test
-    public void quandoOValorRecebidoForVazioEntaoRetornaFalse() throws Exception {
-        Alimento alimentoValida = new Alimento();
-        assertTrue(!alimentoValida.validaValor(""));
-    }
-
-    @Test
-    public void quandoOValorRecebidoContemLetrantaoRetornaTrue() throws Exception {
-        Alimento alimentoValida = new Alimento();
-        assertTrue(alimentoValida.validaValor("nd"));
-    }
 }

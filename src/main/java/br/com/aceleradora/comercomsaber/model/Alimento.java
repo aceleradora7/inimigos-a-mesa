@@ -203,16 +203,18 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         return this.getNome().compareTo(o.getNome());
     }
 
-    private String calculaExibicao(String valor) {
+    public String calculaExibicao(String valor) {
 
         if (valor == null || valor.equals("") || Double.parseDouble(porcaoExibicao) == Double.parseDouble(porcaoBaseCalculo)) {
             return valor;
         }else{
             double calculoExibicao = 0.0;
             if (Double.parseDouble(porcaoExibicao) < Double.parseDouble(porcaoBaseCalculo)) {
-                calculoExibicao = Double.parseDouble(valor) / (Double.parseDouble(porcaoBaseCalculo) / Double.parseDouble(porcaoExibicao));
+                double numerador = Double.parseDouble(porcaoBaseCalculo) / Double.parseDouble(porcaoExibicao);
+                calculoExibicao = Double.parseDouble(valor) / numerador;
             }else{
-                calculoExibicao = Double.parseDouble(valor) * (Double.parseDouble(porcaoExibicao) / Double.parseDouble(porcaoBaseCalculo));
+                double numerador = Double.parseDouble(porcaoExibicao) / Double.parseDouble(porcaoBaseCalculo);
+                calculoExibicao = Double.parseDouble(valor) * numerador;
             }
             return Numeric.formataNumeroDuasCasasDecimais(calculoExibicao);
         }
