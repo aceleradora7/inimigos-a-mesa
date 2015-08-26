@@ -15,7 +15,6 @@ public class MedidasVisuais {
     public MedidasVisuais(){}
 
     public int calculaColherSal() {
-
         int colher = 0;
         if (!verificaColherVazia(alimento.getExibicaoSodio())) {
             double sodio = Double.parseDouble(alimento.getExibicaoSodio());
@@ -27,9 +26,7 @@ public class MedidasVisuais {
         return colher;
     }
 
-
     public int calculaColherSal(double sodioTotal) {
-
         int colher = 0;
         if (!verificaColherVazia(""+sodioTotal)) {
             double sodio = Double.parseDouble(""+sodioTotal);
@@ -94,7 +91,6 @@ public class MedidasVisuais {
     }
 
     public boolean verificaColherVazia(String valor) {
-
         if (valor == null || valor.equals("")) {
             return true;
         }

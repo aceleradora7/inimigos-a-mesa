@@ -1,4 +1,5 @@
 package br.com.aceleradora.comercomsaber.model;
+import br.com.aceleradora.comercomsaber.util.Numeric;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -105,10 +106,7 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         this.gordura = gordura;
     }
 
-    public String getCalorias() {
-
-      return calorias;
-    }
+    public String getCalorias() { return calorias;}
 
     public void setCalorias(String calorias) {
         this.calorias = calorias;
@@ -190,9 +188,7 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         return unidadeMedidaCaseira;
     }
 
-    public void setUnidadeMedidaCaseira(String unidadeMedidaCaseira) {
-        this.unidadeMedidaCaseira = unidadeMedidaCaseira;
-    }
+    public void setUnidadeMedidaCaseira(String unidadeMedidaCaseira) { this.unidadeMedidaCaseira = unidadeMedidaCaseira; }
 
     public String getValorMaximoMedida() {
         return valorMaximoMedida;
@@ -207,25 +203,18 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         return this.getNome().compareTo(o.getNome());
     }
 
-    public String calculaExibicao(String valor) {
+    private String calculaExibicao(String valor) {
 
         if (valor == null || valor.equals("") || Double.parseDouble(porcaoExibicao) == Double.parseDouble(porcaoBaseCalculo)) {
             return valor;
         }else{
-            double calculoExibicaoSodio = 0.0;
+            double calculoExibicao = 0.0;
             if (Double.parseDouble(porcaoExibicao) < Double.parseDouble(porcaoBaseCalculo)) {
-                double numerador = Double.parseDouble(porcaoBaseCalculo) / Double.parseDouble(porcaoExibicao);
-                calculoExibicaoSodio = Double.parseDouble(valor) / numerador;
+                calculoExibicao = Double.parseDouble(valor) / (Double.parseDouble(porcaoBaseCalculo) / Double.parseDouble(porcaoExibicao));
             }else{
-                double numerador = Double.parseDouble(porcaoExibicao) / Double.parseDouble(porcaoBaseCalculo);
-                calculoExibicaoSodio = Double.parseDouble(valor) * numerador;
+                calculoExibicao = Double.parseDouble(valor) * (Double.parseDouble(porcaoExibicao) / Double.parseDouble(porcaoBaseCalculo));
             }
-
-            DecimalFormat formatoDecimalDuasCasas = new DecimalFormat("0.00");
-            String valorNumericoFormato = formatoDecimalDuasCasas.format(calculoExibicaoSodio);
-            valorNumericoFormato = valorNumericoFormato.replace(",",".");
-
-            return valorNumericoFormato;
+            return Numeric.formataNumeroDuasCasasDecimais(calculoExibicao);
         }
     }
 
@@ -245,21 +234,7 @@ public class Alimento implements Comparable<Alimento>, Serializable {
         return calculaExibicao(gordura);
     }
 
-
-    public boolean validaValor(String valor) {
-
-        if (valor != null && !valor.isEmpty()) {
-            try{
-                Double.parseDouble(valor);
-            }catch (Exception e){
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void recalculaNutrientesDaCalculadora(double porcaoNova){
-
         if(calorias!=null && !calorias.isEmpty()){
             calorias = ""+(Double.parseDouble(calorias)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
         }

@@ -33,7 +33,6 @@ public class Legenda {
     }
 
     private String traduzirLegenda(String valor, String unidade) {
-
         if (valor == null  || valor.isEmpty()) {
             return NAO_AVALIADO;
         }

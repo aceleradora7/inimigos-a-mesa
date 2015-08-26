@@ -4,6 +4,7 @@ import br.com.aceleradora.comercomsaber.model.*;
 import br.com.aceleradora.comercomsaber.service.AlimentoService;
 import br.com.aceleradora.comercomsaber.service.CategoriaService;
 import br.com.aceleradora.comercomsaber.service.UsuarioService;
+import br.com.aceleradora.comercomsaber.util.Numeric;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
@@ -298,14 +299,14 @@ public class AlimentoController {
         }
 
         model.addAttribute("erroCategoria", null);
-        if (alimento.validaValor(alimento.getPorcaoBaseCalculo())
+        if (Numeric.isNumeric(alimento.getPorcaoBaseCalculo())
                 || alimento.getPorcaoBaseCalculo().isEmpty() || !maiorQueZero(false,alimento.getPorcaoBaseCalculo())) {
             model.addAttribute("erroPorcaoBase", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroPorcaoBase", null);
-        if (alimento.validaValor(alimento.getPorcaoExibicao()) || alimento.getPorcaoExibicao().isEmpty()
+        if (Numeric.isNumeric(alimento.getPorcaoExibicao()) || alimento.getPorcaoExibicao().isEmpty()
                 || !maiorQueZero(false,alimento.getPorcaoExibicao())) {
             model.addAttribute("erroPorcaoExibicao", "true");
             return cadastrarAlimento(model, alimento);
@@ -318,7 +319,7 @@ public class AlimentoController {
         }
 
         model.addAttribute("erroUnidade", null);
-        if (alimento.validaValor(alimento.getValorMedidaCaseira()) ||
+        if (Numeric.isNumeric(alimento.getValorMedidaCaseira()) ||
         alimento.getValorMedidaCaseira().isEmpty() || !maiorQueZero(false,alimento.getValorMedidaCaseira())) {
             model.addAttribute("erroMedidaCaseira", "true");
             model.addAttribute("erroValorMedida", "true");
@@ -336,19 +337,19 @@ public class AlimentoController {
 
         model.addAttribute("erroMedidaCaseira", null);
         model.addAttribute("erroUnidadeMedida", null);
-        if (alimento.validaValor(alimento.getValorMaximoMedida()) || !maiorQueZero(false,alimento.getValorMaximoMedida())) {
+        if (Numeric.isNumeric(alimento.getValorMaximoMedida()) || !maiorQueZero(false,alimento.getValorMaximoMedida())) {
             model.addAttribute("erroValorMaximo", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroValorMaximo", null);
-        if (alimento.validaValor(alimento.getCalorias()) || !maiorQueZero(true,alimento.getCalorias())) {
+        if (Numeric.isNumeric(alimento.getCalorias()) || !maiorQueZero(true,alimento.getCalorias())) {
             model.addAttribute("erroCalorias", "true");
             return cadastrarAlimento(model, alimento);
         }
 
         model.addAttribute("erroCalorias", null);
-        if (alimento.validaValor(alimento.getAcucar()) || !maiorQueZero(true,alimento.getAcucar())) {
+        if (Numeric.isNumeric(alimento.getAcucar()) || !maiorQueZero(true,alimento.getAcucar())) {
             model.addAttribute("erroAcucar", "true");
             return cadastrarAlimento(model, alimento);
         }
@@ -359,7 +360,7 @@ public class AlimentoController {
             return cadastrarAlimento(model, alimento);
         }
 
-        if (alimento.validaValor(alimento.getSodio()) || !maiorQueZero(true,alimento.getSodio())) {
+        if (Numeric.isNumeric(alimento.getSodio()) || !maiorQueZero(true,alimento.getSodio())) {
             model.addAttribute("erroSodio", "true");
             return cadastrarAlimento(model, alimento);
         }
@@ -371,7 +372,7 @@ public class AlimentoController {
         }
 
         model.addAttribute("erroSodioPorcao", null);
-        if (alimento.validaValor(alimento.getGordura()) || !maiorQueZero(true,alimento.getGordura())) {
+        if (Numeric.isNumeric(alimento.getGordura()) || !maiorQueZero(true,alimento.getGordura())) {
             model.addAttribute("erroGordura", "true");
             return cadastrarAlimento(model, alimento);
         }

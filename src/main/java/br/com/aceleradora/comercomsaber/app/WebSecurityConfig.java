@@ -21,31 +21,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/cadastroAlimento", "/editarAlimento/**", "/editarUsuario")
-                .hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/formularioDeletarUsuario",
-                        "/cadastrarUsuario","/deletarUsuario").hasAnyAuthority("ADMIN")
-                .antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .failureUrl("/login?error")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .deleteCookies("remember-me")
-                .logoutSuccessUrl("/login")
-                .permitAll()
-                .and()
-                .rememberMe();
+            .authorizeRequests()
+            .antMatchers("/cadastroAlimento", "/editarAlimento/**", "/editarUsuario")
+            .hasAnyAuthority("USER", "ADMIN")
+            .antMatchers("/formularioDeletarUsuario",
+                    "/cadastrarUsuario", "/deletarUsuario").hasAnyAuthority("ADMIN")
+            .antMatchers("/**").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .failureUrl("/login?error")
+            .permitAll()
+            .and()
+            .logout()
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+            .deleteCookies("remember-me")
+            .logoutSuccessUrl("/login")
+            .permitAll()
+            .and()
+            .rememberMe();
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-
     }
 }

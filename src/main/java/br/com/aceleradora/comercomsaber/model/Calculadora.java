@@ -1,6 +1,8 @@
 package br.com.aceleradora.comercomsaber.model;
 
 
+import br.com.aceleradora.comercomsaber.util.Numeric;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,16 +31,14 @@ public class Calculadora {
         this.listaDeAlimentos = listaDeAlimentos;
     }
 
-    public double getCaloriasTotal() {
-        return formataDouble(caloriasTotal);
-    }
+    public double getCaloriasTotal() { return Double.parseDouble(Numeric.formataNumeroDuasCasasDecimais(caloriasTotal));}
 
     public double getGorduraTotal() {
-        return formataDouble(gorduraTotal);
+        return Double.parseDouble(Numeric.formataNumeroDuasCasasDecimais(gorduraTotal));
     }
 
     public double getAcucarTotal() {
-        return formataDouble(acucarTotal);
+        return Double.parseDouble(Numeric.formataNumeroDuasCasasDecimais(acucarTotal));
     }
 
     public double getSodioTotal() {
@@ -46,12 +46,12 @@ public class Calculadora {
     }
 
     public double getSalTotal() {
-        return formataDouble(salTotal);
+        return Double.parseDouble(Numeric.formataNumeroDuasCasasDecimais(salTotal));
     }
 
     public int getColherSal() { return colherSal; }
 
-    public int getColherGordura() { return colherGordura; }
+    public int getColherGordura() {return colherGordura;}
 
     public int getColherAcucar() {
         return colherAcucar;
@@ -61,22 +61,21 @@ public class Calculadora {
         this.salTotal = salTotal;
     }
 
-    public void adicionaAlimento(Alimento alimento){
+    public void adicionaAlimento(Alimento alimento) {
 
         for (int i = 0; i < listaDeAlimentos.size(); i++) {
-            if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()){
+            if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()) {
                 excluiAlimento(listaDeAlimentos.get(i));
                 break;
             }
         }
-            listaDeAlimentos.add(alimento);
-            somaAlimentoCalculadora(alimento);
-            calculaColherCalculadora();
+        listaDeAlimentos.add(alimento);
+        somaAlimentoCalculadora(alimento);
+        calculaColherCalculadora();
     }
 
     public boolean excluiAlimento(Alimento alimento) {
-
-        for (int i =0; i<listaDeAlimentos.size();i++){
+        for (int i = 0; i < listaDeAlimentos.size(); i++) {
             if (listaDeAlimentos.get(i).getCodigo() == alimento.getCodigo()) {
                 subtraiAlimentoCalculadora(listaDeAlimentos.get(i));
                 calculaColherCalculadora();
@@ -87,7 +86,7 @@ public class Calculadora {
         return false;
     }
 
-    public void somaAlimentoCalculadora(Alimento alimento){
+    public void somaAlimentoCalculadora(Alimento alimento) {
 
         if (naoEhVazio(alimento.getCalorias())) {
             caloriasTotal += Double.parseDouble(alimento.getCalorias());
@@ -107,8 +106,7 @@ public class Calculadora {
     }
 
 
-
-    public void subtraiAlimentoCalculadora(Alimento alimento){
+    public void subtraiAlimentoCalculadora(Alimento alimento) {
 
         if (naoEhVazio(alimento.getCalorias())) {
             caloriasTotal -= Double.parseDouble(alimento.getCalorias());
@@ -128,18 +126,10 @@ public class Calculadora {
     }
 
     public void calculaColherCalculadora() {
-
         MedidasVisuais medidasVisuais = new MedidasVisuais();
         colherSal = medidasVisuais.calculaColherSal(sodioTotal);
         colherAcucar = medidasVisuais.calculaColherAcucar(acucarTotal);
         colherGordura = medidasVisuais.calculaColherGordura(gorduraTotal);
-    }
-
-    public double formataDouble(double x){
-        DecimalFormat formatoDecimalDuasCasas = new DecimalFormat("0.00");
-        String valorNumericoFormato = formatoDecimalDuasCasas.format(x);
-        valorNumericoFormato = valorNumericoFormato.replace(",",".");
-        return Double.parseDouble(valorNumericoFormato);
     }
 
     public boolean naoEhVazio(String valor) {
