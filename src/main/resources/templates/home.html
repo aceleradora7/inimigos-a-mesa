@@ -35,21 +35,22 @@
 <nav th:replace="fragmentos/header :: cabecalho-home(${nomeUsuario})"></nav>
 
 <header class="header">
-    <div id="background_cycler" class="grad">
-        <img id="1" class="active" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160059/15800084796_ca92a05193_h_x04cfa.jpg" />
-        <img id="2" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160150/15823720245_5d61fda886_k_qr5cct.jpg" />
-        <img id="3" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440159957/header-bg_bpmneo.jpg" />
-        <img id="4" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160139/15821855591_8ba36cff8a_k_tp9jln.jpg" />
-    </div>
 
-    <div class="intro-text">
+            <div id="background_cycler" class="grad">
+                <img id="1" class="active" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160059/15800084796_ca92a05193_h_x04cfa.jpg" />
+                <img id="2" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160150/15823720245_5d61fda886_k_qr5cct.jpg" />
+                <img id="3" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440159957/header-bg_bpmneo.jpg" />
+                <img id="4" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160139/15821855591_8ba36cff8a_k_tp9jln.jpg" />
+            </div>
+            <div class="intro-text">
 
-        <div class="intro-heading">
-            <h1> Você sabe a quantidade de nutrientes dos alimentos?</h1>
-        </div>
-        <div class="intro-lead-in">
-            Veja a quantidade de açúcar, sódio (sal) e gordura dos alimentos de uma forma ilustrativa.
-        </div>
+                <div class="intro-heading">
+                    <h1> Você sabe a quantidade de nutrientes dos alimentos?</h1>
+                </div>
+
+                <div class="intro-lead-in">
+                    Veja a quantidade de açúcar, gordura e sódio (sal) dos alimentos de uma forma ilustrativa (colheres de chá).
+                </div>
         <div class="buscar-home">
             <input type="text" class="form-control caixa-busca" placeholder="Digite o nome de um alimento" id="input-busca" maxlength="256"/>
             <button type="submit" class="botao-buscar btn" id="btn-busca">
@@ -62,6 +63,7 @@
                 <div id="ancora-corpo">
                 </div>
             </a>
+
         </div>
     </div>
 </header>
@@ -80,33 +82,32 @@
                             <span>
                                 <img class="colher-info-home" src="/img/colher-acucar.svg"/>
                             </span>
-                    <h4 class="service-heading">Açúcar</h4>
-                    <p class="text-muted">O açúcar é composto pelo açúcar adicionado nos alimentos e também pela sacarose que se transformam em açúcar.</p>
+                    <h4 class="service-heading">Açúcar de adição</h4>
+                    <p class="text-muted">A colher branca representa a quantidade de sacarose, que é o açúcar simples ou de adição nos alimentos.</p>
                 </div>
                 <div class="col-md-4">
                             <span>
                                 <img class="colher-info-home" src="/img/colher-gordura.svg"/>
                             </span>
                     <h4 class="service-heading">Gordura</h4>
-                    <p class="text-muted">A gordura é apresentada na forma de óleo de cozinha, para facilitar a compreensão.</p>
+                    <p class="text-muted">A colher amarela representa a quantidade de gordura total, sem distinguir o tipo de gordura.</p>
                 </div>
                 <div class="col-md-4">
                             <span>
                                 <img class="colher-info-home" src="/img/colher-sal.svg"/>
                             </span>
-                    <h4 class="service-heading">Sal</h4>
-                    <p class="text-muted">O valor de sódio de cada alimento foi convertido em sal para facilitar a visualização, na devida proporção.</p>
+                    <h4 class="service-heading">(Sódio) Sal</h4>
+                    <p class="text-muted">A colher azul representa a quantidade de sódio, que foi transformado em sal, para facilitar a compreensão.</p>
                 </div>
             </div>
         </div>
     </section>
     <section id="calculadora-slider">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-4">
                     <h3 class="section-heading">Descubra o que você ingere diariamente</h3>
-                    <p class="text-muted">Calcule os nutrientes do seu consumo diário através da calculadora para visualizar a quantidade de colheres de açúcar, gordura e sal de todos os alimentos somadas.</p>
+                    <p class="text-muted">Com a ferramenta “Calculadora” você pode avaliar a quantidade de açúcar, gordura e sódio (sal) ingeridos no seu consumo diário.</p>
                     <a th:href="@{'/calculadora'}" id="btn-add-home" class="botao-preenchido">Calcule seu consumo</a>
                 </div>
                 <div class="col-md-8">
