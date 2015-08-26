@@ -87,10 +87,10 @@ margin:0;
     margin-bottom: 15px;
 }
 
-#tituloAlimento{
+#tituloAlimento{ /*
     margin-top: 60px;
     width: 100%;
-}
+*/ }
 
 .titulo-pagina-detalhe {
 	padding-top: 0px;
@@ -129,8 +129,11 @@ margin:0;
     height: 350px;
 }
 
-.ancora-link{
+.margin-btn-ver-medidas{
+    margin-bottom:15px;
     width: 100%;
+}
+.ancora-link{
     height: 40px;
     text-align: center;
     padding-top: 5px;
@@ -227,6 +230,4 @@ stroke: black !important;
 stroke-width:2;
 stroke-miterlimit:10;
 }
-
-
 
