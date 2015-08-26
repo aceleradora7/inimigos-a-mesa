@@ -8,10 +8,10 @@ function cycleImages(){
       });
     }
 
-function teste(){
-$('.grad img').each(function(){
-                    $(this).show();
-                    })
+function transicao(){
+    $('.grad img').each(function(){
+        $(this).show();
+    })
 }
 $(document).ready(function(){
 
@@ -21,7 +21,7 @@ $(document).ready(function(){
         }
     });
 
-    setTimeout('teste()', 4000);
+    setTimeout('transicao()', 4000);
 
     $('#background_cycler').fadeIn(1500);
     setInterval('cycleImages()', 5000);
