@@ -8,11 +8,9 @@ import java.util.Properties;
 public class Email {
 
     private static final String HOST = "smtp.gmail.com";
-    //private static final String EMAIL_DESTINATARIO = "portalcomercomsaber@gmail.com";
-    private static final String EMAIL_DESTINATARIO = "inimigosamesa@gmail.com";
+    private static final String EMAIL_DESTINATARIO = "portalcomercomsaber@gmail.com";
     private static final String PORTA_HOST = "465";
-    //private static final String SENHA = "portalccs123";
-    private static final String SENHA = "inimigos123";
+    private static final String SENHA = "portalccs123";
 
     private Session sessao;
 

@@ -238,17 +238,17 @@ public class Alimento implements Comparable<Alimento>, Serializable {
 
     public void recalculaNutrientesDaCalculadora(double porcaoNova){
         if(calorias!=null && !calorias.isEmpty()){
-            calorias = ""+(Double.parseDouble(calorias)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
+            calorias = Numeric.formataNumeroDuasCasasDecimais((Double.parseDouble(calorias)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo));
         }
         if(acucar!=null && !acucar.isEmpty()){
-            acucar = ""+(Double.parseDouble(acucar)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
+            acucar = Numeric.formataNumeroDuasCasasDecimais((Double.parseDouble(acucar)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo));
         }
         if(gordura!=null && !gordura.isEmpty()){
-            gordura = ""+(Double.parseDouble(gordura)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
+            gordura = Numeric.formataNumeroDuasCasasDecimais((Double.parseDouble(gordura)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo));
         }
         if(sodio!=null && !sodio.isEmpty()){
-            sodio = ""+(Double.parseDouble(sodio)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo);
+            sodio = Numeric.formataNumeroDuasCasasDecimais((Double.parseDouble(sodio)*porcaoNova)/Double.parseDouble(porcaoBaseCalculo));
         }
-        porcaoExibicao = ""+porcaoNova;
+        porcaoExibicao = Numeric.formataNumeroDuasCasasDecimais(porcaoNova);
     }
 }

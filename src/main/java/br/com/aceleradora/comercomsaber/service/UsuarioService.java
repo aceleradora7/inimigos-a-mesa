@@ -42,4 +42,13 @@ public class UsuarioService {
             return "";
         }
     }
+
+    public String getEmailUsuarioLogado() {
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            return (user.getUsername());
+        } catch (Exception e) {
+            return "";
+        }
+    }
 }

@@ -63,7 +63,7 @@ public class UsuarioController {
 
     @RequestMapping(value = "/editarUsuario", method = RequestMethod.GET)
     public String editarAlimento(Model model) {
-        Usuario usuario = servicoUsuario.buscaPorEmail(servicoUsuario.getNomeUsuarioLogado());
+        Usuario usuario = servicoUsuario.buscaPorEmail(servicoUsuario.getEmailUsuarioLogado());
         model.addAttribute("usuario", usuario);
         model.addAttribute("nomeUsuario",servicoUsuario.getNomeUsuarioLogado());
         return "formularioUsuario";
@@ -85,7 +85,7 @@ public class UsuarioController {
     public String buscarTodosUsuarios(Model model) {
         List<Usuario> usuarios = servicoUsuario.buscaTodos();
         for (int i = 0; i < usuarios.size(); i++) {
-            if(usuarios.get(i).getEmail().equals(servicoUsuario.getNomeUsuarioLogado())){
+            if(usuarios.get(i).getEmail().equals(servicoUsuario.getEmailUsuarioLogado())){
                 usuarios.remove(usuarios.get(i));
             }
         }
