@@ -225,9 +225,9 @@ margin:0;
 }
 
 .st0{
-fill:none;
-stroke: black !important;
-stroke-width:2;
-stroke-miterlimit:10;
+    fill:none;
+    stroke: rgb(83, 183, 120) !important;
+    stroke-width:2;
+    stroke-miterlimit:10;
 }
 
